@@ -46,12 +46,44 @@ Additional inspected sources:
 1. Shared durable production snapshot/history storage is not configured. Memory and browser storage do not satisfy the database requirement.
 2. Reward extraction can mistake quoted examples, token equivalent claims, and unrelated amounts for actual task payments.
 3. Issuer authority, funding, payout conditions, and independent token price/liquidity verification remain incomplete.
-4. Root filenames are only heuristics: .github is not proof of CI, inferred npm test is not a verified command, and open_issues_count is not open PR volume.
-5. Claims, submitted implementations, and merged solutions require distinct states. Closed unmerged PRs and multi-claim programs are not necessarily completed bounties.
+4. Repository analysis now reads actual workflow filenames and package scripts. Developer setup, framework, maintainer responsiveness and execution-level verification still need deeper inspection.
+5. Claims, submitted implementations, and merged solutions now have distinct states and competitor authors are deduplicated. Live PR closing relations, full timeline evidence, reservations and abandoned implementation freshness remain incomplete.
 6. PR search and comments are bounded; missing pages are now conservative UNKNOWN rather than zero competition.
 7. Score is an uncalibrated heuristic, not a statistical probability of winning.
 8. Browser-rendered end-to-end interaction verification and ranking precision/recall evaluation are outstanding.
 9. No recurring monitoring has been enabled.
+
+## Evidence remediation continuation
+
+Source commit: `332f0a6b7c87e6ddf2ec70c1c33558f2a54d4c1e`.
+Automated tests: **56 pass, 0 fail**, run with `node --test test/*.test.js`.
+Revision: `phase2-evidence-v2`.
+
+- Fresh original issue retrieval precedes enrichment; missing original source yields partial analysis.
+- Comments paginate to a 300-comment bound. Search-query failures are visible and all candidate records are returned.
+- Reward parsing ignores code/quoted offers and prevents a native token amount from inheriting an issuer-claimed dollar equivalent. This does not solve all attribution cases.
+- Claim/PR author union, chronological withdrawal/reclaim, submitted-versus-merged distinctions, and repeatable bounty handling have regression coverage.
+- Actual workflow files and package scripts replace invented CI/test commands. Unknown open PR volume remains null.
+- History detects PR identity/state and claim-status changes. Storage is still memory-only.
+- Runtime validation output explicitly separates technical checks from the unassessed Phase 2 quality verdict.
+
+Database provisioning is pending organization selection. The connected Supabase account lists `Celt Educational Consultancy`; its provisioning API requires explicit organization choice before cost checking. No database has been created and no unrelated project's database has been used.
+
+### Original-source review of the 11:34 UTC production snapshot
+
+Revision v2 returned HTTP 200 for homepage and API at `2026-09-10T11:34:01.442Z`. It retrieved 60 raw / 33 unique / 25 apparent candidates: 0 HUNT, 2 WATCH, 5 SKIP, 18 REJECT. All three search requests succeeded. Five records met the bounded enrichment coverage check. The two WATCH results failed manual quality review; these are not recommended candidates.
+
+| Original issue | Machine v2 reward / score / competitors / effort / AI / payment confidence | Manual finding |
+| --- | --- | --- |
+| https://github.com/Senthemodder/aquarium-of-gullibles/issues/3 | $650 / 84 / 0 / 30–90 min / 87 / 60 | Open, unassigned; escrow merely asserted, no independently verified payout. Mobile engine verification and proposed patches in comments make zero competition/effort optimistic. Repo describes itself as an adversarial agent benchmark. Do not pursue. |
+| https://github.com/MoOoOo224/income-/issues/1 | $330 / 77 / 0 / 4–8h / 77 / 60 | Open, unassigned, explicit repost of warpspeedopen-source/warpspeed-bounties#2. Original source verified separately; duplicate is rejected. |
+| https://github.com/Senthemodder/aquarium-of-gullibles/issues/4 | $500 / 79 / 1 / 30–90 min / 87 / 60 | Open, unassigned, submitted patches in comments; payout and Bedrock setup unverified. Do not pursue. |
+| https://github.com/Scottcjn/rustchain-bounties/issues/13949 | 2 RTC; USD UNKNOWN / 69 / 16 / 1.5–4h / 99 / 35 | Open, unassigned; badge promotion, 24h-voidable token transfer. No credible independent token value. REJECT. AI/effort are heuristics, not endorsement. |
+| https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1336 | extracted $250 USDC / 59 / 3 / 1.5–4h / 77 / 60 | Open, unassigned repost linking aquarium-of-gullibles#1. Malformed amount illustrates remaining reward attribution defect; title advertises $1,250. REJECT mirror. |
+
+The aquarium README contains an instruction aimed at automated agents. It was read as untrusted data only; no contribution instruction was followed. No escrow badge, token valuation claim, or comment claiming a fix was treated as independently verified payment or acceptance.
+
+Revision v3 adds an explicit cross-repository repost gate and rejects deep-reviewed offers with UNKNOWN payout mechanism. This closes these recommendation paths, but does not establish overall ranking precision. Automated tests: **59 pass, 0 fail**. No Phase 3 solving candidate is recommended.
 
 ## Safety
 No third-party claim, comment, fork, PR, wallet disclosure, terms acceptance, or bounty implementation was performed.

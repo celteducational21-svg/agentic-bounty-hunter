@@ -103,6 +103,8 @@ export function analyzeLegitimacy(issue, reward, context = {}) {
   let score = 50;
   let rejectionReason = null;
   const reject = (reason) => { rejectionReason ??= reason; findings.push(evidence("legitimacy", reason, issue.url)); };
+  const repost = text.match(/Originally posted by[^\n]*?(https:\/\/github\.com\/([^/\s]+\/[^/\s]+)\/issues\/\d+)/i);
+  if (repost && repost[2].toLowerCase() !== repo.toLowerCase()) { reject("Explicit repost of another repository's issue"); findings.push(evidence("original_source", "Repost links to original issue; original must be evaluated independently", repost[1])); }
   if (/upwork\.com|\bupwork\b/i.test(text)) reject("Upwork-routed task");
   if (/\bbounty inquiry\b|\bis (?:this|it) still funded\b|\bbounty(?:\s+#\d+)?[^:\n]*:\s*(?:eligibility|question|inquiry)\b/i.test(text)) reject("Bounty inquiry, not an original issuer task");
   if (/\b(?:field|live) (?:run|scan)\b/i.test(issue.title ?? "") && /\bno (?:opportunity|candidate).{0,40}(?:selected|qualified|pass)\b/i.test(text)) reject("Status/report issue rather than a software bounty");
@@ -122,6 +124,7 @@ export function analyzeLegitimacy(issue, reward, context = {}) {
   if (context.repo && !context.repo.archived && (context.repo.stargazers_count ?? 0) >= 5) score += 5;
   if (context.repo?.pushed_at && Date.now() - new Date(context.repo.pushed_at) < 90 * DAY) score += 5;
   if (reward.rewardAmount === null) reject("Payout cannot be reasonably established");
+  if (context.analysisDepth === "deep" && reward.paymentMethod === "UNKNOWN") reject("Payout mechanism is unverified; advertised amount is not payment evidence");
   if (reward.rewardAmount !== null && !reward.credibleMarketValue) findings.push(evidence("legitimacy", "Token value/liquidity is unverified", issue.url));
   return { legitimacyConfidence: clamp(rejectionReason ? Math.min(score, 25) : score), rejectionReason, evidence: findings };
 }
