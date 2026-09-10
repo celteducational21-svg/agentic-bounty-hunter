@@ -21,11 +21,16 @@ Exit gate: live endpoint returns non-empty real results and the validation scrip
 
 ## Phase 2 — Opportunity intelligence
 
-- Extract exact reward amount/currency and claim rules.
-- Repository health, maintainer responsiveness, competition, stack, and effort estimation.
-- Persist snapshots and explain every score.
+- Extract reward amount/currency/range, payment platform/trigger/risk, and credible USD estimates.
+- Detect mirrors, grants, Upwork routing, assignments, claims, abandoned claims, related PRs, suspicious tokens, and prompt injection.
+- Inspect repository activity, setup/build signals, tests, CI, lint/type checking, scope criteria, AI solvability, and effort.
+- Apply hard rejection gates before the weighted WIN score; output `HUNT`, `WATCH`, `SKIP`, or `REJECT` with evidence.
+- Retain stable opportunity IDs and state-change snapshots. Browser history and the snapshot CLI are durable; serverless in-memory history is best-effort until a production database is connected.
+
+Exit gate: production and tests healthy; live ingestion works; false positives materially reduced; top five manually checked; ranking quality demonstrated; no external action performed. It is valid to return zero HUNT candidates.
 
 ## Phase 3 — Proof and approval
 
-- Reproduction sandbox, solution plan, cost/value estimate, and evidence pack.
-- User approval queue before any claim, comment, application, or pull request.
+- Add a durable production opportunity store and scheduled revalidation.
+- Build a read-only candidate dossier: reproducibility sandbox plan, solution outline, cost/value estimate, and evidence pack.
+- Add an explicit user approval queue before any claim, comment, fork, terms acceptance, wallet disclosure, or pull request.

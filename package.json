@@ -1,11 +1,12 @@
 {
   "name": "agentic-bounty-hunter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "validate:live": "node scripts/validate-live.mjs"
+    "validate:live": "node scripts/validate-live.mjs",
+    "snapshot:live": "node scripts/snapshot-live.mjs"
   },
   "engines": {
     "node": ">=20"
