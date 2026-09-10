@@ -37,5 +37,42 @@ const esc=s=>String(s??'UNKNOWN').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;'
 const value=n=>n==null?'UNKNOWN':Number.isFinite(Number(n))?Number(n):'UNKNOWN';
 function reward(x){return x.rewardUsdEstimate==null?`${esc(x.rewardAmount)} ${esc(x.rewardCurrency)} · USD unknown`:`$${Number(x.rewardUsdEstimate).toLocaleString()} ${esc(x.rewardCurrency)}`}
 function card(x,i){const scores=x.scoreBreakdown||{};const links=(x.evidenceUrls||[]).slice(0,6).map((u,j)=>`<a href="${esc(u)}" target="_blank" rel="noopener">Evidence ${j+1}</a>`).join('');return `<article class="card opportunity"><div class="op-head"><div class="rank">${i+1}</div><div><div class="title"><a href="${esc(x.originalIssueUrl)}" target="_blank" rel="noopener">${esc(x.title)}</a></div><div class="meta">${esc(x.opportunityId)} · ${esc(x.repository)} · ${esc(x.analysisDepth)} analysis</div></div><span class="decision ${esc(x.decision)}">${esc(x.decision)}</span></div><div class="facts"><div class="fact"><span>Reward</span><b>${reward(x)}</b></div><div class="fact"><span>WIN score</span><b>${value(x.winScore)}</b></div><div class="fact"><span>AI solvability</span><b>${value(x.aiSolvabilityScore)}</b></div><div class="fact"><span>Competition</span><b>${value(x.activeCompetitors)} active</b></div><div class="fact"><span>Effort</span><b>${esc(x.effortEstimate)}</b></div><div class="fact"><span>Payment confidence</span><b>${value(x.rewardConfidence)}</b></div></div><div class="reason">${esc(x.reason)}</div><details class="evidence"><summary>Evidence & score explanation</summary><div class="evidence-body"><div class="breakdown">${Object.entries(scores).map(([k,v])=>`<div class="score"><span>${esc(k)}</span><b>${value(v)}/100</b></div>`).join('')}</div><p class="small"><b>Scope criteria:</b> ${esc((x.acceptanceCriteria?.criteria||[]).join(' · ')||'None extracted')}</p><p class="small"><b>Rejection gates:</b> ${esc((x.rejectionReasons||[]).join(' · ')||'None')}</p><p class="small"><b>Prompt-injection scan:</b> ${x.promptInjection?.detected?'FLAGGED — isolated as untrusted data':'clear'}</p><div class="links">${links}</div></div></details></article>`}
-async function scan(){button.disabled=true;button.textContent='Inspecting evidence…';$('#queue').innerHTML='<div class="card empty">Searching GitHub, checking claims, PRs, repositories and scope…</div>';try{const r=await fetch('/api/opportunities');const d=await r.json();if(!r.ok)throw new Error(d.error||'Scan failed');$('#scanned').textContent=d.rawCount;$('#apparent').textContent=d.apparentBountyCount;$('#legit').textContent=d.legitimacyPassedCount;$('#hunt').textContent=d.counts.HUNT||0;$('#watch').textContent=d.counts.WATCH||0;$('#skip').textContent=d.counts.SKIP||0;$('#reject').textContent=d.counts.REJECT||0;$('#source').textContent=`${d.source} · ${d.deepCheckedCount} deep checked · ${new Date(d.fetchedAt).toLocaleString()}`;const ranked=(d.candidates||[]).filter(x=>x.analysisDepth==='deep').slice(0,12);$('#queue').innerHTML=ranked.length?ranked.map(card).join(''):'<div class="card empty">0 HUNT candidates today. No weak opportunity will be forced through.</div>';localStorage.setItem('abh:last-scan',JSON.stringify({fetchedAt:d.fetchedAt,counts:d.counts,candidates:d.candidates.map(x=>({opportunityId:x.opportunityId,decision:x.decision,winScore:x.winScore}))}));}catch(e){$('#queue').innerHTML=`<div class="card empty" style="color:var(--red)">${esc(e.message)}</div>`}finally{button.disabled=false;button.textContent='Run Phase 2 scan'}}button.addEventListener('click',scan);scan();
+async function scan(){
+  button.disabled=true;
+  button.textContent='Inspecting evidence…';
+  $('#queue').innerHTML='<div class="card empty">Searching GitHub, checking claims, PRs, repositories and scope…</div>';
+  try {
+    const r=await fetch('/api/opportunities');
+    const d=await r.json();
+    if(!r.ok)throw new Error(d.error||'Scan failed');
+    $('#scanned').textContent=d.rawCount;
+    $('#apparent').textContent=d.apparentBountyCount;
+    $('#legit').textContent=d.legitimacyPassedCount;
+    for(const decision of ['HUNT','WATCH','SKIP','REJECT']) $('#'+decision.toLowerCase()).textContent=d.counts[decision]||0;
+    $('#source').textContent=`${d.source} · ${d.deepCheckedCount} deep checked · ${new Date(d.fetchedAt).toLocaleString()} · ${d.persistence?.durable?'History saved to database':'History not durably stored'}`;
+    const ranked=(d.candidates||[]).filter(x=>x.analysisDepth==='deep').slice(0,12);
+    $('#queue').innerHTML=ranked.length?ranked.map(card).join(''):'<div class="card empty">0 HUNT candidates today. No weak opportunity will be forced through.</div>';
+    if(d.persistence?.durable) document.querySelectorAll('.evidence-body').forEach((panel,i)=>{
+      const historyButton=document.createElement('button');
+      historyButton.textContent='Load score history';
+      const output=document.createElement('p');
+      output.className='small';
+      historyButton.addEventListener('click',async()=>{
+        historyButton.disabled=true;
+        try {
+          const response=await fetch('/api/opportunities?history='+encodeURIComponent(ranked[i].opportunityId));
+          const result=await response.json();
+          if(!response.ok)throw new Error(result.error||'History unavailable');
+          output.textContent=result.history.map(h=>`${new Date(h.checked_at).toLocaleString()}: ${h.state.decision}, WIN ${h.state.winScore}, ${h.state.claimStatus}`).join(' · ')||'No material changes recorded';
+        } catch(error){output.textContent=error.message;}
+        finally {historyButton.disabled=false;}
+      });
+      panel.append(historyButton,output);
+    });
+    localStorage.setItem('abh:last-scan',JSON.stringify({fetchedAt:d.fetchedAt,counts:d.counts}));
+  } catch(e){$('#queue').innerHTML=`<div class="card empty" style="color:var(--red)">${esc(e.message)}</div>`;}
+  finally {button.disabled=false;button.textContent='Run Phase 2 scan';}
+}
+button.addEventListener('click',scan);
+scan();
 </script></body></html>

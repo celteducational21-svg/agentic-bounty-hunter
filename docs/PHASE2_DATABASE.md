@@ -31,7 +31,9 @@ The native-fetch adapter sends the key in the API-key header, never a URL. The a
 
 67 automated tests pass, including 8 new storage tests. `db/verify.sql` passed against live Postgres, including RLS/access restrictions, duplicate retries, unchanged-state deduplication, assignment changes, older-scan protection, and an RPC call under `service_role`. Test data was rolled back.
 
-The Vercel environment page confirmed both variables are scoped to Production. End-to-end deployed persistence validation is pending at this checkpoint; schema tests alone do not prove that the application is connected.
+The Vercel environment page confirmed both variables are scoped to Production. Deployment `dpl_CwsXv8hGgffir2pMU1NSNKZXxhy7` reached Ready. The live dashboard retrieved 60 raw issues and 32 apparent candidates: 0 HUNT, 0 WATCH, 3 SKIP, 29 REJECT. A separate live SQL query confirmed **1 persisted scan, 32 opportunities and 32 history entries**, last scan `2026-09-10 13:12:45.39+00`. Source commit: `37af18fae91a726309c3b91956306ab712c3241f`.
+
+The dashboard displays whether history was durably saved and provides a read-only history viewer inside each evidence panel. Direct API navigation in Cloud Browser returned `ERR_BLOCKED_BY_CLIENT`; this is not treated as an application failure or a bot-detection event. The dashboard's own API request and the independent SQL record counts confirmed ingestion and persistence.
 
 ## Limits
 

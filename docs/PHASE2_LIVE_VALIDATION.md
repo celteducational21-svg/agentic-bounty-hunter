@@ -3,6 +3,10 @@
 ## Verdict
 FAIL (incomplete), not a failed Phase 1 deployment. Transport checks passed, but the required Phase 2 quality and durable-history gates have not all passed. Do not start Phase 3 solving.
 
+## Latest database continuation
+
+Dedicated ABH Supabase is now connected to production; see `PHASE2_DATABASE.md`. Organization and project are separate from CELT. Source `37af18fae91a726309c3b91956306ab712c3241f` deployed Ready as `dpl_CwsXv8hGgffir2pMU1NSNKZXxhy7`. The dashboard showed 60 scanned / 32 apparent, 0 HUNT / 0 WATCH / 3 SKIP / 29 REJECT. Independent SQL confirmed 1 saved scan and 32 opportunity/history records at `2026-09-10 13:12:45.39+00`. Automated tests: 67 pass. Earlier statements that no database exists are historical; durable storage is no longer unconfigured. Ranking-quality gaps below still prevent Phase 2 PASS.
+
 ## Historical production evidence
 Continuation deployment verified at 2026-09-10T10:26:31.012Z:
 - Code commit: 0f7db093e056a23f1d1d0ee6f34cc492789e00e4.
