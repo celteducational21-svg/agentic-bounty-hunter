@@ -4,6 +4,16 @@
 FAIL (incomplete), not a failed Phase 1 deployment. Transport checks passed, but the required Phase 2 quality and durable-history gates have not all passed. Do not start Phase 3 solving.
 
 ## Historical production evidence
+Continuation deployment verified at 2026-09-10T10:26:31.012Z:
+- Code commit: 0f7db093e056a23f1d1d0ee6f34cc492789e00e4.
+- Deployment: dpl_75rZnyr5Ef3L8VZfzuufRaBgk76Y, existing ABH project.
+- Home and API: HTTP 200; engineRevision phase2-coverage-v1.
+- 60 raw / 38 unique; 7 complete enrichment observations.
+- 0 HUNT / 0 WATCH / 7 SKIP / 31 REJECT.
+- 23 of the 30 returned records have UNKNOWN availability.
+- These completeness checks do not independently verify funding or ranking quality.
+- Browser interaction, runtime log scan, and durable production history remain unverified/incomplete.
+
 Production: https://agentic-bounty-hunter.vercel.app
 Source commit audited previously: e228e7daacb44fc92476a0742b861ded027dbb5f
 Last recorded run: 2026-09-10T09:53:05.362Z.
