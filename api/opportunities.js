@@ -11,7 +11,7 @@ export default async function handler(request, response) {
     response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
     response.setHeader("X-ABH-Policy", "analysis-only");
     return response.status(200).json({ ...payload, snapshotCount: snapshots.length,
-      engineRevision: 'phase2-coverage-v1', phase2ExitGate: 'NOT_PASSED',
+      engineRevision: 'phase2-evidence-v2', phase2ExitGate: 'NOT_PASSED',
       persistence: { durable: false, backend: 'warm-instance-memory' },
       humanApprovalRequired: true });
   } catch (error) {

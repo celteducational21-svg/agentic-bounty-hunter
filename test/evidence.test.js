@@ -1,0 +1,27 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { analyzeCompetition, analyzeOpportunity, analyzeRepository, extractReward } from "../src/core/intelligence.js";
+import { MemorySnapshotStore } from "../src/core/history.js";
+import { deep, fixtures } from "./fixtures.js";
+
+const issue = fixtures.excellent;
+const pr = { title: "Fix parser", body: "Fixed in this PR", html_url: "https://github.com/acme/parser/pull/42", user: { login: "a" }, state: "open" };
+const claim = (actor, body = "/try") => ({ user: { login: actor }, body });
+test("fenced reproduction examples are not rewards", () => assert.equal(extractReward({ ...issue, title: "Fix bounty parser", body: "Reproduce with:\n```json\n{\"bounty\":\"$150 USD\"}\n```" }).rewardAmount, null));
+test("quoted third-party offer is not reward", () => assert.equal(extractReward({ ...issue, title: "Bounty report", body: "> Another project offers $500 USD" }).rewardAmount, null));
+test("native token reward cannot inherit issuer-claimed dollar valuation", () => { const result = extractReward({ ...issue, title: "500000 RTC bounty", body: "Reward 500000 RTC (worth $500 USD according to issuer)" }); assert.equal(result.rewardCurrency, "RTC"); assert.equal(result.rewardUsdEstimate, null); });
+test("claim and PR from same author count once", () => assert.equal(analyzeCompetition(issue, [claim("a")], [pr]).activeCompetitors, 1));
+test("different claim and PR authors are counted together", () => assert.equal(analyzeCompetition(issue, [claim("b")], [pr]).activeCompetitors, 2));
+test("duplicate PR references count once", () => assert.equal(analyzeCompetition(issue, [], [pr, pr]).activeCompetitors, 1));
+test("withdrawn claimant may claim again", () => assert.equal(analyzeCompetition(issue, [claim("a"), claim("a", "I withdraw"), claim("a")], []).activeCompetitors, 1));
+test("closed unmerged PR is not completed bounty", () => assert.equal(analyzeCompetition(issue, [], [{ ...pr, state: "closed" }]).claimStatus, "AVAILABLE"));
+test("merged reference without closing relation does not complete bounty", () => assert.equal(analyzeCompetition(issue, [], [{ ...pr, state: "closed", merged_at: "2026-09-09" }]).claimStatus, "AVAILABLE"));
+test("merged closing solution completes single bounty", () => assert.equal(analyzeCompetition(issue, [], [{ ...pr, state: "closed", merged_at: "2026-09-09", closesIssue: true }]).claimStatus, "COMPLETED_SOLUTION"));
+test("previous award does not close repeatable bounty", () => assert.equal(analyzeCompetition({ ...issue, body: "Repeatable bounty per contributor" }, [], [{ ...pr, state: "closed", merged_at: "2026-09-09", closesIssue: true }]).claimStatus, "AVAILABLE"));
+test("untrusted commenter cannot revoke maintainer reward", () => assert.ok(!analyzeOpportunity(issue, { ...deep, comments: [{ body: "Reward not funded", author_association: "NONE" }] }).rejectionReasons.some((x) => x.includes("not approved/funded"))));
+test("github directory alone does not establish CI", () => assert.equal(analyzeRepository(deep.repo, deep.rootEntries).hasCI, null));
+test("package filename alone does not establish test command", () => assert.deepEqual(analyzeRepository(deep.repo, deep.rootEntries).testCommands, []));
+test("open issue count is not presented as PR volume", () => assert.equal(analyzeRepository(deep.repo, deep.rootEntries).openPRVolume, null));
+test("reward and solvability evidence both survive analysis", () => { const result = analyzeOpportunity(issue, deep); assert.ok(result.evidence.some((x) => x.type === "reward")); assert.ok(result.evidence.some((x) => x.type === "solvability")); });
+test("same-count PR replacement is recorded in history", () => { const store = new MemorySnapshotStore(); const result = analyzeOpportunity(issue, deep); store.upsert({ ...result, existingSolutionPRs: [{ url: "https://github.com/acme/parser/pull/1", state: "open" }] }); store.upsert({ ...result, existingSolutionPRs: [{ url: "https://github.com/acme/parser/pull/2", state: "open" }] }); assert.equal(store.all()[0].history.length, 2); });
+test("claim status change without count change is recorded", () => { const store = new MemorySnapshotStore(); const result = analyzeOpportunity(issue, deep); store.upsert({ ...result, claimStatus: "CLAIMED" }); store.upsert({ ...result, claimStatus: "SUBMITTED" }); assert.equal(store.all()[0].history.length, 2); });

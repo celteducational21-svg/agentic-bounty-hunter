@@ -75,7 +75,15 @@ Thresholds: `HUNT` 85–100, `WATCH` 70–84, `SKIP` 50–69, otherwise `REJECT`
 
 The core snapshot model records only material state changes and retains the last 50 observations per opportunity. The Vercel function keeps best-effort warm-instance history, the dashboard stores the last scan in browser storage, and `npm run snapshot:live` writes durable JSON history for scheduled/controlled runners.
 
-Known limitation: no shared durable production database is configured in Phase 2. Cross-instance serverless history is therefore not guaranteed. A managed durable store is the first recommended Phase 3 infrastructure task.
+Known limitation: no shared durable production database is configured. Cross-instance serverless history is therefore not guaranteed. This is a blocking Phase 2 requirement, not work deferred to Phase 3.
+
+## Evidence corrections (phase2-evidence-v2)
+
+The enrichment pass refreshes the original issue before reading assignees and comments. Comment pagination is bounded to 300; incomplete responses retain UNKNOWN availability. Search failures are reported per query. Every scanned candidate is returned so summary counts reconcile with records.
+
+Claimants and open PR authors are unioned by login. Withdrawals are processed chronologically. Submitted implementations are distinct from merged solutions; completion requires verified merge and closing relation. The live PR search currently does not establish the closing relation, so it cannot claim completion from a reference alone. Repeatable programs are not closed by prior awards.
+
+CI requires actual workflow file evidence. Package scripts are read as data, never executed. Unknown commands and PR volume remain unset. History tracks PR URLs/states and claim status, and evidence from each module is retained. Reward parsing ignores fenced examples, inline code and quoted offers; native token offers do not inherit an issuer's claimed dollar equivalent. General reward attribution and issuer authority still require further validation.
 
 ## Safety boundary
 

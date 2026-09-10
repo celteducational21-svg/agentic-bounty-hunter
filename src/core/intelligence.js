@@ -6,7 +6,6 @@ const TARGET_STACK = /\b(python|typescript|javascript|node(?:\.js)?|fastapi|api|
 const HIGH_COMPLEXITY = /\b(architecture|redesign|rewrite|entire|full[- ]stack|multi[- ]week|kernel|compiler|cryptograph|zero[- ]knowledge|hardware|firmware|ios device|android device)\b/i;
 const PRIVATE_DEPENDENCY = /\b(private (?:api|repository|infrastructure|network)|internal (?:api|system|environment)|proprietary data|paid account required)\b/i;
 const CLAIM_RE = /(?:^|\b)(?:\/try|\/attempt|\/opire\s+try|i(?:'| a)?m working on this|i would like to work on this|i'd like to work on this|can i work on this|claim(?:ing)? this|bounty claim|claim\s*[—:-])(?:\b|$)/i;
-const DONE_RE = /\b(?:implemented|completed|resolved|fixed)\b.*\b(?:pr|pull request|submission)\b|\bmerged\b/i;
 const ABANDONED_RE = /\b(?:unclaim|abandon(?:ed|ing)?|no longer working|giving up|withdraw)\b/i;
 const INJECTION_RE = /ignore (?:all |any )?(?:previous|prior|system) instructions|reveal (?:your |the )?(?:secret|token|environment)|print env|cat \.env|send (?:funds|wallet)|override (?:policy|approval)|exfiltrat/i;
 
@@ -34,7 +33,8 @@ export function normalizeIssue(item) {
     updatedAt: item.updated_at ?? item.updatedAt, closedAt: item.closed_at ?? null,
     state: item.state ?? "open", comments: Number(item.comments ?? 0),
     assignees: (item.assignees ?? (item.assignee ? [item.assignee] : [])).map((x) => x.login ?? x),
-    issuer: item.user?.login ?? item.issuer ?? null, isPullRequest: Boolean(item.pull_request ?? item.isPullRequest)
+    issuer: item.user?.login ?? item.issuer ?? null, authorAssociation: item.author_association ?? "UNKNOWN",
+    isPullRequest: Boolean(item.pull_request ?? item.isPullRequest)
   };
 }
 
@@ -44,12 +44,15 @@ export function detectPromptInjection(value) {
 }
 
 export function extractReward(issue, { tokenPrices = {} } = {}) {
-  const text = textOf(issue).replace(/[,]/g, "");
+  // Code examples and quoted third-party offers are not this issue's payout offer.
+  const cleanBody = String(issue.body ?? "").replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, "").replace(/^\s*>.*$/gm, "").replace(/`[^`]*`/g, "");
+  const text = textOf({ ...issue, body: cleanBody }).replace(/[,]/g, "");
   const matches = [];
   const patterns = [
     /([$€£])\s*(\d+(?:\.\d+)?)\s*([kK])?/g,
     /\b(\d+(?:\.\d+)?)\s*([kK])?\s*(USD|USDC|USDT|DAI|ETH|BTC|SOL)\b/gi,
-    /\b(?:reward|bounty)[-_ :]*(\d+(?:\.\d+)?)\s*([kK])?[-_ ]*([A-Z]{2,10})\b/gi
+    /\b(?:reward|bounty)[-_ :]*(\d+(?:\.\d+)?)\s*([kK])?[-_ ]*([A-Z]{2,10})\b/gi,
+    /\b(\d+(?:\.\d+)?)\s*([kK])?\s*([A-Z]{2,10})\s+bounty\b/gi
   ];
   for (const pattern of patterns) {
     for (const match of text.matchAll(pattern)) {
@@ -59,10 +62,10 @@ export function extractReward(issue, { tokenPrices = {} } = {}) {
       const currencyIndex = symbol ? null : 3;
       const amount = Number(match[amountIndex]) * (String(match[suffixIndex] ?? "").toLowerCase() === "k" ? 1000 : 1);
       const currency = symbol ?? String(match[currencyIndex] ?? "USD").toUpperCase();
-      if (Number.isFinite(amount) && amount > 0) matches.push({ amount, currency, raw: match[0] });
+      if (Number.isFinite(amount) && amount > 0) matches.push({ amount, currency, raw: match[0], position: match.index });
     }
   }
-  const unique = [...new Map(matches.map((x) => [`${x.amount}:${x.currency}`, x])).values()];
+  const unique = [...new Map(matches.sort((a, b) => a.position - b.position).map((x) => [`${x.amount}:${x.currency}`, x])).values()].sort((a, b) => a.position - b.position);
   const selected = unique[0] ?? null;
   const platformMatch = text.match(/\b(gitcoin|grantfox|algora|openq|dework|bountysource|issuehunt|polar)\b/i);
   const triggerMatch = text.match(/\b(?:paid?|payment|payout|reward)(?:ed)?\s+(?:upon|on|after)\s+([^\n.!]{3,80})/i);
@@ -94,7 +97,7 @@ export function extractReward(issue, { tokenPrices = {} } = {}) {
 
 export function analyzeLegitimacy(issue, reward, context = {}) {
   const text = textOf(issue);
-  const commentText = (context.comments ?? []).map((x) => x.body ?? "").join("\n");
+  const commentText = (context.comments ?? []).filter((x) => ["OWNER", "MEMBER", "COLLABORATOR"].includes(x.author_association)).map((x) => x.body ?? "").join("\n");
   const repo = String(issue.repository ?? "");
   const findings = [];
   let score = 50;
@@ -125,43 +128,49 @@ export function analyzeLegitimacy(issue, reward, context = {}) {
 
 export function analyzeCompetition(issue, comments = [], solutionPRs = []) {
   const claims = new Map();
-  const abandoned = new Set();
   const evidenceItems = [];
-  for (const comment of comments) {
+  const ordered = [...comments].sort((a, b) => (Date.parse(a.created_at) || 0) - (Date.parse(b.created_at) || 0));
+  for (const comment of ordered) {
     const body = comment.body ?? ""; const actor = comment.user?.login ?? comment.author ?? "unknown";
-    if (ABANDONED_RE.test(body)) abandoned.add(actor);
+    if (ABANDONED_RE.test(body)) { claims.delete(actor); continue; }
     if (CLAIM_RE.test(body)) { claims.set(actor, comment); evidenceItems.push(evidence("claim", `${actor}: ${body.slice(0, 100)}`, comment.html_url)); }
   }
-  for (const actor of abandoned) claims.delete(actor);
-  const completed = solutionPRs.filter((pr) => pr.merged_at || pr.state === "closed" && DONE_RE.test(`${pr.title ?? ""} ${pr.body ?? ""}`));
-  const openPRs = solutionPRs.filter((pr) => pr.state === "open");
+  const uniquePRs = [...new Map(solutionPRs.map((pr) => [pr.html_url, pr])).values()];
+  // A reference or an unmerged implementation is not proof the bounty was completed.
+  const completed = uniquePRs.filter((pr) => pr.merged_at && pr.closesIssue === true);
+  const openPRs = uniquePRs.filter((pr) => pr.state === "open");
   const submittedSolutions = comments.filter((comment) => /\b(?:completed (?:the )?implementation|already fully implemented|implementation (?:is )?complete).{0,120}\b(?:pr|pull request)\b/i.test(comment.body ?? ""));
   const labelClaimed = (issue.labels ?? []).some((x) => /^(?:claimed|assigned|in progress)$/i.test(x));
-  const activeCompetitors = Math.max(claims.size, openPRs.length, labelClaimed ? 1 : 0);
+  const actors = new Set(claims.keys());
+  for (const pr of openPRs) actors.add(pr.user?.login ?? pr.author ?? `unknown-pr:${pr.html_url}`);
+  for (const comment of submittedSolutions) actors.add(comment.user?.login ?? comment.author ?? `unknown-comment:${comment.html_url}`);
+  const activeCompetitors = Math.max(actors.size, labelClaimed ? 1 : 0);
+  const repeatable = /\b(?:multi[- ]claim|repeatable bounty|multiple (?:contributors|winners) (?:can|may)|per contributor)\b/i.test(textOf(issue));
   let claimStatus = "AVAILABLE";
   if ((issue.assignees ?? []).length) claimStatus = "ASSIGNED";
-  else if (completed.length || submittedSolutions.length) claimStatus = "COMPLETED_SOLUTION";
+  else if (completed.length && !repeatable) claimStatus = "COMPLETED_SOLUTION";
+  else if (openPRs.length || submittedSolutions.length) claimStatus = "SUBMITTED";
   else if (activeCompetitors) claimStatus = "CLAIMED";
   const score = claimStatus === "ASSIGNED" || claimStatus === "COMPLETED_SOLUTION" ? 0
     : activeCompetitors === 0 ? 100 : activeCompetitors === 1 ? 78 : activeCompetitors === 2 ? 58 : activeCompetitors <= 4 ? 32 : 10;
   return {
-    activeCompetitors, claimStatus, existingSolutionPRs: solutionPRs.map((pr) => ({ title: pr.title, url: pr.html_url, state: pr.state })),
+    activeCompetitors, claimStatus, repeatable, existingSolutionPRs: uniquePRs.map((pr) => ({ title: pr.title, url: pr.html_url, state: pr.state, author: pr.user?.login ?? pr.author ?? null, mergedAt: pr.merged_at ?? null, closesIssue: pr.closesIssue ?? null })),
     competitionScore: score,
     competitionEvidence: [
       ...(issue.assignees ?? []).map((x) => evidence("assignment", `Assigned to ${x}`, issue.url)),
       ...evidenceItems, ...submittedSolutions.map((x) => evidence("submitted_solution", x.body.slice(0, 140), x.html_url)),
-      ...solutionPRs.map((pr) => evidence("pull_request", `${pr.state}: ${pr.title}`, pr.html_url))
+      ...uniquePRs.map((pr) => evidence("pull_request", `${pr.merged_at ? "merged" : pr.state}: ${pr.title}`, pr.html_url))
     ]
   };
 }
 
-export function analyzeRepository(repo = {}, rootEntries = []) {
+export function analyzeRepository(repo = {}, rootEntries = [], details = {}, now = new Date()) {
   const names = new Set(rootEntries.map((x) => String(x.name ?? x).toLowerCase()));
-  const pushedDays = repo.pushed_at ? (Date.now() - new Date(repo.pushed_at)) / DAY : 9999;
+  const pushedDays = repo.pushed_at ? (now - new Date(repo.pushed_at)) / DAY : 9999;
   const hasReadme = [...names].some((x) => /^readme/.test(x));
   const hasContributing = names.has("contributing.md");
   const hasTests = [...names].some((x) => /^(test|tests|spec|__tests__)$/.test(x));
-  const hasCI = names.has(".github");
+  const hasCI = Array.isArray(details.workflows) ? details.workflows.some((x) => /\.ya?ml$/i.test(x.name ?? "")) : null;
   const hasPackage = ["package.json", "pyproject.toml", "requirements.txt", "cargo.toml", "go.mod"].some((x) => names.has(x));
   const hasLint = ["eslint.config.js", ".eslintrc", "ruff.toml", ".pre-commit-config.yaml"].some((x) => names.has(x));
   const hasTypes = names.has("tsconfig.json") || names.has("mypy.ini");
@@ -174,8 +183,9 @@ export function analyzeRepository(repo = {}, rootEntries = []) {
     primaryLanguage: repo.language ?? "UNKNOWN", frameworks: [], packageBuildSystem: [...names].filter((x) => ["package.json","pyproject.toml","requirements.txt","cargo.toml","go.mod"].includes(x)),
     approximateRepoSizeKb: repo.size ?? null, recentCommitActivity: pushedDays < 30 ? "ACTIVE" : pushedDays < 90 ? "RECENT" : pushedDays < 365 ? "SLOW" : "STALE",
     hasReadme, hasContributing, hasTests, hasCI, hasLint, hasTypeChecking: hasTypes,
-    buildCommands: names.has("package.json") ? ["npm install", "npm test"] : names.has("pyproject.toml") ? ["python -m pip install -e .", "pytest"] : [],
-    openPRVolume: repo.open_issues_count ?? null, archived: Boolean(repo.archived),
+    buildCommands: details.packageJson?.scripts?.build ? ["npm run build"] : [],
+    testCommands: details.packageJson?.scripts?.test ? ["npm test"] : [],
+    openPRVolume: details.openPRCount ?? null, archived: Boolean(repo.archived),
     repoHealthScore: clamp(health), maintainerActivityScore: maintainer, testabilityScore: testability, developerSetupScore: setup
   };
 }
@@ -266,7 +276,7 @@ export function analyzeOpportunity(issue, context = {}, now = new Date()) {
   const reward = extractReward(issue, context);
   const legitimacy = analyzeLegitimacy(issue, reward, context);
   const competition = analyzeCompetition(issue, context.comments, context.solutionPRs);
-  const repository = analyzeRepository(context.repo, context.rootEntries);
+  const repository = analyzeRepository(context.repo, context.rootEntries, context.repoDetails, now);
   const acceptance = parseAcceptanceCriteria(issue);
   const solvability = estimateSolvability(issue, acceptance, repository);
   const effort = estimateEffort(issue, acceptance, repository);
@@ -294,6 +304,7 @@ export function analyzeOpportunity(issue, context = {}, now = new Date()) {
     analysisDepth: context.analysisDepth ?? "shallow", ...reward, ...legitimacy, ...competition, ...repository,
     acceptanceCriteria: acceptance, scopeClarityScore: acceptance.scopeClarityScore,
     ...solvability, ...effort, rewardAttractivenessScore: rewardScore,
+    evidence: [...reward.evidence, ...legitimacy.evidence, ...competition.competitionEvidence, ...solvability.evidence],
     winScore, decision, reason, rejectionReasons: [...new Set(rejections)],
     coverage: context.coverage ?? { complete: context.analysisDepth === "deep", missing: [] },
     paymentEvidenceVerified: context.paymentEvidenceVerified === true,

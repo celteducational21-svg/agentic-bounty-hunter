@@ -25,7 +25,7 @@ assert.ok(payload.candidates.every((x) => x.analysisDepth === "deep" || x.decisi
 assert.ok(payload.candidates.filter((x) => x.analysisDepth === "deep").every((x) => x.scoreBreakdown && x.acceptanceCriteria && x.promptInjection));
 assert.ok(payload.rejectionExamples.length > 0, "False-positive rejection evidence is required");
 console.log(JSON.stringify({
-  verdict: "PASS", startedAt, completedAt: new Date().toISOString(), deployment: baseUrl,
+  runtimeValidation: "PASS", phase2Verdict: "NOT_ASSESSED_BY_THIS_SCRIPT", startedAt, completedAt: new Date().toISOString(), deployment: baseUrl,
   evidence: { fetchedAt: payload.fetchedAt, rawCount: payload.rawCount, uniqueCount: payload.uniqueCount, apparentBountyCount: payload.apparentBountyCount, legitimacyPassedCount: payload.legitimacyPassedCount, deepCheckedCount: payload.deepCheckedCount, decisions: payload.counts },
   topFive: payload.candidates.filter((x) => x.analysisDepth === "deep").slice(0, 5).map((x) => ({ opportunityId: x.opportunityId, title: x.title, decision: x.decision, winScore: x.winScore, reward: x.rewardUsdEstimate ?? `${x.rewardAmount ?? "UNKNOWN"} ${x.rewardCurrency ?? "UNKNOWN"}`, url: x.originalIssueUrl }))
 }, null, 2));

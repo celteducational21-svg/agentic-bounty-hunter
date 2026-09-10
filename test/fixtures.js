@@ -5,7 +5,7 @@ const base = {
 };
 const repo = { archived: false, language: "TypeScript", size: 3200, pushed_at: "2026-09-08T00:00:00Z", stargazers_count: 250, open_issues_count: 12 };
 const rootEntries = ["README.md", "CONTRIBUTING.md", "package.json", "tsconfig.json", ".github", "tests"].map((name) => ({ name }));
-export const deep = { analysisDepth: "deep", repo, rootEntries, comments: [], solutionPRs: [], tokenPrices: { ETH: 2500 } };
+export const deep = { analysisDepth: "deep", repo, rootEntries, repoDetails: { workflows: [{ name: "test.yml" }], packageJson: { scripts: { test: "node --test" } } }, comments: [], solutionPRs: [], tokenPrices: { ETH: 2500 } };
 export const fixtures = {
   excellent: base,
   competitive: { ...base, id: "101", number: 11, title: "$2,000 USD bounty: redesign architecture", body: `${base.body}\nRewrite the entire architecture.` },

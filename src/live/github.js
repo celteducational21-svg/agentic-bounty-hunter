@@ -31,6 +31,7 @@ export async function searchLiveIssues() {
   const batches = settled.filter((x) => x.status === "fulfilled").map((x) => x.value);
   if (!batches.length) throw settled[0].reason;
   return {
+    searchCoverage: settled.map((result, index) => ({ query: SEARCH_QUERIES[index], status: result.status === "fulfilled" ? "FETCHED" : "FAILED", incompleteResults: result.status === "fulfilled" ? Boolean(result.value.incomplete_results) : null })),
     rawCount: batches.reduce((sum, batch) => sum + batch.items.length, 0),
     issues: deduplicate(batches.flatMap((batch) => batch.items).map(normalizeIssue))
   };
@@ -41,36 +42,57 @@ function providerUrl(issue) {
 }
 
 async function enrichOne(issue, repoCache, retrievalTimestamp) {
+  const original = await githubFetch(`/repos/${issue.repository}/issues/${issue.number}`, {}, { optional: true });
+  if (!original) return analyzeOpportunity(issue, { analysisDepth: "partial", retrievalTimestamp, coverage: { complete: false, missing: ["fresh original issue"] } });
+  issue = normalizeIssue(original);
   let repoBundlePromise = repoCache.get(issue.repository);
   if (!repoBundlePromise) {
     repoBundlePromise = Promise.all([
       githubFetch(`/repos/${issue.repository}`, {}, { optional: true }),
-      githubFetch(`/repos/${issue.repository}/contents`, { per_page: 100 }, { optional: true })
-    ]).then(([repo, rootEntries]) => ({ repo, rootEntries }));
+      githubFetch(`/repos/${issue.repository}/contents`, { per_page: 100 }, { optional: true }),
+      githubFetch(`/repos/${issue.repository}/contents/.github/workflows`, {}, { optional: true }),
+      githubFetch(`/repos/${issue.repository}/contents/package.json`, {}, { optional: true })
+    ]).then(([repo, rootEntries, workflows, manifest]) => {
+      let packageJson = null;
+      try { if (manifest?.encoding === "base64") packageJson = JSON.parse(Buffer.from(manifest.content, "base64").toString("utf8")); } catch { /* Untrusted or non-JSON manifest remains unknown. */ }
+      return { repo, rootEntries, repoDetails: { workflows, packageJson } };
+    });
     repoCache.set(issue.repository, repoBundlePromise);
   }
   const repoBundle = await repoBundlePromise;
   const [comments, prSearch] = await Promise.all([
-    issue.comments ? githubFetch(`/repos/${issue.repository}/issues/${issue.number}/comments`, { per_page: 50 }, { optional: true }) : [],
+    issue.comments ? fetchComments(issue) : [],
     githubFetch("/search/issues", { q: `repo:${issue.repository} is:pr \"#${issue.number}\"`, per_page: 20 }, { optional: true })
   ]);
   const issueReference = new RegExp(`(?:#|issues/)${issue.number}\\b`, "i");
   const solutionPRs = (prSearch?.items ?? [])
     .filter((x) => issueReference.test(`${x.title ?? ""}\n${x.body ?? ""}`))
-    .map((x) => ({ title: x.title, body: x.body, html_url: x.html_url, state: x.state, merged_at: x.pull_request?.merged_at ?? null }));
+    .map((x) => ({ title: x.title, body: x.body, html_url: x.html_url, user: x.user, state: x.state, merged_at: x.pull_request?.merged_at ?? null, closesIssue: null }));
   const bountyProviderUrl = providerUrl(issue);
   const coverage = assessCoverage({ ...repoBundle, comments, prSearch, expectedComments: issue.comments });
   return analyzeOpportunity(issue, {
-    repo: repoBundle.repo ?? {}, rootEntries: repoBundle.rootEntries ?? [],
+    repo: repoBundle.repo ?? {}, rootEntries: repoBundle.rootEntries ?? [], repoDetails: repoBundle.repoDetails,
     comments: comments ?? [], solutionPRs, coverage,
     analysisDepth: coverage.complete ? "deep" : "partial", retrievalTimestamp,
     bountyProviderUrl, evidenceUrls: [bountyProviderUrl, ...(comments ?? []).slice(0, 3).map((x) => x.html_url), ...solutionPRs.map((x) => x.html_url)].filter(Boolean)
   });
 }
 
+async function fetchComments(issue) {
+  const comments = [];
+  // Bounded pagination: larger threads remain explicitly incomplete.
+  for (let page = 1; page <= 3; page++) {
+    const batch = await githubFetch(`/repos/${issue.repository}/issues/${issue.number}/comments`, { per_page: 100, page }, { optional: true });
+    if (!Array.isArray(batch)) return null;
+    comments.push(...batch);
+    if (batch.length < 100 || comments.length >= issue.comments) break;
+  }
+  return comments;
+}
+
 export async function buildLiveIntelligence({ deepLimit = 10 } = {}) {
   const retrievalTimestamp = new Date().toISOString();
-  const { rawCount, issues } = await searchLiveIssues();
+  const { rawCount, issues, searchCoverage } = await searchLiveIssues();
   const apparent = issues.filter(isApparentBounty);
   const shallow = apparent.map((issue) => analyzeOpportunity(issue, { analysisDepth: "shallow", retrievalTimestamp }));
   const ranked = shallow.sort((a, b) => Number(Boolean(b.rewardAmount)) - Number(Boolean(a.rewardAmount)) || b.winScore - a.winScore || a.comments - b.comments);
@@ -88,14 +110,15 @@ export async function buildLiveIntelligence({ deepLimit = 10 } = {}) {
     catch (error) { return { ...analyzeOpportunity(issue, { analysisDepth: "shallow", retrievalTimestamp }), enrichmentError: error.message }; }
   }));
   const deepById = new Map(deepResults.map((x) => [x.id, x]));
-  const candidates = shallow.map((x) => deepById.get(x.id) ?? x).sort((a, b) => b.winScore - a.winScore);
+  const decisionOrder = { HUNT: 0, WATCH: 1, SKIP: 2, REJECT: 3 };
+  const candidates = shallow.map((x) => deepById.get(x.id) ?? x).sort((a, b) => decisionOrder[a.decision] - decisionOrder[b.decision] || b.winScore - a.winScore);
   const counts = candidates.reduce((acc, item) => { acc[item.decision] = (acc[item.decision] ?? 0) + 1; return acc; }, { HUNT: 0, WATCH: 0, SKIP: 0, REJECT: 0 });
   return {
     mode: "LIVE", phase: 2, source: "GitHub Search API", fetchedAt: retrievalTimestamp,
-    queryCount: SEARCH_QUERIES.length, rawCount, uniqueCount: issues.length, apparentBountyCount: apparent.length,
+    queryCount: SEARCH_QUERIES.length, searchCoverage, rawCount, uniqueCount: issues.length, apparentBountyCount: apparent.length,
     legitimacyPassedCount: candidates.filter((x) => !x.rejectionReasons.length && x.legitimacyConfidence >= 60).length,
     deepCheckedCount: candidates.filter((x) => x.analysisDepth === "deep").length,
-    counts, candidates: candidates.slice(0, 30),
+    counts, candidates,
     rejectionExamples: candidates.filter((x) => x.decision === "REJECT").slice(0, 8).map((x) => ({ opportunityId: x.opportunityId, title: x.title, reason: x.rejectionReasons[0] ?? x.reason, url: x.url }))
   };
 }

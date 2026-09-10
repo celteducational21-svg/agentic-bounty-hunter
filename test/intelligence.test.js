@@ -21,7 +21,7 @@ test("detects existing solution PRs", () => assert.equal(analyzeCompetition(fixt
 test("extracts acceptance criteria", () => assert.ok(parseAcceptanceCriteria(fixtures.excellent).criteria.length >= 4));
 test("extracts mentioned files", () => assert.ok(parseAcceptanceCriteria(fixtures.excellent).filesMentioned.includes("src/parser.ts")));
 test("rejects stale bounty", () => assert.match(analyzeOpportunity(fixtures.stale, deep, now).rejectionReasons.join(" "), /Stale/));
-test("scores healthy repositories highly", () => assert.ok(analyzeRepository(deep.repo, deep.rootEntries).repoHealthScore >= 80));
+test("scores healthy repositories highly", () => assert.ok(analyzeRepository(deep.repo, deep.rootEntries, deep.repoDetails, now).repoHealthScore >= 80));
 test("weighted WIN score is bounded", () => assert.equal(calculateWinScore({ legitimacyConfidence: 200, aiSolvabilityScore: 200, scopeClarityScore: 200, competitionScore: 200, effortAttractivenessScore: 200, repoHealthScore: 200, maintainerActivityScore: 200, rewardAttractivenessScore: 200 }), 100));
 test("hard rejection overrides a strong score", () => assert.equal(analyzeOpportunity(fixtures.assigned, deep, now).decision, "REJECT"));
 test("deduplicates source IDs", () => assert.equal(deduplicate([fixtures.excellent, fixtures.excellent]).length, 1));
@@ -33,7 +33,7 @@ test("shallow analysis can never produce HUNT", () => assert.notEqual(analyzeOpp
 test("rejects bounty inquiries as non-original tasks", () => assert.match(analyzeOpportunity(fixtures.inquiry, deep, now).rejectionReasons.join(" "), /inquiry/));
 test("rejects opportunity scan reports", () => assert.match(analyzeOpportunity(fixtures.scanReport, deep, now).rejectionReasons.join(" "), /Status\/report/));
 test("claimed labels affect competition", () => assert.equal(analyzeCompetition({ ...fixtures.excellent, labels: ["claimed"] }, [], []).claimStatus, "CLAIMED"));
-test("completed implementation comments trigger solution rejection", () => assert.equal(analyzeCompetition(fixtures.excellent, [{ body: "I completed the implementation in PR #42", html_url: "https://github.com/acme/parser/pull/42", user: { login: "dev" } }], []).claimStatus, "COMPLETED_SOLUTION"));
-test("unfunded proposed rewards are rejected", () => assert.match(analyzeOpportunity(fixtures.excellent, { ...deep, comments: [{ body: "The proposed bounty is not approved or funded yet." }] }, now).rejectionReasons.join(" "), /not approved\/funded/));
-test("not-yet-funded wording is rejected", () => assert.match(analyzeOpportunity(fixtures.excellent, { ...deep, comments: [{ body: "The proposal has not been approved or funded yet." }] }, now).rejectionReasons.join(" "), /not approved\/funded/));
+test("implementation comments indicate submission, not completed acceptance", () => assert.equal(analyzeCompetition(fixtures.excellent, [{ body: "I completed the implementation in PR #42", html_url: "https://github.com/acme/parser/pull/42", user: { login: "dev" } }], []).claimStatus, "SUBMITTED"));
+test("maintainer confirms unfunded proposed reward", () => assert.match(analyzeOpportunity(fixtures.excellent, { ...deep, comments: [{ author_association: "OWNER", body: "The proposed bounty is not approved or funded yet." }] }, now).rejectionReasons.join(" "), /not approved\/funded/));
+test("maintainer confirms not-yet-funded wording", () => assert.match(analyzeOpportunity(fixtures.excellent, { ...deep, comments: [{ author_association: "MEMBER", body: "The proposal has not been approved or funded yet." }] }, now).rejectionReasons.join(" "), /not approved\/funded/));
 test("history records only material changes", () => { const store = new MemorySnapshotStore(); const item = analyzeOpportunity(fixtures.excellent, deep, now); store.upsert(item, "2026-09-10T00:00:00Z"); store.upsert(item, "2026-09-10T01:00:00Z"); assert.equal(store.all()[0].history.length, 1); });

@@ -3,7 +3,8 @@ export function snapshotOpportunity(opportunity, previous = null, checkedAt = ne
     checkedAt, decision: opportunity.decision, winScore: opportunity.winScore,
     rewardAmount: opportunity.rewardAmount, rewardCurrency: opportunity.rewardCurrency,
     rewardUsdEstimate: opportunity.rewardUsdEstimate, assignees: opportunity.assignees,
-    activeCompetitors: opportunity.activeCompetitors, existingSolutionPRs: opportunity.existingSolutionPRs.length,
+    activeCompetitors: opportunity.activeCompetitors, claimStatus: opportunity.claimStatus,
+    existingSolutionPRs: (opportunity.existingSolutionPRs ?? []).map((pr) => ({ url: pr.url, state: pr.state, mergedAt: pr.mergedAt ?? null })).sort((a, b) => String(a.url).localeCompare(String(b.url))),
     issueState: opportunity.state
   };
   const history = previous?.history ? [...previous.history] : [];
