@@ -73,9 +73,9 @@ Thresholds: `HUNT` 85–100, `WATCH` 70–84, `SKIP` 50–69, otherwise `REJECT`
 
 ## Snapshot persistence
 
-The core snapshot model records only material state changes and retains the last 50 observations per opportunity. The Vercel function keeps best-effort warm-instance history, the dashboard stores the last scan in browser storage, and `npm run snapshot:live` writes durable JSON history for scheduled/controlled runners.
+The dedicated ABH Supabase project is `xyuxxunpmzlyqocberia`, in the separate ABH organization `invqvmgxukbrtbgmwjjq`. See `db/schema.sql` and `docs/PHASE2_DATABASE.md`. The server uses an atomic Postgres RPC for scan summaries, current opportunities, and material state changes. The history endpoint returns the latest 50 changes, while the database preserves older changes.
 
-Known limitation: no shared durable production database is configured. Cross-instance serverless history is therefore not guaranteed. This is a blocking Phase 2 requirement, not work deferred to Phase 3.
+`ABH_SUPABASE_URL` and `ABH_SUPABASE_SECRET_KEY` must be configured in Vercel production. The adapter refuses every other Supabase project, including CELT. Missing credentials retain the explicitly marked non-durable memory fallback; configured storage failures fail the request rather than silently losing history. Production persistence is only considered verified after live API and database checks agree.
 
 ## Evidence corrections (phase2-evidence-v2)
 
