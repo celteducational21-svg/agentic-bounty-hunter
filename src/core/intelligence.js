@@ -282,7 +282,11 @@ export function analyzeOpportunity(issue, context = {}, now = new Date()) {
   if (reward.rewardUsdEstimate !== null && reward.rewardUsdEstimate < 50 && !["<30 min", "30–90 min"].includes(effort.effortEstimate) && ["HUNT", "WATCH"].includes(decision)) decision = "SKIP";
   if ((acceptance.scopeClarityScore < 55 || repository.repoHealthScore < 50) && ["HUNT", "WATCH"].includes(decision)) decision = "SKIP";
   if (competition.activeCompetitors > 4 && decision === "WATCH" && winScore < 90) decision = "SKIP";
-  const reason = rejections[0] ?? `${reward.rewardUsdEstimate === null ? "Uncertain reward" : `$${reward.rewardUsdEstimate} ${reward.rewardCurrency}`} · ${competition.activeCompetitors} active competitor(s) · ${effort.effortEstimate} · AI solvability ${solvability.aiSolvabilityScore}`;
+  const incomplete = context.analysisDepth !== "deep" || context.coverage?.complete === false;
+  if (incomplete && ["HUNT", "WATCH"].includes(decision)) decision = "SKIP";
+  // Text extraction is not independent proof of funding or issuer authority.
+  if (decision === "HUNT" && context.paymentEvidenceVerified !== true) decision = "WATCH";
+  const reason = rejections[0] ?? (incomplete ? "Incomplete evidence; availability and competition are UNKNOWN" : `${reward.rewardUsdEstimate === null ? "Uncertain reward" : `$${reward.rewardUsdEstimate} ${reward.rewardCurrency}`} · ${competition.activeCompetitors} active competitor(s) · ${effort.effortEstimate} · AI solvability ${solvability.aiSolvabilityScore}`);
   return {
     ...issue, opportunityId: stableOpportunityId(issue), retrievalTimestamp: context.retrievalTimestamp ?? new Date().toISOString(),
     originalIssueUrl: issue.url, bountyProviderUrl: context.bountyProviderUrl ?? null,
@@ -291,6 +295,9 @@ export function analyzeOpportunity(issue, context = {}, now = new Date()) {
     acceptanceCriteria: acceptance, scopeClarityScore: acceptance.scopeClarityScore,
     ...solvability, ...effort, rewardAttractivenessScore: rewardScore,
     winScore, decision, reason, rejectionReasons: [...new Set(rejections)],
+    coverage: context.coverage ?? { complete: context.analysisDepth === "deep", missing: [] },
+    paymentEvidenceVerified: context.paymentEvidenceVerified === true,
+    ...(incomplete ? { activeCompetitors: null, claimStatus: "UNKNOWN" } : {}),
     promptInjection: injection,
     scoreBreakdown: {
       legitimacy: legitimacy.legitimacyConfidence, aiSolvability: solvability.aiSolvabilityScore,

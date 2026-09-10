@@ -1,4 +1,5 @@
 import { analyzeOpportunity, deduplicate, isApparentBounty, normalizeIssue } from "../core/intelligence.js";
+import { assessCoverage } from "../core/coverage.js";
 
 export const SEARCH_QUERIES = [
   "is:issue is:open label:bounty archived:false",
@@ -45,7 +46,7 @@ async function enrichOne(issue, repoCache, retrievalTimestamp) {
     repoBundlePromise = Promise.all([
       githubFetch(`/repos/${issue.repository}`, {}, { optional: true }),
       githubFetch(`/repos/${issue.repository}/contents`, { per_page: 100 }, { optional: true })
-    ]).then(([repo, rootEntries]) => ({ repo: repo ?? {}, rootEntries: Array.isArray(rootEntries) ? rootEntries : [] }));
+    ]).then(([repo, rootEntries]) => ({ repo, rootEntries }));
     repoCache.set(issue.repository, repoBundlePromise);
   }
   const repoBundle = await repoBundlePromise;
@@ -58,8 +59,11 @@ async function enrichOne(issue, repoCache, retrievalTimestamp) {
     .filter((x) => issueReference.test(`${x.title ?? ""}\n${x.body ?? ""}`))
     .map((x) => ({ title: x.title, body: x.body, html_url: x.html_url, state: x.state, merged_at: x.pull_request?.merged_at ?? null }));
   const bountyProviderUrl = providerUrl(issue);
+  const coverage = assessCoverage({ ...repoBundle, comments, prSearch, expectedComments: issue.comments });
   return analyzeOpportunity(issue, {
-    ...repoBundle, comments: comments ?? [], solutionPRs, analysisDepth: "deep", retrievalTimestamp,
+    repo: repoBundle.repo ?? {}, rootEntries: repoBundle.rootEntries ?? [],
+    comments: comments ?? [], solutionPRs, coverage,
+    analysisDepth: coverage.complete ? "deep" : "partial", retrievalTimestamp,
     bountyProviderUrl, evidenceUrls: [bountyProviderUrl, ...(comments ?? []).slice(0, 3).map((x) => x.html_url), ...solutionPRs.map((x) => x.html_url)].filter(Boolean)
   });
 }

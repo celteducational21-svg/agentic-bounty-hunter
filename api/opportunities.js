@@ -10,7 +10,10 @@ export default async function handler(request, response) {
     const snapshots = payload.candidates.map((item) => history.upsert(item, payload.fetchedAt));
     response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
     response.setHeader("X-ABH-Policy", "analysis-only");
-    return response.status(200).json({ ...payload, snapshotCount: snapshots.length, humanApprovalRequired: true });
+    return response.status(200).json({ ...payload, snapshotCount: snapshots.length,
+      engineRevision: 'phase2-coverage-v1', phase2ExitGate: 'NOT_PASSED',
+      persistence: { durable: false, backend: 'warm-instance-memory' },
+      humanApprovalRequired: true });
   } catch (error) {
     return response.status(502).json({ mode: "ERROR", phase: 2, error: error.message });
   }

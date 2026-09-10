@@ -21,6 +21,9 @@ Exit gate: live endpoint returns non-empty real results and the validation scrip
 
 ## Phase 2 — Opportunity intelligence
 
+Status: INCOMPLETE / exit gate NOT PASSED. See PHASE2_LIVE_VALIDATION.md.
+Durable production history is a Phase 2 requirement, not deferred completion credit for Phase 3.
+
 - Extract reward amount/currency/range, payment platform/trigger/risk, and credible USD estimates.
 - Detect mirrors, grants, Upwork routing, assignments, claims, abandoned claims, related PRs, suspicious tokens, and prompt injection.
 - Inspect repository activity, setup/build signals, tests, CI, lint/type checking, scope criteria, AI solvability, and effort.
