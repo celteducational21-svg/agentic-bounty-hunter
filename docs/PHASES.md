@@ -22,18 +22,18 @@ Exit gate: live endpoint returns non-empty real results and the validation scrip
 ## Phase 2 — Opportunity intelligence
 
 Status: INCOMPLETE / exit gate NOT PASSED. See PHASE2_LIVE_VALIDATION.md.
-Durable production history is a Phase 2 requirement, not deferred completion credit for Phase 3.
+Dedicated Supabase production history is connected and verified; ranking-quality gates still remain. See PHASE2_DATABASE.md.
 
 - Extract reward amount/currency/range, payment platform/trigger/risk, and credible USD estimates.
 - Detect mirrors, grants, Upwork routing, assignments, claims, abandoned claims, related PRs, suspicious tokens, and prompt injection.
 - Inspect repository activity, setup/build signals, tests, CI, lint/type checking, scope criteria, AI solvability, and effort.
 - Apply hard rejection gates before the weighted WIN score; output `HUNT`, `WATCH`, `SKIP`, or `REJECT` with evidence.
-- Retain stable opportunity IDs and state-change snapshots. Browser history and the snapshot CLI are durable; serverless in-memory history is best-effort until a production database is connected.
+- Retain stable opportunity IDs, first/last observations, and material state-change snapshots in the dedicated ABH Postgres database. Dashboard evidence panels provide a read-only history viewer.
 
 Exit gate: production and tests healthy; live ingestion works; false positives materially reduced; top five manually checked; ranking quality demonstrated; no external action performed. It is valid to return zero HUNT candidates.
 
 ## Phase 3 — Proof and approval
 
-- Add a durable production opportunity store and scheduled revalidation.
+- Add scheduled revalidation after Phase 2 quality passes; durable production storage is already established.
 - Build a read-only candidate dossier: reproducibility sandbox plan, solution outline, cost/value estimate, and evidence pack.
 - Add an explicit user approval queue before any claim, comment, fork, terms acceptance, wallet disclosure, or pull request.

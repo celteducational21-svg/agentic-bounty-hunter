@@ -35,6 +35,8 @@ The Vercel environment page confirmed both variables are scoped to Production. D
 
 The dashboard displays whether history was durably saved and provides a read-only history viewer inside each evidence panel. Direct API navigation in Cloud Browser returned `ERR_BLOCKED_BY_CLIENT`; this is not treated as an application failure or a bot-detection event. The dashboard's own API request and the independent SQL record counts confirmed ingestion and persistence.
 
+Cross-deployment verification: source `eba8ae6abbd244b15761320b5e40a9718180f10c` deployed as `dpl_GBBECEk1dA3qbTjbDDfUUXYdivG2`. The dashboard displayed **History saved to database** at `2026-09-10 13:16:50.99+00`. Live SQL then reported **2 scans, 32 opportunities, 32 history entries**. Unchanged opportunities did not create duplicate history. Opening the first evidence panel and clicking **Load score history** returned its earlier `13:12:45` record (REJECT, WIN 72). This verifies history survives redeployment and the read path works. Browser logs inspected at this point contained extension metadata errors, not ABH application errors.
+
 ## Limits
 
 No recurring scanner or retention job has been enabled. Scans occur on requests subject to CDN caching. Monitor Free-plan database size before enabling frequent scheduled scans; history currently has no automatic deletion policy. History starts with the first successful database-backed scan, not earlier memory-only runs. This storage work does not establish Phase 2 ranking-quality PASS.

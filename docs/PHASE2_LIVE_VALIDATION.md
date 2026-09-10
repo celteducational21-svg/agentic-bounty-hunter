@@ -1,7 +1,7 @@
 # Phase 2 live validation — exit gate NOT PASSED
 
 ## Verdict
-FAIL (incomplete), not a failed Phase 1 deployment. Transport checks passed, but the required Phase 2 quality and durable-history gates have not all passed. Do not start Phase 3 solving.
+FAIL (incomplete), not a failed Phase 1 deployment. Production durable-history checks now pass, but ranking-quality gates remain incomplete. Do not start Phase 3 solving.
 
 ## Latest database continuation
 
@@ -47,14 +47,14 @@ Additional inspected sources:
 - Automated tests: 38 assertions pass with node --test test/*.test.js. Fixture module is excluded from the test count.
 
 ## Remaining blocking quality gaps
-1. Shared durable production snapshot/history storage is not configured. Memory and browser storage do not satisfy the database requirement.
+1. RESOLVED: dedicated Supabase production history now survives deployment, with first/last observation and material-change storage verified. Retention and scheduled scans remain future operational work.
 2. Reward extraction can mistake quoted examples, token equivalent claims, and unrelated amounts for actual task payments.
 3. Issuer authority, funding, payout conditions, and independent token price/liquidity verification remain incomplete.
 4. Repository analysis now reads actual workflow filenames and package scripts. Developer setup, framework, maintainer responsiveness and execution-level verification still need deeper inspection.
 5. Claims, submitted implementations, and merged solutions now have distinct states and competitor authors are deduplicated. Live PR closing relations, full timeline evidence, reservations and abandoned implementation freshness remain incomplete.
 6. PR search and comments are bounded; missing pages are now conservative UNKNOWN rather than zero competition.
 7. Score is an uncalibrated heuristic, not a statistical probability of winning.
-8. Browser-rendered end-to-end interaction verification and ranking precision/recall evaluation are outstanding.
+8. Dashboard rendering and the history interaction are verified. Ranking precision/recall evaluation remains outstanding.
 9. No recurring monitoring has been enabled.
 
 ## Evidence remediation continuation
@@ -102,3 +102,5 @@ ABH stays separate from ARES.
 ## Next action
 Complete Phase 2 remediation and connect an isolated durable opportunity store.
 Then repeat a fixed-snapshot top-five original-source audit. Recommend no Phase 3 solving candidate until the exit gate passes.
+
+Database remediation is now complete: two live scans across deployments retained 32 opportunities and 32 material history records, and the dashboard retrieved the prior deployment's score history. Next remediation priority is reward/issuer verification and competition/scope accuracy, followed by the fixed-snapshot ranking audit.
