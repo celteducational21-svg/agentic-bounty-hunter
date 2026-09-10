@@ -2,6 +2,12 @@
 
 Standalone system for discovering and qualifying paid, clearly scoped software bounties. It is intentionally separate from ARES.
 
+## Live deployment
+
+- Dashboard: https://agentic-bounty-hunter.vercel.app
+- API: https://agentic-bounty-hunter.vercel.app/api/opportunities
+- Phase 1 validation: PASS (2026-09-10)
+
 ## Current scope
 
 - Phase 0: repository, operating policy, deterministic qualification engine, dashboard, and test suite.
