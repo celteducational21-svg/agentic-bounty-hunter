@@ -85,6 +85,12 @@ The aquarium README contains an instruction aimed at automated agents. It was re
 
 Revision v3 adds an explicit cross-repository repost gate and rejects deep-reviewed offers with UNKNOWN payout mechanism. This closes these recommendation paths, but does not establish overall ranking precision. Automated tests: **59 pass, 0 fail**. No Phase 3 solving candidate is recommended.
 
+### Latest deployment verification limit
+
+Vercel accepted revision v3, source commit `9f992fb2c9c34156fd84c2f96a8d5b8c201dfcc2`, for the existing production project as deployment `dpl_5Gz95sg4AfjxJBefXujkRxNSiToW`.
+Deployment URL: https://agentic-bounty-hunter-efh7om5p0-celteducational21-3805.vercel.app
+The creation response was INITIALIZING. Subsequent direct runtime verification was interrupted by network approval cancellation; Vercel's fetch connection returned `403 Forbidden` while checking deployment access. Final v3 readiness and live counts are therefore UNKNOWN. The HTTP 200 and count observations above apply to v2 only. Do not infer a successful v3 deployment or Phase 2 PASS from deployment creation.
+
 ## Safety
 No third-party claim, comment, fork, PR, wallet disclosure, terms acceptance, or bounty implementation was performed.
 ABH stays separate from ARES.
