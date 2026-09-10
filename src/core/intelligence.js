@@ -94,6 +94,7 @@ export function extractReward(issue, { tokenPrices = {} } = {}) {
 
 export function analyzeLegitimacy(issue, reward, context = {}) {
   const text = textOf(issue);
+  const commentText = (context.comments ?? []).map((x) => x.body ?? "").join("\n");
   const repo = String(issue.repository ?? "");
   const findings = [];
   let score = 50;
@@ -102,6 +103,7 @@ export function analyzeLegitimacy(issue, reward, context = {}) {
   if (/upwork\.com|\bupwork\b/i.test(text)) reject("Upwork-routed task");
   if (/\bbounty inquiry\b|\bis (?:this|it) still funded\b/i.test(text)) reject("Bounty inquiry, not an original issuer task");
   if (/\b(?:field|live) (?:run|scan)\b/i.test(issue.title ?? "") && /\bno (?:opportunity|candidate).{0,40}(?:selected|qualified|pass)\b/i.test(text)) reject("Status/report issue rather than a software bounty");
+  if (/\b(?:not|isn'?t) (?:approved|funded)|(?:bounty|reward).{0,30}(?:not approved|not funded|proposed only)\b/i.test(commentText)) reject("Reward is proposed but not approved/funded");
   if (/\bgrant (?:application|proposal|request)|apply for (?:a )?grant\b/i.test(text)) reject("Grant/application rather than delivery bounty");
   if (/\b(?:sweepstake|giveaway|lottery|donation request)\b/i.test(text)) reject("Reward unrelated to software delivery");
   if (/\b(?:bounty[-_ ]?(?:radar|mirror|aggregator|scout|plaza|board|hub)|reward[-_ ]?radar)\b/i.test(repo) || /mirror(?:ed)? from|original (?:bounty|issue):|bounty alert:.*(?:new )?opportunit/i.test(text)) reject("Likely bounty mirror/repost");
@@ -133,11 +135,12 @@ export function analyzeCompetition(issue, comments = [], solutionPRs = []) {
   for (const actor of abandoned) claims.delete(actor);
   const completed = solutionPRs.filter((pr) => pr.merged_at || pr.state === "closed" && DONE_RE.test(`${pr.title ?? ""} ${pr.body ?? ""}`));
   const openPRs = solutionPRs.filter((pr) => pr.state === "open");
+  const submittedSolutions = comments.filter((comment) => /\b(?:completed (?:the )?implementation|already fully implemented|implementation (?:is )?complete).{0,120}\b(?:pr|pull request)\b/i.test(comment.body ?? ""));
   const labelClaimed = (issue.labels ?? []).some((x) => /^(?:claimed|assigned|in progress)$/i.test(x));
   const activeCompetitors = Math.max(claims.size, openPRs.length, labelClaimed ? 1 : 0);
   let claimStatus = "AVAILABLE";
   if ((issue.assignees ?? []).length) claimStatus = "ASSIGNED";
-  else if (completed.length) claimStatus = "COMPLETED_SOLUTION";
+  else if (completed.length || submittedSolutions.length) claimStatus = "COMPLETED_SOLUTION";
   else if (activeCompetitors) claimStatus = "CLAIMED";
   const score = claimStatus === "ASSIGNED" || claimStatus === "COMPLETED_SOLUTION" ? 0
     : activeCompetitors === 0 ? 100 : activeCompetitors === 1 ? 78 : activeCompetitors === 2 ? 58 : activeCompetitors <= 4 ? 32 : 10;
@@ -146,7 +149,8 @@ export function analyzeCompetition(issue, comments = [], solutionPRs = []) {
     competitionScore: score,
     competitionEvidence: [
       ...(issue.assignees ?? []).map((x) => evidence("assignment", `Assigned to ${x}`, issue.url)),
-      ...evidenceItems, ...solutionPRs.map((pr) => evidence("pull_request", `${pr.state}: ${pr.title}`, pr.html_url))
+      ...evidenceItems, ...submittedSolutions.map((x) => evidence("submitted_solution", x.body.slice(0, 140), x.html_url)),
+      ...solutionPRs.map((pr) => evidence("pull_request", `${pr.state}: ${pr.title}`, pr.html_url))
     ]
   };
 }
