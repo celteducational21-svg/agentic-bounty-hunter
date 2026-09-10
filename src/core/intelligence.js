@@ -101,9 +101,9 @@ export function analyzeLegitimacy(issue, reward, context = {}) {
   let rejectionReason = null;
   const reject = (reason) => { rejectionReason ??= reason; findings.push(evidence("legitimacy", reason, issue.url)); };
   if (/upwork\.com|\bupwork\b/i.test(text)) reject("Upwork-routed task");
-  if (/\bbounty inquiry\b|\bis (?:this|it) still funded\b/i.test(text)) reject("Bounty inquiry, not an original issuer task");
+  if (/\bbounty inquiry\b|\bis (?:this|it) still funded\b|\bbounty(?:\s+#\d+)?[^:\n]*:\s*(?:eligibility|question|inquiry)\b/i.test(text)) reject("Bounty inquiry, not an original issuer task");
   if (/\b(?:field|live) (?:run|scan)\b/i.test(issue.title ?? "") && /\bno (?:opportunity|candidate).{0,40}(?:selected|qualified|pass)\b/i.test(text)) reject("Status/report issue rather than a software bounty");
-  if (/\b(?:not|isn'?t) (?:approved|funded)|(?:bounty|reward).{0,30}(?:not approved|not funded|proposed only)\b/i.test(commentText)) reject("Reward is proposed but not approved/funded");
+  if (/\b(?:not|hasn'?t) (?:been )?(?:approved|funded)|(?:bounty|reward).{0,30}(?:not (?:been )?approved|not (?:been )?funded|proposed only)\b/i.test(commentText)) reject("Reward is proposed but not approved/funded");
   if (/\bgrant (?:application|proposal|request)|apply for (?:a )?grant\b/i.test(text)) reject("Grant/application rather than delivery bounty");
   if (/\b(?:sweepstake|giveaway|lottery|donation request)\b/i.test(text)) reject("Reward unrelated to software delivery");
   if (/\b(?:bounty[-_ ]?(?:radar|mirror|aggregator|scout|plaza|board|hub)|reward[-_ ]?radar)\b/i.test(repo) || /mirror(?:ed)? from|original (?:bounty|issue):|bounty alert:.*(?:new )?opportunit/i.test(text)) reject("Likely bounty mirror/repost");
