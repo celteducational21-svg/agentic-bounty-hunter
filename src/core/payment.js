@@ -13,8 +13,13 @@ const excluded = /\b(previous|historical|example|sample|quoted?|raised|budget|gr
 const direct = /\b(?:bounty|reward|this (?:issue|task) pays|we (?:will )?pay|payment for (?:this|the) (?:issue|task))\b/i;
 export function extractReward(issue, { tokenPrices = {}, now = new Date() } = {}) {
   const offers = [];
+  const linkedTasks = [...new Set(String(issue.body).match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+/g) ?? [])];
+  const aggregationReport = /BountyScout|bounty[-_ ]?(?:radar|aggregator|plaza)|bounty alert:.*opportunit/i.test(`${issue.repository}\n${issue.title}`) && linkedTasks.filter(url => url !== issue.url).length > 1;
   for (const [location, raw] of [['title', issue.title], ['body', issue.body]]) {
+    if (aggregationReport) continue; // Linked tasks do not pay for this report record.
     for (const line of clean(raw).split(/\n/)) {
+      const links = line.match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+/g) ?? [];
+      if (links.length && links.every(url => url !== issue.url)) continue;
       const taskTitle = location === 'title' && (issue.labels ?? []).includes('bounty') && /\$|\b(?:USD|USDC|USDT|DAI|ETH)\b/.test(line);
       if ((!direct.test(line) && !taskTitle) || excluded.test(line.split(/\s*\((?:worth|approximately|~)/i)[0])) continue;
       // Issuer-stated token equivalents are not independently priced rewards.

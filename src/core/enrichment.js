@@ -44,8 +44,10 @@ export function finishEnrichment(issue, context, steps, source, provider, now = 
   hard.push(...blockers.map(x => `${x.type}: ${x.description}`));
   const paymentTrust = provider ?? { provider: 'GitHub-native/UNKNOWN', platformVerified: true, listingVerified: false, issuerAuthority: result.payerRole, fundingStatus: 'UNKNOWN', paymentProvider: result.paymentProvider, paymentTrigger: result.paymentTrigger, paymentConfidence: result.paymentConfidence, evidence: result.paymentEvidence };
   if (provider?.listingVerified) {
+    const valueKnown = Number.isFinite(provider.rewardAmount) && provider.rewardAmount > 0;
     result.rewardAmount = provider.rewardAmount; result.rewardCurrency = 'USD'; result.rewardUsdEstimate = provider.rewardAmount;
-    result.reward = { amount: provider.rewardAmount, currency: 'USD', usdEstimate: provider.rewardAmount, rewardType: 'fixed', evidenceText: provider.evidence[0].detail, evidenceSourceUrl: provider.url, evidenceLocation: 'provider listing', confidence: 95, isDirectTaskReward: true };
+    result.rewardConfidence = valueKnown ? 95 : 0; result.isDirectTaskReward = valueKnown;
+    result.reward = { amount: provider.rewardAmount, currency: 'USD', usdEstimate: provider.rewardAmount, rewardType: valueKnown ? 'fixed' : 'unknown', evidenceText: provider.evidence[0].detail, evidenceSourceUrl: provider.url, evidenceLocation: 'provider listing', confidence: result.rewardConfidence, isDirectTaskReward: valueKnown };
     if (result.paymentConfidence !== 'SUSPICIOUS') result.paymentConfidence = provider.paymentConfidence;
     if (provider.tryingSolvers > (result.activeCompetitors ?? 0) || provider.claimingSolvers > 0) {
       result.activeCompetitors = null; result.activeCompetitorCount = null; result.competitionConfidence = 'UNKNOWN';
@@ -53,6 +55,7 @@ export function finishEnrichment(issue, context, steps, source, provider, now = 
     }
   }
   const credible = ['STRONG', 'VERIFIED'].includes(result.paymentConfidence) && result.rewardUsdEstimate > 0;
+  result.huntGates.directReward = result.isDirectTaskReward;
   result.huntGates.accessible = result.huntGates.accessible && !dependencies.some(x => !x.resolved && ['USER_INPUT_REQUIRED', 'PAID_RESOURCE', 'HARD_BLOCKER'].includes(x.provisioning));
   const promising = result.scopeClarityScore >= 55 && result.aiSolvabilityScore >= 60 && result.executionReadinessScore >= 50 && (result.activeCompetitorCount !== null && result.activeCompetitorCount <= 2);
   let decision = hard.length ? 'REJECT' : !complete ? 'INCOMPLETE' : !credible ? promising ? 'WATCH' : 'SKIP' : result.winScore >= 85 && Object.values(result.huntGates).every(Boolean) && !blockers.length ? 'HUNT' : 'SKIP';

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ABH · Provider discovery validation</title>
+<style>body{font:16px system-ui;margin:2rem;max-width:1000px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f5f7;padding:1rem}</style>
+<h1>Opire discovery validation</h1><p>This read-only check creates no scan and changes no opportunity history.</p>
+<p id="status">Checking provider sources…</p><pre id="provider-data"></pre>
+<script type="module">
+try {
+  const response = await fetch('/api/opportunities?providerCheck=opire');
+  const data = await response.json();
+  document.querySelector('#status').textContent = `HTTP ${response.status} · ${data.entriesParsed ?? 0} catalogue entries · ${data.exactListingsVerified ?? 0} exact listings verified · ${data.activeListings ?? 0} active`;
+  document.querySelector('#provider-data').textContent = JSON.stringify(data, null, 2);
+} catch (error) { document.querySelector('#status').textContent = error.message; }
+</script></html>

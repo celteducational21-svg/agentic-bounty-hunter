@@ -36,20 +36,30 @@ export function parseOpireCatalogue(html, checkedAt = new Date().toISOString()) 
   }));
 }
 export function parseOpireListing(html, url, issueUrl, checkedAt) {
-  const text = String(html).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&(?:nbsp|amp);/g, ' ').replace(/\s+/g, ' ');
+  const clean = value => String(value).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&(?:nbsp|amp);/g, ' ').replace(/\s+/g, ' ');
+  const article = [...String(html).matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/gi)].find(x => clean(x[1]).includes(`Issue URL: ${issueUrl}`));
+  const text = clean(article?.[1] ?? html).split('Bounties paid')[0];
   // Scope parsing to the canonical summary, never the unrelated reward catalogue below it.
   const match = text.match(/\$([\d,]+\.\d{2}) bounty for ([\s\S]*?)Issue URL:\s*(https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+)\s*Status:\s*(Open|Closed)\s*\.\s*(\d+) available rewards and (\d+) paid rewards\.\s*(\d+) solvers are trying this issue and (\d+) solvers have claimed it\./i);
   const linked = Boolean(opireListingUrl(url) && match && match[3] === issueUrl);
+  const rewardRows = linked ? [...text.matchAll(/\$([\d,]+\.\d{2})\s+reward,\s*status\s+(Available|Paid)\b/gi)].map(x => ({ amount: Number(x[1].replaceAll(',', '')), status: x[2].toUpperCase() })) : [];
+  const available = rewardRows.filter(x => x.status === 'AVAILABLE'), paid = rewardRows.filter(x => x.status === 'PAID');
+  const rowsComplete = linked && available.length === Number(match[5]) && paid.length === Number(match[6]);
+  const sum = rows => Math.round(rows.reduce((total, row) => total + row.amount, 0) * 100) / 100;
+  // The headline includes historical paid rewards. Only available rows are payable.
+  // A summary without paid rewards can establish its entire total as available.
+  const availableAmount = !linked ? null : rowsComplete ? sum(available) : Number(match[6]) === 0 && !rewardRows.length ? Number(match[1].replaceAll(',', '')) : null;
   let programmingLanguages = [];
   for (const m of String(html).matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
     try { const data = JSON.parse(m[1]); if (data.mainEntity?.itemOffered?.url === issueUrl) programmingLanguages = data.mainEntity.itemOffered.programmingLanguage ?? []; } catch { /* Unknown schema is not evidence. */ }
   }
   return { provider: 'Opire', platformVerified: Boolean(opireListingUrl(url)), listingVerified: linked, checkedAt, url,
-    canonicalIssueUrl: match?.[3] ?? null, rewardAmount: linked ? Number(match[1].replaceAll(',', '')) : null, rewardCurrency: linked ? 'USD' : null,
+    canonicalIssueUrl: match?.[3] ?? null, rewardAmount: availableAmount, rewardCurrency: linked ? 'USD' : null,
+    headlineTotalUsd: linked ? Number(match[1].replaceAll(',', '')) : null, paidRewardUsd: rowsComplete ? sum(paid) : linked && Number(match[6]) === 0 ? 0 : null, rewardRows, rewardValueVerified: availableAmount !== null,
     availability: linked ? match[4].toUpperCase() : 'UNKNOWN', availableRewards: linked ? Number(match[5]) : null, paidRewards: linked ? Number(match[6]) : null,
     tryingSolvers: linked ? Number(match[7]) : null, claimingSolvers: linked ? Number(match[8]) : null,
     programmingLanguages, rewardAvailable: linked ? Number(match[5]) > 0 && match[4].toUpperCase() === 'OPEN' : null,
     issuerAuthority: 'UNKNOWN', issuerIdentified: false, rewardCreator: null, paymentConfidence: linked ? 'PARTIAL' : 'UNVERIFIED', ...OPIRE_MECHANICS,
-    evidence: [{ url, checkedAt, detail: linked ? match[0] : 'Exact issue summary unavailable or linkage mismatch' }],
+    evidence: [{ url, checkedAt, detail: linked ? `${match[0]} Available reward USD: ${availableAmount ?? 'UNKNOWN'}; paid rows are excluded. ${rewardRows.map(x => `${x.status}: $${x.amount}`).join('; ')}` : 'Exact issue summary unavailable or linkage mismatch' }],
     limitations: ['Creator identity and issuer payout history are not exposed by this summary', 'Trying and claiming counts may overlap; do not add them', 'Listing is not proof of secured funds'] };
 }
