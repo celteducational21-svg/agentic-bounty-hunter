@@ -13,6 +13,9 @@ export function materialState(opportunity) {
     paymentConfidence: opportunity.paymentConfidence ?? null,
     issuerAuthorityScore: opportunity.issuerAuthorityScore ?? null,
     fundingConfidence: opportunity.fundingConfidence ?? null,
+    enrichmentState: opportunity.enrichmentState ?? null,
+    paymentTrust: opportunity.paymentTrust ? { platformVerified: opportunity.paymentTrust.platformVerified, listingVerified: opportunity.paymentTrust.listingVerified, fundingStatus: opportunity.paymentTrust.fundingStatus, issuerAuthority: opportunity.paymentTrust.issuerAuthority } : null,
+    blockers: opportunity.blockers ?? [],
     rewardEvidence: opportunity.reward ?? null,
     competitionConfidence: opportunity.competitionConfidence ?? null,
     contributorStates: (opportunity.contributorStates ?? []).map(({ actor, state }) => ({ actor, state })).sort((a, b) => a.actor.localeCompare(b.actor)),
@@ -46,12 +49,20 @@ export class SupabaseSnapshotStore {
   }
   async persistScan(payload) {
     const { candidates, ...summary } = payload;
+    if (payload.phase === '2.2') summary.frozenSnapshot = payload;
     const unique = [...new Map(candidates.map(item => [item.opportunityId, item])).values()];
     return this.request('rpc/abh_record_scan', {
       method: 'POST',
       body: JSON.stringify({ p_checked_at: payload.fetchedAt, p_summary: summary,
         p_items: unique.map(opportunity => ({ opportunity, state: materialState(opportunity) })) })
     });
+  }
+  async scanSnapshot(timestamp) {
+    if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(timestamp)) throw new Error('Invalid scan timestamp');
+    const params = new URLSearchParams({ checked_at: `eq.${timestamp}`, select: 'checked_at,summary', limit: '1' });
+    const scans = await this.request(`abh_scans?${params}`);
+    if (!scans.length) return { error: 'Snapshot not found' };
+    return scans[0].summary.frozenSnapshot ?? { error: 'Legacy scan has no immutable full snapshot' };
   }
   async history(opportunityId) {
     if (!/^ABH-GH-[A-Za-z0-9-]+$/.test(opportunityId)) throw new Error('Invalid opportunity ID');

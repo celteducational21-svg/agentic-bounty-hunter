@@ -4,9 +4,9 @@ import { providerLinks } from '../core/payment.js';
 import { classifyPR } from '../core/quality.js';
 
 export const SEARCH_QUERIES = [
-  "is:issue is:open label:bounty archived:false",
-  "is:issue is:open bounty in:title archived:false",
-  "is:issue is:open (USDC OR USD OR USDT OR DAI) bounty in:title,body archived:false"
+  "is:issue is:public is:open label:bounty archived:false",
+  "is:issue is:public is:open bounty in:title archived:false",
+  "is:issue is:public is:open opire in:body archived:false"
 ];
 
 function headers() {
