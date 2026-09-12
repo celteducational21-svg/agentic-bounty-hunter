@@ -5,7 +5,7 @@ import { selectDiverse, mergeDiscovery, investigationPriority, buildStagedScan }
 import { createBudget, classifyFailure } from '../src/live/request-budget.js';
 import { scopeIntelligence } from '../src/core/quality.js';
 import { dependencyIntelligence } from '../src/core/dependencies.js';
-import { finishEnrichment, STEPS } from '../src/core/enrichment.js';
+import { finishEnrichment, STEPS, basicRejections } from '../src/core/enrichment.js';
 import { fixtures, deep } from './fixtures.js';
 const issue = fixtures.excellent;
 const entry = { id:'01TASK', title:'Fix parser', url:issue.url, platform:'GitHub', project:{isPublic:true,isBotInstalled:true}, pendingPrice:{value:15000,unit:'USD_CENT'}, tryingUsers:[], claimerUsers:[], programmingLanguages:['TypeScript'] };
@@ -59,7 +59,7 @@ test('provider-first collector fully enriches five exact listings across five re
   const entries=Array.from({length:5},(_,i)=>({...entry,id:'01TASK'+i,url:`https://github.com/acme/project${i}/issues/1`}));
   const budget=createBudget({token:null,fetchImpl:async address=>{
     const u=new URL(address);let data,text;
-    if(address==='https://app.opire.dev')text=catalogue(entries);
+    if(address==='https://app.opire.dev/home')text=catalogue(entries);
     else if(u.hostname==='app.opire.dev') { const e=entries.find(x=>address.endsWith(x.id));text=`$150.00 bounty for Task Issue URL: ${e.url} Status: Open <!-- -->. 1 available rewards and 0 paid rewards. 0 solvers are trying this issue and 0 solvers have claimed it.`; }
     else if(u.hostname==='raw.githubusercontent.com')text=u.pathname.endsWith('package.json')?JSON.stringify({scripts:{test:'node --test',build:'tsc'}}):'Development setup: npm ci';
     else if(u.pathname==='/search/issues')data={items:[],total_count:0,incomplete_results:false};
@@ -72,3 +72,6 @@ test('provider-first collector fully enriches five exact listings across five re
   const x=await buildStagedScan({budget});assert.equal(x.funnel.providerDiscovered,5);assert.equal(x.funnel.providerVerified,5);assert.equal(x.funnel.fullyEnriched,5);assert.equal(x.funnel.selectedRepositories,5);assert.equal(x.counts.HUNT,0);assert.ok(x.candidates.every(c=>c.enrichment.total===7&&c.paymentTrust.fundingStatus==='PAY_ON_ACCEPTANCE'));
 });
 test('a provider listing cannot override a maintainer funding denial',()=>{const p=parseOpireListing(`$150.00 bounty for Task Issue URL: ${issue.url} Status: Open. 1 available rewards and 0 paid rewards. 0 solvers are trying this issue and 0 solvers have claimed it.`,'https://app.opire.dev/issues/01TASK',issue.url);const x=finishEnrichment(issue,{...deep,comments:[{author_association:'OWNER',body:'Reward cancelled',user:{login:'owner'}}]},STEPS.map(step=>({step,status:'COMPLETE'})),{},p);assert.equal(x.decision,'REJECT');assert.equal(x.paymentConfidence,'SUSPICIOUS');});
+test('multi-issue aggregation report is screened before deep enrichment',()=>assert.ok(basicRejections({...issue,repository:'bot/BountyScout',title:'Bounty Alert: 12 opportunities',body:'https://github.com/a/a/issues/1\nhttps://github.com/b/b/issues/2'}).some(x=>/mirror|repost/i.test(x))));
+test('single-original repost remains eligible for source resolution',()=>assert.ok(!basicRejections({...issue,repository:'bot/BountyScout',body:'https://github.com/a/a/issues/1'}).some(x=>/mirror|repost/i.test(x))));
+test('another bounty row in repository README does not create current task dependencies',()=>{const task={...issue,number:1};const x=dependencyIntelligence(task,{repoDetails:{sourceFiles:[{url:issue.repositoryUrl+'/blob/main/README.md',text:'| [#5](../../issues/5) | n8n + Claude API | $200 |'}]}});assert.equal(x.length,0);});

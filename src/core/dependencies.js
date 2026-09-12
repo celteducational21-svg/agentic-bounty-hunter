@@ -14,6 +14,11 @@ export function dependencyIntelligence(issue, context = {}) {
   const found = new Map();
   for (const source of sources) for (const line of String(source.text ?? '').split('\n')) {
     if (/ignore .*instructions|reveal .*secret|override .*policy|print env|cat \.env/i.test(line)) continue;
+    // A bounty-board README row describing a DIFFERENT issue is not a setup
+    // requirement of the current task. Keep unrelated catalogue text isolated.
+    const linkedIssues = [...line.matchAll(/(?:https:\/\/github\.com\/[\w.-]+\/[\w.-]+|\.\.\/\.\.)\/issues\/(\d+)/g)];
+    if (/^\s*\|/.test(line) && linkedIssues.length && linkedIssues.every(m => Number(m[1]) !== issue.number || m[0].startsWith('https:') && m[0] !== issue.url)) continue;
+    if (/^\s*#?\s*Optional:/i.test(line)) continue;
     for (const [type, provisioning, re] of rules) if (re.test(line)) {
       const key = `${type}:${source.source}`;
       if (!found.has(key)) found.set(key, { type, provisioning, severity: provisioning === 'HARD_BLOCKER' ? 'HARD' : 'REQUIRES_VERIFICATION', source: source.source, description: line.trim().slice(0, 500), resolved: false });

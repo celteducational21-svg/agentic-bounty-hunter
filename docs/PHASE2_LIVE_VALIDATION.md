@@ -151,3 +151,19 @@ The shared repository metadata/tree/README were reused, but its board-only conte
 Production rendered the new UI and saved history. Read-only database snapshot loading returned the exact timestamp/counts with snapshotReadOnly true and durable Supabase persistence. The history viewer returned issue #4's saved INCOMPLETE record. One initial read-only browser navigation returned a transient 502; retry succeeded. Exact database row totals remain UNKNOWN. Existing dedicated ABH persistence/schema/history were preserved; CELT/ARES were not used.
 
 No external bounty actions occurred. No Phase 3 recommendation is justified. Remaining work is specifically complete source coverage with better budget selection, concrete provider-listing/issuer/payment verification, and acceptance/external-dependency extraction. Preserve this failed snapshot when evaluating a later remediation.
+
+## Provider-first follow-up — 2026-09-12
+
+**Verdict: INCOMPLETE; ranking NOT certified.** Full source audit and correction boundaries: PHASE2_PROVIDER_FIRST_FIXED_SNAPSHOT_AUDIT.md. Architecture/remediation: PHASE2_PROVIDER_FIRST_REMEDIATION.md. Original-source evidence: audits/provider-first-production-review.json.
+
+Exactly ONE new production scan ran at **2026-09-12T15:14:49.227Z**, source commit `32f04fc20d06f38cd6de6dcf0c1d87f9f31eee77`, deployment `dpl_46E4v8PUSWuaDr98NQwcBEyfZZ4n`. Counts: 60 raw GitHub / 0 provider-discovered / 45 unique and basic-screened / 45 records; 5 selected repositories and resolved originals; 1 exact provider listing; 2 completed seven-step inspections, both hard-rejected reports; 0 eligible fully enriched opportunities. Decisions: HUNT0 / WATCH0 / SKIP0 / REJECT13 / INCOMPLETE32.
+
+All recorded GitHub requests succeeded with HTTP 200, unauthenticated; zero 403. Core limit 60 and final remaining 17 were directly recorded. The prior run's 20 unclassified 403 causes cannot be proved retrospectively. Of 67 source requests, one Opire-root request failed with TypeError; the corrected collector now uses the observed public `/home` destination and retains exception-cause diagnostics.
+
+The selected AutoKey repost resolved to autokey/autokey #87. Exact Opire linkage and $590 advertised total were verified; both original issue and provider state are CLOSED, so REJECT is correct despite seven reward entries remaining displayed. No escrow/funding assurance was inferred. Two BountyScout multi-issue reports were correctly rejected after inspection but wasted slots and displayed a linked task's $25 as their own reward. The corrected selector retains their existing rejection earlier. The badge promotion received machine INCOMPLETE versus source-audit REJECT recommendation. The remaining selected changelog thread and badge timeline were incomplete.
+
+Scope extraction now captures all six changelog criteria and all eight criteria when replaying the original n8n failure, with structured API/account/runtime dependencies. The audit found another-issue README-row dependency bleed; that narrow error was fixed and tested after freezing. AutoKey's full legacy setup and graphical-runtime readiness remain unverified.
+
+Final correction release: `phase2.3-provider-first-v2`, deployment `dpl_GtYh7pKyS4iGiWZsWp6vgmo2cWb3`, https://agentic-bounty-hunter-hr3laad22-celteducational21-3805.vercel.app . **166 automated tests pass / 0 fail.** No second production scan was run; the frozen counts above describe the first build, not an unperformed validation of the corrected URL/selector. The dedicated ABH database readback returned the exact timestamp/counts with durable persistence. No schema/history rebuild, CELT/ARES use or external bounty action occurred.
+
+The remaining gate is a genuinely enriched provider-originated production population plus accurate reward/eligibility and technical-readiness source audit. The preserved failed population cannot be relabeled PASS. No Phase 3 candidates recommended.

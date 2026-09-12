@@ -4,6 +4,10 @@ import { dependencyIntelligence } from './dependencies.js';
 export const STEPS = ['BASIC_SCREENED', 'SOURCE_RESOLVED', 'PAYMENT_CHECKED', 'COMPETITION_CHECKED', 'REPO_CHECKED', 'SCOPE_CHECKED', 'DEPENDENCY_CHECKED'];
 export function sourceTarget(issue) {
   const text = `${issue.title}\n${issue.body}`;
+  if (/BountyScout|aggregator|bounty.radar/i.test(issue.repository)) {
+    const originals = [...new Set(String(issue.body).match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+/g) ?? [])];
+    return originals.length === 1 ? originals[0] : issue.url;
+  }
   if (!/mirror|repost|Originally posted|Source URL|original (?:issue|bounty|source)|upstream issue|bounty-plaza|bounty-radar/i.test(`${issue.repository}\n${text}`)) return issue.url;
   return String(issue.body).match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+/)?.[0] ?? issue.url;
 }
@@ -13,7 +17,7 @@ export function preliminaryPriority(issue) {
 }
 export function basicRejections(issue) {
   // Defer unknown payment and copied-source decisions until canonical/provider checks.
-  return analyzeOpportunity(issue).rejectionReasons.filter(x => !/Payout|market value|mirror|repost|Stale/i.test(x));
+  return analyzeOpportunity(issue).rejectionReasons.filter(x => /mirror|repost/i.test(x) ? sourceTarget(issue) === issue.url : !/Payout|market value|Stale/i.test(x));
 }
 export function unifiedBlockers(issue, context) {
   const sources = [{ source: issue.url, text: issue.body }, ...['readme', 'contributing', 'testSource'].map(k => ({ source: context.repoDetails?.[k + 'Url'] ?? `${issue.repositoryUrl} (${k})`, text: context.repoDetails?.[k] ?? '' })), ...(context.repoDetails?.sourceFiles ?? []).map(x => ({ source: x.url, text: x.text }))];

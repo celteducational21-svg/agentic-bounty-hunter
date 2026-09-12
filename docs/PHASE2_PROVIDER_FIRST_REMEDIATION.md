@@ -45,3 +45,11 @@ The pre-deployment suite preserves all earlier coverage, updating the five-candi
 Local direct-network collector preflight could not establish reliable transport (timeouts); it is not a production scan or quality certificate. Public Opire catalogue/detail HTML was successfully inspected separately and used to validate the parser. Production runtime must independently verify sources.
 
 Existing dedicated ABH JSONB snapshots persist the added evidence without schema changes; phase remains the existing 2.2 storage envelope. Runtime revision identifies this remediation. Normal scan responses use no-store to avoid hidden stale-while-revalidate scans; snapshot/history reads remain read-only. No database rebuild, history rewrite, scheduler or third-party bounty action was added.
+
+## Corrections after the one frozen production scan
+
+The scan at 2026-09-12T15:14:49.227Z is preserved unchanged. It revealed a root catalogue TypeError under redirect refusal; browser navigation established the current catalogue destination as https://app.opire.dev/home. Discovery now uses that observed URL directly, and transport exception causes are retained in sanitized diagnostics. The old exception cause was not captured, so redirect refusal is an inference, not retrospectively proved.
+
+Two multi-issue BountyScout reports consumed inspection slots. Cheap screening now retains their existing mirror rejection when no single original task can be resolved; single-original reposts remain eligible for canonical resolution. README table rows describing another issue no longer create current-task API/runtime dependencies. These are narrow corrections to the live failures, with regression tests.
+
+Final automated suite: **166 pass / 0 fail**. Only one production scan was run. The corrected catalogue URL/selector/dependency handling is not represented as having passed a second production scan. See PHASE2_PROVIDER_FIRST_FIXED_SNAPSHOT_AUDIT.md for the exact failed population and outstanding certification gate.

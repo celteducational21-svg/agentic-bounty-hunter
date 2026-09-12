@@ -144,7 +144,7 @@ export function investigationPriority(issue) {
     - (issue.sourceRepository?.fork ? 25 : 0);
 }
 export async function discoverOpire(budget) {
-  const response = await budget.request('https://app.opire.dev', 'text');
+  const response = await budget.request('https://app.opire.dev/home', 'text');
   const listings = response.ok ? parseOpireCatalogue(response.data) : [];
   return { listings, status: listings.length ? 'FETCHED' : response.ok ? 'FORMAT_UNRECOGNIZED' : response.reason, url: response.url, completeness: 'PARTIAL', detail: 'Bounded current public catalogue page; not all platform listings' };
 }

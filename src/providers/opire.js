@@ -31,8 +31,8 @@ export function parseOpireCatalogue(html, checkedAt = new Date().toISOString()) 
     advertisedRewardUsd: x.pendingPrice?.unit === 'USD_CENT' && Number.isFinite(x.pendingPrice.value) ? x.pendingPrice.value / 100 : null,
     tryingSolvers: Array.isArray(x.tryingUsers) ? x.tryingUsers.length : null, claimingSolvers: Array.isArray(x.claimerUsers) ? x.claimerUsers.length : null,
     programmingLanguages: x.programmingLanguages ?? [], botInstalled: x.project.isBotInstalled === true,
-    sourceUrl: 'https://app.opire.dev', checkedAt, listingVerified: false,
-    providerActivityEvidence: { url: 'https://app.opire.dev', checkedAt, detail: 'Present in current public available-reward catalogue; exact task listing still requires verification' }
+    sourceUrl: 'https://app.opire.dev/home', checkedAt, listingVerified: false,
+    providerActivityEvidence: { url: 'https://app.opire.dev/home', checkedAt, detail: 'Present in current public available-reward catalogue; exact task listing still requires verification' }
   }));
 }
 export function parseOpireListing(html, url, issueUrl, checkedAt) {

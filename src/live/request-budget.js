@@ -55,7 +55,7 @@ export function createBudget({ fetchImpl = fetch, maxRequests = 120, deadlineMs 
         }
         const data = type === 'json' ? await response.json() : await response.text();
         return { ok: true, data, url };
-      } catch (error) { record.error = error.name; return { ok: false, reason: error.name, retryable: true, url }; }
+      } catch (error) { record.error = error.name; const detail = String(error.cause?.message ?? error.message ?? error.name); record.message = (token ? detail.split(token).join('[REDACTED]') : detail).slice(0, 1000); return { ok: false, reason: error.name, retryable: true, url }; }
     }
   }
   function request(url, type = 'json') {
