@@ -120,3 +120,18 @@ The dedicated ABH persistence implementation/schema and server credentials were 
 Source commit `21a68c50176f40a24c9a74ed8ce37b840a76419c`, deployment `dpl_9euB9SpEQkAUGBp2veyFUgW6YBC1`, URL https://agentic-bounty-hunter-20os8mjds-celteducational21-3805.vercel.app. Production alias rendered the new heuristic-score UI. Scan displayed 60 raw / 43 candidates, HUNT0 / WATCH0 / SKIP3 / REJECT40, zero complete deep checks, and History saved to database. The history viewer returned both this revision’s SKIP/58/UNKNOWN and the prior revision’s REJECT/62/SUBMITTED record for aquarium #2, confirming retained history across deployment. A terminal HTTP probe timed out; browser functional checks succeeded. Exact aggregate database row counts were not queried.
 
 This check exposed overconfident AI/effort values on partial enrichment; the next revision caps them and records UNKNOWN effort. No Phase2 PASS is claimed.
+
+### Final deployed revision
+
+Source commit: `b20ca1504e975dac588ee2026a297e9509e14564`.
+Deployment: `dpl_Cy7dsVbCLp7KBstUzvpkCuDBzaAZ`.
+Deployment URL: https://agentic-bounty-hunter-m0xelp7wl-celteducational21-3805.vercel.app
+Production alias: https://agentic-bounty-hunter.vercel.app
+
+The browser verified the final revision's new behavior on production: **60 scanned, 43 candidates, 0 legitimacy passes, HUNT0 / WATCH0 / SKIP0 / REJECT43**, one complete bounded deep check, and **History saved to database**. The page displayed its scan at 9/12/2026 12:48:42 PM in browser-local time. Partial candidates show UNKNOWN competition and effort, with AI capped at 50. Aquarium #2/#3 now show the inaccessible test-credential rejection when that file is retrieved. Assigned Tenstorrent work and mirrors remain rejected; native-token USD values remain UNKNOWN.
+
+105 tests pass / 0 fail. These final deployment counts are a separate operational check, not a replacement for the immutable audit snapshot. The new production ranking is not claimed to have passed the frozen Top-5 quality gate. Exact DB aggregate totals and an independent terminal HTTP status remain UNKNOWN; functional dashboard, scan persistence and cross-deployment history were verified through the application.
+
+The final history viewer returned all three observed production states for aquarium #2: REJECT/36/UNKNOWN (final), SKIP/58/UNKNOWN (first remediation deployment), REJECT/62/SUBMITTED (prior engine). This verifies retention through both new deployments. Remaining display limitation: hiddenBlockerRisk currently describes issue-text scope only; a repository-derived credential blocker appears in rejection reasons and build status but does not yet raise that scope-only field. No HUNT is possible with that rejection.
+
+**Final verdict: INCOMPLETE / EXIT GATE NOT PASSED.** No Phase 3 candidate recommended. Next action: complete reliable original-source enrichment and payment-provider verification, then audit a fully enriched fixed production snapshot. Do not start solving or scheduled automation before that quality gate passes.
