@@ -109,8 +109,14 @@ Database remediation is now complete: two live scans across deployments retained
 
 Verdict remains **INCOMPLETE**. See PHASE2_1_REMEDIATION.md and PHASE2_FIXED_SNAPSHOT_AUDIT.md for implementation, evidence and precise blockers.
 
-Automated tests: **104 pass / 0 fail**. The immutable local live scan at `2026-09-12T08:31:46.692Z` contains 60 raw / 43 apparent candidates; HUNT0 / WATCH0 / SKIP0 / REJECT43. All selected enrichments were incomplete; do not interpret these counts as proven absence of legitimate bounties. The original failed reward extraction and source-review corrections are retained in committed audit artifacts.
+Automated tests: **105 pass / 0 fail**. The immutable local live scan at `2026-09-12T08:31:46.692Z` contains 60 raw / 43 apparent candidates; HUNT0 / WATCH0 / SKIP0 / REJECT43. All selected enrichments were incomplete; do not interpret these counts as proven absence of legitimate bounties. The original failed reward extraction and source-review corrections are retained in committed audit artifacts.
 
 Before deployment, the existing production dashboard was observed returning 60 raw / 43 apparent, HUNT0 / WATCH1 / SKIP6 / REJECT36, 8 deep checked, and **History saved to database**. Its WATCH was a prior-work payout request, demonstrating another false positive; Phase2.1 now hard-rejects that category. These baseline production counts are separate from the frozen audit and do not certify the new engine.
 
 The dedicated ABH persistence implementation/schema and server credentials were not rebuilt or moved. No CELT or ARES resource was used. Production deployment of the remediation and post-deploy health observations are recorded below when available.
+
+### First Phase2.1 production check
+
+Source commit `21a68c50176f40a24c9a74ed8ce37b840a76419c`, deployment `dpl_9euB9SpEQkAUGBp2veyFUgW6YBC1`, URL https://agentic-bounty-hunter-20os8mjds-celteducational21-3805.vercel.app. Production alias rendered the new heuristic-score UI. Scan displayed 60 raw / 43 candidates, HUNT0 / WATCH0 / SKIP3 / REJECT40, zero complete deep checks, and History saved to database. The history viewer returned both this revision’s SKIP/58/UNKNOWN and the prior revision’s REJECT/62/SUBMITTED record for aquarium #2, confirming retained history across deployment. A terminal HTTP probe timed out; browser functional checks succeeded. Exact aggregate database row counts were not queried.
+
+This check exposed overconfident AI/effort values on partial enrichment; the next revision caps them and records UNKNOWN effort. No Phase2 PASS is claimed.

@@ -24,7 +24,7 @@ Hard gates include existing exclusions plus malformed/no direct payout, prior-wo
 
 ## Tests
 
-104 tests pass, 0 fail (Node test runner). All original 67 tests remain; the existing token conversion test now uses timestamped market/liquidity evidence instead of an unverified bare number. New tests cover the requested adversarial categories plus malformed live amounts, credential-only tests, provider lookalike domains, stale claims, unrelated cross-repository PR numbers and payout requests. A synthetic clear bug with independently verified payment passes HUNT, proving the gates do not simply suppress all recommendations.
+105 tests pass, 0 fail (Node test runner). All original 67 tests remain; the existing token conversion test now uses timestamped market/liquidity evidence instead of an unverified bare number. New tests cover the requested adversarial categories plus malformed live amounts, credential-only tests, provider lookalike domains, stale claims, unrelated cross-repository PR numbers and payout requests. A synthetic clear bug with independently verified payment passes HUNT, proving the gates do not simply suppress all recommendations.
 
 Legacy exported `analyzeCompetition` and repository helper tests remain for compatibility; production ranking uses the new evidence models. Their older output should not be used as the Phase 2.1 authoritative competition classification.
 
@@ -42,3 +42,5 @@ Remaining work before PASS:
 6. Repeat final-engine Top-5 quality review on a fully enriched immutable production snapshot. This audit preserves the initial failing snapshot and reviews the same identities after remediation; it is not certification of a different later ranking.
 
 No Phase 3 candidate is recommended. Next action is to finish these Phase 2 evidence gaps. After genuine PASS, the first Phase 3 operational step is scheduled revalidation and preparation of an approval-only candidate dossier, not automatic solving.
+
+Production verification found remaining optimistic estimates with partial enrichment. The final revision caps AI solvability at 50 and sets effort/verification effort to UNKNOWN whenever enrichment is incomplete. The dashboard legitimacy count now requires VERIFIED/STRONG payment plus direct reward evidence; unverified keyword matches no longer count as legitimacy passes.

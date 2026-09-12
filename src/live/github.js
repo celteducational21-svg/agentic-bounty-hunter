@@ -138,7 +138,7 @@ export async function buildLiveIntelligence({ deepLimit = 10, captureEvidence = 
   return {
     mode: "LIVE", phase: 2, source: "GitHub Search API", fetchedAt: retrievalTimestamp,
     queryCount: SEARCH_QUERIES.length, searchCoverage, rawCount, uniqueCount: issues.length, apparentBountyCount: apparent.length,
-    legitimacyPassedCount: candidates.filter((x) => !x.rejectionReasons.length && x.legitimacyConfidence >= 60).length,
+    legitimacyPassedCount: candidates.filter((x) => !x.rejectionReasons.length && x.isDirectTaskReward && ['VERIFIED', 'STRONG'].includes(x.paymentConfidence)).length,
     deepCheckedCount: candidates.filter((x) => x.analysisDepth === "deep").length,
     counts, candidates, ...(captureEvidence ? { frozenInputs, discoverySnapshot: issues } : {}),
     rejectionExamples: candidates.filter((x) => x.decision === "REJECT").slice(0, 8).map((x) => ({ opportunityId: x.opportunityId, title: x.title, reason: x.rejectionReasons[0] ?? x.reason, url: x.url }))

@@ -20,7 +20,7 @@ ABH IDs use `ABH-GH-` followed by the repository owner, repository and issue num
 | ABH-GH-zhangjiayang6835-cyber-bounty-plaza-1326 · [issue](https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326) | Reposted $500 advertisement; original payable amount UNKNOWN. | PARTIAL owner association does not establish original payer or funding. | Unassigned. Links `Senthemodder/tank-of-mannequins#2`; original GitHub issue read returned 404. Do not use mirror text as validation. | Original repo/setup unavailable. Initial health40/scope35/AI30/1.5–4h derived from incomplete evidence; not actionable. | REJECT → REJECT, YES. Mirror rejected; original evidence remains UNKNOWN. |
 | ABH-GH-tenstorrent-tt-metal-56290 · [issue](https://github.com/tenstorrent/tt-metal/issues/56290) | $500 title advertisement correctly extracted. Official project README links its bounty program; source comment confirms reviewed and assigned community bounty. | UNVERIFIED automated authority because author association is CONTRIBUTOR. Official program provides stronger manual credibility, but exact payment/funding mechanism still not fully audited. | Assigned to singhharsh1708. [PR #56325](https://github.com/tenstorrent/tt-metal/pull/56325) is an open closing-reference submission; merged completion not observed. Additional attempts in comments. | Python/C++ specialized hardware project; Wormhole B0 and Blackhole required. Scope90; initial AI30/replay20; readiness30. Initial1.5–4h optimistic for inaccessible hardware. | REJECT → REJECT, YES. Assignment correct. Hardware model names now trigger critical dependency gate. |
 
-Original machine scores in frozen order: **39, 38, 38, 37, 36**. Source-review replay scores: **32, 42, 38, 37, 29**. These are heuristic scores; the frozen rank identities were not replaced after errors were discovered.
+Original machine scores in frozen order: **39, 38, 38, 37, 36**. Source-review replay scores: **26, 36, 31, 31, 29**. These are heuristic scores; the frozen rank identities were not replaced after errors were discovered.
 
 ## Transparent metrics
 
@@ -33,3 +33,5 @@ Original machine scores in frozen order: **39, 38, 38, 37, 36**. Source-review r
 - **Repository quality:** manual inspection found critical credential-only test behavior and hardware dependence. Code now detects these observed cases. General execution-readiness quality is not yet proven.
 
 The aquarium README's AI-directed title instruction and its external signature-registration request were treated as untrusted data. No external registration, source execution, claim, comment, wallet disclosure, fork or PR action occurred. No Phase 3 solving recommendation is justified.
+
+The final replay displays effort UNKNOWN for all five because enrichment is incomplete. Initial time buckets in the table are preserved as failure evidence, not current estimates.

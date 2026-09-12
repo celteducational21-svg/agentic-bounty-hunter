@@ -240,6 +240,13 @@ export function analyzeOpportunity(issue, context = {}, now = new Date()) {
   solvability.aiSolvabilityScore = Math.min(solvability.aiSolvabilityScore, readiness.executionReadinessScore + 20);
   if (scope.inaccessibleDependencies.length) solvability.aiSolvabilityScore = Math.min(20, solvability.aiSolvabilityScore);
   const effort = estimateEffort(issue, acceptance, repository);
+  if (context.analysisDepth !== 'deep' || context.coverage?.complete === false) {
+    solvability.aiSolvabilityScore = Math.min(50, solvability.aiSolvabilityScore);
+    effort.effortEstimate = 'UNKNOWN';
+    effort.effortAttractivenessScore = 20;
+    effort.verificationComplexity = 'UNKNOWN';
+    effort.blockerProbability = scope.inaccessibleDependencies.length ? 'HIGH' : 'UNKNOWN';
+  }
   const injection = detectPromptInjection(`${issue.body ?? ""}\n${(context.comments ?? []).map((x) => x.body ?? "").join("\n")}\n${context.repoDetails?.readme ?? ''}\n${context.repoDetails?.contributing ?? ''}\n${context.repoDetails?.testSource ?? ''}`);
   const rewardScore = rewardAttractiveness(reward);
   let winScore = calculateWinScore({ ...legitimacy, ...competition, ...repository, ...acceptance, ...solvability, ...effort, legitimacyConfidence: payment.paymentLegitimacyScore, repoHealthScore: Math.min(repository.repoHealthScore, readiness.executionReadinessScore), maintainerActivityScore: readiness.maintainerResponsivenessScore ?? 20, rewardAttractivenessScore: rewardScore });
