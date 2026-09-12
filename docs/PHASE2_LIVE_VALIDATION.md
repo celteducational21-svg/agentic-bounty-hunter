@@ -135,3 +135,19 @@ The browser verified the final revision's new behavior on production: **60 scann
 The final history viewer returned all three observed production states for aquarium #2: REJECT/36/UNKNOWN (final), SKIP/58/UNKNOWN (first remediation deployment), REJECT/62/SUBMITTED (prior engine). This verifies retention through both new deployments. Remaining display limitation: hiddenBlockerRisk currently describes issue-text scope only; a repository-derived credential blocker appears in rejection reasons and build status but does not yet raise that scope-only field. No HUNT is possible with that rejection.
 
 **Final verdict: INCOMPLETE / EXIT GATE NOT PASSED.** No Phase 3 candidate recommended. Next action: complete reliable original-source enrichment and payment-provider verification, then audit a fully enriched fixed production snapshot. Do not start solving or scheduled automation before that quality gate passes.
+
+## Phase 2.2 — 2026-09-12 (earlier evidence retained)
+
+**Verdict: INCOMPLETE. Ranking quality is not certified.** Architecture: PHASE2_2_ENRICHMENT.md. Full immutable population, source review, metrics and precise blockers: PHASE2_2_FIXED_SNAPSHOT_AUDIT.md. Curated source evidence: audits/phase2_2-fixed-production-review.json.
+
+Runtime source commit `e04b8f8602a63eb84a3264ff355c253342418fac`, deployment `dpl_4chqeyaKgXxBrwAoHkhCwV9hQWo8`, production https://agentic-bounty-hunter.vercel.app . Automated tests: **127 passed / 0 failed**, retaining the original 105 tests.
+
+The ONE frozen production scan at **2026-09-12T09:45:03.212Z** contains 60 raw, 55 unique/basic-screened, 52 final canonical-deduplicated records, 5 resolved originals, 0 verified provider listings, 5 completed repository inspections, and 0 FULLY_ENRICHED. Decisions: **HUNT0 / WATCH0 / SKIP0 / REJECT20 / INCOMPLETE32**. This now distinguishes incomplete evidence from invalid opportunities; it does not claim the 32 are valid bounties.
+
+The top five by preliminary selection are claude-builders-bounty/claude-builders-bounty issues #5, #4, #3, #2, #1. All were open/unassigned with direct task advertisements of $200/$150/$100/$75/$50 USD, respectively. All link Opire's homepage; no exact listing/issuer/funding verification was obtained. All have UNKNOWN total competition and effort, PARTIAL payment confidence, execution readiness 0, AI solvability 20, and no final opportunity score. Source-review decision agrees with INCOMPLETE for all five. This is not five certified payable opportunities.
+
+The shared repository metadata/tree/README were reused, but its board-only contents do not establish a runnable build/test baseline. Claim threads exceed 1,000 comments each. Of 85 enrichment requests, 20 returned 403 (cause UNKNOWN without rate-limit headers). Bounded comments/timeline/PR details and those failures prevented payment and competition completion. The selection lacks repository diversity/cost awareness; it spent all five slots on this board. Source review also found checkbox acceptance criteria under-extracted and implicit Claude API/external runtime dependencies absent from the structured blocker model.
+
+Production rendered the new UI and saved history. Read-only database snapshot loading returned the exact timestamp/counts with snapshotReadOnly true and durable Supabase persistence. The history viewer returned issue #4's saved INCOMPLETE record. One initial read-only browser navigation returned a transient 502; retry succeeded. Exact database row totals remain UNKNOWN. Existing dedicated ABH persistence/schema/history were preserved; CELT/ARES were not used.
+
+No external bounty actions occurred. No Phase 3 recommendation is justified. Remaining work is specifically complete source coverage with better budget selection, concrete provider-listing/issuer/payment verification, and acceptance/external-dependency extraction. Preserve this failed snapshot when evaluating a later remediation.

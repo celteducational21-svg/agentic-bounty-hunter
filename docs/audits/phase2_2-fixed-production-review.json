@@ -1,0 +1,842 @@
+{
+  "at": "2026-09-12T09:45:03.212Z",
+  "counts": {
+    "HUNT": 0,
+    "INCOMPLETE": 32,
+    "REJECT": 20,
+    "SKIP": 0,
+    "WATCH": 0
+  },
+  "funnel": {
+    "basicScreened": 55,
+    "canonicalResolved": 5,
+    "fullyEnriched": 0,
+    "providerVerified": 0,
+    "raw": 60,
+    "unique": 55
+  },
+  "http403": 20,
+  "requestCount": 85,
+  "selection": [
+    "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+    "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4",
+    "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+    "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
+    "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1"
+  ],
+  "top": [
+    {
+      "ai": 20,
+      "blockers": [],
+      "commentsRetrieved": 300,
+      "decision": "INCOMPLETE",
+      "effort": "UNKNOWN",
+      "id": "ABH-GH-claude-builders-bounty-claude-builders-bounty-5",
+      "issue": {
+        "apiUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/5",
+        "assignees": [],
+        "authorAssociation": "CONTRIBUTOR",
+        "body": "## 💰 Bounty: $200 — powered by [Opire](https://opire.dev)\n\n## Description\nCreate a complete n8n workflow that automatically generates a weekly narrative\nsummary of a GitHub repo's activity, using the Claude API.\n\n## Acceptance Criteria\n- [ ] Exportable n8n workflow (importable `.json` file)\n- [ ] Trigger: weekly cron (e.g., Friday at 5pm)\n- [ ] Fetches from GitHub API: commits, closed issues, merged PRs for the week\n- [ ] Calls Claude API (`claude-sonnet-4-20250514`) to generate a narrative summary\n- [ ] Delivers the summary via: email OR Discord/Slack webhook (your choice, documented)\n- [ ] Configurable variables: GitHub repo, destination channel, language (EN/FR)\n- [ ] Tested on a real n8n instance (include a screenshot of successful execution)\n- [ ] README with setup instructions in 5 steps or fewer\n\n## How to Claim\n1. Comment `/opire try` in this issue\n2. Submit a PR with the `.json` workflow + README\n3. Payment is released automatically on merge ✅\n\n## Resources\n- n8n docs: https://docs.n8n.io\n- Claude API docs: https://docs.anthropic.com",
+        "closedAt": null,
+        "comments": 1133,
+        "commentsUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/5/comments",
+        "createdAt": "2026-03-27T00:55:44Z",
+        "id": "4148310877",
+        "isPullRequest": false,
+        "issuer": "claudebounty",
+        "labels": [
+          "bounty",
+          "workflow"
+        ],
+        "number": 5,
+        "repository": "claude-builders-bounty/claude-builders-bounty",
+        "repositoryUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty",
+        "source": "github",
+        "state": "open",
+        "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
+        "updatedAt": "2026-09-12T01:58:53Z",
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5"
+      },
+      "observed": 20,
+      "payment": {
+        "evidence": [
+          {
+            "detail": "Issue author claudebounty; GitHub association CONTRIBUTOR",
+            "type": "issuer",
+            "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5"
+          },
+          {
+            "detail": "Link found; active status and exact task funding not independently verified",
+            "type": "provider_link",
+            "url": "https://opire.dev"
+          }
+        ],
+        "fundingStatus": "UNKNOWN",
+        "issuerAuthority": "UNKNOWN_PARTY",
+        "listingVerified": false,
+        "paymentConfidence": "PARTIAL",
+        "paymentProvider": "Opire",
+        "paymentTrigger": "UNKNOWN",
+        "platformVerified": true,
+        "provider": "GitHub-native/UNKNOWN"
+      },
+      "prs": [
+        {
+          "author": "Exnav29",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "Bounty 5 weekly GitHub summary",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3759"
+        },
+        {
+          "author": "Mazen-2010-afk",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "WORKFLOW: n8n + Claude weekly dev summary (#5)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4001"
+        },
+        {
+          "author": "devyeyostellar",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: n8n workflow for Claude summary (Closes #5)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4072"
+        },
+        {
+          "author": "kramsg1405",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "[BOUNTY #5] n8n Workflow - Automated Weekly Git Summary",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3956"
+        },
+        {
+          "author": "yy1142274323",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: n8n + Claude weekly dev summary workflow (bounty #5)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4187"
+        },
+        {
+          "author": "kramsg1405",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: n8n weekly dev summary workflow (Issue #5, $200)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4162"
+        },
+        {
+          "author": "arjunkshah12345-hash",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: n8n weekly GitHub+Claude Discord summary (Opire #5)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4156"
+        },
+        {
+          "author": "kramsg1405",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "[BOUNTY #5] n8n Workflow - Automated Weekly GitHub Summary",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3939"
+        },
+        {
+          "author": "0xhermes-28",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: n8n weekly dev summary workflow (#5)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3720"
+        },
+        {
+          "author": "rafaio1",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: n8n workflow for weekly dev summary (Bounty #5)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3918"
+        }
+      ],
+      "readiness": 0,
+      "repo": {
+        "archived": false,
+        "created_at": "2026-03-27T00:54:08Z",
+        "language": null,
+        "pushed_at": "2026-03-27T15:57:49Z",
+        "size": 55
+      },
+      "repoFiles": [
+        {
+          "path": "README.md",
+          "text": "# Claude Builders Bounty 🤖\n\n> A community bounty board for Claude Code builders.\n\nBuilding with Claude Code? Have tasks to delegate?\nWant to get paid for contributing to AI projects?\nYou're in the right place.\n\n---\n\n## How it works\n\n**To post a bounty**\n1. Open a GitHub issue with a clear description and acceptance criteria\n2. Comment `/opire create $XXX` in the issue to set the reward\n3. Share the link — contributors will find it\n\n**To claim a bounty**\n1. Browse the open issues below\n2. Comment `/opire try` in the issue you want to work on\n3. Submit a PR — payment is automatic on merge ✅\n\n---\n\n## Active Bounties\n\n| # | Task | Amount | Status |\n|---|------|--------|--------|\n| [#1](../../issues/1) | SKILL: Generate a CHANGELOG from git history | $50 | 🟢 Open |\n| [#2](../../issues/2) | TEMPLATE: CLAUDE.md for a Next.js + SQLite project | $75 | 🟢 Open |\n| [#3](../../issues/3) | HOOK: Block destructive bash commands in Claude Code | $100 | 🟢 Open |\n| [#4](../../issues/4) | AGENT: PR reviewer with structured Markdown output | $150 | 🟢 Open |\n| [#5](../../issues/5) | WORKFLOW: n8n + Claude API — automated weekly dev summary | $200 | 🟢 Open |\n\n---\n\n## Rules\n\n- Tasks must be related to Claude Code or AI tooling\n- Every issue must have clear acceptance criteria before a bounty is activated\n- Payment is handled by [Opire](https://opire.dev) (Stripe)\n- Quality over speed — a solid PR beats a fast one\n\n---\n\n## Community\n\n- 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)\n- 📧 Contact: claudebounty@gmail.com\n\n---\n\n*Started by the Claude builder community · March 2026 · MIT License*\n",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/blob/main/README.md"
+        }
+      ],
+      "reward": 200,
+      "scope": 15,
+      "steps": [
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "BASIC_SCREENED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "SOURCE_RESOLVED"
+        },
+        {
+          "reason": "Potential provider links may be in missing comments",
+          "status": "INCOMPLETE",
+          "step": "PAYMENT_CHECKED"
+        },
+        {
+          "reason": "Comments, PR search, timeline, provider or PR details incomplete",
+          "status": "INCOMPLETE",
+          "step": "COMPETITION_CHECKED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "REPO_CHECKED"
+        }
+      ],
+      "title": "[BOUNTY $200] WORKFLOW: n8n + Claude Code — automated weekly dev summary",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5"
+    },
+    {
+      "ai": 20,
+      "blockers": [],
+      "commentsRetrieved": 300,
+      "decision": "INCOMPLETE",
+      "effort": "UNKNOWN",
+      "id": "ABH-GH-claude-builders-bounty-claude-builders-bounty-4",
+      "issue": {
+        "apiUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/4",
+        "assignees": [],
+        "authorAssociation": "CONTRIBUTOR",
+        "body": "## 💰 Bounty: $150 — powered by [Opire](https://opire.dev)\n\n## Description\nCreate a Claude Code agent that takes a PR diff as input, analyzes it,\nand returns a structured Markdown review comment.\n\n## Acceptance Criteria\n- [ ] Works via CLI: `claude-review --pr https://github.com/owner/repo/pull/123`\n- [ ] OR via GitHub Action (include the workflow YAML)\n- [ ] Structured Markdown output with:\n  - Summary of changes (2–3 sentences)\n  - Identified risks (list)\n  - Improvement suggestions (list)\n  - Confidence score: Low / Medium / High\n- [ ] Tested on at least 2 real GitHub PRs (include outputs in the PR)\n- [ ] README with setup and usage instructions\n\n## How to Claim\n1. Comment `/opire try` in this issue\n2. Submit a PR with the agent + sample outputs\n3. Payment is released automatically on merge ✅",
+        "closedAt": null,
+        "comments": 1470,
+        "commentsUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/4/comments",
+        "createdAt": "2026-03-27T00:55:42Z",
+        "id": "4148310747",
+        "isPullRequest": false,
+        "issuer": "claudebounty",
+        "labels": [
+          "bounty",
+          "agent"
+        ],
+        "number": 4,
+        "repository": "claude-builders-bounty/claude-builders-bounty",
+        "repositoryUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty",
+        "source": "github",
+        "state": "open",
+        "title": "[BOUNTY $150] AGENT: Claude Code sub-agent that reviews a PR and posts a structured comment",
+        "updatedAt": "2026-09-12T01:58:50Z",
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4"
+      },
+      "observed": 25,
+      "payment": {
+        "evidence": [
+          {
+            "detail": "Issue author claudebounty; GitHub association CONTRIBUTOR",
+            "type": "issuer",
+            "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4"
+          },
+          {
+            "detail": "Link found; active status and exact task funding not independently verified",
+            "type": "provider_link",
+            "url": "https://opire.dev"
+          }
+        ],
+        "fundingStatus": "UNKNOWN",
+        "issuerAuthority": "UNKNOWN_PARTY",
+        "listingVerified": false,
+        "paymentConfidence": "PARTIAL",
+        "paymentProvider": "Opire",
+        "paymentTrigger": "UNKNOWN",
+        "platformVerified": true,
+        "provider": "GitHub-native/UNKNOWN"
+      },
+      "prs": [
+        {
+          "author": "arjunkshah12345-hash",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: claude-review CLI + Action (Opire #4)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4155"
+        },
+        {
+          "author": "mdmcl-pixel",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "Bounty 4 claude pr review agent",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3892"
+        },
+        {
+          "author": "veriton-dev",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: claude-review PR agent (Opire $150 bounty #4)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4221"
+        },
+        {
+          "author": "zzzhang1127",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat(agent): claude-review PR review CLI (closes #4)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4206"
+        },
+        {
+          "author": "dusc39-tech",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: add read-only Claude Code PR reviewer (#4)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4189"
+        },
+        {
+          "author": "kramsg1405",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "[BOUNTY #4] PR Review Agent - structured markdown review",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3955"
+        },
+        {
+          "author": "Mazen-2010-afk",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "AGENT: PR review CLI posting structured comment (#4)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4000"
+        },
+        {
+          "author": "kramsg1405",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: Claude Code PR review agent (Issue #4, $150)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4161"
+        },
+        {
+          "author": "kramsg1405",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "[BOUNTY #4] PR Review Agent - structured markdown output",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3938"
+        },
+        {
+          "author": "devyeyostellar",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: Claude Code PR review sub-agent (Closes #4)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4115"
+        }
+      ],
+      "readiness": 0,
+      "repo": {
+        "archived": false,
+        "created_at": "2026-03-27T00:54:08Z",
+        "language": null,
+        "pushed_at": "2026-03-27T15:57:49Z",
+        "size": 55
+      },
+      "repoFiles": [
+        {
+          "path": "README.md",
+          "text": "# Claude Builders Bounty 🤖\n\n> A community bounty board for Claude Code builders.\n\nBuilding with Claude Code? Have tasks to delegate?\nWant to get paid for contributing to AI projects?\nYou're in the right place.\n\n---\n\n## How it works\n\n**To post a bounty**\n1. Open a GitHub issue with a clear description and acceptance criteria\n2. Comment `/opire create $XXX` in the issue to set the reward\n3. Share the link — contributors will find it\n\n**To claim a bounty**\n1. Browse the open issues below\n2. Comment `/opire try` in the issue you want to work on\n3. Submit a PR — payment is automatic on merge ✅\n\n---\n\n## Active Bounties\n\n| # | Task | Amount | Status |\n|---|------|--------|--------|\n| [#1](../../issues/1) | SKILL: Generate a CHANGELOG from git history | $50 | 🟢 Open |\n| [#2](../../issues/2) | TEMPLATE: CLAUDE.md for a Next.js + SQLite project | $75 | 🟢 Open |\n| [#3](../../issues/3) | HOOK: Block destructive bash commands in Claude Code | $100 | 🟢 Open |\n| [#4](../../issues/4) | AGENT: PR reviewer with structured Markdown output | $150 | 🟢 Open |\n| [#5](../../issues/5) | WORKFLOW: n8n + Claude API — automated weekly dev summary | $200 | 🟢 Open |\n\n---\n\n## Rules\n\n- Tasks must be related to Claude Code or AI tooling\n- Every issue must have clear acceptance criteria before a bounty is activated\n- Payment is handled by [Opire](https://opire.dev) (Stripe)\n- Quality over speed — a solid PR beats a fast one\n\n---\n\n## Community\n\n- 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)\n- 📧 Contact: claudebounty@gmail.com\n\n---\n\n*Started by the Claude builder community · March 2026 · MIT License*\n",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/blob/main/README.md"
+        }
+      ],
+      "reward": 150,
+      "scope": 15,
+      "steps": [
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "BASIC_SCREENED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "SOURCE_RESOLVED"
+        },
+        {
+          "reason": "Potential provider links may be in missing comments",
+          "status": "INCOMPLETE",
+          "step": "PAYMENT_CHECKED"
+        },
+        {
+          "reason": "Comments, PR search, timeline, provider or PR details incomplete",
+          "status": "INCOMPLETE",
+          "step": "COMPETITION_CHECKED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "REPO_CHECKED"
+        }
+      ],
+      "title": "[BOUNTY $150] AGENT: Claude Code sub-agent that reviews a PR and posts a structured comment",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4"
+    },
+    {
+      "ai": 20,
+      "blockers": [],
+      "commentsRetrieved": 300,
+      "decision": "INCOMPLETE",
+      "effort": "UNKNOWN",
+      "id": "ABH-GH-claude-builders-bounty-claude-builders-bounty-3",
+      "issue": {
+        "apiUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/3",
+        "assignees": [],
+        "authorAssociation": "CONTRIBUTOR",
+        "body": "## 💰 Bounty: $100 — powered by [Opire](https://opire.dev)\n\n## Description\nCreate a Claude Code `pre-tool-use` hook in Python or bash that intercepts\ndangerous bash commands before they are executed.\n\n## Acceptance Criteria\n- [ ] Hook follows Claude Code hooks format (`~/.claude/hooks/`)\n- [ ] Blocks these patterns: `rm -rf`, `DROP TABLE`, `git push --force`,\n      `TRUNCATE`, `DELETE FROM` without a WHERE clause\n- [ ] Logs every blocked attempt to `~/.claude/hooks/blocked.log`\n      with: timestamp, attempted command, project path\n- [ ] Displays a clear message to Claude explaining why the command was blocked\n- [ ] Does not interfere with normal bash commands\n- [ ] README with installation in 2 commands or fewer\n\n## How to Claim\n1. Comment `/opire try` in this issue\n2. Submit a PR with the hook + README\n3. Payment is released automatically on merge ✅\n\n## Resources\n- Claude Code hooks docs: https://docs.anthropic.com/claude-code/hooks",
+        "closedAt": null,
+        "comments": 1674,
+        "commentsUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/3/comments",
+        "createdAt": "2026-03-27T00:55:40Z",
+        "id": "4148310577",
+        "isPullRequest": false,
+        "issuer": "claudebounty",
+        "labels": [
+          "bounty",
+          "hook",
+          "security"
+        ],
+        "number": 3,
+        "repository": "claude-builders-bounty/claude-builders-bounty",
+        "repositoryUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty",
+        "source": "github",
+        "state": "open",
+        "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
+        "updatedAt": "2026-09-12T01:58:46Z",
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3"
+      },
+      "observed": 20,
+      "payment": {
+        "evidence": [
+          {
+            "detail": "Issue author claudebounty; GitHub association CONTRIBUTOR",
+            "type": "issuer",
+            "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3"
+          },
+          {
+            "detail": "Link found; active status and exact task funding not independently verified",
+            "type": "provider_link",
+            "url": "https://opire.dev"
+          }
+        ],
+        "fundingStatus": "UNKNOWN",
+        "issuerAuthority": "UNKNOWN_PARTY",
+        "listingVerified": false,
+        "paymentConfidence": "PARTIAL",
+        "paymentProvider": "Opire",
+        "paymentTrigger": "UNKNOWN",
+        "platformVerified": true,
+        "provider": "GitHub-native/UNKNOWN"
+      },
+      "prs": [
+        {
+          "author": "mdmcl-pixel",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "Bounty 3 pretool safety hook",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3885"
+        },
+        {
+          "author": "arjunkshah12345-hash",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: PreToolUse hook blocks destructive bash (Opire #3)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4153"
+        }
+      ],
+      "readiness": 0,
+      "repo": {
+        "archived": false,
+        "created_at": "2026-03-27T00:54:08Z",
+        "language": null,
+        "pushed_at": "2026-03-27T15:57:49Z",
+        "size": 55
+      },
+      "repoFiles": [
+        {
+          "path": "README.md",
+          "text": "# Claude Builders Bounty 🤖\n\n> A community bounty board for Claude Code builders.\n\nBuilding with Claude Code? Have tasks to delegate?\nWant to get paid for contributing to AI projects?\nYou're in the right place.\n\n---\n\n## How it works\n\n**To post a bounty**\n1. Open a GitHub issue with a clear description and acceptance criteria\n2. Comment `/opire create $XXX` in the issue to set the reward\n3. Share the link — contributors will find it\n\n**To claim a bounty**\n1. Browse the open issues below\n2. Comment `/opire try` in the issue you want to work on\n3. Submit a PR — payment is automatic on merge ✅\n\n---\n\n## Active Bounties\n\n| # | Task | Amount | Status |\n|---|------|--------|--------|\n| [#1](../../issues/1) | SKILL: Generate a CHANGELOG from git history | $50 | 🟢 Open |\n| [#2](../../issues/2) | TEMPLATE: CLAUDE.md for a Next.js + SQLite project | $75 | 🟢 Open |\n| [#3](../../issues/3) | HOOK: Block destructive bash commands in Claude Code | $100 | 🟢 Open |\n| [#4](../../issues/4) | AGENT: PR reviewer with structured Markdown output | $150 | 🟢 Open |\n| [#5](../../issues/5) | WORKFLOW: n8n + Claude API — automated weekly dev summary | $200 | 🟢 Open |\n\n---\n\n## Rules\n\n- Tasks must be related to Claude Code or AI tooling\n- Every issue must have clear acceptance criteria before a bounty is activated\n- Payment is handled by [Opire](https://opire.dev) (Stripe)\n- Quality over speed — a solid PR beats a fast one\n\n---\n\n## Community\n\n- 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)\n- 📧 Contact: claudebounty@gmail.com\n\n---\n\n*Started by the Claude builder community · March 2026 · MIT License*\n",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/blob/main/README.md"
+        }
+      ],
+      "reward": 100,
+      "scope": 15,
+      "steps": [
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "BASIC_SCREENED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "SOURCE_RESOLVED"
+        },
+        {
+          "reason": "Potential provider links may be in missing comments",
+          "status": "INCOMPLETE",
+          "step": "PAYMENT_CHECKED"
+        },
+        {
+          "reason": "Comments, PR search, timeline, provider or PR details incomplete",
+          "status": "INCOMPLETE",
+          "step": "COMPETITION_CHECKED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "REPO_CHECKED"
+        }
+      ],
+      "title": "[BOUNTY $100] HOOK: Pre-tool-use hook that blocks destructive bash commands",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3"
+    },
+    {
+      "ai": 20,
+      "blockers": [],
+      "commentsRetrieved": 300,
+      "decision": "INCOMPLETE",
+      "effort": "UNKNOWN",
+      "id": "ABH-GH-claude-builders-bounty-claude-builders-bounty-2",
+      "issue": {
+        "apiUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/2",
+        "assignees": [],
+        "authorAssociation": "CONTRIBUTOR",
+        "body": "## 💰 Bounty: $75 — powered by [Opire](https://opire.dev)\n\n## Description\nCreate an opinionated, production-ready `CLAUDE.md` for a typical SaaS project\nbuilt with Next.js 15 App Router and SQLite (better-sqlite3 or Turso).\n\n## Acceptance Criteria\n- [ ] Covers: project structure, naming conventions, DB migration rules\n- [ ] Includes: dev commands, patterns to follow, anti-patterns to avoid\n- [ ] Opinionated — not generic. Every rule has a reason.\n- [ ] Usable without modification on a greenfield Next.js + SQLite project\n- [ ] Tested: create a new project, paste the CLAUDE.md, confirm Claude Code\n      understands the context without asking clarifying questions\n\n## How to Claim\n1. Comment `/opire try` in this issue\n2. Submit a PR with your CLAUDE.md\n3. Payment is released automatically on merge ✅\n\n## Expected Sections\n- Stack & versions\n- Folder structure\n- SQL / migration conventions\n- Component patterns\n- What we don't do (and why)",
+        "closedAt": null,
+        "comments": 1431,
+        "commentsUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/2/comments",
+        "createdAt": "2026-03-27T00:55:38Z",
+        "id": "4148310390",
+        "isPullRequest": false,
+        "issuer": "claudebounty",
+        "labels": [
+          "bounty",
+          "template"
+        ],
+        "number": 2,
+        "repository": "claude-builders-bounty/claude-builders-bounty",
+        "repositoryUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty",
+        "source": "github",
+        "state": "open",
+        "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
+        "updatedAt": "2026-09-12T01:58:43Z",
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2"
+      },
+      "observed": 27,
+      "payment": {
+        "evidence": [
+          {
+            "detail": "Issue author claudebounty; GitHub association CONTRIBUTOR",
+            "type": "issuer",
+            "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2"
+          },
+          {
+            "detail": "Link found; active status and exact task funding not independently verified",
+            "type": "provider_link",
+            "url": "https://opire.dev"
+          }
+        ],
+        "fundingStatus": "UNKNOWN",
+        "issuerAuthority": "UNKNOWN_PARTY",
+        "listingVerified": false,
+        "paymentConfidence": "PARTIAL",
+        "paymentProvider": "Opire",
+        "paymentTrigger": "UNKNOWN",
+        "platformVerified": true,
+        "provider": "GitHub-native/UNKNOWN"
+      },
+      "prs": [
+        {
+          "author": "arjunkshah12345-hash",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "docs: Next.js 15 + SQLite CLAUDE.md template (Opire #2)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4154"
+        },
+        {
+          "author": "xicuvufv-bot",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: add Next.js 15 + SQLite CLAUDE.md template (#2)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4105"
+        },
+        {
+          "author": "manudwievedi-dot",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "Solve Issue #2: Next.js + SQLite CLAUDE.md Template",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3836"
+        },
+        {
+          "author": "veriton-dev",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: Next.js 15 + SQLite SaaS CLAUDE.md template (Opire $75 #2)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4217"
+        },
+        {
+          "author": "zzzhang1127",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat(template): CLAUDE.md for Next.js 15 + SQLite SaaS (closes #2)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4208"
+        },
+        {
+          "author": "arcadiastudiobr",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat(template): CLAUDE.md for Next.js 15 + SQLite SaaS (closes #2)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4204"
+        },
+        {
+          "author": "heidman06",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: opinionated CLAUDE.md for Next.js 15 + SQLite SaaS (#2)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4068"
+        },
+        {
+          "author": "breezesamuel",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: add opinionated CLAUDE.md for Next.js 15 + SQLite SaaS (#2 $75)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4210"
+        },
+        {
+          "author": "WHY6894",
+          "closesIssue": true,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "Add Next.js 15 + SQLite CLAUDE.md ($75 bounty #2)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3766"
+        },
+        {
+          "author": "rushikeshgarad2024-dev",
+          "closesIssue": false,
+          "mergedAt": null,
+          "relation": "OPEN_SUBMISSION",
+          "state": "open",
+          "title": "feat: complete master suite for Bounties #1, #2, #3, #4, and #5 ( Total)",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/4170"
+        }
+      ],
+      "readiness": 0,
+      "repo": {
+        "archived": false,
+        "created_at": "2026-03-27T00:54:08Z",
+        "language": null,
+        "pushed_at": "2026-03-27T15:57:49Z",
+        "size": 55
+      },
+      "repoFiles": [
+        {
+          "path": "README.md",
+          "text": "# Claude Builders Bounty 🤖\n\n> A community bounty board for Claude Code builders.\n\nBuilding with Claude Code? Have tasks to delegate?\nWant to get paid for contributing to AI projects?\nYou're in the right place.\n\n---\n\n## How it works\n\n**To post a bounty**\n1. Open a GitHub issue with a clear description and acceptance criteria\n2. Comment `/opire create $XXX` in the issue to set the reward\n3. Share the link — contributors will find it\n\n**To claim a bounty**\n1. Browse the open issues below\n2. Comment `/opire try` in the issue you want to work on\n3. Submit a PR — payment is automatic on merge ✅\n\n---\n\n## Active Bounties\n\n| # | Task | Amount | Status |\n|---|------|--------|--------|\n| [#1](../../issues/1) | SKILL: Generate a CHANGELOG from git history | $50 | 🟢 Open |\n| [#2](../../issues/2) | TEMPLATE: CLAUDE.md for a Next.js + SQLite project | $75 | 🟢 Open |\n| [#3](../../issues/3) | HOOK: Block destructive bash commands in Claude Code | $100 | 🟢 Open |\n| [#4](../../issues/4) | AGENT: PR reviewer with structured Markdown output | $150 | 🟢 Open |\n| [#5](../../issues/5) | WORKFLOW: n8n + Claude API — automated weekly dev summary | $200 | 🟢 Open |\n\n---\n\n## Rules\n\n- Tasks must be related to Claude Code or AI tooling\n- Every issue must have clear acceptance criteria before a bounty is activated\n- Payment is handled by [Opire](https://opire.dev) (Stripe)\n- Quality over speed — a solid PR beats a fast one\n\n---\n\n## Community\n\n- 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)\n- 📧 Contact: claudebounty@gmail.com\n\n---\n\n*Started by the Claude builder community · March 2026 · MIT License*\n",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/blob/main/README.md"
+        }
+      ],
+      "reward": 75,
+      "scope": 25,
+      "steps": [
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "BASIC_SCREENED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "SOURCE_RESOLVED"
+        },
+        {
+          "reason": "Potential provider links may be in missing comments",
+          "status": "INCOMPLETE",
+          "step": "PAYMENT_CHECKED"
+        },
+        {
+          "reason": "Comments, PR search, timeline, provider or PR details incomplete",
+          "status": "INCOMPLETE",
+          "step": "COMPETITION_CHECKED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "REPO_CHECKED"
+        }
+      ],
+      "title": "[BOUNTY $75] TEMPLATE: CLAUDE.md for a Next.js + SQLite SaaS project",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2"
+    },
+    {
+      "ai": 20,
+      "blockers": [],
+      "commentsRetrieved": 0,
+      "decision": "INCOMPLETE",
+      "effort": "UNKNOWN",
+      "id": "ABH-GH-claude-builders-bounty-claude-builders-bounty-1",
+      "issue": {
+        "apiUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1",
+        "assignees": [],
+        "authorAssociation": "CONTRIBUTOR",
+        "body": "## 💰 Bounty: $50 — powered by [Opire](https://opire.dev)\n\n## Description\nCreate a Claude Code skill (`SKILL.md`) or a bash script that automatically generates\na structured `CHANGELOG.md` from a project's git history.\n\n## Acceptance Criteria\n- [ ] Works via `/generate-changelog` command or `bash changelog.sh`\n- [ ] Fetches commits since the last git tag\n- [ ] Auto-categorizes into: `Added` / `Fixed` / `Changed` / `Removed`\n- [ ] Outputs a properly formatted `CHANGELOG.md`\n- [ ] Tested on a real GitHub repo (include a sample output in the PR)\n- [ ] README with setup instructions in 3 steps or fewer\n\n## How to Claim\n1. Comment `/opire try` in this issue\n2. Submit a PR with your solution\n3. Payment is released automatically on merge ✅\n\n## Accepted Stack\nBash, Python, or native Claude Code `SKILL.md`.",
+        "closedAt": null,
+        "comments": 2131,
+        "commentsUrl": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1/comments",
+        "createdAt": "2026-03-27T00:55:36Z",
+        "id": "4148310244",
+        "isPullRequest": false,
+        "issuer": "claudebounty",
+        "labels": [
+          "bounty",
+          "skill",
+          "good first issue"
+        ],
+        "number": 1,
+        "repository": "claude-builders-bounty/claude-builders-bounty",
+        "repositoryUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty",
+        "source": "github",
+        "state": "open",
+        "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
+        "updatedAt": "2026-09-12T01:58:40Z",
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1"
+      },
+      "observed": 0,
+      "payment": {
+        "evidence": [
+          {
+            "detail": "Issue author claudebounty; GitHub association CONTRIBUTOR",
+            "type": "issuer",
+            "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1"
+          },
+          {
+            "detail": "Link found; active status and exact task funding not independently verified",
+            "type": "provider_link",
+            "url": "https://opire.dev"
+          }
+        ],
+        "fundingStatus": "UNKNOWN",
+        "issuerAuthority": "UNKNOWN_PARTY",
+        "listingVerified": false,
+        "paymentConfidence": "PARTIAL",
+        "paymentProvider": "Opire",
+        "paymentTrigger": "UNKNOWN",
+        "platformVerified": true,
+        "provider": "GitHub-native/UNKNOWN"
+      },
+      "prs": [],
+      "readiness": 0,
+      "repo": {
+        "archived": false,
+        "created_at": "2026-03-27T00:54:08Z",
+        "language": null,
+        "pushed_at": "2026-03-27T15:57:49Z",
+        "size": 55
+      },
+      "repoFiles": [
+        {
+          "path": "README.md",
+          "text": "# Claude Builders Bounty 🤖\n\n> A community bounty board for Claude Code builders.\n\nBuilding with Claude Code? Have tasks to delegate?\nWant to get paid for contributing to AI projects?\nYou're in the right place.\n\n---\n\n## How it works\n\n**To post a bounty**\n1. Open a GitHub issue with a clear description and acceptance criteria\n2. Comment `/opire create $XXX` in the issue to set the reward\n3. Share the link — contributors will find it\n\n**To claim a bounty**\n1. Browse the open issues below\n2. Comment `/opire try` in the issue you want to work on\n3. Submit a PR — payment is automatic on merge ✅\n\n---\n\n## Active Bounties\n\n| # | Task | Amount | Status |\n|---|------|--------|--------|\n| [#1](../../issues/1) | SKILL: Generate a CHANGELOG from git history | $50 | 🟢 Open |\n| [#2](../../issues/2) | TEMPLATE: CLAUDE.md for a Next.js + SQLite project | $75 | 🟢 Open |\n| [#3](../../issues/3) | HOOK: Block destructive bash commands in Claude Code | $100 | 🟢 Open |\n| [#4](../../issues/4) | AGENT: PR reviewer with structured Markdown output | $150 | 🟢 Open |\n| [#5](../../issues/5) | WORKFLOW: n8n + Claude API — automated weekly dev summary | $200 | 🟢 Open |\n\n---\n\n## Rules\n\n- Tasks must be related to Claude Code or AI tooling\n- Every issue must have clear acceptance criteria before a bounty is activated\n- Payment is handled by [Opire](https://opire.dev) (Stripe)\n- Quality over speed — a solid PR beats a fast one\n\n---\n\n## Community\n\n- 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)\n- 📧 Contact: claudebounty@gmail.com\n\n---\n\n*Started by the Claude builder community · March 2026 · MIT License*\n",
+          "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/blob/main/README.md"
+        }
+      ],
+      "reward": 50,
+      "scope": 25,
+      "steps": [
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "BASIC_SCREENED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "SOURCE_RESOLVED"
+        },
+        {
+          "reason": "Potential provider links may be in missing comments",
+          "status": "INCOMPLETE",
+          "step": "PAYMENT_CHECKED"
+        },
+        {
+          "reason": "Comments, PR search, timeline, provider or PR details incomplete",
+          "status": "INCOMPLETE",
+          "step": "COMPETITION_CHECKED"
+        },
+        {
+          "reason": "",
+          "status": "COMPLETE",
+          "step": "REPO_CHECKED"
+        }
+      ],
+      "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1"
+    }
+  ],
+  "sourceCommit": "e04b8f8602a63eb84a3264ff355c253342418fac",
+  "verdict": "INCOMPLETE",
+  "artifactType": "Curated source review; complete raw snapshot retained in dedicated ABH database",
+  "snapshotReadbackVerified": true
+}

@@ -22,7 +22,7 @@ Exit gate: live endpoint returns non-empty real results and the validation scrip
 ## Phase 2 — Opportunity intelligence
 
 Status: INCOMPLETE / exit gate NOT PASSED. See PHASE2_LIVE_VALIDATION.md.
-Phase 2.2 introduces staged, budgeted enrichment and immutable production snapshots; see PHASE2_2_ENRICHMENT.md. Incomplete transport evidence is distinct from hard rejection. Ranking remains uncertified pending the exact production snapshot audit.
+Phase 2.2 introduces staged, budgeted enrichment and immutable production snapshots; see PHASE2_2_ENRICHMENT.md. Incomplete transport evidence is distinct from hard rejection. The completed source review in PHASE2_2_FIXED_SNAPSHOT_AUDIT.md leaves ranking UNCERTIFIED: 127 tests pass, production/database readback works, but zero of five selected candidates completed payment/competition enrichment. The frozen scan is 60 raw, 55 unique, 52 final records, HUNT0 / WATCH0 / SKIP0 / REJECT20 / INCOMPLETE32. Remaining blockers are large-thread/source coverage and selection diversity, exact payment-listing/issuer verification, and scope/external-dependency extraction. Do not begin Phase 3.
 Phase 2.1 remediation and fixed Top-5 source audit are recorded in PHASE2_1_REMEDIATION.md and PHASE2_FIXED_SNAPSHOT_AUDIT.md. Tests and conservative gates improve, but payment authority and complete live enrichment remain blockers. No Phase 3 solving is authorized.
 Dedicated Supabase production history is connected and verified; ranking-quality gates still remain. See PHASE2_DATABASE.md.
 
