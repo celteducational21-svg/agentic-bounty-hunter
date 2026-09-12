@@ -7,7 +7,7 @@ import { deep, fixtures } from "./fixtures.js";
 const now = new Date("2026-09-10T00:00:00Z");
 test("extracts dollar rewards", () => assert.equal(extractReward(fixtures.excellent).rewardUsdEstimate, 150));
 test("parses stablecoin rewards as USD equivalent", () => assert.equal(extractReward(fixtures.clearBug).rewardUsdEstimate, 80));
-test("converts credible token rewards only with price evidence", () => assert.equal(extractReward({ ...fixtures.excellent, title: "0.1 ETH bounty" }, { tokenPrices: { ETH: 2500 } }).rewardUsdEstimate, 250));
+test("converts credible token rewards only with price evidence", () => assert.equal(extractReward({ ...fixtures.excellent, title: "0.1 ETH bounty" }, { now, tokenPrices: { ETH: { usd: 2500, sourceUrl: 'https://market.example/eth', timestamp: '2026-09-09T23:00:00Z', liquidityConfidence: 'HIGH', exchangeable: true } } }).rewardUsdEstimate, 250));
 test("does not invent project-token USD value", () => assert.equal(extractReward(fixtures.token).rewardUsdEstimate, null));
 test("rejects suspicious project-token rewards", () => assert.match(analyzeOpportunity(fixtures.token, deep, now).rejectionReasons.join(" "), /Payout cannot be reasonably established|credible verifiable market value/));
 test("rejects Upwork-routed issues", () => assert.match(analyzeOpportunity(fixtures.upwork, deep, now).rejectionReasons.join(" "), /Upwork/));

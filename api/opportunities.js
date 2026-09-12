@@ -20,7 +20,7 @@ export default async function handler(request, response) {
     response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
     response.setHeader("X-ABH-Policy", "analysis-only");
     return response.status(200).json({ ...payload, snapshotCount: durable ? payload.candidates.length : snapshots.length,
-      engineRevision: 'phase2-durable-v1', phase2ExitGate: 'NOT_PASSED',
+      engineRevision: 'phase2.1-evidence-v1', phase2ExitGate: 'NOT_PASSED',
       persistence: { durable: persisted?.persisted === true, backend: durable ? 'supabase-postgres' : 'warm-instance-memory', changes: persisted?.changes ?? null },
       humanApprovalRequired: true });
   } catch (error) {

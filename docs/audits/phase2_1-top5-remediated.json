@@ -1,0 +1,1499 @@
+{
+  "frozenAt": "2026-09-12T08:31:46.692Z",
+  "note": "Same five frozen identities. Supplementary source review; this is not a new live scan or exhaustive enrichment.",
+  "top5": [
+    {
+      "originalRank": 1,
+      "originalScore": 39,
+      "originalDecision": "REJECT",
+      "reviewed": {
+        "id": "5407238364",
+        "number": 1,
+        "source": "github",
+        "title": "[Bounty: $1,250] Optimize Subgraph Isomorphism to Strict O(N) Deterministic Space-Time Complexity",
+        "body": "### Severity: High\n### Bounty: ,250 USDC (Escrow Locked)\n\n### Problem Description\nOur state topology solver requires resolving whether a query graph G_q is isomorphic to a subgraph of G_t. The current Ullmann-based backtracking implementation exhibits exponential worst-case time complexity $O(V! \\cdot V^2)$.\n\nWe require a refactored implementation in src/solver/isomorphism.ts that achieves **strict $O(N)$ deterministic time and space complexity** on arbitrary undirected cyclic graphs without heuristic approximation.\n\n### Acceptance Criteria\n- Must compile with zero type errors.\n- Must execute deterministically in linear time $O(|V| + |E|)$.\n- All tests in \test/verify.js must pass.\n\n**Payout Settlement:** Settle upon PR merge and signature verification.",
+        "labels": [
+          "help wanted",
+          "bounty",
+          "algorithm"
+        ],
+        "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1",
+        "apiUrl": "https://api.github.com/repos/Senthemodder/aquarium-of-gullibles/issues/1",
+        "repository": "Senthemodder/aquarium-of-gullibles",
+        "repositoryUrl": "https://github.com/Senthemodder/aquarium-of-gullibles",
+        "commentsUrl": "https://api.github.com/repos/Senthemodder/aquarium-of-gullibles/issues/1/comments",
+        "createdAt": "2026-09-10T03:05:50Z",
+        "updatedAt": "2026-09-12T06:46:24Z",
+        "closedAt": null,
+        "state": "open",
+        "comments": 6,
+        "assignees": [],
+        "issuer": "Senthemodder",
+        "authorAssociation": "OWNER",
+        "isPullRequest": false,
+        "opportunityId": "ABH-GH-Senthemodder-aquarium-of-gullibles-1",
+        "retrievalTimestamp": "2026-09-12T08:31:46.692Z",
+        "originalIssueUrl": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1",
+        "bountyProviderUrl": null,
+        "evidenceUrls": [
+          "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1",
+          "https://github.com/Senthemodder/aquarium-of-gullibles"
+        ],
+        "analysisDepth": "partial",
+        "reward": {
+          "amount": null,
+          "currency": "USDC",
+          "usdEstimate": null,
+          "rewardType": "fixed",
+          "evidenceText": "### Bounty: ,250 USDC (Escrow Locked)",
+          "evidenceSourceUrl": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1",
+          "evidenceLocation": "body",
+          "confidence": 15,
+          "isDirectTaskReward": false,
+          "conflicts": [
+            {
+              "amount": 1250,
+              "currency": "USD",
+              "range": null,
+              "ambiguous": false,
+              "evidenceText": "[Bounty: $1,250] Optimize Subgraph Isomorphism to Strict O(N) Deterministic Space-Time Complexity",
+              "evidenceSourceUrl": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1",
+              "evidenceLocation": "title"
+            }
+          ]
+        },
+        "rewardAmount": null,
+        "rewardCurrency": "USDC",
+        "rewardUsdEstimate": null,
+        "rewardRange": null,
+        "rewardConfidence": 15,
+        "isDirectTaskReward": false,
+        "credibleMarketValue": false,
+        "paymentMethod": "UNKNOWN",
+        "paymentTrigger": "UNKNOWN",
+        "paymentRisk": "HIGH",
+        "tokenEvidence": {
+          "symbol": "USDC",
+          "category": "STABLE_VALUE",
+          "priceSourceUrl": null,
+          "priceTimestamp": null,
+          "liquidityConfidence": "ASSUMED_PEG",
+          "exchangeable": null,
+          "uncertainty": "USD value UNKNOWN; issuer equivalents are not market evidence"
+        },
+        "evidence": [
+          {
+            "type": "reward",
+            "detail": "body: ### Bounty: ,250 USDC (Escrow Locked) (conflicting offer retained)",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1"
+          },
+          {
+            "type": "legitimacy",
+            "detail": "Payout cannot be reasonably established",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1#issuecomment-5613302666",
+            "detail": "wanieldd: INTEREST_ONLY"
+          },
+          {
+            "type": "solvability",
+            "detail": "No root test directory detected",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles"
+          },
+          {
+            "type": "solvability",
+            "detail": "Scope clarity 55/100",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1"
+          }
+        ],
+        "legitimacyConfidence": 25,
+        "rejectionReason": "Payout cannot be reasonably established",
+        "contributorStates": [
+          {
+            "actor": "wanieldd",
+            "state": "INTEREST_ONLY",
+            "lastActivity": "2026-09-10T04:44:36Z",
+            "evidenceUrls": [
+              "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1#issuecomment-5613302666"
+            ]
+          }
+        ],
+        "activeCompetitorCount": null,
+        "activeCompetitors": null,
+        "observedActiveCompetitors": 0,
+        "interestedContributorCount": 1,
+        "submittedSolutionCount": null,
+        "competitionConfidence": "UNKNOWN",
+        "solutionSearchCompleteness": "PARTIAL",
+        "claimStatus": "UNKNOWN",
+        "competitionScore": 25,
+        "existingSolutionPRs": [],
+        "competitionEvidence": [
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1#issuecomment-5613302666",
+            "detail": "wanieldd: INTEREST_ONLY"
+          }
+        ],
+        "primaryLanguage": "TypeScript",
+        "frameworks": [],
+        "packageBuildSystem": [],
+        "approximateRepoSizeKb": 5,
+        "recentCommitActivity": "ACTIVE",
+        "hasReadme": false,
+        "hasContributing": false,
+        "hasTests": false,
+        "hasCI": null,
+        "hasLint": false,
+        "hasTypeChecking": false,
+        "buildCommands": [
+          "npm run build"
+        ],
+        "testCommands": [
+          "npm test"
+        ],
+        "openPRVolume": null,
+        "archived": false,
+        "repoHealthScore": 50,
+        "maintainerActivityScore": 75,
+        "testabilityScore": 0,
+        "developerSetupScore": 15,
+        "stack": "TypeScript",
+        "framework": [
+          "UNKNOWN"
+        ],
+        "setupCommand": "UNKNOWN",
+        "testCommand": "npm test",
+        "buildCommand": "npm run build",
+        "lintCommand": "UNKNOWN",
+        "typecheckCommand": "UNKNOWN",
+        "executionReadinessScore": 15,
+        "setupDifficulty": "UNKNOWN",
+        "maintainerResponsivenessScore": null,
+        "executionVerified": false,
+        "buildStatus": "BLOCKED_BY_CREDENTIALS",
+        "readinessEvidence": [
+          {
+            "type": "readiness",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles",
+            "detail": "Manifest scripts and documentation inspected; build/test execution NOT RUN. Setup: UNKNOWN; tests: npm test"
+          }
+        ],
+        "acceptanceCriteria": {
+          "criteria": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "filesMentioned": [
+            "src/solver/isomorphism.ts",
+            "est/verify.js"
+          ],
+          "reproductionSteps": [],
+          "testingRequirements": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "documentationRequirements": [],
+          "externalRequirements": [],
+          "scopeClarityScore": 55,
+          "codeChanges": [],
+          "requiredTests": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "requiredDocumentation": [],
+          "acceptanceCriteriaList": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "externalDependencies": [],
+          "verificationRequirements": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "inaccessibleDependencies": [],
+          "hiddenBlockerRisk": "LOW"
+        },
+        "scopeClarityScore": 55,
+        "aiSolvabilityScore": 35,
+        "effortEstimate": "1.5–4 hours",
+        "effortAttractivenessScore": 85,
+        "expectedFilesChanged": 2,
+        "implementationComplexity": "MEDIUM",
+        "verificationComplexity": "MEDIUM",
+        "blockerProbability": "LOW",
+        "payer": "Senthemodder",
+        "payerRole": "PROJECT_MAINTAINER",
+        "issuerAuthorityScore": 85,
+        "fundingConfidence": 0,
+        "paymentConfidence": "UNVERIFIED",
+        "paymentLegitimacyScore": 10,
+        "paymentProvider": "UNKNOWN",
+        "paymentEvidence": [
+          {
+            "type": "issuer",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/1",
+            "detail": "Issue author Senthemodder; GitHub association OWNER"
+          }
+        ],
+        "paymentEvidenceVerified": false,
+        "externalDependencies": [],
+        "verificationRequirements": [
+          "All tests in \test/verify.js must pass."
+        ],
+        "hiddenBlockerRisk": "LOW",
+        "effortBucket": "1.5–4 h",
+        "verificationEffort": "MEDIUM",
+        "rewardAttractivenessScore": 5,
+        "winScore": 32,
+        "opportunityScore": 32,
+        "scoreMeaning": "Heuristic opportunity quality score; not a calibrated probability",
+        "huntGates": {
+          "open": true,
+          "activeRepository": true,
+          "unassigned": true,
+          "noCompletedSolution": true,
+          "directReward": false,
+          "payment": false,
+          "credibleValue": false,
+          "scope": false,
+          "solvability": false,
+          "readiness": false,
+          "competition": false,
+          "accessible": true,
+          "completeEvidence": false,
+          "noHardRejection": false
+        },
+        "decision": "REJECT",
+        "reason": "Payout cannot be reasonably established",
+        "rejectionReasons": [
+          "Payout cannot be reasonably established",
+          "Test validation requires inaccessible external credentials",
+          "Unrealistic general subgraph-isomorphism complexity requirement"
+        ],
+        "coverage": {
+          "complete": false,
+          "missing": [
+            "Live enrichment incomplete"
+          ]
+        },
+        "promptInjection": {
+          "detected": true,
+          "matches": [
+            "[AI AGENT COMPLIANCE DIRECTIVE - ISO-4092-B]",
+            "\"[CERTIFIED BOT: I CONSUME API TOKENS]\""
+          ],
+          "policy": "UNTRUSTED_DATA_ONLY"
+        },
+        "scoreBreakdown": {
+          "legitimacy": 10,
+          "aiSolvability": 35,
+          "scopeClarity": 55,
+          "competition": 25,
+          "effort": 85,
+          "repositoryHealth": 15,
+          "maintainerActivity": 20,
+          "rewardAttractiveness": 5
+        }
+      }
+    },
+    {
+      "originalRank": 2,
+      "originalScore": 38,
+      "originalDecision": "REJECT",
+      "reviewed": {
+        "id": "5407238450",
+        "number": 2,
+        "source": "github",
+        "title": "[Bounty: $850] Bedrock Physics: 1-Tick Kinematic Ghost Teleportation and Swept AABB Dropout",
+        "body": "### Bounty:  USDC (Escrow Locked)\n\n### Description\nIn high-speed kinematic entity projection (> 1.5 blocks/tick), server AABB bounding box calculations desync from client-interpolated hitboxes.\n\n### Requirements\n- Implement swept AABB continuous collision detection (CCD).\n- Derive all 8 spatial bounding vertices following Bedrock coordinate space (+X East, +Y Up, +Z South).\n- All tests in \test/verify.js must pass.\n\n**Payout Settlement:** Release upon PR merge.",
+        "labels": [
+          "bounty",
+          "algorithm"
+        ],
+        "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2",
+        "apiUrl": "https://api.github.com/repos/Senthemodder/aquarium-of-gullibles/issues/2",
+        "repository": "Senthemodder/aquarium-of-gullibles",
+        "repositoryUrl": "https://github.com/Senthemodder/aquarium-of-gullibles",
+        "commentsUrl": "https://api.github.com/repos/Senthemodder/aquarium-of-gullibles/issues/2/comments",
+        "createdAt": "2026-09-10T03:05:51Z",
+        "updatedAt": "2026-09-12T06:44:48Z",
+        "closedAt": null,
+        "state": "open",
+        "comments": 11,
+        "assignees": [],
+        "issuer": "Senthemodder",
+        "authorAssociation": "OWNER",
+        "isPullRequest": false,
+        "opportunityId": "ABH-GH-Senthemodder-aquarium-of-gullibles-2",
+        "retrievalTimestamp": "2026-09-12T08:31:46.692Z",
+        "originalIssueUrl": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2",
+        "bountyProviderUrl": null,
+        "evidenceUrls": [
+          "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2",
+          "https://github.com/Senthemodder/aquarium-of-gullibles"
+        ],
+        "analysisDepth": "partial",
+        "reward": {
+          "amount": 850,
+          "currency": "USD",
+          "usdEstimate": 850,
+          "rewardType": "fixed",
+          "evidenceText": "[Bounty: $850] Bedrock Physics: 1-Tick Kinematic Ghost Teleportation and Swept AABB Dropout",
+          "evidenceSourceUrl": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2",
+          "evidenceLocation": "title",
+          "confidence": 90,
+          "isDirectTaskReward": true,
+          "conflicts": []
+        },
+        "rewardAmount": 850,
+        "rewardCurrency": "USD",
+        "rewardUsdEstimate": 850,
+        "rewardRange": null,
+        "rewardConfidence": 90,
+        "isDirectTaskReward": true,
+        "credibleMarketValue": true,
+        "paymentMethod": "UNKNOWN",
+        "paymentTrigger": "UNKNOWN",
+        "paymentRisk": "MEDIUM",
+        "tokenEvidence": {
+          "symbol": "USD",
+          "category": "STABLE_VALUE",
+          "priceSourceUrl": null,
+          "priceTimestamp": null,
+          "liquidityConfidence": "ASSUMED_PEG",
+          "exchangeable": null,
+          "uncertainty": "Nominal USD peg; redemption and depeg risks remain"
+        },
+        "evidence": [
+          {
+            "type": "reward",
+            "detail": "title: [Bounty: $850] Bedrock Physics: 1-Tick Kinematic Ghost Teleportation and Swept AABB Dropout",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2"
+          },
+          {
+            "type": "legitimacy",
+            "detail": "Explicit numeric reward",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5613477689",
+            "detail": "wanieldd: INTEREST_ONLY"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5639653568",
+            "detail": "aEMPTYCUP: CLAIMED"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5639712451",
+            "detail": "juliofarah: INTEREST_ONLY"
+          },
+          {
+            "type": "solvability",
+            "detail": "No root test directory detected",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles"
+          },
+          {
+            "type": "solvability",
+            "detail": "Scope clarity 65/100",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2"
+          }
+        ],
+        "legitimacyConfidence": 85,
+        "rejectionReason": null,
+        "contributorStates": [
+          {
+            "actor": "wanieldd",
+            "state": "INTEREST_ONLY",
+            "lastActivity": "2026-09-10T05:06:13Z",
+            "evidenceUrls": [
+              "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5613477689"
+            ]
+          },
+          {
+            "actor": "aEMPTYCUP",
+            "state": "CLAIMED",
+            "lastActivity": "2026-09-11T19:32:21Z",
+            "evidenceUrls": [
+              "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5639653568"
+            ]
+          },
+          {
+            "actor": "juliofarah",
+            "state": "INTEREST_ONLY",
+            "lastActivity": "2026-09-11T19:38:02Z",
+            "evidenceUrls": [
+              "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5639712451"
+            ]
+          }
+        ],
+        "activeCompetitorCount": null,
+        "activeCompetitors": null,
+        "observedActiveCompetitors": 1,
+        "interestedContributorCount": 2,
+        "submittedSolutionCount": null,
+        "competitionConfidence": "UNKNOWN",
+        "solutionSearchCompleteness": "PARTIAL",
+        "claimStatus": "UNKNOWN",
+        "competitionScore": 25,
+        "existingSolutionPRs": [],
+        "competitionEvidence": [
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5613477689",
+            "detail": "wanieldd: INTEREST_ONLY"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5639653568",
+            "detail": "aEMPTYCUP: CLAIMED"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2#issuecomment-5639712451",
+            "detail": "juliofarah: INTEREST_ONLY"
+          }
+        ],
+        "primaryLanguage": "TypeScript",
+        "frameworks": [],
+        "packageBuildSystem": [],
+        "approximateRepoSizeKb": 5,
+        "recentCommitActivity": "ACTIVE",
+        "hasReadme": false,
+        "hasContributing": false,
+        "hasTests": false,
+        "hasCI": null,
+        "hasLint": false,
+        "hasTypeChecking": false,
+        "buildCommands": [
+          "npm run build"
+        ],
+        "testCommands": [
+          "npm test"
+        ],
+        "openPRVolume": null,
+        "archived": false,
+        "repoHealthScore": 50,
+        "maintainerActivityScore": 75,
+        "testabilityScore": 0,
+        "developerSetupScore": 15,
+        "stack": "TypeScript",
+        "framework": [
+          "UNKNOWN"
+        ],
+        "setupCommand": "UNKNOWN",
+        "testCommand": "npm test",
+        "buildCommand": "npm run build",
+        "lintCommand": "UNKNOWN",
+        "typecheckCommand": "UNKNOWN",
+        "executionReadinessScore": 15,
+        "setupDifficulty": "UNKNOWN",
+        "maintainerResponsivenessScore": null,
+        "executionVerified": false,
+        "buildStatus": "BLOCKED_BY_CREDENTIALS",
+        "readinessEvidence": [
+          {
+            "type": "readiness",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles",
+            "detail": "Manifest scripts and documentation inspected; build/test execution NOT RUN. Setup: UNKNOWN; tests: npm test"
+          }
+        ],
+        "acceptanceCriteria": {
+          "criteria": [
+            "Implement swept AABB continuous collision detection (CCD).",
+            "All tests in \test/verify.js must pass."
+          ],
+          "filesMentioned": [
+            "est/verify.js"
+          ],
+          "reproductionSteps": [],
+          "testingRequirements": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "documentationRequirements": [],
+          "externalRequirements": [],
+          "scopeClarityScore": 65,
+          "codeChanges": [
+            "Implement swept AABB continuous collision detection (CCD)."
+          ],
+          "requiredTests": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "requiredDocumentation": [],
+          "acceptanceCriteriaList": [
+            "Implement swept AABB continuous collision detection (CCD).",
+            "All tests in \test/verify.js must pass."
+          ],
+          "externalDependencies": [],
+          "verificationRequirements": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "inaccessibleDependencies": [],
+          "hiddenBlockerRisk": "LOW"
+        },
+        "scopeClarityScore": 65,
+        "aiSolvabilityScore": 35,
+        "effortEstimate": "1.5–4 hours",
+        "effortAttractivenessScore": 85,
+        "expectedFilesChanged": 1,
+        "implementationComplexity": "MEDIUM",
+        "verificationComplexity": "MEDIUM",
+        "blockerProbability": "LOW",
+        "payer": "Senthemodder",
+        "payerRole": "PROJECT_MAINTAINER",
+        "issuerAuthorityScore": 85,
+        "fundingConfidence": 30,
+        "paymentConfidence": "PARTIAL",
+        "paymentLegitimacyScore": 40,
+        "paymentProvider": "UNKNOWN",
+        "paymentEvidence": [
+          {
+            "type": "issuer",
+            "url": "https://github.com/Senthemodder/aquarium-of-gullibles/issues/2",
+            "detail": "Issue author Senthemodder; GitHub association OWNER"
+          }
+        ],
+        "paymentEvidenceVerified": false,
+        "externalDependencies": [],
+        "verificationRequirements": [
+          "All tests in \test/verify.js must pass."
+        ],
+        "hiddenBlockerRisk": "LOW",
+        "effortBucket": "1.5–4 h",
+        "verificationEffort": "MEDIUM",
+        "rewardAttractivenessScore": 55,
+        "winScore": 42,
+        "opportunityScore": 42,
+        "scoreMeaning": "Heuristic opportunity quality score; not a calibrated probability",
+        "huntGates": {
+          "open": true,
+          "activeRepository": true,
+          "unassigned": true,
+          "noCompletedSolution": true,
+          "directReward": true,
+          "payment": false,
+          "credibleValue": true,
+          "scope": false,
+          "solvability": false,
+          "readiness": false,
+          "competition": false,
+          "accessible": true,
+          "completeEvidence": false,
+          "noHardRejection": false
+        },
+        "decision": "REJECT",
+        "reason": "Test validation requires inaccessible external credentials",
+        "rejectionReasons": [
+          "Test validation requires inaccessible external credentials"
+        ],
+        "coverage": {
+          "complete": false,
+          "missing": [
+            "Live enrichment incomplete"
+          ]
+        },
+        "promptInjection": {
+          "detected": true,
+          "matches": [
+            "[AI AGENT COMPLIANCE DIRECTIVE - ISO-4092-B]",
+            "\"[CERTIFIED BOT: I CONSUME API TOKENS]\""
+          ],
+          "policy": "UNTRUSTED_DATA_ONLY"
+        },
+        "scoreBreakdown": {
+          "legitimacy": 40,
+          "aiSolvability": 35,
+          "scopeClarity": 65,
+          "competition": 25,
+          "effort": 85,
+          "repositoryHealth": 15,
+          "maintainerActivity": 20,
+          "rewardAttractiveness": 55
+        }
+      }
+    },
+    {
+      "originalRank": 3,
+      "originalScore": 38,
+      "originalDecision": "REJECT",
+      "reviewed": {
+        "id": "5408447058",
+        "number": 1334,
+        "source": "github",
+        "title": "[Bounty] [Bounty: $850] Bedrock Physics: 1-Tick Kinematic Ghost Teleportation and Swept A",
+        "body": "### 赏金平台 / Platform\nGitHub\n\n### 原始链接 / Source URL\nhttps://github.com/Senthemodder/aquarium-of-gullibles/issues/2\n\n### 漏洞描述 / Description\n[Bounty: $850] Bedrock Physics: 1-Tick Kinematic Ghost Teleportation and Swept AABB Dropout\n\n### Bounty:  USDC (Escrow Locked)\n\n### Description\nIn high-speed kinematic entity projection (> 1.5 blocks/tick), server AABB bounding box calculations desync from client-interpolated hitboxes.\n\n### Requirements\n- Implement swept AABB continuous collision detection (CCD).\n- Derive all 8 spatial bounding vertices following Bedrock coordinate space (+X East, +Y Up, +Z South).\n- All tests in \test/verify.js must pass.\n\n**Payout Settlement:** Release upon PR merge.\n\n### 积分币奖励 / Coin Reward\n1062 coins\n\n### 真实赏金（USD）/ Real Reward\n$850\n\n### 难度 / Difficulty\nMedium\n\n### 认领方式\n评论 `/claim` 锁定任务 24h\n\n### 兑换说明\n> 查看 [REWARD_POLICY.md](REWARD_POLICY.md) 了解兑换规则\n",
+        "labels": [
+          "bounty",
+          "real"
+        ],
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334",
+        "apiUrl": "https://api.github.com/repos/zhangjiayang6835-cyber/bounty-plaza/issues/1334",
+        "repository": "zhangjiayang6835-cyber/bounty-plaza",
+        "repositoryUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza",
+        "commentsUrl": "https://api.github.com/repos/zhangjiayang6835-cyber/bounty-plaza/issues/1334/comments",
+        "createdAt": "2026-09-10T06:04:25Z",
+        "updatedAt": "2026-09-12T06:39:59Z",
+        "closedAt": null,
+        "state": "open",
+        "comments": 46,
+        "assignees": [],
+        "issuer": "zhangjiayang6835-cyber",
+        "authorAssociation": "OWNER",
+        "isPullRequest": false,
+        "opportunityId": "ABH-GH-zhangjiayang6835-cyber-bounty-plaza-1334",
+        "retrievalTimestamp": "2026-09-12T08:31:46.692Z",
+        "originalIssueUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334",
+        "bountyProviderUrl": null,
+        "evidenceUrls": [
+          "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334",
+          "https://github.com/zhangjiayang6835-cyber/bounty-plaza"
+        ],
+        "analysisDepth": "partial",
+        "reward": {
+          "amount": 850,
+          "currency": "USD",
+          "usdEstimate": 850,
+          "rewardType": "fixed",
+          "evidenceText": "[Bounty: $850] Bedrock Physics: 1-Tick Kinematic Ghost Teleportation and Swept AABB Dropout",
+          "evidenceSourceUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334",
+          "evidenceLocation": "body",
+          "confidence": 90,
+          "isDirectTaskReward": true,
+          "conflicts": []
+        },
+        "rewardAmount": 850,
+        "rewardCurrency": "USD",
+        "rewardUsdEstimate": 850,
+        "rewardRange": null,
+        "rewardConfidence": 90,
+        "isDirectTaskReward": true,
+        "credibleMarketValue": true,
+        "paymentMethod": "UNKNOWN",
+        "paymentTrigger": "UNKNOWN",
+        "paymentRisk": "MEDIUM",
+        "tokenEvidence": {
+          "symbol": "USD",
+          "category": "STABLE_VALUE",
+          "priceSourceUrl": null,
+          "priceTimestamp": null,
+          "liquidityConfidence": "ASSUMED_PEG",
+          "exchangeable": null,
+          "uncertainty": "Nominal USD peg; redemption and depeg risks remain"
+        },
+        "evidence": [
+          {
+            "type": "reward",
+            "detail": "body: [Bounty: $850] Bedrock Physics: 1-Tick Kinematic Ghost Teleportation and Swept AABB Dropout",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334"
+          },
+          {
+            "type": "legitimacy",
+            "detail": "Likely bounty mirror/repost",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334"
+          },
+          {
+            "type": "legitimacy",
+            "detail": "Explicit numeric reward",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334"
+          },
+          {
+            "type": "solvability",
+            "detail": "No root test directory detected",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza"
+          },
+          {
+            "type": "solvability",
+            "detail": "Scope clarity 65/100",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334"
+          }
+        ],
+        "legitimacyConfidence": 25,
+        "rejectionReason": "Likely bounty mirror/repost",
+        "contributorStates": [],
+        "activeCompetitorCount": null,
+        "activeCompetitors": null,
+        "observedActiveCompetitors": 0,
+        "interestedContributorCount": 0,
+        "submittedSolutionCount": null,
+        "competitionConfidence": "UNKNOWN",
+        "solutionSearchCompleteness": "PARTIAL",
+        "claimStatus": "UNKNOWN",
+        "competitionScore": 25,
+        "existingSolutionPRs": [],
+        "competitionEvidence": [],
+        "primaryLanguage": "UNKNOWN",
+        "frameworks": [],
+        "packageBuildSystem": [],
+        "approximateRepoSizeKb": null,
+        "recentCommitActivity": "STALE",
+        "hasReadme": false,
+        "hasContributing": false,
+        "hasTests": false,
+        "hasCI": null,
+        "hasLint": false,
+        "hasTypeChecking": false,
+        "buildCommands": [],
+        "testCommands": [],
+        "openPRVolume": null,
+        "archived": false,
+        "repoHealthScore": 0,
+        "maintainerActivityScore": 10,
+        "testabilityScore": 15,
+        "developerSetupScore": 0,
+        "stack": "UNKNOWN",
+        "framework": [
+          "UNKNOWN"
+        ],
+        "setupCommand": "UNKNOWN",
+        "testCommand": "UNKNOWN",
+        "buildCommand": "UNKNOWN",
+        "lintCommand": "UNKNOWN",
+        "typecheckCommand": "UNKNOWN",
+        "executionReadinessScore": 0,
+        "setupDifficulty": "UNKNOWN",
+        "maintainerResponsivenessScore": null,
+        "executionVerified": false,
+        "buildStatus": "NOT_RUN",
+        "readinessEvidence": [
+          {
+            "type": "readiness",
+            "detail": "Manifest scripts and documentation inspected; build/test execution NOT RUN. Setup: UNKNOWN; tests: UNKNOWN"
+          }
+        ],
+        "acceptanceCriteria": {
+          "criteria": [
+            "Implement swept AABB continuous collision detection (CCD).",
+            "All tests in \test/verify.js must pass."
+          ],
+          "filesMentioned": [
+            "est/verify.js"
+          ],
+          "reproductionSteps": [],
+          "testingRequirements": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "documentationRequirements": [],
+          "externalRequirements": [],
+          "scopeClarityScore": 65,
+          "codeChanges": [
+            "Implement swept AABB continuous collision detection (CCD)."
+          ],
+          "requiredTests": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "requiredDocumentation": [],
+          "acceptanceCriteriaList": [
+            "Implement swept AABB continuous collision detection (CCD).",
+            "All tests in \test/verify.js must pass."
+          ],
+          "externalDependencies": [],
+          "verificationRequirements": [
+            "All tests in \test/verify.js must pass."
+          ],
+          "inaccessibleDependencies": [],
+          "hiddenBlockerRisk": "LOW"
+        },
+        "scopeClarityScore": 65,
+        "aiSolvabilityScore": 20,
+        "effortEstimate": "1.5–4 hours",
+        "effortAttractivenessScore": 85,
+        "expectedFilesChanged": 1,
+        "implementationComplexity": "MEDIUM",
+        "verificationComplexity": "MEDIUM",
+        "blockerProbability": "LOW",
+        "payer": "zhangjiayang6835-cyber",
+        "payerRole": "PROJECT_MAINTAINER",
+        "issuerAuthorityScore": 85,
+        "fundingConfidence": 30,
+        "paymentConfidence": "PARTIAL",
+        "paymentLegitimacyScore": 40,
+        "paymentProvider": "UNKNOWN",
+        "paymentEvidence": [
+          {
+            "type": "issuer",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1334",
+            "detail": "Issue author zhangjiayang6835-cyber; GitHub association OWNER"
+          }
+        ],
+        "paymentEvidenceVerified": false,
+        "externalDependencies": [],
+        "verificationRequirements": [
+          "All tests in \test/verify.js must pass."
+        ],
+        "hiddenBlockerRisk": "LOW",
+        "effortBucket": "1.5–4 h",
+        "verificationEffort": "MEDIUM",
+        "rewardAttractivenessScore": 55,
+        "winScore": 38,
+        "opportunityScore": 38,
+        "scoreMeaning": "Heuristic opportunity quality score; not a calibrated probability",
+        "huntGates": {
+          "open": true,
+          "activeRepository": false,
+          "unassigned": true,
+          "noCompletedSolution": true,
+          "directReward": true,
+          "payment": false,
+          "credibleValue": true,
+          "scope": false,
+          "solvability": false,
+          "readiness": false,
+          "competition": false,
+          "accessible": true,
+          "completeEvidence": false,
+          "noHardRejection": false
+        },
+        "decision": "REJECT",
+        "reason": "Likely bounty mirror/repost",
+        "rejectionReasons": [
+          "Likely bounty mirror/repost"
+        ],
+        "coverage": {
+          "complete": false,
+          "missing": [
+            "Live enrichment incomplete"
+          ]
+        },
+        "promptInjection": {
+          "detected": false,
+          "matches": [],
+          "policy": "UNTRUSTED_DATA_ONLY"
+        },
+        "scoreBreakdown": {
+          "legitimacy": 40,
+          "aiSolvability": 20,
+          "scopeClarity": 65,
+          "competition": 25,
+          "effort": 85,
+          "repositoryHealth": 0,
+          "maintainerActivity": 20,
+          "rewardAttractiveness": 55
+        }
+      }
+    },
+    {
+      "originalRank": 4,
+      "originalScore": 37,
+      "originalDecision": "REJECT",
+      "reviewed": {
+        "id": "5406530945",
+        "number": 1326,
+        "source": "github",
+        "title": "[Bounty] [Bounty: $500] Custom Block Definition Fails Schema Validation in Bedrock 1.26.3",
+        "body": "### 赏金平台 / Platform\nGitHub\n\n### 原始链接 / Source URL\nhttps://github.com/Senthemodder/tank-of-mannequins/issues/2\n\n### 漏洞描述 / Description\n[Bounty: $500] Custom Block Definition Fails Schema Validation in Bedrock 1.26.30\n\n### Summary\nThe block definition for custom:compressed_basalt under \format_version: \"1.21.40\" fails schema validation upon server startup.\n\n`\n[BlockSchemaValidator][Error] Validation failed for 'custom:compressed_basalt':\nProperty 'minecraft:material_instances' contains invalid face specifier '*' with render method 'alpha_test'.\n`\n\n### Requirements\n- Update block JSON definition to comply with Bedrock 1.21+ / 1.26+ block schemas.\n- Ensure isotropic face textures render properly without client rendering pipeline asserts.\n\n**Bounty:**  settled upon verification.\n\n### 积分币奖励 / Coin Reward\n625 coins\n\n### 真实赏金（USD）/ Real Reward\n$500\n\n### 难度 / Difficulty\nMedium\n\n### 认领方式\n评论 `/claim` 锁定任务 24h\n\n### 兑换说明\n> 查看 [REWARD_POLICY.md](REWARD_POLICY.md) 了解兑换规则\n",
+        "labels": [
+          "bounty",
+          "real"
+        ],
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326",
+        "apiUrl": "https://api.github.com/repos/zhangjiayang6835-cyber/bounty-plaza/issues/1326",
+        "repository": "zhangjiayang6835-cyber/bounty-plaza",
+        "repositoryUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza",
+        "commentsUrl": "https://api.github.com/repos/zhangjiayang6835-cyber/bounty-plaza/issues/1326/comments",
+        "createdAt": "2026-09-10T01:13:57Z",
+        "updatedAt": "2026-09-12T06:50:50Z",
+        "closedAt": null,
+        "state": "open",
+        "comments": 8,
+        "assignees": [],
+        "issuer": "zhangjiayang6835-cyber",
+        "authorAssociation": "OWNER",
+        "isPullRequest": false,
+        "opportunityId": "ABH-GH-zhangjiayang6835-cyber-bounty-plaza-1326",
+        "retrievalTimestamp": "2026-09-12T08:31:46.692Z",
+        "originalIssueUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326",
+        "bountyProviderUrl": null,
+        "evidenceUrls": [
+          "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326",
+          "https://github.com/zhangjiayang6835-cyber/bounty-plaza"
+        ],
+        "analysisDepth": "partial",
+        "reward": {
+          "amount": 500,
+          "currency": "USD",
+          "usdEstimate": 500,
+          "rewardType": "fixed",
+          "evidenceText": "[Bounty: $500] Custom Block Definition Fails Schema Validation in Bedrock 1.26.30",
+          "evidenceSourceUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326",
+          "evidenceLocation": "body",
+          "confidence": 90,
+          "isDirectTaskReward": true,
+          "conflicts": []
+        },
+        "rewardAmount": 500,
+        "rewardCurrency": "USD",
+        "rewardUsdEstimate": 500,
+        "rewardRange": null,
+        "rewardConfidence": 90,
+        "isDirectTaskReward": true,
+        "credibleMarketValue": true,
+        "paymentMethod": "UNKNOWN",
+        "paymentTrigger": "UNKNOWN",
+        "paymentRisk": "MEDIUM",
+        "tokenEvidence": {
+          "symbol": "USD",
+          "category": "STABLE_VALUE",
+          "priceSourceUrl": null,
+          "priceTimestamp": null,
+          "liquidityConfidence": "ASSUMED_PEG",
+          "exchangeable": null,
+          "uncertainty": "Nominal USD peg; redemption and depeg risks remain"
+        },
+        "evidence": [
+          {
+            "type": "reward",
+            "detail": "body: [Bounty: $500] Custom Block Definition Fails Schema Validation in Bedrock 1.26.30",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326"
+          },
+          {
+            "type": "legitimacy",
+            "detail": "Likely bounty mirror/repost",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326"
+          },
+          {
+            "type": "legitimacy",
+            "detail": "Explicit numeric reward",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326"
+          },
+          {
+            "type": "solvability",
+            "detail": "No root test directory detected",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza"
+          },
+          {
+            "type": "solvability",
+            "detail": "Scope clarity 35/100",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326"
+          }
+        ],
+        "legitimacyConfidence": 25,
+        "rejectionReason": "Likely bounty mirror/repost",
+        "contributorStates": [],
+        "activeCompetitorCount": null,
+        "activeCompetitors": null,
+        "observedActiveCompetitors": 0,
+        "interestedContributorCount": 0,
+        "submittedSolutionCount": null,
+        "competitionConfidence": "UNKNOWN",
+        "solutionSearchCompleteness": "PARTIAL",
+        "claimStatus": "UNKNOWN",
+        "competitionScore": 25,
+        "existingSolutionPRs": [],
+        "competitionEvidence": [],
+        "primaryLanguage": "Python",
+        "frameworks": [],
+        "packageBuildSystem": [],
+        "approximateRepoSizeKb": 144,
+        "recentCommitActivity": "RECENT",
+        "hasReadme": false,
+        "hasContributing": false,
+        "hasTests": false,
+        "hasCI": null,
+        "hasLint": false,
+        "hasTypeChecking": false,
+        "buildCommands": [],
+        "testCommands": [],
+        "openPRVolume": null,
+        "archived": false,
+        "repoHealthScore": 40,
+        "maintainerActivityScore": 60,
+        "testabilityScore": 15,
+        "developerSetupScore": 10,
+        "stack": "Python",
+        "framework": [
+          "UNKNOWN"
+        ],
+        "setupCommand": "UNKNOWN",
+        "testCommand": "UNKNOWN",
+        "buildCommand": "UNKNOWN",
+        "lintCommand": "UNKNOWN",
+        "typecheckCommand": "UNKNOWN",
+        "executionReadinessScore": 10,
+        "setupDifficulty": "UNKNOWN",
+        "maintainerResponsivenessScore": null,
+        "executionVerified": false,
+        "buildStatus": "NOT_RUN",
+        "readinessEvidence": [
+          {
+            "type": "readiness",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza",
+            "detail": "Manifest scripts and documentation inspected; build/test execution NOT RUN. Setup: UNKNOWN; tests: UNKNOWN"
+          }
+        ],
+        "acceptanceCriteria": {
+          "criteria": [
+            "Update block JSON definition to comply with Bedrock 1.21+ / 1.26+ block schemas.",
+            "Ensure isotropic face textures render properly without client rendering pipeline asserts."
+          ],
+          "filesMentioned": [],
+          "reproductionSteps": [],
+          "testingRequirements": [],
+          "documentationRequirements": [],
+          "externalRequirements": [],
+          "scopeClarityScore": 35,
+          "codeChanges": [
+            "Update block JSON definition to comply with Bedrock 1.21+ / 1.26+ block schemas.",
+            "Ensure isotropic face textures render properly without client rendering pipeline asserts."
+          ],
+          "requiredTests": [],
+          "requiredDocumentation": [],
+          "acceptanceCriteriaList": [
+            "Update block JSON definition to comply with Bedrock 1.21+ / 1.26+ block schemas.",
+            "Ensure isotropic face textures render properly without client rendering pipeline asserts."
+          ],
+          "externalDependencies": [],
+          "verificationRequirements": [],
+          "inaccessibleDependencies": [],
+          "hiddenBlockerRisk": "LOW"
+        },
+        "scopeClarityScore": 35,
+        "aiSolvabilityScore": 30,
+        "effortEstimate": "1.5–4 hours",
+        "effortAttractivenessScore": 85,
+        "expectedFilesChanged": "2–6",
+        "implementationComplexity": "MEDIUM",
+        "verificationComplexity": "MEDIUM",
+        "blockerProbability": "LOW",
+        "payer": "zhangjiayang6835-cyber",
+        "payerRole": "PROJECT_MAINTAINER",
+        "issuerAuthorityScore": 85,
+        "fundingConfidence": 30,
+        "paymentConfidence": "PARTIAL",
+        "paymentLegitimacyScore": 40,
+        "paymentProvider": "UNKNOWN",
+        "paymentEvidence": [
+          {
+            "type": "issuer",
+            "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1326",
+            "detail": "Issue author zhangjiayang6835-cyber; GitHub association OWNER"
+          }
+        ],
+        "paymentEvidenceVerified": false,
+        "externalDependencies": [],
+        "verificationRequirements": [],
+        "hiddenBlockerRisk": "LOW",
+        "effortBucket": "1.5–4 h",
+        "verificationEffort": "MEDIUM",
+        "rewardAttractivenessScore": 75,
+        "winScore": 37,
+        "opportunityScore": 37,
+        "scoreMeaning": "Heuristic opportunity quality score; not a calibrated probability",
+        "huntGates": {
+          "open": true,
+          "activeRepository": true,
+          "unassigned": true,
+          "noCompletedSolution": true,
+          "directReward": true,
+          "payment": false,
+          "credibleValue": true,
+          "scope": false,
+          "solvability": false,
+          "readiness": false,
+          "competition": false,
+          "accessible": true,
+          "completeEvidence": false,
+          "noHardRejection": false
+        },
+        "decision": "REJECT",
+        "reason": "Likely bounty mirror/repost",
+        "rejectionReasons": [
+          "Likely bounty mirror/repost"
+        ],
+        "coverage": {
+          "complete": false,
+          "missing": [
+            "repository root contents",
+            "comments unavailable",
+            "PR search unavailable",
+            "bounded timeline/PR details"
+          ]
+        },
+        "promptInjection": {
+          "detected": false,
+          "matches": [],
+          "policy": "UNTRUSTED_DATA_ONLY"
+        },
+        "scoreBreakdown": {
+          "legitimacy": 40,
+          "aiSolvability": 30,
+          "scopeClarity": 35,
+          "competition": 25,
+          "effort": 85,
+          "repositoryHealth": 10,
+          "maintainerActivity": 20,
+          "rewardAttractiveness": 75
+        }
+      }
+    },
+    {
+      "originalRank": 5,
+      "originalScore": 36,
+      "originalDecision": "REJECT",
+      "reviewed": {
+        "id": "5427860771",
+        "number": 56290,
+        "source": "github",
+        "title": "[Bounty $500] ttnn.quantize/requantize uint8 lower-bound saturation",
+        "body": "## Description\n\n`ttnn.quantize` and `ttnn.requantize` do not saturate uint8 outputs at the lower bound.\n\nFor uint8 output, values below 0 should produce 0. Instead, negative values can be returned as their magnitude. For example, quantizing `x` and `-x` can produce identical uint8 bytes.\n\nThe issue reproduces on Wormhole B0 and Blackhole.\n\n## Expected behavior\n\nFor quantization:\n\n    output = clamp(round(input / scale + zero_point), 0, 255)\n\nFor requantization:\n\n    output = clamp(round((input - input_zero_point)\n                         * input_scale / output_scale\n                         + output_zero_point), 0, 255)\n\n## Acceptance criteria\n\n- Fix uint8 lower-bound saturation for `ttnn.quantize`.\n- Fix uint8 lower-bound saturation for `ttnn.requantize`.\n- Preserve correct upper saturation at 255.\n- Add exact-output regression tests for negative, in-range, and over-range values.\n- Run coverage on Wormhole B0 and Blackhole.\n- Preserve existing int8 and in-range uint8 behavior.\n\n## Related work\n\n- #48607 — general uint8 quantize/dequantize/requantize support\n- #51303 — uint8 tensor zero-point abort\n- #51304 — composite-path rounding divergence; saturation is separate\n",
+        "labels": [
+          "bounty",
+          "bounty_difficulty/easy"
+        ],
+        "url": "https://github.com/tenstorrent/tt-metal/issues/56290",
+        "apiUrl": "https://api.github.com/repos/tenstorrent/tt-metal/issues/56290",
+        "repository": "tenstorrent/tt-metal",
+        "repositoryUrl": "https://github.com/tenstorrent/tt-metal",
+        "commentsUrl": "https://api.github.com/repos/tenstorrent/tt-metal/issues/56290/comments",
+        "createdAt": "2026-09-11T18:45:31Z",
+        "updatedAt": "2026-09-12T07:13:21Z",
+        "closedAt": null,
+        "state": "open",
+        "comments": 11,
+        "assignees": [
+          "singhharsh1708"
+        ],
+        "issuer": "jberkowitzTT",
+        "authorAssociation": "CONTRIBUTOR",
+        "isPullRequest": false,
+        "opportunityId": "ABH-GH-tenstorrent-tt-metal-56290",
+        "retrievalTimestamp": "2026-09-12T08:31:46.692Z",
+        "originalIssueUrl": "https://github.com/tenstorrent/tt-metal/issues/56290",
+        "bountyProviderUrl": null,
+        "evidenceUrls": [
+          "https://github.com/tenstorrent/tt-metal/issues/56290",
+          "https://github.com/tenstorrent/tt-metal",
+          "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5639169054",
+          "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5639189235",
+          "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5639246682",
+          "https://github.com/tenstorrent/tt-metal/pull/56325"
+        ],
+        "analysisDepth": "partial",
+        "reward": {
+          "amount": 500,
+          "currency": "USD",
+          "usdEstimate": 500,
+          "rewardType": "fixed",
+          "evidenceText": "[Bounty $500] ttnn.quantize/requantize uint8 lower-bound saturation",
+          "evidenceSourceUrl": "https://github.com/tenstorrent/tt-metal/issues/56290",
+          "evidenceLocation": "title",
+          "confidence": 90,
+          "isDirectTaskReward": true,
+          "conflicts": []
+        },
+        "rewardAmount": 500,
+        "rewardCurrency": "USD",
+        "rewardUsdEstimate": 500,
+        "rewardRange": null,
+        "rewardConfidence": 90,
+        "isDirectTaskReward": true,
+        "credibleMarketValue": true,
+        "paymentMethod": "UNKNOWN",
+        "paymentTrigger": "UNKNOWN",
+        "paymentRisk": "MEDIUM",
+        "tokenEvidence": {
+          "symbol": "USD",
+          "category": "STABLE_VALUE",
+          "priceSourceUrl": null,
+          "priceTimestamp": null,
+          "liquidityConfidence": "ASSUMED_PEG",
+          "exchangeable": null,
+          "uncertainty": "Nominal USD peg; redemption and depeg risks remain"
+        },
+        "evidence": [
+          {
+            "type": "reward",
+            "detail": "title: [Bounty $500] ttnn.quantize/requantize uint8 lower-bound saturation",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290"
+          },
+          {
+            "type": "legitimacy",
+            "detail": "Explicit numeric reward",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5639246682",
+            "detail": "juliofarah: INTEREST_ONLY"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5640932644",
+            "detail": "gcoinstash-cmd: INTEREST_ONLY"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5644398165",
+            "detail": "iprasen: SUBMITTED_PR"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/pull/56325",
+            "detail": "iprasen: SUBMITTED_PR"
+          },
+          {
+            "type": "solvability",
+            "detail": "No root test directory detected",
+            "url": "https://github.com/tenstorrent/tt-metal"
+          },
+          {
+            "type": "solvability",
+            "detail": "Scope clarity 90/100",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290"
+          }
+        ],
+        "legitimacyConfidence": 90,
+        "rejectionReason": null,
+        "contributorStates": [
+          {
+            "actor": "juliofarah",
+            "state": "INTEREST_ONLY",
+            "lastActivity": "2026-09-11T18:54:35Z",
+            "evidenceUrls": [
+              "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5639246682"
+            ]
+          },
+          {
+            "actor": "gcoinstash-cmd",
+            "state": "INTEREST_ONLY",
+            "lastActivity": "2026-09-11T21:38:29Z",
+            "evidenceUrls": [
+              "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5640932644"
+            ]
+          },
+          {
+            "actor": "iprasen",
+            "state": "SUBMITTED_PR",
+            "lastActivity": "2026-09-12T07:13:22Z",
+            "evidenceUrls": [
+              "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5644398165",
+              "https://github.com/tenstorrent/tt-metal/pull/56325"
+            ]
+          }
+        ],
+        "activeCompetitorCount": null,
+        "activeCompetitors": null,
+        "observedActiveCompetitors": 1,
+        "interestedContributorCount": 2,
+        "submittedSolutionCount": null,
+        "competitionConfidence": "UNKNOWN",
+        "solutionSearchCompleteness": "PARTIAL",
+        "claimStatus": "UNKNOWN",
+        "competitionScore": 0,
+        "existingSolutionPRs": [
+          {
+            "url": "https://github.com/tenstorrent/tt-metal/pull/56325",
+            "title": "Fix uint8 lower-bound saturation in ttnn.quantize and ttnn.requantize (#56290)",
+            "author": "iprasen",
+            "state": "open",
+            "mergedAt": null,
+            "closesIssue": true,
+            "relation": "OPEN_SUBMISSION"
+          }
+        ],
+        "competitionEvidence": [
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5639246682",
+            "detail": "juliofarah: INTEREST_ONLY"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5640932644",
+            "detail": "gcoinstash-cmd: INTEREST_ONLY"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290#issuecomment-5644398165",
+            "detail": "iprasen: SUBMITTED_PR"
+          },
+          {
+            "type": "competition",
+            "url": "https://github.com/tenstorrent/tt-metal/pull/56325",
+            "detail": "iprasen: SUBMITTED_PR"
+          }
+        ],
+        "primaryLanguage": "C++",
+        "frameworks": [],
+        "packageBuildSystem": [],
+        "approximateRepoSizeKb": 1707480,
+        "recentCommitActivity": "ACTIVE",
+        "hasReadme": false,
+        "hasContributing": false,
+        "hasTests": false,
+        "hasCI": null,
+        "hasLint": false,
+        "hasTypeChecking": false,
+        "buildCommands": [],
+        "testCommands": [],
+        "openPRVolume": null,
+        "archived": false,
+        "repoHealthScore": 50,
+        "maintainerActivityScore": 75,
+        "testabilityScore": 15,
+        "developerSetupScore": 30,
+        "stack": "C++",
+        "framework": [
+          "UNKNOWN"
+        ],
+        "setupCommand": "UNKNOWN",
+        "testCommand": "UNKNOWN",
+        "buildCommand": "UNKNOWN",
+        "lintCommand": "UNKNOWN",
+        "typecheckCommand": "UNKNOWN",
+        "executionReadinessScore": 30,
+        "setupDifficulty": "UNKNOWN",
+        "maintainerResponsivenessScore": null,
+        "executionVerified": false,
+        "buildStatus": "NOT_RUN",
+        "readinessEvidence": [
+          {
+            "type": "readiness",
+            "url": "https://github.com/tenstorrent/tt-metal",
+            "detail": "Manifest scripts and documentation inspected; build/test execution NOT RUN. Setup: UNKNOWN; tests: UNKNOWN"
+          }
+        ],
+        "acceptanceCriteria": {
+          "criteria": [
+            "Fix uint8 lower-bound saturation for `ttnn.quantize`.",
+            "Fix uint8 lower-bound saturation for `ttnn.requantize`.",
+            "Preserve correct upper saturation at 255.",
+            "Add exact-output regression tests for negative, in-range, and over-range values.",
+            "Run coverage on Wormhole B0 and Blackhole.",
+            "Preserve existing int8 and in-range uint8 behavior."
+          ],
+          "filesMentioned": [],
+          "reproductionSteps": [
+            "## Expected behavior"
+          ],
+          "testingRequirements": [
+            "Add exact-output regression tests for negative, in-range, and over-range values."
+          ],
+          "documentationRequirements": [],
+          "externalRequirements": [
+            "The issue reproduces on Wormhole B0 and Blackhole.",
+            "- Run coverage on Wormhole B0 and Blackhole."
+          ],
+          "scopeClarityScore": 90,
+          "codeChanges": [
+            "Fix uint8 lower-bound saturation for `ttnn.quantize`.",
+            "Fix uint8 lower-bound saturation for `ttnn.requantize`.",
+            "Preserve correct upper saturation at 255.",
+            "Run coverage on Wormhole B0 and Blackhole.",
+            "Preserve existing int8 and in-range uint8 behavior."
+          ],
+          "requiredTests": [
+            "Add exact-output regression tests for negative, in-range, and over-range values."
+          ],
+          "requiredDocumentation": [],
+          "acceptanceCriteriaList": [
+            "Fix uint8 lower-bound saturation for `ttnn.quantize`.",
+            "Fix uint8 lower-bound saturation for `ttnn.requantize`.",
+            "Preserve correct upper saturation at 255.",
+            "Add exact-output regression tests for negative, in-range, and over-range values.",
+            "Run coverage on Wormhole B0 and Blackhole.",
+            "Preserve existing int8 and in-range uint8 behavior."
+          ],
+          "externalDependencies": [
+            "The issue reproduces on Wormhole B0 and Blackhole.",
+            "- Run coverage on Wormhole B0 and Blackhole."
+          ],
+          "verificationRequirements": [
+            "Add exact-output regression tests for negative, in-range, and over-range values.",
+            "The issue reproduces on Wormhole B0 and Blackhole.",
+            "- Run coverage on Wormhole B0 and Blackhole."
+          ],
+          "inaccessibleDependencies": [
+            "The issue reproduces on Wormhole B0 and Blackhole.",
+            "- Run coverage on Wormhole B0 and Blackhole."
+          ],
+          "hiddenBlockerRisk": "HIGH"
+        },
+        "scopeClarityScore": 90,
+        "aiSolvabilityScore": 20,
+        "effortEstimate": "8+ hours",
+        "effortAttractivenessScore": 20,
+        "expectedFilesChanged": "UNKNOWN",
+        "implementationComplexity": "HIGH",
+        "verificationComplexity": "MEDIUM",
+        "blockerProbability": "MEDIUM",
+        "payer": "jberkowitzTT",
+        "payerRole": "UNKNOWN_PARTY",
+        "issuerAuthorityScore": 20,
+        "fundingConfidence": 0,
+        "paymentConfidence": "UNVERIFIED",
+        "paymentLegitimacyScore": 10,
+        "paymentProvider": "UNKNOWN",
+        "paymentEvidence": [
+          {
+            "type": "issuer",
+            "url": "https://github.com/tenstorrent/tt-metal/issues/56290",
+            "detail": "Issue author jberkowitzTT; GitHub association CONTRIBUTOR"
+          }
+        ],
+        "paymentEvidenceVerified": false,
+        "externalDependencies": [
+          "The issue reproduces on Wormhole B0 and Blackhole.",
+          "- Run coverage on Wormhole B0 and Blackhole."
+        ],
+        "verificationRequirements": [
+          "Add exact-output regression tests for negative, in-range, and over-range values.",
+          "The issue reproduces on Wormhole B0 and Blackhole.",
+          "- Run coverage on Wormhole B0 and Blackhole."
+        ],
+        "hiddenBlockerRisk": "HIGH",
+        "effortBucket": "8+ h",
+        "verificationEffort": "MEDIUM",
+        "rewardAttractivenessScore": 75,
+        "winScore": 29,
+        "opportunityScore": 29,
+        "scoreMeaning": "Heuristic opportunity quality score; not a calibrated probability",
+        "huntGates": {
+          "open": true,
+          "activeRepository": true,
+          "unassigned": false,
+          "noCompletedSolution": true,
+          "directReward": true,
+          "payment": false,
+          "credibleValue": true,
+          "scope": true,
+          "solvability": false,
+          "readiness": false,
+          "competition": false,
+          "accessible": false,
+          "completeEvidence": false,
+          "noHardRejection": false
+        },
+        "decision": "REJECT",
+        "reason": "Already assigned to another contributor",
+        "rejectionReasons": [
+          "Already assigned to another contributor",
+          "Inaccessible critical verification dependency: The issue reproduces on Wormhole B0 and Blackhole.; - Run coverage on Wormhole B0 and Blackhole."
+        ],
+        "coverage": {
+          "complete": false,
+          "missing": [
+            "repository root contents",
+            "comments truncated",
+            "PR search unavailable",
+            "bounded timeline/PR details"
+          ]
+        },
+        "promptInjection": {
+          "detected": false,
+          "matches": [],
+          "policy": "UNTRUSTED_DATA_ONLY"
+        },
+        "scoreBreakdown": {
+          "legitimacy": 10,
+          "aiSolvability": 20,
+          "scopeClarity": 90,
+          "competition": 0,
+          "effort": 20,
+          "repositoryHealth": 30,
+          "maintainerActivity": 20,
+          "rewardAttractiveness": 75
+        }
+      }
+    }
+  ]
+}

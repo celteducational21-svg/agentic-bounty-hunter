@@ -22,6 +22,7 @@ Exit gate: live endpoint returns non-empty real results and the validation scrip
 ## Phase 2 — Opportunity intelligence
 
 Status: INCOMPLETE / exit gate NOT PASSED. See PHASE2_LIVE_VALIDATION.md.
+Phase 2.1 remediation and fixed Top-5 source audit are recorded in PHASE2_1_REMEDIATION.md and PHASE2_FIXED_SNAPSHOT_AUDIT.md. Tests and conservative gates improve, but payment authority and complete live enrichment remain blockers. No Phase 3 solving is authorized.
 Dedicated Supabase production history is connected and verified; ranking-quality gates still remain. See PHASE2_DATABASE.md.
 
 - Extract reward amount/currency/range, payment platform/trigger/risk, and credible USD estimates.

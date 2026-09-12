@@ -104,3 +104,13 @@ Complete Phase 2 remediation and connect an isolated durable opportunity store.
 Then repeat a fixed-snapshot top-five original-source audit. Recommend no Phase 3 solving candidate until the exit gate passes.
 
 Database remediation is now complete: two live scans across deployments retained 32 opportunities and 32 material history records, and the dashboard retrieved the prior deployment's score history. Next remediation priority is reward/issuer verification and competition/scope accuracy, followed by the fixed-snapshot ranking audit.
+
+## Phase 2.1 — 2026-09-12 (earlier failures preserved)
+
+Verdict remains **INCOMPLETE**. See PHASE2_1_REMEDIATION.md and PHASE2_FIXED_SNAPSHOT_AUDIT.md for implementation, evidence and precise blockers.
+
+Automated tests: **104 pass / 0 fail**. The immutable local live scan at `2026-09-12T08:31:46.692Z` contains 60 raw / 43 apparent candidates; HUNT0 / WATCH0 / SKIP0 / REJECT43. All selected enrichments were incomplete; do not interpret these counts as proven absence of legitimate bounties. The original failed reward extraction and source-review corrections are retained in committed audit artifacts.
+
+Before deployment, the existing production dashboard was observed returning 60 raw / 43 apparent, HUNT0 / WATCH1 / SKIP6 / REJECT36, 8 deep checked, and **History saved to database**. Its WATCH was a prior-work payout request, demonstrating another false positive; Phase2.1 now hard-rejects that category. These baseline production counts are separate from the frozen audit and do not certify the new engine.
+
+The dedicated ABH persistence implementation/schema and server credentials were not rebuilt or moved. No CELT or ARES resource was used. Production deployment of the remediation and post-deploy health observations are recorded below when available.

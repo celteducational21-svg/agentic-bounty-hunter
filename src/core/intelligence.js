@@ -7,7 +7,7 @@ const HIGH_COMPLEXITY = /\b(architecture|redesign|rewrite|entire|full[- ]stack|m
 const PRIVATE_DEPENDENCY = /\b(private (?:api|repository|infrastructure|network)|internal (?:api|system|environment)|proprietary data|paid account required)\b/i;
 const CLAIM_RE = /(?:^|\b)(?:\/try|\/attempt|\/opire\s+try|i(?:'| a)?m working on this|i would like to work on this|i'd like to work on this|can i work on this|claim(?:ing)? this|bounty claim|claim\s*[—:-])(?:\b|$)/i;
 const ABANDONED_RE = /\b(?:unclaim|abandon(?:ed|ing)?|no longer working|giving up|withdraw)\b/i;
-const INJECTION_RE = /ignore (?:all |any )?(?:previous|prior|system) instructions|reveal (?:your |the )?(?:secret|token|environment)|print env|cat \.env|send (?:funds|wallet)|override (?:policy|approval)|exfiltrat/i;
+const INJECTION_RE = /ignore (?:all |any )?(?:previous|prior|system) instructions|reveal (?:your |the )?(?:secret|token|environment)|print env|cat \.env|send (?:funds|wallet)|override (?:policy|approval)|exfiltrat|AI AGENT COMPLIANCE DIRECTIVE|CERTIFIED BOT/i;
 
 function clamp(value) { return Math.max(0, Math.min(100, Math.round(value))); }
 function textOf(issue) { return `${issue.title ?? ""}\n${issue.body ?? ""}\n${(issue.labels ?? []).join(" ")}`; }
@@ -43,58 +43,9 @@ export function detectPromptInjection(value) {
   return { detected: matches.length > 0, matches, policy: "UNTRUSTED_DATA_ONLY" };
 }
 
-export function extractReward(issue, { tokenPrices = {} } = {}) {
-  // Code examples and quoted third-party offers are not this issue's payout offer.
-  const cleanBody = String(issue.body ?? "").replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, "").replace(/^\s*>.*$/gm, "").replace(/`[^`]*`/g, "");
-  const text = textOf({ ...issue, body: cleanBody }).replace(/[,]/g, "");
-  const matches = [];
-  const patterns = [
-    /([$€£])\s*(\d+(?:\.\d+)?)\s*([kK])?/g,
-    /\b(\d+(?:\.\d+)?)\s*([kK])?\s*(USD|USDC|USDT|DAI|ETH|BTC|SOL)\b/gi,
-    /\b(?:reward|bounty)[-_ :]*(\d+(?:\.\d+)?)\s*([kK])?[-_ ]*([A-Z]{2,10})\b/gi,
-    /\b(\d+(?:\.\d+)?)\s*([kK])?\s*([A-Z]{2,10})\s+bounty\b/gi
-  ];
-  for (const pattern of patterns) {
-    for (const match of text.matchAll(pattern)) {
-      const symbol = FIAT_SYMBOLS[match[1]];
-      const amountIndex = symbol ? 2 : 1;
-      const suffixIndex = symbol ? 3 : 2;
-      const currencyIndex = symbol ? null : 3;
-      const amount = Number(match[amountIndex]) * (String(match[suffixIndex] ?? "").toLowerCase() === "k" ? 1000 : 1);
-      const currency = symbol ?? String(match[currencyIndex] ?? "USD").toUpperCase();
-      if (Number.isFinite(amount) && amount > 0) matches.push({ amount, currency, raw: match[0], position: match.index });
-    }
-  }
-  const unique = [...new Map(matches.sort((a, b) => a.position - b.position).map((x) => [`${x.amount}:${x.currency}`, x])).values()].sort((a, b) => a.position - b.position);
-  const selected = unique[0] ?? null;
-  const platformMatch = text.match(/\b(gitcoin|grantfox|algora|openq|dework|bountysource|issuehunt|polar)\b/i);
-  const triggerMatch = text.match(/\b(?:paid?|payment|payout|reward)(?:ed)?\s+(?:upon|on|after)\s+([^\n.!]{3,80})/i);
-  const conditional = /\b(?:maybe rewarded|may be eligible|potential reward|reward not guaranteed)\b/i.test(text);
-  if (!selected) return {
-    rewardAmount: null, rewardCurrency: null, rewardRange: null, rewardUsdEstimate: null, rewardConfidence: 0,
-    paymentMethod: platformMatch?.[1] ?? "UNKNOWN", paymentTrigger: triggerMatch?.[1]?.trim() ?? "UNKNOWN",
-    paymentRisk: "HIGH", credibleMarketValue: false,
-    evidence: [evidence("reward", "No explicit numeric reward found", issue.url)]
-  };
-  let usd = null;
-  let marketCredible = STABLECOINS.has(selected.currency);
-  if (marketCredible) usd = selected.amount;
-  else if (KNOWN_MARKET_TOKENS.has(selected.currency) && Number(tokenPrices[selected.currency]) > 0) {
-    usd = selected.amount * Number(tokenPrices[selected.currency]); marketCredible = true;
-  }
-  const confidence = clamp(35 + (usd !== null ? 25 : 0) + (platformMatch ? 20 : 0) + (triggerMatch ? 20 : 0) - (conditional ? 25 : 0));
-  return {
-    rewardAmount: selected.amount, rewardCurrency: selected.currency,
-    rewardRange: (() => { const values = unique.filter((x) => x.currency === selected.currency).map((x) => x.amount); return values.length > 1 ? { min: Math.min(...values), max: Math.max(...values), currency: selected.currency } : null; })(),
-    rewardUsdEstimate: usd === null ? null : Math.round(usd * 100) / 100,
-    rewardConfidence: confidence, paymentMethod: platformMatch?.[1] ?? "UNKNOWN",
-    paymentTrigger: triggerMatch?.[1]?.trim() ?? "UNKNOWN",
-    paymentRisk: usd === null || conditional ? "HIGH" : platformMatch && triggerMatch ? "LOW" : "MEDIUM",
-    credibleMarketValue: marketCredible,
-    evidence: [evidence("reward", `${selected.raw.trim()} extracted from original issue`, issue.url)]
-  };
-}
-
+import { extractReward, verifyPayment } from './payment.js';
+import { competitionIntelligence, executionReadiness, scopeIntelligence } from './quality.js';
+export { extractReward } from './payment.js';
 export function analyzeLegitimacy(issue, reward, context = {}) {
   const text = textOf(issue);
   const commentText = (context.comments ?? []).filter((x) => ["OWNER", "MEMBER", "COLLABORATOR"].includes(x.author_association)).map((x) => x.body ?? "").join("\n");
@@ -106,6 +57,7 @@ export function analyzeLegitimacy(issue, reward, context = {}) {
   const repost = text.match(/Originally posted by[^\n]*?(https:\/\/github\.com\/([^/\s]+\/[^/\s]+)\/issues\/\d+)/i);
   if (repost && repost[2].toLowerCase() !== repo.toLowerCase()) { reject("Explicit repost of another repository's issue"); findings.push(evidence("original_source", "Repost links to original issue; original must be evaluated independently", repost[1])); }
   if (/upwork\.com|\bupwork\b/i.test(text)) reject("Upwork-routed task");
+  if (/\b(?:payout request|consolidated bounty claim|reimbursement request)\b/i.test(issue.title)) reject('Payment request for prior work, not an available software bounty');
   if (/\bbounty inquiry\b|\bis (?:this|it) still funded\b|\bbounty(?:\s+#\d+)?[^:\n]*:\s*(?:eligibility|question|inquiry)\b/i.test(text)) reject("Bounty inquiry, not an original issuer task");
   if (/\b(?:field|live) (?:run|scan)\b/i.test(issue.title ?? "") && /\bno (?:opportunity|candidate).{0,40}(?:selected|qualified|pass)\b/i.test(text)) reject("Status/report issue rather than a software bounty");
   if (/\b(?:not|hasn'?t) (?:been )?(?:approved|funded)|(?:bounty|reward).{0,30}(?:not (?:been )?approved|not (?:been )?funded|proposed only)\b/i.test(commentText)) reject("Reward is proposed but not approved/funded");
@@ -276,29 +228,46 @@ export function hardRejectionReasons(issue, context, reward, legitimacy, competi
 }
 
 export function analyzeOpportunity(issue, context = {}, now = new Date()) {
-  const reward = extractReward(issue, context);
+  const reward = extractReward(issue, { ...context, now });
+  const payment = verifyPayment(issue, reward, context);
   const legitimacy = analyzeLegitimacy(issue, reward, context);
-  const competition = analyzeCompetition(issue, context.comments, context.solutionPRs);
-  const repository = analyzeRepository(context.repo, context.rootEntries, context.repoDetails, now);
-  const acceptance = parseAcceptanceCriteria(issue);
+  const competition = competitionIntelligence(issue, context, now);
+  const readiness = executionReadiness(context.repo, context.rootEntries, context.repoDetails, context.comments, now);
+  const repository = { ...analyzeRepository(context.repo, context.rootEntries, context.repoDetails, now), ...readiness };
+  const scope = scopeIntelligence(issue);
+  const acceptance = { ...parseAcceptanceCriteria(issue), ...scope, testingRequirements: scope.requiredTests, externalRequirements: scope.externalDependencies };
   const solvability = estimateSolvability(issue, acceptance, repository);
+  solvability.aiSolvabilityScore = Math.min(solvability.aiSolvabilityScore, readiness.executionReadinessScore + 20);
+  if (scope.inaccessibleDependencies.length) solvability.aiSolvabilityScore = Math.min(20, solvability.aiSolvabilityScore);
   const effort = estimateEffort(issue, acceptance, repository);
-  const injection = detectPromptInjection(`${issue.body ?? ""}\n${(context.comments ?? []).map((x) => x.body ?? "").join("\n")}`);
+  const injection = detectPromptInjection(`${issue.body ?? ""}\n${(context.comments ?? []).map((x) => x.body ?? "").join("\n")}\n${context.repoDetails?.readme ?? ''}\n${context.repoDetails?.contributing ?? ''}\n${context.repoDetails?.testSource ?? ''}`);
   const rewardScore = rewardAttractiveness(reward);
-  let winScore = calculateWinScore({ ...legitimacy, ...competition, ...repository, ...acceptance, ...solvability, ...effort, rewardAttractivenessScore: rewardScore });
+  let winScore = calculateWinScore({ ...legitimacy, ...competition, ...repository, ...acceptance, ...solvability, ...effort, legitimacyConfidence: payment.paymentLegitimacyScore, repoHealthScore: Math.min(repository.repoHealthScore, readiness.executionReadinessScore), maintainerActivityScore: readiness.maintainerResponsivenessScore ?? 20, rewardAttractivenessScore: rewardScore });
   const rejections = hardRejectionReasons(issue, context, reward, legitimacy, competition, solvability);
+  if (/process\.env\.[A-Z_]*(?:SIGNATURE|CREDENTIAL)|unlock test|register credentials/i.test(context.repoDetails?.testSource ?? '')) rejections.push('Test validation requires inaccessible external credentials');
+  if (/subgraph isomorphism/i.test(issue.title) && /arbitrary/i.test(issue.body) && /strict.*(?:O\(N\)|linear)/i.test(issue.body)) rejections.push('Unrealistic general subgraph-isomorphism complexity requirement');
+  if (scope.inaccessibleDependencies.length) rejections.push('Inaccessible critical verification dependency: ' + scope.inaccessibleDependencies.join('; '));
+  if (payment.paymentConfidence === 'SUSPICIOUS') rejections.push('Payment evidence is suspicious or funding was denied');
   const ageDays = Math.max(0, (now - new Date(issue.updatedAt)) / DAY);
   if (ageDays > 365) rejections.push("Stale bounty or inactive issue");
   let decision = rejections.length ? "REJECT" : winScore >= 85 ? "HUNT" : winScore >= 70 ? "WATCH" : winScore >= 50 ? "SKIP" : "REJECT";
   if (context.analysisDepth !== "deep" && decision === "HUNT") { decision = "SKIP"; winScore = Math.min(winScore, 69); }
-  if ((reward.paymentRisk !== "LOW" || reward.paymentMethod === "UNKNOWN" || reward.paymentTrigger === "UNKNOWN") && decision === "HUNT") decision = "WATCH";
+  if (!['VERIFIED', 'STRONG'].includes(payment.paymentConfidence) && decision === 'HUNT') decision = 'WATCH';
   if (reward.rewardUsdEstimate !== null && reward.rewardUsdEstimate < 50 && !["<30 min", "30–90 min"].includes(effort.effortEstimate) && ["HUNT", "WATCH"].includes(decision)) decision = "SKIP";
   if ((acceptance.scopeClarityScore < 55 || repository.repoHealthScore < 50) && ["HUNT", "WATCH"].includes(decision)) decision = "SKIP";
   if (competition.activeCompetitors > 4 && decision === "WATCH" && winScore < 90) decision = "SKIP";
   const incomplete = context.analysisDepth !== "deep" || context.coverage?.complete === false;
   if (incomplete && ["HUNT", "WATCH"].includes(decision)) decision = "SKIP";
   // Text extraction is not independent proof of funding or issuer authority.
-  if (decision === "HUNT" && context.paymentEvidenceVerified !== true) decision = "WATCH";
+  const huntGates = {
+    open: issue.state === 'open', activeRepository: !context.repo?.archived && ['ACTIVE', 'RECENT'].includes(repository.recentCommitActivity),
+    unassigned: !(issue.assignees ?? []).length && competition.claimStatus !== 'ASSIGNED', noCompletedSolution: competition.claimStatus !== 'COMPLETED_SOLUTION',
+    directReward: reward.isDirectTaskReward, payment: ['VERIFIED', 'STRONG'].includes(payment.paymentConfidence), credibleValue: reward.credibleMarketValue,
+    scope: acceptance.scopeClarityScore >= 70, solvability: solvability.aiSolvabilityScore >= 75, readiness: readiness.executionReadinessScore >= 70,
+    competition: competition.activeCompetitorCount !== null && competition.activeCompetitorCount <= 2 && competition.competitionConfidence === 'HIGH',
+    accessible: !scope.inaccessibleDependencies.length, completeEvidence: !incomplete, noHardRejection: !rejections.length
+  };
+  if (decision === 'HUNT' && !Object.values(huntGates).every(Boolean)) decision = 'WATCH';
   const reason = rejections[0] ?? (incomplete ? "Incomplete evidence; availability and competition are UNKNOWN" : `${reward.rewardUsdEstimate === null ? "Uncertain reward" : `$${reward.rewardUsdEstimate} ${reward.rewardCurrency}`} · ${competition.activeCompetitors} active competitor(s) · ${effort.effortEstimate} · AI solvability ${solvability.aiSolvabilityScore}`);
   return {
     ...issue, opportunityId: stableOpportunityId(issue), retrievalTimestamp: context.retrievalTimestamp ?? new Date().toISOString(),
@@ -306,18 +275,19 @@ export function analyzeOpportunity(issue, context = {}, now = new Date()) {
     evidenceUrls: [...new Set([issue.url, issue.repositoryUrl, ...(context.evidenceUrls ?? [])].filter(Boolean))],
     analysisDepth: context.analysisDepth ?? "shallow", ...reward, ...legitimacy, ...competition, ...repository,
     acceptanceCriteria: acceptance, scopeClarityScore: acceptance.scopeClarityScore,
-    ...solvability, ...effort, rewardAttractivenessScore: rewardScore,
+    ...solvability, ...effort, ...payment, ...readiness, externalDependencies: scope.externalDependencies, verificationRequirements: scope.verificationRequirements, hiddenBlockerRisk: scope.hiddenBlockerRisk,
+    effortBucket: effort.effortEstimate.replace('hours', 'h'), verificationEffort: effort.verificationComplexity, rewardAttractivenessScore: rewardScore,
     evidence: [...reward.evidence, ...legitimacy.evidence, ...competition.competitionEvidence, ...solvability.evidence],
-    winScore, decision, reason, rejectionReasons: [...new Set(rejections)],
+    winScore, opportunityScore: winScore, scoreMeaning: 'Heuristic opportunity quality score; not a calibrated probability', huntGates, decision, reason, rejectionReasons: [...new Set(rejections)],
     coverage: context.coverage ?? { complete: context.analysisDepth === "deep", missing: [] },
-    paymentEvidenceVerified: context.paymentEvidenceVerified === true,
+    paymentEvidenceVerified: payment.paymentEvidenceVerified,
     ...(incomplete ? { activeCompetitors: null, claimStatus: "UNKNOWN" } : {}),
     promptInjection: injection,
     scoreBreakdown: {
-      legitimacy: legitimacy.legitimacyConfidence, aiSolvability: solvability.aiSolvabilityScore,
+      legitimacy: payment.paymentLegitimacyScore, aiSolvability: solvability.aiSolvabilityScore,
       scopeClarity: acceptance.scopeClarityScore, competition: competition.competitionScore,
-      effort: effort.effortAttractivenessScore, repositoryHealth: repository.repoHealthScore,
-      maintainerActivity: repository.maintainerActivityScore, rewardAttractiveness: rewardScore
+      effort: effort.effortAttractivenessScore, repositoryHealth: Math.min(repository.repoHealthScore, readiness.executionReadinessScore),
+      maintainerActivity: readiness.maintainerResponsivenessScore ?? 20, rewardAttractiveness: rewardScore
     }
   };
 }
