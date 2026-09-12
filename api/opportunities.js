@@ -21,10 +21,10 @@ export default async function handler(request, response) {
     const payload = await buildStagedScan({ deepLimit: 5 });
     const persisted = durable ? await durable.persistScan(payload) : null;
     const snapshots = durable ? [] : payload.candidates.map((item) => history.upsert(item, payload.fetchedAt));
-    response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
+    response.setHeader("Cache-Control", "no-store");
     response.setHeader("X-ABH-Policy", "analysis-only");
     return response.status(200).json({ ...payload, snapshotCount: durable ? payload.candidates.length : snapshots.length,
-      engineRevision: 'phase2.2-staged-v1', phase2ExitGate: 'NOT_PASSED',
+      engineRevision: 'phase2.3-provider-first-v1', phase2ExitGate: 'NOT_PASSED',
       persistence: { durable: persisted?.persisted === true, backend: durable ? 'supabase-postgres' : 'warm-instance-memory', changes: persisted?.changes ?? null },
       humanApprovalRequired: true });
   } catch (error) {

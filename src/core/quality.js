@@ -1,3 +1,4 @@
+import { dependencyIntelligence } from './dependencies.js';
 const clamp = n => Math.max(0, Math.min(100, Math.round(n)));
 const authority = x => ['OWNER', 'MEMBER', 'COLLABORATOR'].includes(x.author_association);
 const clean = x => String(x ?? '').replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, '').replace(/^\s*>.*$/gm, '');
@@ -52,13 +53,16 @@ export function competitionIntelligence(issue, context = {}, now = new Date()) {
   const unresolved = [...actors.values()].some(x => x.state === 'UNKNOWN');
   const unresolvedLabel = (issue.labels ?? []).some(x => /^(?:claimed|assigned|in progress)$/i.test(x)) && actors.size === 0;
   const observed = [...actors.values()].filter(x => ['CLAIMED', 'ACTIVE_IMPLEMENTATION', 'SUBMITTED_PR'].includes(x.state)).length;
-  const count = complete && !unresolved && !unresolvedLabel ? observed : null;
+  // Provider attempts/claims may overlap GitHub actors and may be stale. Without
+  // an independently established actor mapping they cannot certify a LOW total.
+  const providerUnresolved = context.providerCompetition && (context.providerCompetition.trying !== 0 || context.providerCompetition.claimed !== 0);
+  const count = complete && !unresolved && !unresolvedLabel && !providerUnresolved ? observed : null;
   const assigned = (issue.assignees ?? []).length > 0 || [...actors.values()].some(x => x.maintainerAssigned);
   const merged = prs.some(x => x.relation === 'MERGED_SOLUTION');
   const submitted = prs.filter(x => x.relation === 'OPEN_SUBMISSION').length;
   const status = assigned ? 'ASSIGNED' : merged ? 'COMPLETED_SOLUTION' : count === null ? 'UNKNOWN' : submitted ? 'SUBMITTED' : observed ? 'CLAIMED' : 'AVAILABLE';
   const score = assigned || merged ? 0 : count === null ? 25 : count === 0 ? 100 : count === 1 ? 85 : count === 2 ? 70 : count <= 4 ? 30 : 5;
-  return { contributorStates: [...actors.values()], activeCompetitorCount: count, activeCompetitors: count, observedActiveCompetitors: observed, interestedContributorCount: [...actors.values()].filter(x => x.state === 'INTEREST_ONLY').length, submittedSolutionCount: complete ? submitted : null, competitionConfidence: complete && !unresolved ? 'HIGH' : 'UNKNOWN', solutionSearchCompleteness: complete ? 'BOUNDED_COMPLETE' : 'PARTIAL', claimStatus: status, competitionScore: score, existingSolutionPRs: prs.map(pr => ({ url: pr.html_url, title: pr.title, author: pr.user?.login ?? null, state: pr.state, mergedAt: pr.merged_at ?? null, closesIssue: pr.closesIssue, relation: pr.relation })), competitionEvidence: [...actors.values()].flatMap(a => a.evidenceUrls.map(url => ({ type: 'competition', url, detail: `${a.actor}: ${a.state}` }))) };
+  return { contributorStates: [...actors.values()], activeCompetitorCount: count, activeCompetitors: count, observedActiveCompetitors: observed, interestedContributorCount: [...actors.values()].filter(x => x.state === 'INTEREST_ONLY').length, submittedSolutionCount: complete ? submitted : null, competitionConfidence: complete && !unresolved && !providerUnresolved ? 'HIGH' : 'UNKNOWN', solutionSearchCompleteness: complete ? 'BOUNDED_COMPLETE' : 'PARTIAL', claimStatus: status, competitionScore: score, existingSolutionPRs: prs.map(pr => ({ url: pr.html_url, title: pr.title, author: pr.user?.login ?? null, state: pr.state, mergedAt: pr.merged_at ?? null, closesIssue: pr.closesIssue, relation: pr.relation })), competitionEvidence: [...actors.values()].flatMap(a => a.evidenceUrls.map(url => ({ type: 'competition', url, detail: `${a.actor}: ${a.state}` }))) };
 }
 
 export function executionReadiness(repo = {}, entries = [], details = {}, comments = [], now = new Date()) {
@@ -87,11 +91,22 @@ export function executionReadiness(repo = {}, entries = [], details = {}, commen
 export function scopeIntelligence(issue) {
   const lines = clean(issue.body).split(/\n/).map(x => x.trim()).filter(Boolean);
   const safe = lines.filter(x => !/ignore .*instructions|secret|override .*policy|print env|cat \.env/i.test(x));
-  const actionable = safe.filter(x => /^(?:[-*]\s*(?:\[[ xX]\]\s*)?|\d+\.\s+)(?:add|fix|implement|define|accept|update|remove|ensure|reproduce|write|test|run|document|support|return|preserve|npm|pytest|all tests)\b/i.test(x)).map(x => x.replace(/^(?:[-*]\s*(?:\[[ xX]\]\s*)?|\d+\.\s+)/, ''));
-  const dependencies = safe.filter(x => /\b(?:physical|wearos|hardware|wormhole b0|blackhole|mainnet funds|internal staging|private api|maintainer.only credentials|api key|external account|paid service|manual testing|screenshot|deployment|external api)\b/i.test(x));
-  const inaccessible = dependencies.filter(x => /physical|wearos|hardware|wormhole b0|blackhole|mainnet funds|internal staging|private api|maintainer.only credentials/i.test(x));
-  const tests = actionable.filter(x => /test|lint|typecheck|build/i.test(x));
+  const actionable = []; let requirementSection = false;
+  for (const line of safe) {
+    const normalized = line.replace(/\*\*/g, '');
+    if (/^(?:#{1,6}\s*)?(?:Acceptance Criteria|Requirements|Deliverables|Definition of Done)\s*:?$/i.test(normalized)) { requirementSection = true; continue; }
+    if (/^#{1,6}\s/.test(normalized)) { requirementSection = false; continue; }
+    const checkbox = /^[-*+]\s*\[[ xX]\]\s+/.test(normalized);
+    const listed = /^(?:[-*+]\s+|\d+[.)]\s+)/.test(normalized);
+    const item = normalized.replace(/^(?:[-*+]\s*(?:\[[ xX]\]\s*)?|\d+[.)]\s+)/, '').trim();
+    const action = /^(?:must|include|tested on|add|fix|implement|define|accept|update|remove|ensure|reproduce|write|test|run|document|support|return|preserve|npm|pytest|all tests)\b/i.test(item);
+    if (item && !/^(?:acceptance criteria|requirements|deliverables|reward|payment|bounty)\s*:?$/i.test(item) && (checkbox || listed && (requirementSection || action) || action && /^(?:must|include|tested on)\b/i.test(item))) actionable.push(item);
+  }
+  const dependencyEvidence = dependencyIntelligence(issue);
+  const dependencies = [...new Set([...safe.filter(x => /\b(?:api key|external account|manual testing|screenshot|deployment|external api)\b/i.test(x)), ...dependencyEvidence.map(x => x.description)])];
+  const inaccessible = dependencyEvidence.filter(x => x.provisioning === 'HARD_BLOCKER').map(x => x.description);
+  const tests = actionable.filter(x => /test|lint|typecheck|build|screenshot|demo|real.*(?:execution|n8n)|works on|tested on/i.test(x));
   const files = [...new Set(safe.join('\n').match(/\b(?:[\w.-]+\/)*[\w.-]+\.(?:tsx?|jsx?|py|go|rs|md|json|ya?ml)\b/g) ?? [])];
   const clarity = clamp(15 + Math.min(40, actionable.length * 10) + (tests.length ? 20 : 0) + (files.length ? 10 : 0) + (/expected behavior|reproduc/i.test(safe.join('\n')) ? 15 : 0) - (/tbd|details later|build everything/i.test(safe.join('\n')) ? 35 : 0));
-  return { criteria: actionable, codeChanges: actionable.filter(x => !/test|document|readme/i.test(x)), requiredTests: tests, requiredDocumentation: actionable.filter(x => /document|readme|example/i.test(x)), acceptanceCriteriaList: actionable, externalDependencies: dependencies, verificationRequirements: [...tests, ...dependencies], filesMentioned: files, inaccessibleDependencies: inaccessible, scopeClarityScore: clarity, hiddenBlockerRisk: inaccessible.length ? 'HIGH' : dependencies.length ? 'MEDIUM' : actionable.length ? 'LOW' : 'UNKNOWN' };
+  return { criteria: [...new Set(actionable)], codeChanges: actionable.filter(x => !/test|document|readme/i.test(x)), requiredTests: tests, requiredDocumentation: actionable.filter(x => /document|readme|example/i.test(x)), acceptanceCriteriaList: actionable, externalDependencies: dependencies, dependencyEvidence, verificationRequirements: [...tests, ...dependencies], filesMentioned: files, inaccessibleDependencies: inaccessible, scopeClarityScore: clarity, hiddenBlockerRisk: inaccessible.length ? 'HIGH' : dependencies.length ? 'MEDIUM' : actionable.length ? 'LOW' : 'UNKNOWN' };
 }

@@ -28,17 +28,18 @@ test('partial provider competition never becomes LOW',()=>{const p=parseOpireLis
 test('Opire closed or paid-out listing is rejected',()=>{const p=parseOpireListing(html.replace('1 available rewards','0 available rewards'),url,issue.url);assert.equal(finishEnrichment(issue,deep,[],{},p).decision,'REJECT');});
 test('fully enriched strong synthetic opportunity retains HUNT path',()=>{const context={...deep,rootEntries:[...deep.rootEntries,{name:'package-lock.json'}],repo:{...deep.repo,created_at:'2020-01-01'},repoDetails:{...deep.repoDetails,readme:'Development setup install npm ci',packageJson:{scripts:{test:'node --test',build:'tsc'}}},comments:[{author_association:'OWNER',created_at:new Date().toISOString(),body:'Payment on merge',user:{login:'owner'}}],providerEvidence:[{issueUrl:issue.url,url:'https://algora.io/bounties/test',status:'ACTIVE',funded:true,retrievedAt:new Date().toISOString(),amount:150,currency:'USD'}]};const x=finishEnrichment({...issue,authorAssociation:'OWNER'},context,STEPS.map(step=>({step,status:'COMPLETE'})),{},null);assert.equal(x.decision,'HUNT');});
 test('five candidates complete the real staged collector with shared repository reads',async()=>{
-  let repoCalls=0;const issues=Array.from({length:5},(_,i)=>({...issue,id:String(100+i),number:10+i,url:`${issue.repositoryUrl}/issues/${10+i}`}));
+  let repoCalls=0;const issues=Array.from({length:5},(_,i)=>{const repository=['acme/parser','acme/parser','acme/other','acme/other','acme/third'][i];return {...issue,repository,repositoryUrl:`https://github.com/${repository}`,id:String(100+i),number:10+i,url:`https://github.com/${repository}/issues/${10+i}`};});
   const budget=createBudget({fetchImpl:async address=>{
     const u=new URL(address);let data;
-    if(u.pathname==='/repos/acme/parser'){repoCalls++;data={...deep.repo,full_name:'acme/parser',default_branch:'main',private:false};}
+    if(/^\/repos\/acme\/[^/]+$/.test(u.pathname)){repoCalls++;data={...deep.repo,full_name:u.pathname.slice(7),default_branch:'main',private:false};}
+    else if(u.hostname==='raw.githubusercontent.com')return {ok:true,status:200,text:async()=>u.pathname.endsWith('package.json')?'{}':'Development setup'};
     else if(u.pathname.includes('/git/trees/'))data={tree:[{path:'README.md',type:'blob'},{path:'package.json',type:'blob'},{path:'package-lock.json',type:'blob'}],truncated:false};
     else if(u.pathname.includes('/contents/'))data={encoding:'base64',content:Buffer.from(u.pathname.endsWith('package.json')?'{}':'Development setup').toString('base64'),html_url:issue.repositoryUrl+'/blob/main/README.md'};
     else if(u.pathname==='/search/issues')data={items:[],total_count:0,incomplete_results:false};
     else if(/\/(?:comments|timeline)$/.test(u.pathname))data=[];
-    else {const n=Number(u.pathname.split('/').at(-1));data={...issues.find(x=>x.number===n),html_url:`${issue.repositoryUrl}/issues/${n}`,repository_url:'https://api.github.com/repos/acme/parser',author_association:'OWNER'};}
+    else {const n=Number(u.pathname.split('/').at(-1));const original=issues.find(x=>x.number===n);data={...original,html_url:original.url,repository_url:`https://api.github.com/repos/${original.repository}`,author_association:'OWNER'};}
     return {ok:true,status:200,json:async()=>data};
   }});
-  const result=await buildStagedScan({discovery:{rawCount:5,issues,searchCoverage:[]},budget});assert.equal(result.funnel.fullyEnriched,5);assert.equal(repoCalls,1);assert.ok(result.candidates.every(x=>x.enrichment.complete));
+  const result=await buildStagedScan({discovery:{rawCount:5,issues,searchCoverage:[]},budget});assert.equal(result.funnel.fullyEnriched,5);assert.equal(repoCalls,3);assert.equal(result.funnel.selectedRepositories,3);assert.ok(result.candidates.every(x=>x.enrichment.complete));
 });
 test('deadline timeout does not produce a hard rejection',async()=>{const result=await enrichCandidate(issue,createBudget({deadlineMs:0}));assert.equal(result.enrichmentState,'INCOMPLETE');assert.equal(result.decision,'INCOMPLETE');});

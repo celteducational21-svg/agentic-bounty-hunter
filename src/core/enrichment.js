@@ -1,14 +1,15 @@
 import { analyzeOpportunity, extractReward } from './intelligence.js';
 import { providerLinks } from './payment.js';
-export const STEPS = ['BASIC_SCREENED', 'SOURCE_RESOLVED', 'PAYMENT_CHECKED', 'COMPETITION_CHECKED', 'REPO_CHECKED'];
+import { dependencyIntelligence } from './dependencies.js';
+export const STEPS = ['BASIC_SCREENED', 'SOURCE_RESOLVED', 'PAYMENT_CHECKED', 'COMPETITION_CHECKED', 'REPO_CHECKED', 'SCOPE_CHECKED', 'DEPENDENCY_CHECKED'];
 export function sourceTarget(issue) {
   const text = `${issue.title}\n${issue.body}`;
-  if (!/mirror|repost|Originally posted|Source URL|original (?:issue|bounty)|bounty-plaza|bounty-radar/i.test(`${issue.repository}\n${text}`)) return issue.url;
+  if (!/mirror|repost|Originally posted|Source URL|original (?:issue|bounty|source)|upstream issue|bounty-plaza|bounty-radar/i.test(`${issue.repository}\n${text}`)) return issue.url;
   return String(issue.body).match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+/)?.[0] ?? issue.url;
 }
 export function preliminaryPriority(issue) {
   const reward = extractReward(issue);
-  return 20 + (/bounty|reward/i.test(issue.title) ? 20 : 0) + (reward.isDirectTaskReward ? 20 : 0) + (providerLinks(issue.body).length ? 25 : 0) + (/acceptance|expected behavior|regression test/i.test(issue.body) ? 10 : 0) - ((issue.assignees ?? []).length ? 100 : 0) - (sourceTarget(issue) !== issue.url ? 15 : 0);
+  return 20 + (/bounty|reward/i.test(issue.title) ? 20 : 0) + (reward.isDirectTaskReward ? 20 : 0) + (providerLinks(issue.body).length ? 25 : 0) + (issue.providerDiscovery ? 45 : 0) + (/acceptance|expected behavior|regression test/i.test(issue.body) ? 10 : 0) - ((issue.assignees ?? []).length ? 100 : 0) - (sourceTarget(issue) !== issue.url ? 15 : 0) - (issue.comments > 100 ? 20 : 0);
 }
 export function basicRejections(issue) {
   // Defer unknown payment and copied-source decisions until canonical/provider checks.
@@ -27,9 +28,9 @@ export function unifiedBlockers(issue, context) {
 }
 export function finishEnrichment(issue, context, steps, source, provider, now = new Date()) {
   const complete = STEPS.every(step => steps.some(x => x.step === step && x.status === 'COMPLETE'));
-  const blockers = unifiedBlockers(issue, context);
-  const analyzedIssue = provider?.listingVerified && provider.rewardAmount > 0 ? { ...issue, title: `Reward: $${provider.rewardAmount} USD`, body: issue.body } : issue;
-  const result = analyzeOpportunity(analyzedIssue, { ...context, analysisDepth: complete ? 'deep' : 'partial', coverage: { complete, missing: steps.filter(x => x.status !== 'COMPLETE').map(x => x.step) } }, now);
+  const dependencies = dependencyIntelligence(issue, context);
+  const blockers = [...new Map([...unifiedBlockers(issue, context), ...dependencies.filter(x => x.severity === 'HARD')].map(x => [x.type + ':' + x.source, x])).values()];
+  const result = analyzeOpportunity(issue, { ...context, providerListing: provider, providerCompetition: provider?.listingVerified ? { trying: provider.tryingSolvers, claimed: provider.claimingSolvers } : null, analysisDepth: complete ? 'deep' : 'partial', coverage: { complete, missing: steps.filter(x => x.status !== 'COMPLETE').map(x => x.step) } }, now);
   result.title = issue.title;
   // Transport or provider uncertainty is not evidence of invalidity.
   const hard = result.rejectionReasons.filter(x => !/Payout cannot|Payout mechanism|market value/i.test(x));
@@ -41,18 +42,20 @@ export function finishEnrichment(issue, context, steps, source, provider, now = 
   if (provider?.listingVerified) {
     result.rewardAmount = provider.rewardAmount; result.rewardCurrency = 'USD'; result.rewardUsdEstimate = provider.rewardAmount;
     result.reward = { amount: provider.rewardAmount, currency: 'USD', usdEstimate: provider.rewardAmount, rewardType: 'fixed', evidenceText: provider.evidence[0].detail, evidenceSourceUrl: provider.url, evidenceLocation: 'provider listing', confidence: 95, isDirectTaskReward: true };
-    result.paymentConfidence = provider.paymentConfidence;
+    if (result.paymentConfidence !== 'SUSPICIOUS') result.paymentConfidence = provider.paymentConfidence;
     if (provider.tryingSolvers > (result.activeCompetitors ?? 0) || provider.claimingSolvers > 0) {
-      result.observedActiveCompetitors = Math.max(result.observedActiveCompetitors ?? 0, provider.tryingSolvers, provider.claimingSolvers);
       result.activeCompetitors = null; result.activeCompetitorCount = null; result.competitionConfidence = 'UNKNOWN';
+      result.huntGates.competition = false;
     }
   }
   const credible = ['STRONG', 'VERIFIED'].includes(result.paymentConfidence) && result.rewardUsdEstimate > 0;
-  let decision = hard.length ? 'REJECT' : !complete ? 'INCOMPLETE' : !credible ? 'WATCH' : result.winScore >= 85 && Object.values(result.huntGates).every(Boolean) && !blockers.length ? 'HUNT' : 'SKIP';
+  result.huntGates.accessible = result.huntGates.accessible && !dependencies.some(x => !x.resolved && ['USER_INPUT_REQUIRED', 'PAID_RESOURCE', 'HARD_BLOCKER'].includes(x.provisioning));
+  const promising = result.scopeClarityScore >= 55 && result.aiSolvabilityScore >= 60 && result.executionReadinessScore >= 50 && (result.activeCompetitorCount !== null && result.activeCompetitorCount <= 2);
+  let decision = hard.length ? 'REJECT' : !complete ? 'INCOMPLETE' : !credible ? promising ? 'WATCH' : 'SKIP' : result.winScore >= 85 && Object.values(result.huntGates).every(Boolean) && !blockers.length ? 'HUNT' : 'SKIP';
   const finalOpportunityScore = complete ? result.winScore : null;
-  return { ...result, ...source, paymentTrust, providerUrl: provider?.url ?? null, blockers, hiddenBlockerRisk: blockers.length ? 'HIGH' : result.hiddenBlockerRisk,
+  return { ...result, ...source, paymentTrust, providerUrl: provider?.url ?? null, blockers, dependencyEvidence: dependencies, observedSolvers: provider?.tryingSolvers ?? null, providerClaimedCount: provider?.claimingSolvers ?? null, githubObservedCompetitors: result.observedActiveCompetitors, submittedSolutions: result.submittedSolutionCount, searchCompleteness: result.solutionSearchCompleteness, hiddenBlockerRisk: blockers.length ? 'HIGH' : dependencies.length ? 'MEDIUM' : result.hiddenBlockerRisk,
     preliminaryPriority: preliminaryPriority(issue), finalOpportunityScore, winScore: finalOpportunityScore,
     enrichmentState: hard.length ? 'REJECTED' : complete ? 'FULLY_ENRICHED' : 'INCOMPLETE', enrichment: { steps, completed: steps.filter(x => x.status === 'COMPLETE').length, total: STEPS.length, complete, checkedAt: now.toISOString() },
     decision, rejectionReasons: [...new Set(hard)], reason: hard[0] ?? (!complete ? 'Evidence collection incomplete; see failed or deferred enrichment steps' : !credible ? 'Payment credibility needs verification' : result.reason),
-    searchCompleteness: context.solutionSearchCompleteness ?? 'UNKNOWN', competitionState: result.claimStatus };
+    competitionState: result.claimStatus };
 }

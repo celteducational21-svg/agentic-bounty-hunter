@@ -28,10 +28,16 @@ export async function githubFetch(path, params = {}, { optional = false } = {}) 
   return response.json();
 }
 
-export async function searchLiveIssues() {
-  const settled = await Promise.allSettled(SEARCH_QUERIES.map((q) => githubFetch("/search/issues", { q, sort: "updated", order: "desc", per_page: 20 })));
+export async function searchLiveIssues(budget = null) {
+  const settled = await Promise.allSettled(SEARCH_QUERIES.map(async q => {
+    const params = { q, sort: "updated", order: "desc", per_page: 20 };
+    if (!budget) return githubFetch('/search/issues', params);
+    const r = await budget.request('https://api.github.com/search/issues?' + new URLSearchParams(params));
+    if (!r.ok) throw new Error(r.reason);
+    return r.data;
+  }));
   const batches = settled.filter((x) => x.status === "fulfilled").map((x) => x.value);
-  if (!batches.length) throw settled[0].reason;
+  if (!batches.length && !budget) throw settled[0].reason;
   return {
     searchCoverage: settled.map((result, index) => ({ query: SEARCH_QUERIES[index], status: result.status === "fulfilled" ? "FETCHED" : "FAILED", incompleteResults: result.status === "fulfilled" ? Boolean(result.value.incomplete_results) : null })),
     rawCount: batches.reduce((sum, batch) => sum + batch.items.length, 0),

@@ -228,8 +228,14 @@ export function hardRejectionReasons(issue, context, reward, legitimacy, competi
 }
 
 export function analyzeOpportunity(issue, context = {}, now = new Date()) {
-  const reward = extractReward(issue, { ...context, now });
-  const payment = verifyPayment(issue, reward, context);
+  let reward = extractReward(issue, { ...context, now });
+  const sourceAdvertisedReward = reward.reward;
+  const listing = context.providerListing;
+  const exactListing = listing?.listingVerified && listing.canonicalIssueUrl === issue.url && Number.isFinite(listing.rewardAmount) && listing.rewardAmount > 0;
+  if (exactListing) reward = { ...reward, rewardAmount: listing.rewardAmount, rewardCurrency: 'USD', rewardUsdEstimate: listing.rewardAmount, rewardConfidence: 95, isDirectTaskReward: true, credibleMarketValue: true,
+    reward: { ...reward.reward, amount: listing.rewardAmount, currency: 'USD', usdEstimate: listing.rewardAmount, rewardType: 'fixed', evidenceText: listing.evidence[0].detail, evidenceSourceUrl: listing.url, evidenceLocation: 'provider listing', confidence: 95, isDirectTaskReward: true } };
+  let payment = verifyPayment(issue, reward, context);
+  if (exactListing) payment = { ...payment, payer: null, payerRole: listing.issuerAuthority, issuerAuthorityScore: 0, fundingConfidence: payment.paymentConfidence === 'SUSPICIOUS' ? 0 : 30, paymentConfidence: payment.paymentConfidence === 'SUSPICIOUS' ? 'SUSPICIOUS' : listing.paymentConfidence, paymentLegitimacyScore: payment.paymentConfidence === 'SUSPICIOUS' ? 0 : 40, paymentProvider: listing.paymentProvider, paymentTrigger: listing.paymentTrigger, paymentEvidence: [...payment.paymentEvidence, ...listing.evidence], paymentEvidenceVerified: false };
   const legitimacy = analyzeLegitimacy(issue, reward, context);
   const competition = competitionIntelligence(issue, context, now);
   const readiness = executionReadiness(context.repo, context.rootEntries, context.repoDetails, context.comments, now);
@@ -277,7 +283,7 @@ export function analyzeOpportunity(issue, context = {}, now = new Date()) {
   if (decision === 'HUNT' && !Object.values(huntGates).every(Boolean)) decision = 'WATCH';
   const reason = rejections[0] ?? (incomplete ? "Incomplete evidence; availability and competition are UNKNOWN" : `${reward.rewardUsdEstimate === null ? "Uncertain reward" : `$${reward.rewardUsdEstimate} ${reward.rewardCurrency}`} · ${competition.activeCompetitors} active competitor(s) · ${effort.effortEstimate} · AI solvability ${solvability.aiSolvabilityScore}`);
   return {
-    ...issue, opportunityId: stableOpportunityId(issue), retrievalTimestamp: context.retrievalTimestamp ?? new Date().toISOString(),
+    ...issue, sourceAdvertisedReward, opportunityId: stableOpportunityId(issue), retrievalTimestamp: context.retrievalTimestamp ?? new Date().toISOString(),
     originalIssueUrl: issue.url, bountyProviderUrl: context.bountyProviderUrl ?? null,
     evidenceUrls: [...new Set([issue.url, issue.repositoryUrl, ...(context.evidenceUrls ?? [])].filter(Boolean))],
     analysisDepth: context.analysisDepth ?? "shallow", ...reward, ...legitimacy, ...competition, ...repository,
