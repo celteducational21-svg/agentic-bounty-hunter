@@ -1,0 +1,1162 @@
+{
+  "auditTimestamp": "2026-09-12T17:18:13.137Z",
+  "frozenAt": "2026-09-12T17:11:05.218Z",
+  "originals": [
+    {
+      "issue": null,
+      "issueError": {
+        "error": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/issues/issues#get-an-issue\",\"status\":\"404\"}",
+        "error_code": "NOT_FOUND",
+        "error_data": {
+          "documentation_url": "https://docs.github.com/rest/issues/issues#get-an-issue",
+          "message": "Not Found",
+          "status": "404"
+        }
+      },
+      "repo": null,
+      "repoError": {
+        "error": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#get-a-repository\",\"status\":\"404\"}",
+        "error_code": "NOT_FOUND",
+        "error_data": {
+          "documentation_url": "https://docs.github.com/rest/repos/repos#get-a-repository",
+          "message": "Not Found",
+          "status": "404"
+        }
+      }
+    },
+    {
+      "issue": {
+        "active_lock_reason": null,
+        "assignee": null,
+        "assignees": [],
+        "author_association": "OWNER",
+        "body": "## 📝 Description\nWhen multiple dynamic configuration providers (such as the File provider and Kubernetes CRD provider) emit configuration updates nearly simultaneously, Traefik can enter a state where the router configuration is partially applied. \n\nSpecifically, the router configuration updates successfully in the internal runtime representation (which is reflected in the Traefik Dashboard and the API), but the underlying HTTP/TCP handler chain continues to execute using a stale middleware chain from the previous configuration. This behavior persists until another configuration reload is triggered or the Traefik process is restarted.\n\nThis issue is intermittent and occurs under concurrent provider update loads, pointing to a race condition or non-atomic transition during the configuration switching phase.\n\n## 🎯 Acceptance Criteria\n- [ ] Configuration updates from multiple providers must be processed atomically or sequentially without causing partial state application.\n- [ ] The active HTTP/TCP handler chain (including all associated middlewares) must always be in sync with the active router configuration.\n- [ ] If a router configuration is updated and exposed via the API/Dashboard, the corresponding middleware chain applied to incoming requests must reflect this update immediately.\n- [ ] Introduce synchronization or serialization mechanisms to prevent race conditions during concurrent configuration merges and router rebuilds.\n- [ ] No regressions in configuration reload performance or request processing latency under normal operating conditions.\n\n## 🛠️ Technical Specifications & Context\nIn Traefik, configuration changes from various providers are sent via channels to the server container, which merges them and rebuilds the routing tree. \n\n### Key Areas to Investigate:\n1. **`pkg/server/server.go`**:\n   - Inspect the main configuration loop (likely handling configuration updates from the `configurationChan`).\n   - Check how `switchRouter` or the equivalent configuration switching function is invoked and synchronized.\n   - Ensure that the configuration merging process (combining configurations from different providers) is thread-safe and does not allow intermediate/dirty states to be published.\n\n2. **`pkg/server/router/router.go` (and manager/factory logic)**:\n   - Analyze how the runtime handlers and middleware chains are constructed from the merged configuration.\n   - Look for potential race conditions where the router registry is updated, but the actual HTTP handler reference (e.g., using `safe.Pool` or atomic pointers) is updated using a stale or partially constructed middleware chain.\n   - Ensure that the creation of the middleware chain and the creation of the router are bound together atomically before the new handler is swapped in.\n\n3. **Concurrency Controls**:\n   - Verify if a lock is held during the entire duration of the configuration merge, router build, and handler swap, or if there is a window where concurrent updates can interleave and overwrite parts of the state.\n\n## 🧪 Verification & Testing\nTo verify the fix, the following testing strategy should be employed:\n\n1. **Concurrent Provider Update Test**:\n   - Create an integration test in `pkg/server/server_test.go` (or a dedicated integration test suite) that registers two mock configuration providers.\n   - Simultaneously trigger rapid, conflicting configuration updates from both providers (e.g., Provider A updates Router X with Middleware A; Provider B updates Router X with Middleware B).\n   - Send continuous HTTP requests to Router X during the updates and assert that requests never execute with a stale or mismatched middleware configuration.\n   - Verify that the final applied middleware matches the final configuration state reported by the API.\n\n2. **Race Detector**:\n   - Run the test suite with the Go race detector enabled:\n     ```bash\n     go test -race -v ./pkg/server/...\n     ```\n   - Ensure no data races are reported during configuration reloads.\n\n---\n\n[![Opire Bounty](https://img.shields.io/badge/bounty-Opire-emerald?style=for-the-badge)](https://github.com/jahmeergnlt/traefik)\n<br/>\n<hr/>\n\n<details><summary>This repo is using Opire - what does it mean? 👇</summary><br/>💵 Everyone can add rewards for this issue commenting <code>/reward 100</code> (replace <code>100</code> with the amount).<br/>🕵️‍♂️ If someone starts working on this issue to earn the rewards, they can comment <code>/try</code> to let everyone know!<br/>🙌 And when they open the PR, they can comment <code>/claim #1</code> either in the PR description or in a PR's comment.<br/><br/>🪙 Also, everyone can tip any user commenting <code>/tip 20 @jahmeergnlt</code> (replace <code>20</code> with the amount, and <code>@jahmeergnlt</code> with the user to tip).<br/><br/>📖 If you want to learn more, check out our <a href=\"https://docs.opire.dev\">documentation</a>.</details>",
+        "closed_at": null,
+        "closed_by": null,
+        "comments": 34,
+        "comments_url": "https://api.github.com/repos/jahmeergnlt/traefik/issues/1/comments",
+        "created_at": "2026-07-30T02:48:46Z",
+        "events_url": "https://api.github.com/repos/jahmeergnlt/traefik/issues/1/events",
+        "html_url": "https://github.com/jahmeergnlt/traefik/issues/1",
+        "id": 5015559567,
+        "issue_dependencies_summary": {
+          "blocked_by": 0,
+          "blocking": 0,
+          "total_blocked_by": 0,
+          "total_blocking": 0
+        },
+        "labels": [
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11670888823,
+            "name": "bounty",
+            "node_id": "LA_kwDOTnways8AAAACt6Ohdw",
+            "url": "https://api.github.com/repos/jahmeergnlt/traefik/labels/bounty"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11670888825,
+            "name": "opire",
+            "node_id": "LA_kwDOTnways8AAAACt6OheQ",
+            "url": "https://api.github.com/repos/jahmeergnlt/traefik/labels/opire"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11670888826,
+            "name": "$100",
+            "node_id": "LA_kwDOTnways8AAAACt6Oheg",
+            "url": "https://api.github.com/repos/jahmeergnlt/traefik/labels/$100"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11670889410,
+            "name": "💰 Reward",
+            "node_id": "LA_kwDOTnways8AAAACt6Ojwg",
+            "url": "https://api.github.com/repos/jahmeergnlt/traefik/labels/%F0%9F%92%B0%20Reward"
+          }
+        ],
+        "labels_url": "https://api.github.com/repos/jahmeergnlt/traefik/issues/1/labels{/name}",
+        "locked": false,
+        "milestone": null,
+        "node_id": "I_kwDOTnways8AAAABKvNdjw",
+        "number": 1,
+        "performed_via_github_app": null,
+        "pinned_comment": null,
+        "reactions": {
+          "+1": 0,
+          "-1": 0,
+          "confused": 0,
+          "eyes": 0,
+          "heart": 0,
+          "hooray": 0,
+          "laugh": 0,
+          "rocket": 0,
+          "total_count": 0,
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/issues/1/reactions"
+        },
+        "repository_url": "https://api.github.com/repos/jahmeergnlt/traefik",
+        "state": "open",
+        "state_reason": null,
+        "sub_issues_summary": {
+          "completed": 0,
+          "percent_completed": 0,
+          "total": 0
+        },
+        "timeline_url": "https://api.github.com/repos/jahmeergnlt/traefik/issues/1/timeline",
+        "title": "🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates",
+        "updated_at": "2026-08-31T13:16:49Z",
+        "url": "https://api.github.com/repos/jahmeergnlt/traefik/issues/1",
+        "user": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/310835326?v=4",
+          "events_url": "https://api.github.com/users/jahmeergnlt/events{/privacy}",
+          "followers_url": "https://api.github.com/users/jahmeergnlt/followers",
+          "following_url": "https://api.github.com/users/jahmeergnlt/following{/other_user}",
+          "gists_url": "https://api.github.com/users/jahmeergnlt/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/jahmeergnlt",
+          "id": 310835326,
+          "login": "jahmeergnlt",
+          "node_id": "U_kgDOEob4fg",
+          "organizations_url": "https://api.github.com/users/jahmeergnlt/orgs",
+          "received_events_url": "https://api.github.com/users/jahmeergnlt/received_events",
+          "repos_url": "https://api.github.com/users/jahmeergnlt/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/jahmeergnlt/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/jahmeergnlt/subscriptions",
+          "type": "User",
+          "url": "https://api.github.com/users/jahmeergnlt",
+          "user_view_type": "public"
+        }
+      },
+      "issueError": null,
+      "repo": {
+        "full_name": "jahmeergnlt/traefik",
+        "html_url": "https://github.com/jahmeergnlt/traefik",
+        "private": false,
+        "archived": false,
+        "fork": false,
+        "created_at": "2026-07-30T02:48:16Z",
+        "pushed_at": "2026-07-30T02:50:54Z",
+        "updated_at": "2026-09-11T02:35:42Z",
+        "size": 4,
+        "language": "Go",
+        "default_branch": "main",
+        "stargazers_count": 2,
+        "description": null
+      },
+      "repoError": null
+    },
+    {
+      "issue": null,
+      "issueError": {
+        "error": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/issues/issues#get-an-issue\",\"status\":\"404\"}",
+        "error_code": "NOT_FOUND",
+        "error_data": {
+          "documentation_url": "https://docs.github.com/rest/issues/issues#get-an-issue",
+          "message": "Not Found",
+          "status": "404"
+        }
+      },
+      "repo": null,
+      "repoError": {
+        "error": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/repos/repos#get-a-repository\",\"status\":\"404\"}",
+        "error_code": "NOT_FOUND",
+        "error_data": {
+          "documentation_url": "https://docs.github.com/rest/repos/repos#get-a-repository",
+          "message": "Not Found",
+          "status": "404"
+        }
+      }
+    },
+    {
+      "issue": {
+        "active_lock_reason": null,
+        "assignee": null,
+        "assignees": [],
+        "author_association": "OWNER",
+        "body": "## 📝 Description\nGitHub is updating GitHub App installation access tokens to use a new stateless format. These tokens differ from legacy installation tokens (which typically had a fixed length and format like `ghs_...` or 40-character hex/base64 strings), often resulting in longer token strings with different entropy characteristics and structure.\n\nCurrently, token validation, parsing, or transport logic within the client either rejects, truncates, or fails to properly handle these new stateless installation access tokens when generated via `AppsService.CreateInstallationToken` or when supplied to authentication transports. The client must be updated to fully accommodate the new stateless token specification without relying on deprecated assumptions regarding token length or character composition.\n\n## 🎯 Acceptance Criteria\n- [ ] `AppsService.CreateInstallationToken` successfully unmarshals and handles responses containing the new stateless installation tokens without length or format errors.\n- [ ] Any client-side token validation or sanitization regexes are relaxed or updated to support variable-length, stateless GitHub App token formats.\n- [ ] HTTP request authorization headers (`Bearer <token>` and `token <token>`) correctly format and transmit stateless tokens without truncation or escaping issues.\n- [ ] Backward compatibility is preserved for existing token formats (`ghs_`, classic legacy tokens, and personal access tokens).\n- [ ] Edge cases (e.g., tokens exceeding standard legacy buffer sizes, tokens with varied prefix/character sets) are handled gracefully.\n\n## 🛠️ Technical Specifications & Context\n- **Affected Areas**:\n  - `github/apps_installation.go`: Review the `InstallationToken` struct and `CreateInstallationToken` API endpoint handling.\n  - `github/github.go` & auth transport layers: Check any internal transport helpers, header construction logic, or token sanitizers that validate token strings prior to dispatching HTTP requests.\n- **Implementation Details**:\n  - Audit any regexes or validation checks asserting fixed string lengths (e.g., 40 characters) or strict prefix requirements that may reject new token payloads.\n  - Ensure the `Token` field in `InstallationToken` and related types remains a standard unbounded string and handles JSON unmarshaling of large payloads without mutation.\n\n## 🧪 Verification & Testing\n- **Unit Tests**:\n  - Add test cases in `github/apps_installation_test.go` verifying that `CreateInstallationToken` correctly decodes responses containing both legacy (`ghs_...`) and newly formatted stateless installation access tokens (including large/variable-length payload strings).\n  - Add test cases verifying that authenticated HTTP clients configured with stateless installation tokens attach the exact token to outgoing `Authorization` headers.\n- **Manual / Integration Verification**:\n  - Generate a stateless installation token using a GitHub App with the stateless token feature enabled.\n  - Use the token with `github.NewClient` to perform API calls (e.g., `client.Repositories.List`) and verify successful `200 OK` authentication responses.\n\n---\n\n[![Opire Bounty](https://img.shields.io/badge/bounty-Opire-emerald?style=for-the-badge)](https://github.com/velldharami44d/go-github)\n<br/>\n<hr/>\n\n<details><summary>This repo is using Opire - what does it mean? 👇</summary><br/>💵 Everyone can add rewards for this issue commenting <code>/reward 100</code> (replace <code>100</code> with the amount).<br/>🕵️‍♂️ If someone starts working on this issue to earn the rewards, they can comment <code>/try</code> to let everyone know!<br/>🙌 And when they open the PR, they can comment <code>/claim #3</code> either in the PR description or in a PR's comment.<br/><br/>🪙 Also, everyone can tip any user commenting <code>/tip 20 @velldharami44d</code> (replace <code>20</code> with the amount, and <code>@velldharami44d</code> with the user to tip).<br/><br/>📖 If you want to learn more, check out our <a href=\"https://docs.opire.dev\">documentation</a>.</details>",
+        "closed_at": "2026-08-28T04:28:20Z",
+        "closed_by": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/293595906?v=4",
+          "events_url": "https://api.github.com/users/velldharami44d/events{/privacy}",
+          "followers_url": "https://api.github.com/users/velldharami44d/followers",
+          "following_url": "https://api.github.com/users/velldharami44d/following{/other_user}",
+          "gists_url": "https://api.github.com/users/velldharami44d/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/velldharami44d",
+          "id": 293595906,
+          "login": "velldharami44d",
+          "node_id": "U_kgDOEX_rAg",
+          "organizations_url": "https://api.github.com/users/velldharami44d/orgs",
+          "received_events_url": "https://api.github.com/users/velldharami44d/received_events",
+          "repos_url": "https://api.github.com/users/velldharami44d/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/velldharami44d/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/velldharami44d/subscriptions",
+          "type": "User",
+          "url": "https://api.github.com/users/velldharami44d",
+          "user_view_type": "public"
+        },
+        "comments": 10,
+        "comments_url": "https://api.github.com/repos/velldharami44d/go-github/issues/3/comments",
+        "created_at": "2026-08-28T04:17:27Z",
+        "events_url": "https://api.github.com/repos/velldharami44d/go-github/issues/3/events",
+        "html_url": "https://github.com/velldharami44d/go-github/issues/3",
+        "id": 5274654883,
+        "issue_dependencies_summary": {
+          "blocked_by": 0,
+          "blocking": 0,
+          "total_blocked_by": 0,
+          "total_blocking": 0
+        },
+        "labels": [
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11983026379,
+            "name": "bounty",
+            "node_id": "LA_kwDOUFGjhs8AAAACyj54yw",
+            "url": "https://api.github.com/repos/velldharami44d/go-github/labels/bounty"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11983026381,
+            "name": "opire",
+            "node_id": "LA_kwDOUFGjhs8AAAACyj54zQ",
+            "url": "https://api.github.com/repos/velldharami44d/go-github/labels/opire"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11983026384,
+            "name": "$100",
+            "node_id": "LA_kwDOUFGjhs8AAAACyj540A",
+            "url": "https://api.github.com/repos/velldharami44d/go-github/labels/$100"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "ededed",
+            "default": false,
+            "description": null,
+            "id": 11983072363,
+            "name": "💰 Reward",
+            "node_id": "LA_kwDOUFGjhs8AAAACyj8saw",
+            "url": "https://api.github.com/repos/velldharami44d/go-github/labels/%F0%9F%92%B0%20Reward"
+          }
+        ],
+        "labels_url": "https://api.github.com/repos/velldharami44d/go-github/issues/3/labels{/name}",
+        "locked": false,
+        "milestone": null,
+        "node_id": "I_kwDOUFGjhs8AAAABOmTYow",
+        "number": 3,
+        "performed_via_github_app": null,
+        "pinned_comment": null,
+        "reactions": {
+          "+1": 0,
+          "-1": 0,
+          "confused": 0,
+          "eyes": 0,
+          "heart": 0,
+          "hooray": 0,
+          "laugh": 0,
+          "rocket": 0,
+          "total_count": 0,
+          "url": "https://api.github.com/repos/velldharami44d/go-github/issues/3/reactions"
+        },
+        "repository_url": "https://api.github.com/repos/velldharami44d/go-github",
+        "state": "closed",
+        "state_reason": "not_planned",
+        "sub_issues_summary": {
+          "completed": 0,
+          "percent_completed": 0,
+          "total": 0
+        },
+        "timeline_url": "https://api.github.com/repos/velldharami44d/go-github/issues/3/timeline",
+        "title": "🎯 Support new stateless GitHub App installation token format",
+        "updated_at": "2026-09-10T03:39:07Z",
+        "url": "https://api.github.com/repos/velldharami44d/go-github/issues/3",
+        "user": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/293595906?v=4",
+          "events_url": "https://api.github.com/users/velldharami44d/events{/privacy}",
+          "followers_url": "https://api.github.com/users/velldharami44d/followers",
+          "following_url": "https://api.github.com/users/velldharami44d/following{/other_user}",
+          "gists_url": "https://api.github.com/users/velldharami44d/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/velldharami44d",
+          "id": 293595906,
+          "login": "velldharami44d",
+          "node_id": "U_kgDOEX_rAg",
+          "organizations_url": "https://api.github.com/users/velldharami44d/orgs",
+          "received_events_url": "https://api.github.com/users/velldharami44d/received_events",
+          "repos_url": "https://api.github.com/users/velldharami44d/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/velldharami44d/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/velldharami44d/subscriptions",
+          "type": "User",
+          "url": "https://api.github.com/users/velldharami44d",
+          "user_view_type": "public"
+        }
+      },
+      "issueError": null,
+      "repo": {
+        "full_name": "velldharami44d/go-github",
+        "html_url": "https://github.com/velldharami44d/go-github",
+        "private": false,
+        "archived": false,
+        "fork": true,
+        "created_at": "2026-08-26T15:58:38Z",
+        "pushed_at": "2026-08-28T05:23:42Z",
+        "updated_at": "2026-08-28T05:24:06Z",
+        "size": 11,
+        "language": "Go",
+        "default_branch": "main",
+        "stargazers_count": 0,
+        "description": null
+      },
+      "repoError": null
+    },
+    {
+      "issue": {
+        "active_lock_reason": null,
+        "assignee": null,
+        "assignees": [],
+        "author_association": "CONTRIBUTOR",
+        "body": "## 💰 Bounty: $50 — powered by [Opire](https://opire.dev)\n\n## Description\nCreate a Claude Code skill (`SKILL.md`) or a bash script that automatically generates\na structured `CHANGELOG.md` from a project's git history.\n\n## Acceptance Criteria\n- [ ] Works via `/generate-changelog` command or `bash changelog.sh`\n- [ ] Fetches commits since the last git tag\n- [ ] Auto-categorizes into: `Added` / `Fixed` / `Changed` / `Removed`\n- [ ] Outputs a properly formatted `CHANGELOG.md`\n- [ ] Tested on a real GitHub repo (include a sample output in the PR)\n- [ ] README with setup instructions in 3 steps or fewer\n\n## How to Claim\n1. Comment `/opire try` in this issue\n2. Submit a PR with your solution\n3. Payment is released automatically on merge ✅\n\n## Accepted Stack\nBash, Python, or native Claude Code `SKILL.md`.",
+        "closed_at": null,
+        "closed_by": null,
+        "comments": 2133,
+        "comments_url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1/comments",
+        "created_at": "2026-03-27T00:55:36Z",
+        "events_url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1/events",
+        "html_url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+        "id": 4148310244,
+        "issue_dependencies_summary": {
+          "blocked_by": 0,
+          "blocking": 0,
+          "total_blocked_by": 0,
+          "total_blocking": 0
+        },
+        "issue_field_values": [],
+        "labels": [
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "D97706",
+            "default": false,
+            "description": "Task with financial reward",
+            "id": 10532402505,
+            "name": "bounty",
+            "node_id": "LA_kwDORx6c0M8AAAACc8e1SQ",
+            "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/labels/bounty"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "7C3AED",
+            "default": false,
+            "description": "Claude Code skill",
+            "id": 10532402578,
+            "name": "skill",
+            "node_id": "LA_kwDORx6c0M8AAAACc8e1kg",
+            "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/labels/skill"
+          },
+          {
+            "archived_at": null,
+            "archived_by": null,
+            "color": "6EE7B7",
+            "default": true,
+            "description": "Great for first-time contributors",
+            "id": 10532402781,
+            "name": "good first issue",
+            "node_id": "LA_kwDORx6c0M8AAAACc8e2XQ",
+            "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/labels/good%20first%20issue"
+          }
+        ],
+        "labels_url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1/labels{/name}",
+        "locked": false,
+        "milestone": null,
+        "node_id": "I_kwDORx6c0M73QjDk",
+        "number": 1,
+        "performed_via_github_app": null,
+        "pinned_comment": null,
+        "reactions": {
+          "+1": 0,
+          "-1": 0,
+          "confused": 0,
+          "eyes": 0,
+          "heart": 0,
+          "hooray": 0,
+          "laugh": 0,
+          "rocket": 0,
+          "total_count": 0,
+          "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1/reactions"
+        },
+        "repository_url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty",
+        "state": "open",
+        "state_reason": null,
+        "sub_issues_summary": {
+          "completed": 0,
+          "percent_completed": 0,
+          "total": 0
+        },
+        "timeline_url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1/timeline",
+        "title": "[BOUNTY $50] SKILL: Generate a structured CHANGELOG from git history",
+        "type": null,
+        "updated_at": "2026-09-12T16:36:17Z",
+        "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/issues/1",
+        "user": {
+          "avatar_url": "https://avatars.githubusercontent.com/u/271393208?v=4",
+          "events_url": "https://api.github.com/users/claudebounty/events{/privacy}",
+          "followers_url": "https://api.github.com/users/claudebounty/followers",
+          "following_url": "https://api.github.com/users/claudebounty/following{/other_user}",
+          "gists_url": "https://api.github.com/users/claudebounty/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/claudebounty",
+          "id": 271393208,
+          "login": "claudebounty",
+          "node_id": "U_kgDOEC0huA",
+          "organizations_url": "https://api.github.com/users/claudebounty/orgs",
+          "received_events_url": "https://api.github.com/users/claudebounty/received_events",
+          "repos_url": "https://api.github.com/users/claudebounty/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/claudebounty/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/claudebounty/subscriptions",
+          "type": "User",
+          "url": "https://api.github.com/users/claudebounty",
+          "user_view_type": "public"
+        }
+      },
+      "issueError": null,
+      "repo": {
+        "full_name": "claude-builders-bounty/claude-builders-bounty",
+        "html_url": "https://github.com/claude-builders-bounty/claude-builders-bounty",
+        "private": false,
+        "archived": false,
+        "fork": false,
+        "created_at": "2026-03-27T00:54:08Z",
+        "pushed_at": "2026-03-27T15:57:49Z",
+        "updated_at": "2026-09-11T06:18:32Z",
+        "size": 55,
+        "language": null,
+        "default_branch": "main",
+        "stargazers_count": 13,
+        "description": "A community bounty board for Claude Code builders — post tasks, claim rewards, build together."
+      },
+      "repoError": null
+    }
+  ],
+  "trees": [
+    {
+      "sha": "c980242ff889b860d914ede356bf531b2d2f82e0",
+      "tree": [
+        {
+          "mode": "100644",
+          "path": "README.md",
+          "sha": "ded181bf4edc834c357042c723b34d1027b03e10",
+          "size": 9,
+          "type": "blob",
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/blobs/ded181bf4edc834c357042c723b34d1027b03e10"
+        },
+        {
+          "mode": "100644",
+          "path": "go.mod",
+          "sha": "1f5e045286a0d29034881de8bda4366450b4c816",
+          "size": 47,
+          "type": "blob",
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/blobs/1f5e045286a0d29034881de8bda4366450b4c816"
+        },
+        {
+          "mode": "100644",
+          "path": "main.go",
+          "sha": "29f08bf10492682cc68d472ea2d1d1e59ccd3a8c",
+          "size": 360,
+          "type": "blob",
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/blobs/29f08bf10492682cc68d472ea2d1d1e59ccd3a8c"
+        },
+        {
+          "mode": "040000",
+          "path": "pkg",
+          "sha": "2f0e12032f6fd41b11c33808f759930450fac2af",
+          "type": "tree",
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/trees/2f0e12032f6fd41b11c33808f759930450fac2af"
+        },
+        {
+          "mode": "040000",
+          "path": "pkg/server",
+          "sha": "f40ae0b584d8001a28d953659519af2ff43bb89f",
+          "type": "tree",
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/trees/f40ae0b584d8001a28d953659519af2ff43bb89f"
+        },
+        {
+          "mode": "100644",
+          "path": "pkg/server/server.go",
+          "sha": "684a66f575537e4a40839a11800f507d65d25421",
+          "size": 3056,
+          "type": "blob",
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/blobs/684a66f575537e4a40839a11800f507d65d25421"
+        },
+        {
+          "mode": "100644",
+          "path": "pkg/server/server_test.go",
+          "sha": "dc9876ada05f0de5d196ec504a21a249356dd670",
+          "size": 3139,
+          "type": "blob",
+          "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/blobs/dc9876ada05f0de5d196ec504a21a249356dd670"
+        }
+      ],
+      "truncated": false,
+      "url": "https://api.github.com/repos/jahmeergnlt/traefik/git/trees/c980242ff889b860d914ede356bf531b2d2f82e0"
+    },
+    {
+      "sha": "75064216af9b7f21c2f379cd8053fdcfd97c78e6",
+      "tree": [
+        {
+          "mode": "100644",
+          "path": "README.md",
+          "sha": "8a97e8c5ee67bd8697f57a982eb7846d8ba31415",
+          "size": 11,
+          "type": "blob",
+          "url": "https://api.github.com/repos/velldharami44d/go-github/git/blobs/8a97e8c5ee67bd8697f57a982eb7846d8ba31415"
+        },
+        {
+          "mode": "040000",
+          "path": "github",
+          "sha": "3077acced86cfaeeef2d3d71e58b459ce34146e1",
+          "type": "tree",
+          "url": "https://api.github.com/repos/velldharami44d/go-github/git/trees/3077acced86cfaeeef2d3d71e58b459ce34146e1"
+        },
+        {
+          "mode": "100644",
+          "path": "github/apps_installation.go",
+          "sha": "e71dc5a4ee88570e433f8a719f023a4993f65d15",
+          "size": 3619,
+          "type": "blob",
+          "url": "https://api.github.com/repos/velldharami44d/go-github/git/blobs/e71dc5a4ee88570e433f8a719f023a4993f65d15"
+        },
+        {
+          "mode": "100644",
+          "path": "github/apps_installation_test.go",
+          "sha": "1feb5f20425f1a0e155b13e6fe72899f42c8add4",
+          "size": 4950,
+          "type": "blob",
+          "url": "https://api.github.com/repos/velldharami44d/go-github/git/blobs/1feb5f20425f1a0e155b13e6fe72899f42c8add4"
+        },
+        {
+          "mode": "100644",
+          "path": "github/github.go",
+          "sha": "5bf565e6ebdd85462d1ca1ef7f9ba10ad7fc5108",
+          "size": 3954,
+          "type": "blob",
+          "url": "https://api.github.com/repos/velldharami44d/go-github/git/blobs/5bf565e6ebdd85462d1ca1ef7f9ba10ad7fc5108"
+        },
+        {
+          "mode": "100644",
+          "path": "main.go",
+          "sha": "49f4dee1a3e135e7c5333191cee217669af73f99",
+          "size": 82,
+          "type": "blob",
+          "url": "https://api.github.com/repos/velldharami44d/go-github/git/blobs/49f4dee1a3e135e7c5333191cee217669af73f99"
+        }
+      ],
+      "truncated": false,
+      "url": "https://api.github.com/repos/velldharami44d/go-github/git/trees/75064216af9b7f21c2f379cd8053fdcfd97c78e6"
+    },
+    {
+      "sha": "1aeae2adc82d33f971fd7731644348dcdd24b5a6",
+      "tree": [
+        {
+          "mode": "100644",
+          "path": "LICENSE",
+          "sha": "19f591c09faad54c09b87775128ada9d625ab1fa",
+          "size": 1079,
+          "type": "blob",
+          "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/git/blobs/19f591c09faad54c09b87775128ada9d625ab1fa"
+        },
+        {
+          "mode": "100644",
+          "path": "README.md",
+          "sha": "7b61dc89e42d3241a3b534df172c2e5ec5fbf470",
+          "size": 1632,
+          "type": "blob",
+          "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/git/blobs/7b61dc89e42d3241a3b534df172c2e5ec5fbf470"
+        }
+      ],
+      "truncated": false,
+      "url": "https://api.github.com/repos/claude-builders-bounty/claude-builders-bounty/git/trees/1aeae2adc82d33f971fd7731644348dcdd24b5a6"
+    }
+  ],
+  "searchCounts": [
+    {
+      "total": 19,
+      "incomplete": false,
+      "firstUrl": "https://github.com/jahmeergnlt/traefik/pull/32"
+    },
+    {
+      "total": 2,
+      "incomplete": false,
+      "firstUrl": "https://github.com/velldharami44d/go-github/pull/9"
+    },
+    {
+      "total": 1630,
+      "incomplete": false,
+      "firstUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/pull/3887"
+    }
+  ],
+  "testFiles": [
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/blob/main/pkg/server/server_test.go",
+      "text": "package server\n\nimport (\n\t\"context\"\n\t\"net/http\"\n\t\"net/http/httptest\"\n\t\"sync\"\n\t\"testing\"\n\t\"time\"\n)\n\nfunc TestConcurrentConfigurationUpdates(t *testing.T) {\n\ts := NewServer()\n\tctx, cancel := context.WithCancel(context.Background())\n\tdefer cancel()\n\n\ts.Start(ctx)\n\n\t// Initial configuration: route1 uses mw1 (Old)\n\tinitialConfig := Configuration{\n\t\tRouters: map[string]RouterConfig{\n\t\t\t\"route1\": {\n\t\t\t\tPath:         \"/test\",\n\t\t\t\tMiddleware:   \"mw1\",\n\t\t\t\tResponseText: \"Old Router\",\n\t\t\t},\n\t\t},\n\t\tMiddlewares: map[string]MiddlewareConfig{\n\t\t\t\"mw1\": {\n\t\t\t\tHeaderName:  \"X-Test-Header\",\n\t\t\t\tHeaderValue: \"Old\",\n\t\t\t},\n\t\t},\n\t}\n\ts.GetConfigurationChan() <- initialConfig\n\ttime.Sleep(50 * time.Millisecond)\n\n\tvar wg sync.WaitGroup\n\tstopChan := make(chan struct{})\n\n\t// Provider A: updates route1 to use mw2 (New)\n\twg.Add(1)\n\tgo func() {\n\t\tdefer wg.Done()\n\t\tfor {\n\t\t\tselect {\n\t\t\tcase <-stopChan:\n\t\t\t\treturn\n\t\t\tdefault:\n\t\t\t\tconfigA := Configuration{\n\t\t\t\t\tRouters: map[string]RouterConfig{\n\t\t\t\t\t\t\"route1\": {\n\t\t\t\t\t\t\tPath:         \"/test\",\n\t\t\t\t\t\t\tMiddleware:   \"mw2\",\n\t\t\t\t\t\t\tResponseText: \"New Router\",\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tMiddlewares: map[string]MiddlewareConfig{\n\t\t\t\t\t\t\"mw1\": {\n\t\t\t\t\t\t\tHeaderName:  \"X-Test-Header\",\n\t\t\t\t\t\t\tHeaderValue: \"Old\",\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"mw2\": {\n\t\t\t\t\t\t\tHeaderName:  \"X-Test-Header\",\n\t\t\t\t\t\t\tHeaderValue: \"New\",\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t}\n\t\t\t\ts.GetConfigurationChan() <- configA\n\t\t\t\ttime.Sleep(2 * time.Millisecond)\n\t\t\t}\n\t\t}\n\t}()\n\n\t// Provider B: updates an unrelated router, but keeps route1 using mw1 (Old)\n\twg.Add(1)\n\tgo func() {\n\t\tdefer wg.Done()\n\t\tfor {\n\t\t\tselect {\n\t\t\tcase <-stopChan:\n\t\t\t\treturn\n\t\t\tdefault:\n\t\t\t\tconfigB := Configuration{\n\t\t\t\t\tRouters: map[string]RouterConfig{\n\t\t\t\t\t\t\"route1\": {\n\t\t\t\t\t\t\tPath:         \"/test\",\n\t\t\t\t\t\t\tMiddleware:   \"mw1\",\n\t\t\t\t\t\t\tResponseText: \"Old Router\",\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"unrelated\": {\n\t\t\t\t\t\t\tPath:         \"/unrelated\",\n\t\t\t\t\t\t\tMiddleware:   \"\",\n\t\t\t\t\t\t\tResponseText: \"Unrelated Router\",\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tMiddlewares: map[string]MiddlewareConfig{\n\t\t\t\t\t\t\"mw1\": {\n\t\t\t\t\t\t\tHeaderName:  \"X-Test-Header\",\n\t\t\t\t\t\t\tHeaderValue: \"Old\",\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t}\n\t\t\t\ts.GetConfigurationChan() <- configB\n\t\t\t\ttime.Sleep(2 * time.Millisecond)\n\t\t\t}\n\t\t}\n\t}()\n\n\t// Send a continuous stream of HTTP requests to the router\n\twg.Add(1)\n\tgo func() {\n\t\tdefer wg.Done()\n\t\tep := s.GetEntryPoint(\"web\")\n\t\tfor i := 0; i < 1000; i++ {\n\t\t\treq := httptest.NewRequest(http.MethodGet, \"/test\", nil)\n\t\t\trec := httptest.NewRecorder()\n\t\t\tep.ServeHTTP(rec, req)\n\n\t\t\tif rec.Code == http.StatusOK {\n\t\t\t\tbody := rec.Body.String()\n\t\t\t\theaderVal := rec.Header().Get(\"X-Test-Header\")\n\n\t\t\t\tif body == \"New Router\" {\n\t\t\t\t\tif headerVal != \"New\" {\n\t\t\t\t\t\tt.Errorf(\"Consistency violation: response body is %q but header is %q\", body, headerVal)\n\t\t\t\t\t}\n\t\t\t\t} else if body == \"Old Router\" {\n\t\t\t\t\tif headerVal != \"Old\" {\n\t\t\t\t\t\tt.Errorf(\"Consistency violation: response body is %q but header is %q\", body, headerVal)\n\t\t\t\t\t}\n\t\t\t\t} else {\n\t\t\t\t\tt.Errorf(\"Unexpected response body: %q\", body)\n\t\t\t\t}\n\t\t\t}\n\t\t\ttime.Sleep(1 * time.Millisecond)\n\t\t}\n\t}()\n\n\t// Run the test for a short duration\n\ttime.Sleep(500 * time.Millisecond)\n\tclose(stopChan)\n\twg.Wait()\n}\n"
+    },
+    {
+      "url": "https://github.com/velldharami44d/go-github/blob/main/github/apps_installation_test.go",
+      "text": "package github\n\nimport (\n\t\"context\"\n\t\"encoding/json\"\n\t\"fmt\"\n\t\"net/http\"\n\t\"net/http/httptest\"\n\t\"strings\"\n\t\"testing\"\n\t\"time\"\n)\n\nfunc TestValidateInstallationToken(t *testing.T) {\n\ttests := []struct {\n\t\tname    string\n\t\ttoken   string\n\t\twantErr bool\n\t}{\n\t\t{\n\t\t\tname:    \"legacy stateful token (36 chars after prefix)\",\n\t\t\ttoken:   \"ghs_16C7e42F292c6912E7710c838347Ae178B4a\",\n\t\t\twantErr: false,\n\t\t},\n\t\t{\n\t\t\tname:    \"stateless token (>250 chars with base64url characters)\",\n\t\t\ttoken:   \"ghs_\" + strings.Repeat(\"AbcDeF-123_456.\", 25),\n\t\t\twantErr: false,\n\t\t},\n\t\t{\n\t\t\tname:    \"stateless token with realistic payload\",\n\t\t\ttoken:   \"ghs_eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnN0YWxsYXRpb25faWQiOjEyMzQ1NiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyNDI2MjJ9.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk_long_signature_part_here_exceeding_standard_length_bounds_for_legacy_tokens\",\n\t\t\twantErr: false,\n\t\t},\n\t\t{\n\t\t\tname:    \"empty token\",\n\t\t\ttoken:   \"\",\n\t\t\twantErr: true,\n\t\t},\n\t\t{\n\t\t\tname:    \"invalid prefix\",\n\t\t\ttoken:   \"ghp_16C7e42F292c6912E7710c838347Ae178B4a\",\n\t\t\twantErr: true,\n\t\t},\n\t\t{\n\t\t\tname:    \"invalid characters\",\n\t\t\ttoken:   \"ghs_invalid!@#$%^&*()\",\n\t\t\twantErr: true,\n\t\t},\n\t}\n\n\tfor _, tt := range tests {\n\t\tt.Run(tt.name, func(t *testing.T) {\n\t\t\terr := ValidateInstallationToken(tt.token)\n\t\t\tif (err != nil) != tt.wantErr {\n\t\t\t\tt.Errorf(\"ValidateInstallationToken(%q) error = %v, wantErr %v\", tt.token, err, tt.wantErr)\n\t\t\t}\n\t\t})\n\t}\n}\n\nfunc TestCreateInstallationToken_StatelessToken(t *testing.T) {\n\tstatelessToken := \"ghs_\" + strings.Repeat(\"eyJhbGciOiJSUzI1NiJ9.\", 15) + \"signature_blob_123-456_789\"\n\texpiresAt := time.Now().Add(time.Hour).Truncate(time.Second)\n\n\tmux := http.NewServeMux()\n\tmux.HandleFunc(\"/app/installations/12345/access_tokens\", func(w http.ResponseWriter, r *http.Request) {\n\t\tif r.Method != \"POST\" {\n\t\t\thttp.Error(w, \"Method not allowed\", http.StatusMethodNotAllowed)\n\t\t\treturn\n\t\t}\n\n\t\tw.Header().Set(\"Content-Type\", \"application/json\")\n\t\tfmt.Fprintf(w, `{\n\t\t\t\"token\": %q,\n\t\t\t\"expires_at\": %q,\n\t\t\t\"permissions\": {\"issues\": \"write\", \"contents\": \"read\"},\n\t\t\t\"repository_selection\": \"all\"\n\t\t}`, statelessToken, expiresAt.Format(time.RFC3339))\n\t})\n\n\tserver := httptest.NewServer(mux)\n\tdefer server.Close()\n\n\tclient := NewClient(nil)\n\tclient.BaseURL, _ = client.BaseURL.Parse(server.URL + \"/\")\n\n\ttoken, resp, err := client.Apps.CreateInstallationToken(context.Background(), 12345, &InstallationTokenOptions{})\n\tif err != nil {\n\t\tt.Fatalf(\"CreateInstallationToken returned error: %v\", err)\n\t}\n\n\tif resp.StatusCode != http.StatusOK {\n\t\tt.Fatalf(\"Expected status 200, got %d\", resp.StatusCode)\n\t}\n\n\tif token.Token == nil || *token.Token != statelessToken {\n\t\tt.Errorf(\"Expected token %q, got %v\", statelessToken, token.Token)\n\t}\n\n\tif token.ExpiresAt == nil || !token.ExpiresAt.Equal(expiresAt) {\n\t\tt.Errorf(\"Expected expires_at %v, got %v\", expiresAt, token.ExpiresAt)\n\t}\n\n\tif token.Permissions == nil || *token.Permissions.Issues != \"write\" {\n\t\tt.Errorf(\"Expected permissions.issues = 'write', got %v\", token.Permissions)\n\t}\n}\n\nfunc TestTokenTransport_StatelessTokenAuthorizationHeader(t *testing.T) {\n\tstatelessToken := \"ghs_\" + strings.Repeat(\"veryLongStatelessTokenPayloadPart_\", 10)\n\n\tmux := http.NewServeMux()\n\tmux.HandleFunc(\"/user\", func(w http.ResponseWriter, r *http.Request) {\n\t\tauthHeader := r.Header.Get(\"Authorization\")\n\t\texpectedAuth := \"Bearer \" + statelessToken\n\t\tif authHeader != expectedAuth {\n\t\thttp.Error(w, fmt.Sprintf(\"expected auth %s, got %s\", expectedAuth, authHeader), http.StatusUnauthorized)\n\t\t\treturn\n\t\t}\n\t\tw.Header().Set(\"Content-Type\", \"application/json\")\n\t\tfmt.Fprint(w, `{\"login\": \"octocat\"}`)\n\t})\n\n\tserver := httptest.NewServer(mux)\n\tdefer server.Close()\n\n\tclient := NewTokenClient(context.Background(), statelessToken)\n\tclient.BaseURL, _ = client.BaseURL.Parse(server.URL + \"/\")\n\n\treq, err := client.NewRequest(\"GET\", \"user\", nil)\n\tif err != nil {\n\t\tt.Fatalf(\"NewRequest failed: %v\", err)\n\t}\n\n\tvar user map[string]interface{}\n\tresp, err := client.Do(context.Background(), req, &user)\n\tif err != nil {\n\t\tt.Fatalf(\"Do failed: %v\", err)\n\t}\n\n\tif resp.StatusCode != http.StatusOK {\n\t\tt.Errorf(\"Expected status 200, got %d\", resp.StatusCode)\n\t}\n\tif user[\"login\"] != \"octocat\" {\n\t\tt.Errorf(\"Expected login 'octocat', got %v\", user[\"login\"])\n\t}\n}\n\nfunc TestInstallationToken_JSONUnmarshal(t *testing.T) {\n\tlongToken := \"ghs_\" + strings.Repeat(\"A1b2C3d4-\", 40)\n\trawJSON := fmt.Sprintf(`{\n\t\t\"token\": %q,\n\t\t\"expires_at\": \"2030-01-01T00:00:00Z\",\n\t\t\"repositories\": [{\"id\": 1, \"name\": \"test-repo\"}]\n\t}`, longToken)\n\n\tvar it InstallationToken\n\tif err := json.Unmarshal([]byte(rawJSON), &it); err != nil {\n\t\tt.Fatalf(\"json.Unmarshal failed: %v\", err)\n\t}\n\n\tif it.Token == nil || *it.Token != longToken {\n\t\tt.Errorf(\"Token mismatch: got %v, want %q\", it.Token, longToken)\n\t}\n\tif len(it.Repositories) != 1 || *it.Repositories[0].Name != \"test-repo\" {\n\t\tt.Errorf(\"Repositories mismatch: got %v\", it.Repositories)\n\t}\n}\n"
+    }
+  ],
+  "ownerCompletionEvidence": [
+    {
+      "url": "https://github.com/velldharami44d/go-github/issues/3#issuecomment-5448345063",
+      "actor": "velldharami44d",
+      "body": "/reward 100<details><summary>How to earn this $100.00 reward?</summary><br/>💪 Comment `/try` below and start working on it!\n🙌 Once your PR is open, comment `/claim #3` either in the PR description or within the comments.</details>"
+    },
+    {
+      "url": "https://github.com/velldharami44d/go-github/issues/3#issuecomment-5448443316",
+      "actor": "velldharami44d",
+      "body": "🎉 Bounty code force-applied and merged via **GitBountyCreator**! The bounty has been disbursed to the author. Thank you!"
+    },
+    {
+      "url": "https://github.com/velldharami44d/go-github/issues/3#issuecomment-5448613817",
+      "actor": "velldharami44d",
+      "body": "/tip 100 @loigaak<details><summary>How to receive this tip?</summary><br/>⚙️ @loigaak, please check [your settings](https://app.opire.dev/settings) and ensure your Stripe account is configured. Without it, you won't be able to receive payments.\n\n💸 @velldharami44d you can pay the tip in [your dashboard](https://app.opire.dev/dashboard/creator/tips?id=01M13BKMT3E12GTPAK73R0KAQM)</details>"
+    }
+  ],
+  "repostRewardError": {
+    "acceptanceCriteria": {
+      "acceptanceCriteriaList": [],
+      "codeChanges": [],
+      "criteria": [],
+      "dependencyEvidence": [],
+      "documentationRequirements": [],
+      "externalDependencies": [],
+      "externalRequirements": [],
+      "filesMentioned": [
+        "src/slugify.js",
+        "test/slugify.test.js"
+      ],
+      "hiddenBlockerRisk": "UNKNOWN",
+      "inaccessibleDependencies": [],
+      "reproductionSteps": [
+        "## Steps to reproduce"
+      ],
+      "requiredDocumentation": [],
+      "requiredTests": [],
+      "scopeClarityScore": 40,
+      "testingRequirements": [],
+      "verificationRequirements": []
+    },
+    "activeCompetitorCount": null,
+    "activeCompetitors": null,
+    "aiSolvabilityScore": 20,
+    "analysisDepth": "partial",
+    "apiUrl": "https://api.github.com/repos/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+    "approximateRepoSizeKb": null,
+    "archived": false,
+    "assignees": [],
+    "authorAssociation": "OWNER",
+    "blockerProbability": "UNKNOWN",
+    "blockers": [],
+    "body": "### 赏金平台 / Platform\nGitHub\n\n### 原始链接 / Source URL\nhttps://github.com/maaltarifi97-maker/aioa-playground/issues/1\n\n### 漏洞描述 / Description\n[Bounty: $50] slugify() leaves double and trailing hyphens\n\n## Problem\n\n`slugify()` in `src/slugify.js` produces malformed slugs when the input contains runs of punctuation/whitespace or leading/trailing separators.\n\n## Steps to reproduce\n\n```js\nconst { slugify } = require('./src/slugify');\nslugify('Hello,   World!!');      // actual: 'hello-world-'   expected: 'hello-world'\nslugify('  --Hello World--  ');   // actual: '-hello-world-'  expected: 'hello-world'\n```\n\nRun `npm test` — two tests in `test/slugify.test.js` fail:\n\n- `collapses runs of punctuation and spaces into a single hyphen`\n- `does not produce leading or trailing hyphens`\n\n## Expected\n\n- Consecutive separator characters collapse into a single `-`.\n- No leading or trailing `-` in the result.\n- Existing behaviour (lowercasing, accent stripping, TypeError for non-strings) must not change.\n\n## Acceptance\n\n`npm test` passes (all 5 tests). Please keep the change minimal and inside `src/slugify.js`.\n\n**Bounty: $50** paid on merge.\n\n### 积分币奖励 / Coin Reward\n62 coins\n\n### 真实赏金（USD）/ Real Reward\n$50\n\n### 难度 / Difficulty\nMedium\n\n### 认领方式\n评论 `/claim` 锁定任务 24h\n\n### 兑换说明\n> 查看 [REWARD_POLICY.md](REWARD_POLICY.md) 了解兑换规则\n",
+    "bountyProviderUrl": null,
+    "buildCommand": "UNKNOWN",
+    "buildCommands": [],
+    "buildStatus": "NOT_RUN",
+    "canonicalIssueUrl": "https://github.com/maaltarifi97-maker/aioa-playground/issues/1",
+    "claimStatus": "UNKNOWN",
+    "closedAt": null,
+    "comments": 4,
+    "commentsUrl": "https://api.github.com/repos/zhangjiayang6835-cyber/bounty-plaza/issues/1518/comments",
+    "competitionConfidence": "UNKNOWN",
+    "competitionEvidence": [],
+    "competitionScore": 25,
+    "competitionState": "UNKNOWN",
+    "contributorStates": [],
+    "coverage": {
+      "complete": false,
+      "missing": [
+        "SOURCE_RESOLVED",
+        "PAYMENT_CHECKED",
+        "COMPETITION_CHECKED",
+        "REPO_CHECKED",
+        "SCOPE_CHECKED",
+        "DEPENDENCY_CHECKED"
+      ]
+    },
+    "createdAt": "2026-09-12T13:43:16Z",
+    "credibleMarketValue": true,
+    "decision": "REJECT",
+    "dependencyEvidence": [],
+    "developerSetupScore": 0,
+    "discoverySources": [
+      "GitHub"
+    ],
+    "discoveryUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+    "effortAttractivenessScore": 20,
+    "effortBucket": "UNKNOWN",
+    "effortEstimate": "UNKNOWN",
+    "enrichment": {
+      "checkedAt": "2026-09-12T17:11:19.392Z",
+      "complete": false,
+      "completed": 1,
+      "steps": [
+        {
+          "checkedAt": "2026-09-12T17:11:05.218Z",
+          "status": "COMPLETE",
+          "step": "BASIC_SCREENED"
+        },
+        {
+          "failureReason": "Outside this scan enrichment budget",
+          "retryable": true,
+          "status": "DEFERRED",
+          "step": "SOURCE_RESOLVED"
+        },
+        {
+          "failureReason": "Outside this scan enrichment budget",
+          "retryable": true,
+          "status": "DEFERRED",
+          "step": "PAYMENT_CHECKED"
+        },
+        {
+          "failureReason": "Outside this scan enrichment budget",
+          "retryable": true,
+          "status": "DEFERRED",
+          "step": "COMPETITION_CHECKED"
+        },
+        {
+          "failureReason": "Outside this scan enrichment budget",
+          "retryable": true,
+          "status": "DEFERRED",
+          "step": "REPO_CHECKED"
+        },
+        {
+          "failureReason": "Outside this scan enrichment budget",
+          "retryable": true,
+          "status": "DEFERRED",
+          "step": "SCOPE_CHECKED"
+        },
+        {
+          "failureReason": "Outside this scan enrichment budget",
+          "retryable": true,
+          "status": "DEFERRED",
+          "step": "DEPENDENCY_CHECKED"
+        }
+      ],
+      "total": 7
+    },
+    "enrichmentState": "REJECTED",
+    "evidence": [
+      {
+        "detail": "body: [Bounty: $50] slugify() leaves double and trailing hyphens",
+        "type": "reward",
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518"
+      },
+      {
+        "detail": "Likely bounty mirror/repost",
+        "type": "legitimacy",
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518"
+      },
+      {
+        "detail": "Explicit numeric reward",
+        "type": "legitimacy",
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518"
+      },
+      {
+        "detail": "No root test directory detected",
+        "type": "solvability",
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza"
+      },
+      {
+        "detail": "Scope clarity 40/100",
+        "type": "solvability",
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518"
+      }
+    ],
+    "evidenceUrls": [
+      "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+      "https://github.com/zhangjiayang6835-cyber/bounty-plaza"
+    ],
+    "executionReadinessScore": 0,
+    "executionVerified": false,
+    "existingSolutionPRs": [],
+    "expectedFilesChanged": 2,
+    "externalDependencies": [],
+    "finalOpportunityScore": null,
+    "framework": [
+      "UNKNOWN"
+    ],
+    "frameworks": [],
+    "fundingConfidence": 30,
+    "githubObservedCompetitors": 0,
+    "hasCI": null,
+    "hasContributing": false,
+    "hasLint": false,
+    "hasReadme": false,
+    "hasTests": false,
+    "hasTypeChecking": false,
+    "hiddenBlockerRisk": "UNKNOWN",
+    "huntGates": {
+      "accessible": true,
+      "activeRepository": false,
+      "competition": false,
+      "completeEvidence": false,
+      "credibleValue": true,
+      "directReward": true,
+      "noCompletedSolution": true,
+      "noHardRejection": false,
+      "open": true,
+      "payment": false,
+      "readiness": false,
+      "scope": false,
+      "solvability": false,
+      "unassigned": true
+    },
+    "id": "5433637789",
+    "implementationComplexity": "LOW",
+    "interestedContributorCount": 0,
+    "isDirectTaskReward": true,
+    "isPullRequest": false,
+    "issuer": "zhangjiayang6835-cyber",
+    "issuerAuthorityScore": 85,
+    "labels": [
+      "bounty",
+      "real"
+    ],
+    "legitimacyConfidence": 25,
+    "lintCommand": "UNKNOWN",
+    "maintainerActivityScore": 10,
+    "maintainerResponsivenessScore": null,
+    "number": 1518,
+    "observedActiveCompetitors": 0,
+    "observedSolvers": null,
+    "openPRVolume": null,
+    "opportunityId": "ABH-GH-zhangjiayang6835-cyber-bounty-plaza-1518",
+    "opportunityScore": 30,
+    "originalIssueUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+    "packageBuildSystem": [],
+    "payer": "zhangjiayang6835-cyber",
+    "payerRole": "PROJECT_MAINTAINER",
+    "paymentConfidence": "PARTIAL",
+    "paymentEvidence": [
+      {
+        "detail": "Issue author zhangjiayang6835-cyber; GitHub association OWNER",
+        "type": "issuer",
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518"
+      }
+    ],
+    "paymentEvidenceVerified": false,
+    "paymentLegitimacyScore": 40,
+    "paymentMethod": "UNKNOWN",
+    "paymentProvider": "UNKNOWN",
+    "paymentRisk": "MEDIUM",
+    "paymentTrigger": "merge",
+    "paymentTrust": {
+      "evidence": [
+        {
+          "detail": "Issue author zhangjiayang6835-cyber; GitHub association OWNER",
+          "type": "issuer",
+          "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518"
+        }
+      ],
+      "fundingStatus": "UNKNOWN",
+      "issuerAuthority": "PROJECT_MAINTAINER",
+      "listingVerified": false,
+      "paymentConfidence": "PARTIAL",
+      "paymentProvider": "UNKNOWN",
+      "paymentTrigger": "merge",
+      "platformVerified": true,
+      "provider": "GitHub-native/UNKNOWN"
+    },
+    "preliminaryPriority": 55,
+    "primaryLanguage": "UNKNOWN",
+    "promptInjection": {
+      "detected": false,
+      "matches": [],
+      "policy": "UNTRUSTED_DATA_ONLY"
+    },
+    "providerClaimedCount": null,
+    "providerDiscovery": null,
+    "providerUrl": null,
+    "readinessEvidence": [
+      {
+        "detail": "Manifest scripts and documentation inspected; build/test execution NOT RUN. Setup: UNKNOWN; tests: UNKNOWN",
+        "type": "readiness"
+      }
+    ],
+    "reason": "Likely bounty mirror/repost",
+    "recentCommitActivity": "STALE",
+    "rejectionReason": "Likely bounty mirror/repost",
+    "rejectionReasons": [
+      "Likely bounty mirror/repost"
+    ],
+    "repoHealthScore": 0,
+    "repository": "zhangjiayang6835-cyber/bounty-plaza",
+    "repositoryUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza",
+    "retrievalTimestamp": "2026-09-12T17:11:19.392Z",
+    "reward": {
+      "amount": 50,
+      "confidence": 90,
+      "conflicts": [],
+      "currency": "USD",
+      "evidenceLocation": "body",
+      "evidenceSourceUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+      "evidenceText": "[Bounty: $50] slugify() leaves double and trailing hyphens",
+      "isDirectTaskReward": true,
+      "rewardType": "fixed",
+      "usdEstimate": 50
+    },
+    "rewardAmount": 50,
+    "rewardAttractivenessScore": 100,
+    "rewardConfidence": 90,
+    "rewardCurrency": "USD",
+    "rewardRange": null,
+    "rewardUsdEstimate": 50,
+    "scopeClarityScore": 40,
+    "scoreBreakdown": {
+      "aiSolvability": 20,
+      "competition": 25,
+      "effort": 20,
+      "legitimacy": 40,
+      "maintainerActivity": 20,
+      "repositoryHealth": 0,
+      "rewardAttractiveness": 100,
+      "scopeClarity": 40
+    },
+    "scoreMeaning": "Heuristic opportunity quality score; not a calibrated probability",
+    "searchCompleteness": "PARTIAL",
+    "setupCommand": "UNKNOWN",
+    "setupDifficulty": "UNKNOWN",
+    "solutionSearchCompleteness": "PARTIAL",
+    "source": "github",
+    "sourceAdvertisedReward": {
+      "amount": 50,
+      "confidence": 90,
+      "conflicts": [],
+      "currency": "USD",
+      "evidenceLocation": "body",
+      "evidenceSourceUrl": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+      "evidenceText": "[Bounty: $50] slugify() leaves double and trailing hyphens",
+      "isDirectTaskReward": true,
+      "rewardType": "fixed",
+      "usdEstimate": 50
+    },
+    "sourceResolutionConfidence": 0,
+    "stack": "UNKNOWN",
+    "state": "open",
+    "submittedSolutionCount": null,
+    "submittedSolutions": null,
+    "testCommand": "UNKNOWN",
+    "testCommands": [],
+    "testabilityScore": 15,
+    "title": "[Bounty] [Bounty: $50] slugify() leaves double and trailing hyphens",
+    "tokenEvidence": {
+      "category": "STABLE_VALUE",
+      "exchangeable": null,
+      "liquidityConfidence": "ASSUMED_PEG",
+      "priceSourceUrl": null,
+      "priceTimestamp": null,
+      "symbol": "USD",
+      "uncertainty": "Nominal USD peg; redemption and depeg risks remain"
+    },
+    "typecheckCommand": "UNKNOWN",
+    "updatedAt": "2026-09-12T16:26:55Z",
+    "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+    "verificationComplexity": "UNKNOWN",
+    "verificationEffort": "UNKNOWN",
+    "verificationRequirements": [],
+    "winScore": null
+  },
+  "scanChecks": {
+    "allRecords": 78,
+    "aggregation": [
+      {
+        "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1518",
+        "decision": "REJECT",
+        "reward": 50
+      },
+      {
+        "url": "https://github.com/2510034127qq-wq/BountyScout/issues/79",
+        "decision": "REJECT",
+        "reward": null
+      },
+      {
+        "url": "https://github.com/dev-kp-eloper/BountyScout/issues/1374",
+        "decision": "REJECT",
+        "reward": null
+      },
+      {
+        "url": "https://github.com/dev-kp-eloper/BountyScout/issues/1380",
+        "decision": "REJECT",
+        "reward": null
+      },
+      {
+        "url": "https://github.com/freedom-winds/BountyScout/issues/1038",
+        "decision": "REJECT",
+        "reward": null
+      },
+      {
+        "url": "https://github.com/freedom-winds/BountyScout/issues/1044",
+        "decision": "REJECT",
+        "reward": null
+      },
+      {
+        "url": "https://github.com/vansh-09/BountyScout/issues/1109",
+        "decision": "REJECT",
+        "reward": null
+      },
+      {
+        "url": "https://github.com/vansh-09/BountyScout/issues/1114",
+        "decision": "REJECT",
+        "reward": null
+      }
+    ],
+    "selected": [
+      {
+        "id": "ABH-GH-Opire-docs-27",
+        "checkboxes": 0,
+        "criteria": 0,
+        "competitionState": "UNKNOWN",
+        "githubObserved": 0,
+        "submitted": null,
+        "prRelations": [],
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "ABH-GH-jahmeergnlt-traefik-1",
+        "checkboxes": 5,
+        "criteria": 9,
+        "competitionState": "UNKNOWN",
+        "githubObserved": 13,
+        "submitted": null,
+        "prRelations": [
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION"
+        ],
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "ABH-GH-aueangpanit-electron-template-1",
+        "checkboxes": 0,
+        "criteria": 0,
+        "competitionState": "UNKNOWN",
+        "githubObserved": 0,
+        "submitted": null,
+        "prRelations": [],
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "ABH-GH-velldharami44d-go-github-3",
+        "checkboxes": 5,
+        "criteria": 8,
+        "competitionState": "UNKNOWN",
+        "githubObserved": 3,
+        "submitted": 2,
+        "prRelations": [
+          "OPEN_SUBMISSION",
+          "CLOSED_UNSUCCESSFUL",
+          "OPEN_SUBMISSION"
+        ],
+        "coverage": "BOUNDED_COMPLETE"
+      },
+      {
+        "id": "ABH-GH-claude-builders-bounty-claude-builders-bounty-1",
+        "checkboxes": 6,
+        "criteria": 6,
+        "competitionState": "UNKNOWN",
+        "githubObserved": 11,
+        "submitted": null,
+        "prRelations": [
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION",
+          "OPEN_SUBMISSION"
+        ],
+        "coverage": "PARTIAL"
+      }
+    ],
+    "requestsByCategory": {
+      "PROVIDER": 3,
+      "SEARCH": 6,
+      "ORIGINAL_ISSUE": 12,
+      "REPOSITORY": 12,
+      "COMMENTS": 3,
+      "PR_DETAIL": 23,
+      "TIMELINE": 1,
+      "REPOSITORY_FILE": 4
+    }
+  },
+  "integrity": {
+    "candidateSha256": "1784c0590c03a753852d8417d4e5351fa6df610c672a696bdef5312d910bb786",
+    "supabaseReadbackMatches": true,
+    "candidateCount": 78,
+    "changesReported": 12
+  },
+  "providerArticles": [
+    {
+      "url": "https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8",
+      "retrievedAt": "2026-09-12T17:15:27.220400+00:00",
+      "articleHtml": "<article class=\"sr-only\" aria-label=\"Issue bounty details\"><script data-cfasync=\"false\" src=\"/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\"></script><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"@id\":\"https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8\",\"url\":\"https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8\",\"name\":\"$1,040.00 bounty: [Bounty] $20 - Add French as a supported language\",\"description\":\"Earn up to $1,040.00 by solving [Bounty] $20 - Add French as a supported language for Opire/docs.\",\"isPartOf\":{\"@type\":\"WebSite\",\"name\":\"Opire\",\"url\":\"https://app.opire.dev\"},\"mainEntity\":{\"@type\":\"Offer\",\"name\":\"[Bounty] $20 - Add French as a supported language\",\"url\":\"https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8\",\"price\":1040,\"priceCurrency\":\"USD\",\"availability\":\"https://schema.org/InStock\",\"category\":\"Open source bounty\",\"itemOffered\":{\"@type\":\"CreativeWork\",\"name\":\"[Bounty] $20 - Add French as a supported language\",\"url\":\"https://github.com/Opire/docs/issues/27\",\"programmingLanguage\":[\"MDX\",\"TypeScript\",\"JavaScript\",\"CSS\",\"Makefile\"],\"isPartOf\":{\"@type\":\"SoftwareSourceCode\",\"name\":\"Opire/docs\",\"url\":\"https://github.com/Opire/docs\",\"codeRepository\":\"https://github.com/Opire/docs\"}}}}</script><h1>$1,040.00<!-- --> bounty for <!-- -->[Bounty] $20 - Add French as a supported language</h1><p>Earn up to $1,040.00 by solving [Bounty] $20 - Add French as a supported language for Opire/docs.</p><p>Project: <!-- -->Opire<!-- -->/<!-- -->docs<!-- --> on <!-- -->GitHub<!-- -->.</p><p>Documentation for Opire</p><p>Issue URL: <!-- -->https://github.com/Opire/docs/issues/27</p><p>Status: <!-- -->Closed<!-- -->.</p><p>3<!-- --> available rewards and <!-- -->0<!-- --> paid rewards.</p><p>5<!-- --> solvers are trying this issue and <!-- -->4<!-- --> solvers have claimed it.</p><section><h2>Programming languages</h2><ul><li>MDX</li><li>TypeScript</li><li>JavaScript</li><li>CSS</li><li>Makefile</li></ul></section><section><h2>Rewards</h2><ul><li>$20.00<!-- --> reward, status <!-- -->Available</li><li>$20.00<!-- --> reward, status <!-- -->Available</li><li>$1,000.00<!-- --> reward, status <!-- -->Available</li></ul></section></article>",
+      "text": "$1,040.00 bounty for [Bounty] $20 - Add French as a supported language Earn up to $1,040.00 by solving [Bounty] $20 - Add French as a supported language for Opire/docs. Project: Opire / docs on GitHub . Documentation for Opire Issue URL: https://github.com/Opire/docs/issues/27 Status: Closed . 3 available rewards and 0 paid rewards. 5 solvers are trying this issue and 4 solvers have claimed it. Programming languages MDX TypeScript JavaScript CSS Makefile Rewards $20.00 reward, status Available $20.00 reward, status Available $1,000.00 reward, status Available"
+    },
+    {
+      "url": "https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF",
+      "retrievedAt": "2026-09-12T17:14:55.075843+00:00",
+      "articleHtml": "<article class=\"sr-only\" aria-label=\"Issue bounty details\"><script data-cfasync=\"false\" src=\"/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\"></script><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"@id\":\"https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF\",\"url\":\"https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF\",\"name\":\"$200.00 bounty: 🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates\",\"description\":\"Earn up to $200.00 by solving 🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates for jahmeergnlt/traefik.\",\"isPartOf\":{\"@type\":\"WebSite\",\"name\":\"Opire\",\"url\":\"https://app.opire.dev\"},\"mainEntity\":{\"@type\":\"Offer\",\"name\":\"🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates\",\"url\":\"https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF\",\"price\":200,\"priceCurrency\":\"USD\",\"availability\":\"https://schema.org/InStock\",\"category\":\"Open source bounty\",\"itemOffered\":{\"@type\":\"CreativeWork\",\"name\":\"🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates\",\"url\":\"https://github.com/jahmeergnlt/traefik/issues/1\",\"programmingLanguage\":[],\"isPartOf\":{\"@type\":\"SoftwareSourceCode\",\"name\":\"jahmeergnlt/traefik\",\"url\":\"https://github.com/jahmeergnlt/traefik\",\"codeRepository\":\"https://github.com/jahmeergnlt/traefik\"}}}}</script><h1>$200.00<!-- --> bounty for <!-- -->🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates</h1><p>Earn up to $200.00 by solving 🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates for jahmeergnlt/traefik.</p><p>Project: <!-- -->jahmeergnlt<!-- -->/<!-- -->traefik<!-- --> on <!-- -->GitHub<!-- -->.</p><p>Issue URL: <!-- -->https://github.com/jahmeergnlt/traefik/issues/1</p><p>Status: <!-- -->Open<!-- -->.</p><p>3<!-- --> available rewards and <!-- -->0<!-- --> paid rewards.</p><p>18<!-- --> solvers are trying this issue and <!-- -->12<!-- --> solvers have claimed it.</p><section><h2>Labels</h2><ul><li>bounty</li><li>opire</li><li>$100</li><li>💰 Reward</li></ul></section><section><h2>Rewards</h2><ul><li>$100.00<!-- --> reward, status <!-- -->Available</li><li>$50.00<!-- --> reward, status <!-- -->Available</li><li>$50.00<!-- --> reward, status <!-- -->Available</li></ul></section></article>",
+      "text": "$200.00 bounty for 🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates Earn up to $200.00 by solving 🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates for jahmeergnlt/traefik. Project: jahmeergnlt / traefik on GitHub . Issue URL: https://github.com/jahmeergnlt/traefik/issues/1 Status: Open . 3 available rewards and 0 paid rewards. 18 solvers are trying this issue and 12 solvers have claimed it. Labels bounty opire $100 💰 Reward Rewards $100.00 reward, status Available $50.00 reward, status Available $50.00 reward, status Available"
+    },
+    {
+      "url": "https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM",
+      "retrievedAt": "2026-09-12T17:15:31.200469+00:00",
+      "articleHtml": "<article class=\"sr-only\" aria-label=\"Issue bounty details\"><script data-cfasync=\"false\" src=\"/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\"></script><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"@id\":\"https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM\",\"url\":\"https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM\",\"name\":\"$120.00 bounty: 🎯 Support new stateless GitHub App installation token format\",\"description\":\"Earn up to $120.00 by solving 🎯 Support new stateless GitHub App installation token format for velldharami44d/go-github.\",\"isPartOf\":{\"@type\":\"WebSite\",\"name\":\"Opire\",\"url\":\"https://app.opire.dev\"},\"mainEntity\":{\"@type\":\"Offer\",\"name\":\"🎯 Support new stateless GitHub App installation token format\",\"url\":\"https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM\",\"price\":120,\"priceCurrency\":\"USD\",\"availability\":\"https://schema.org/InStock\",\"category\":\"Open source bounty\",\"itemOffered\":{\"@type\":\"CreativeWork\",\"name\":\"🎯 Support new stateless GitHub App installation token format\",\"url\":\"https://github.com/velldharami44d/go-github/issues/3\",\"programmingLanguage\":[],\"isPartOf\":{\"@type\":\"SoftwareSourceCode\",\"name\":\"velldharami44d/go-github\",\"url\":\"https://github.com/velldharami44d/go-github\",\"codeRepository\":\"https://github.com/velldharami44d/go-github\"}}}}</script><h1>$120.00<!-- --> bounty for <!-- -->🎯 Support new stateless GitHub App installation token format</h1><p>Earn up to $120.00 by solving 🎯 Support new stateless GitHub App installation token format for velldharami44d/go-github.</p><p>Project: <!-- -->velldharami44d<!-- -->/<!-- -->go-github<!-- --> on <!-- -->GitHub<!-- -->.</p><p>Issue URL: <!-- -->https://github.com/velldharami44d/go-github/issues/3</p><p>Status: <!-- -->Closed<!-- -->.</p><p>2<!-- --> available rewards and <!-- -->0<!-- --> paid rewards.</p><p>2<!-- --> solvers are trying this issue and <!-- -->2<!-- --> solvers have claimed it.</p><section><h2>Labels</h2><ul><li>bounty</li><li>opire</li><li>$100</li><li>💰 Reward</li></ul></section><section><h2>Rewards</h2><ul><li>$100.00<!-- --> reward, status <!-- -->Available</li><li>$20.00<!-- --> reward, status <!-- -->Available</li></ul></section></article>",
+      "text": "$120.00 bounty for 🎯 Support new stateless GitHub App installation token format Earn up to $120.00 by solving 🎯 Support new stateless GitHub App installation token format for velldharami44d/go-github. Project: velldharami44d / go-github on GitHub . Issue URL: https://github.com/velldharami44d/go-github/issues/3 Status: Closed . 2 available rewards and 0 paid rewards. 2 solvers are trying this issue and 2 solvers have claimed it. Labels bounty opire $100 💰 Reward Rewards $100.00 reward, status Available $20.00 reward, status Available"
+    }
+  ]
+}

@@ -1,0 +1,2414 @@
+{
+  "activeListings": 19,
+  "checkedAt": "2026-09-12T17:05:54.077Z",
+  "discovery": {
+    "completeness": "PARTIAL",
+    "detail": "Bounded current public catalogue page; not all platform listings",
+    "listings": [
+      {
+        "advertisedRewardUsd": 1363340,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/rodrigompy/bugb/issues/1",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 0,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 55,
+          "canonicalIssueUrl": "https://github.com/rodrigompy/bugb/issues/1",
+          "checkedAt": "2026-09-12T17:05:41.759Z",
+          "claimingSolvers": 0,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:41.759Z",
+              "detail": "$1,363,340.00 bounty for c1work Earn up to $1,363,340.00 by solving c1work for rodrigompy/bugb. Project: rodrigompy / bugb on GitHub . p account Issue URL: https://github.com/rodrigompy/bugb/issues/1 Status: Open . 55 available rewards and 0 paid rewards. 0 solvers are trying this issue and 0 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KSXXX60RR76RSSXZXD0F4AGF"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 1363340,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 0,
+          "url": "https://app.opire.dev/issues/01KSXXX60RR76RSSXZXD0F4AGF"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KSXXX60RR76RSSXZXD0F4AGF",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "rodrigompy/bugb",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "c1work",
+        "tryingSolvers": 0
+      },
+      {
+        "advertisedRewardUsd": 409380,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/microg/GmsCore/issues/2994",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 6,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 20,
+          "canonicalIssueUrl": "https://github.com/microg/GmsCore/issues/2994",
+          "checkedAt": "2026-09-12T17:05:42.188Z",
+          "claimingSolvers": 6,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:42.188Z",
+              "detail": "$409,380.00 bounty for [BOUNTY] RCS Support [14999$] Earn up to $409,380.00 by solving [BOUNTY] RCS Support [14999$] for microg/GmsCore. Project: microg / GmsCore on GitHub . Free implementation of Play Services Issue URL: https://github.com/microg/GmsCore/issues/2994 Status: Open . 20 available rewards and 0 paid rewards. 6 solvers are trying this issue and 6 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KPXMGCQ9ZBFBJV1E6RXM7W58"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Java"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 409380,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 6,
+          "url": "https://app.opire.dev/issues/01KPXMGCQ9ZBFBJV1E6RXM7W58"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KPXMGCQ9ZBFBJV1E6RXM7W58",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Java"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "microg/GmsCore",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "[BOUNTY] RCS Support [14999$]",
+        "tryingSolvers": 6
+      },
+      {
+        "advertisedRewardUsd": 100801,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 11,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 8,
+          "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+          "checkedAt": "2026-09-12T17:05:42.335Z",
+          "claimingSolvers": 11,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:42.335Z",
+              "detail": "$100,801.00 bounty for [BOUNTY] Kickama #304 - deterministic data seed ($50) Earn up to $100,801.00 by solving [BOUNTY] Kickama #304 - deterministic data seed ($50) for lb1192176991-lab/zeroeye. Project: lb1192176991-lab / zeroeye on GitHub . Trade risk monitor, paid bounties for diagnostics, testing, and security hardening. Issue URL: https://github.com/lb1192176991-lab/zeroeye/issues/2 Status: Open . 8 available rewards and 0 paid rewards. 15 solvers are trying this issue and 11 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "TypeScript",
+            "Rust",
+            "Python"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 100801,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 15,
+          "url": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "TypeScript",
+          "Rust",
+          "Python"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "lb1192176991-lab/zeroeye",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "[BOUNTY] Kickama #304 - deterministic data seed ($50)",
+        "tryingSolvers": 15
+      },
+      {
+        "advertisedRewardUsd": 3280,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/godotengine/godot/issues/70796",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 10,
+        "exactListing": {
+          "availability": "UNKNOWN",
+          "availableRewards": null,
+          "canonicalIssueUrl": null,
+          "checkedAt": "2026-09-12T17:05:49.766Z",
+          "claimingSolvers": null,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:49.766Z",
+              "detail": "Exact issue summary unavailable or linkage mismatch",
+              "url": "https://app.opire.dev/issues/01J8YJ06HPSY7ZAMAW08T83YBD"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": false,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": null,
+          "paymentConfidence": "UNVERIFIED",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": null,
+          "rewardAvailable": null,
+          "rewardCreator": null,
+          "rewardCurrency": null,
+          "tryingSolvers": null,
+          "url": "https://app.opire.dev/issues/01J8YJ06HPSY7ZAMAW08T83YBD"
+        },
+        "failure": "TimeoutError",
+        "listingUrl": "https://app.opire.dev/issues/01J8YJ06HPSY7ZAMAW08T83YBD",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "C++"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "godotengine/godot",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Readd support for web platform exports when using the C# (.NET) version of the engine",
+        "tryingSolvers": 10
+      },
+      {
+        "advertisedRewardUsd": 3140,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/hexgrad/kokoro/issues/290",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 10,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 17,
+          "canonicalIssueUrl": "https://github.com/hexgrad/kokoro/issues/290",
+          "checkedAt": "2026-09-12T17:05:42.887Z",
+          "claimingSolvers": 10,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:42.887Z",
+              "detail": "$3,140.00 bounty for Donation/funding for german language Earn up to $3,140.00 by solving Donation/funding for german language for hexgrad/kokoro. Project: hexgrad / kokoro on GitHub . https://hf.co/hexgrad/Kokoro-82M Issue URL: https://github.com/hexgrad/kokoro/issues/290 Status: Open . 17 available rewards and 0 paid rewards. 10 solvers are trying this issue and 10 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KCKZCP14P37WZQZQA9W6BGJJ"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "JavaScript"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 3140,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 10,
+          "url": "https://app.opire.dev/issues/01KCKZCP14P37WZQZQA9W6BGJJ"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KCKZCP14P37WZQZQA9W6BGJJ",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "JavaScript"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "hexgrad/kokoro",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Donation/funding for german language",
+        "tryingSolvers": 10
+      },
+      {
+        "advertisedRewardUsd": 2130,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/go-gitea/gitea/issues/24635",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 1,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 7,
+          "canonicalIssueUrl": "https://github.com/go-gitea/gitea/issues/24635",
+          "checkedAt": "2026-09-12T17:05:43.340Z",
+          "claimingSolvers": 1,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:43.340Z",
+              "detail": "$2,130.00 bounty for [Proposal] Support configuring permissions of automatic tokens of Actions jobs Earn up to $2,130.00 by solving [Proposal] Support configuring permissions of automatic tokens of Actions jobs for go-gitea/gitea. Project: go-gitea / gitea on GitHub . Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD Issue URL: https://github.com/go-gitea/gitea/issues/24635 Status: Open . 7 available rewards and 0 paid rewards. 1 solvers are trying this issue and 1 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KPYN6H77TSG3YCD1GCMBB8TH"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Go"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 2130,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 1,
+          "url": "https://app.opire.dev/issues/01KPYN6H77TSG3YCD1GCMBB8TH"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KPYN6H77TSG3YCD1GCMBB8TH",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Go"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "go-gitea/gitea",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "[Proposal] Support configuring permissions of automatic tokens of Actions jobs",
+        "tryingSolvers": 1
+      },
+      {
+        "advertisedRewardUsd": 1542,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/932",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 1,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 3,
+          "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/932",
+          "checkedAt": "2026-09-12T17:05:43.450Z",
+          "claimingSolvers": 1,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:43.450Z",
+              "detail": "$1,542.00 bounty for [Test] Windows Voice hook verification Earn up to $1,542.00 by solving [Test] Windows Voice hook verification for Ikalus1988/MisakaNet. Project: Ikalus1988 / MisakaNet on GitHub . 📚 A zero-dependency, git-backed micro-lesson library for AI Agents to asynchronously share and search verified debugging experience. Python stdlib only. | https://misakanet.org Issue URL: https://github.com/Ikalus1988/MisakaNet/issues/932 Status: Closed . 3 available rewards and 0 paid rewards. 1 solvers are trying this issue and 1 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KZVNMXEPC56DA7F7BEZF9KJK"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Python",
+            "JavaScript",
+            "Shell"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 1542,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 1,
+          "url": "https://app.opire.dev/issues/01KZVNMXEPC56DA7F7BEZF9KJK"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KZVNMXEPC56DA7F7BEZF9KJK",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Python",
+          "JavaScript",
+          "Shell"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "Ikalus1988/MisakaNet",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "[Test] Windows Voice hook verification",
+        "tryingSolvers": 1
+      },
+      {
+        "advertisedRewardUsd": 1500,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/uswriting/zeroperl/issues/7",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 0,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 1,
+          "canonicalIssueUrl": "https://github.com/uswriting/zeroperl/issues/7",
+          "checkedAt": "2026-09-12T17:05:43.879Z",
+          "claimingSolvers": 0,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:43.879Z",
+              "detail": "$1,500.00 bounty for Asynchronous Web APIs Earn up to $1,500.00 by solving Asynchronous Web APIs for uswriting/zeroperl. Project: uswriting / zeroperl on GitHub . Perl5 in a sandboxed, self-contained WebAssembly module. Issue URL: https://github.com/uswriting/zeroperl/issues/7 Status: Open . 1 available rewards and 0 paid rewards. 0 solvers are trying this issue and 0 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01JN06N9GS8Q1KB2NJ318258HR"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "C"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 1500,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 0,
+          "url": "https://app.opire.dev/issues/01JN06N9GS8Q1KB2NJ318258HR"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01JN06N9GS8Q1KB2NJ318258HR",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "C"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "uswriting/zeroperl",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Asynchronous Web APIs",
+        "tryingSolvers": 0
+      },
+      {
+        "advertisedRewardUsd": 1040,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/Opire/docs/issues/27",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 4,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 3,
+          "canonicalIssueUrl": "https://github.com/Opire/docs/issues/27",
+          "checkedAt": "2026-09-12T17:05:43.967Z",
+          "claimingSolvers": 4,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:43.967Z",
+              "detail": "$1,040.00 bounty for [Bounty] $20 - Add French as a supported language Earn up to $1,040.00 by solving [Bounty] $20 - Add French as a supported language for Opire/docs. Project: Opire / docs on GitHub . Documentation for Opire Issue URL: https://github.com/Opire/docs/issues/27 Status: Closed . 3 available rewards and 0 paid rewards. 5 solvers are trying this issue and 4 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "MDX",
+            "TypeScript",
+            "JavaScript",
+            "CSS",
+            "Makefile"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 1040,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 5,
+          "url": "https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "MDX",
+          "TypeScript",
+          "JavaScript",
+          "CSS",
+          "Makefile"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "Opire/docs",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "[Bounty] $20 - Add French as a supported language",
+        "tryingSolvers": 5
+      },
+      {
+        "advertisedRewardUsd": 590,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/autokey/autokey/issues/87",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 13,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 7,
+          "canonicalIssueUrl": "https://github.com/autokey/autokey/issues/87",
+          "checkedAt": "2026-09-12T17:05:44.993Z",
+          "claimingSolvers": 13,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:44.993Z",
+              "detail": "$590.00 bounty for Add Wayland support Earn up to $590.00 by solving Add Wayland support for autokey/autokey. Project: autokey / autokey on GitHub . AutoKey, a desktop automation utility for Linux and X11. Issue URL: https://github.com/autokey/autokey/issues/87 Status: Closed . 7 available rewards and 0 paid rewards. 26 solvers are trying this issue and 13 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01J73BXYSGA83XKW25TPF2QMK0"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Python"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 590,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 26,
+          "url": "https://app.opire.dev/issues/01J73BXYSGA83XKW25TPF2QMK0"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01J73BXYSGA83XKW25TPF2QMK0",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Python"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "autokey/autokey",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Add Wayland support",
+        "tryingSolvers": 26
+      },
+      {
+        "advertisedRewardUsd": 590,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/3357",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 26,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 12,
+          "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/3357",
+          "checkedAt": "2026-09-12T17:05:49.499Z",
+          "claimingSolvers": 26,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:49.499Z",
+              "detail": "$590.00 bounty for Migration generation drops and creates columns instead of altering resulting in data loss Earn up to $590.00 by solving Migration generation drops and creates columns instead of altering resulting in data loss for typeorm/typeorm. Project: typeorm / typeorm on GitHub . ORM for TypeScript and JavaScript. Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, SAP Hana, WebSQL databases. Works in NodeJS, Browser, Ionic, Cordova and Electron platforms. Issue URL: https://github.com/typeorm/typeorm/issues/3357 Status: Open . 12 available rewards and 0 paid rewards. 26 solvers are trying this issue and 26 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01HWJNZ5HQMVG2TCW6XHQQJ3QT"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "TypeScript"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 590,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 26,
+          "url": "https://app.opire.dev/issues/01HWJNZ5HQMVG2TCW6XHQQJ3QT"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01HWJNZ5HQMVG2TCW6XHQQJ3QT",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "TypeScript"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "typeorm/typeorm",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Migration generation drops and creates columns instead of altering resulting in data loss",
+        "tryingSolvers": 26
+      },
+      {
+        "advertisedRewardUsd": 395,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/zed-industries/zed/issues/4642",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 6,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 9,
+          "canonicalIssueUrl": "https://github.com/zed-industries/zed/issues/4642",
+          "checkedAt": "2026-09-12T17:05:46.680Z",
+          "claimingSolvers": 6,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:46.680Z",
+              "detail": "$395.00 bounty for Helix keymap Earn up to $395.00 by solving Helix keymap for zed-industries/zed. Project: zed-industries / zed on GitHub . Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter. Issue URL: https://github.com/zed-industries/zed/issues/4642 Status: Open . 9 available rewards and 0 paid rewards. 6 solvers are trying this issue and 6 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01J6HJZCK02FVD4XG900FY36EE"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Rust"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 395,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 6,
+          "url": "https://app.opire.dev/issues/01J6HJZCK02FVD4XG900FY36EE"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01J6HJZCK02FVD4XG900FY36EE",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Rust"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "zed-industries/zed",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Helix keymap",
+        "tryingSolvers": 6
+      },
+      {
+        "advertisedRewardUsd": 360,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/7",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 1,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 4,
+          "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/7",
+          "checkedAt": "2026-09-12T17:05:47.551Z",
+          "claimingSolvers": 1,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:47.551Z",
+              "detail": "$360.00 bounty for 🎯 Support new stateless GitHub App installation access token format Earn up to $360.00 by solving 🎯 Support new stateless GitHub App installation access token format for velldharami44d/go-github. Project: velldharami44d / go-github on GitHub . Issue URL: https://github.com/velldharami44d/go-github/issues/7 Status: Closed . 4 available rewards and 0 paid rewards. 2 solvers are trying this issue and 1 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01M13CT35250482VKZJ3F6V02C"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 360,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 2,
+          "url": "https://app.opire.dev/issues/01M13CT35250482VKZJ3F6V02C"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01M13CT35250482VKZJ3F6V02C",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "velldharami44d/go-github",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "🎯 Support new stateless GitHub App installation access token format",
+        "tryingSolvers": 2
+      },
+      {
+        "advertisedRewardUsd": 308,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/storybookjs/storybook/issues/12641",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 5,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 8,
+          "canonicalIssueUrl": "https://github.com/storybookjs/storybook/issues/12641",
+          "checkedAt": "2026-09-12T17:05:49.579Z",
+          "claimingSolvers": 5,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:49.579Z",
+              "detail": "$308.00 bounty for Problem with storybook-controls of type &quot;select&quot; Earn up to $308.00 by solving Problem with storybook-controls of type &quot;select&quot; for storybookjs/storybook. Project: storybookjs / storybook on GitHub . Storybook is a frontend workshop for building UI components and pages in isolation. Made for UI development, testing, and documentation. Issue URL: https://github.com/storybookjs/storybook/issues/12641 Status: Open . 8 available rewards and 0 paid rewards. 5 solvers are trying this issue and 5 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01HWT26R3S59MS778MAE9786YG"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "TypeScript"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 308,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 5,
+          "url": "https://app.opire.dev/issues/01HWT26R3S59MS778MAE9786YG"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01HWT26R3S59MS778MAE9786YG",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "TypeScript"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "storybookjs/storybook",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Problem with storybook-controls of type \"select\"",
+        "tryingSolvers": 5
+      },
+      {
+        "advertisedRewardUsd": 300,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/12578",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 15,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 2,
+          "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/12578",
+          "checkedAt": "2026-09-12T17:05:50.387Z",
+          "claimingSolvers": 15,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:50.387Z",
+              "detail": "$300.00 bounty for OrmUtils.normalizeWhereCriteria() does not implement described default behaviour for invalidWhereValuesBehavior Earn up to $300.00 by solving OrmUtils.normalizeWhereCriteria() does not implement described default behaviour for invalidWhereValuesBehavior for typeorm/typeorm. Project: typeorm / typeorm on GitHub . ORM for TypeScript and JavaScript. Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, SAP Hana, WebSQL databases. Works in NodeJS, Browser, Ionic, Cordova and Electron platforms. Issue URL: https://github.com/typeorm/typeorm/issues/12578 Status: Open . 2 available rewards and 0 paid rewards. 15 solvers are trying this issue and 15 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KVF9XSZYWYWB798QEBTYQVYD"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "TypeScript"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 300,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 15,
+          "url": "https://app.opire.dev/issues/01KVF9XSZYWYWB798QEBTYQVYD"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KVF9XSZYWYWB798QEBTYQVYD",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "TypeScript"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "typeorm/typeorm",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "OrmUtils.normalizeWhereCriteria() does not implement described default behaviour for invalidWhereValuesBehavior",
+        "tryingSolvers": 15
+      },
+      {
+        "advertisedRewardUsd": 270,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/keycloak/keycloak/issues/14644",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 2,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 3,
+          "canonicalIssueUrl": "https://github.com/keycloak/keycloak/issues/14644",
+          "checkedAt": "2026-09-12T17:05:50.356Z",
+          "claimingSolvers": 2,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:50.356Z",
+              "detail": "$270.00 bounty for External IDP tokens are not refreshed automatically for OAuth2 OIDC IDPs when retrieving the external token Earn up to $270.00 by solving External IDP tokens are not refreshed automatically for OAuth2 OIDC IDPs when retrieving the external token for keycloak/keycloak. Project: keycloak / keycloak on GitHub . Open Source Identity and Access Management For Modern Applications and Services Issue URL: https://github.com/keycloak/keycloak/issues/14644 Status: Open . 3 available rewards and 0 paid rewards. 2 solvers are trying this issue and 2 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01J0Y2SDJ86WRYJAYMMZJBFBAJ"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Java"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 270,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 2,
+          "url": "https://app.opire.dev/issues/01J0Y2SDJ86WRYJAYMMZJBFBAJ"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01J0Y2SDJ86WRYJAYMMZJBFBAJ",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Java"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "keycloak/keycloak",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "External IDP tokens are not refreshed automatically for OAuth2 & OIDC IDPs when retrieving the external token",
+        "tryingSolvers": 2
+      },
+      {
+        "advertisedRewardUsd": 270,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/dot-Justin/BonziAssist/issues/7",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 20,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 4,
+          "canonicalIssueUrl": "https://github.com/dot-Justin/BonziAssist/issues/7",
+          "checkedAt": "2026-09-12T17:05:51.313Z",
+          "claimingSolvers": 20,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:51.313Z",
+              "detail": "$270.00 bounty for I am confused (help) I did everthing ready but this feels like a flipped slide Earn up to $270.00 by solving I am confused (help) I did everthing ready but this feels like a flipped slide for dot-Justin/BonziAssist. Project: dot-Justin / BonziAssist on GitHub . BonziAssist is an LLM-powered, keyword activated, modern rendition of BonziBuddy. Issue URL: https://github.com/dot-Justin/BonziAssist/issues/7 Status: Open . 4 available rewards and 0 paid rewards. 23 solvers are trying this issue and 20 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KVR6PWMT3NF9RTZSME5PKWFD"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Python"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 270,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 23,
+          "url": "https://app.opire.dev/issues/01KVR6PWMT3NF9RTZSME5PKWFD"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KVR6PWMT3NF9RTZSME5PKWFD",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Python"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "dot-Justin/BonziAssist",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "I am confused (help) I did everthing ready but this feels like a flipped slide",
+        "tryingSolvers": 23
+      },
+      {
+        "advertisedRewardUsd": 270,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/secondlife/viewer/issues/4445",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 1,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 4,
+          "canonicalIssueUrl": "https://github.com/secondlife/viewer/issues/4445",
+          "checkedAt": "2026-09-12T17:05:51.098Z",
+          "claimingSolvers": 1,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:51.098Z",
+              "detail": "$270.00 bounty for Replace tut with doctest Earn up to $270.00 by solving Replace tut with doctest for secondlife/viewer. Project: secondlife / viewer on GitHub . 🖥️ Second Life&#x27;s official client Issue URL: https://github.com/secondlife/viewer/issues/4445 Status: Closed . 4 available rewards and 0 paid rewards. 6 solvers are trying this issue and 1 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01K16ZAX52F6EFS2VKN6BS2DVD"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "C++",
+            "C",
+            "GLSL"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 270,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 6,
+          "url": "https://app.opire.dev/issues/01K16ZAX52F6EFS2VKN6BS2DVD"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01K16ZAX52F6EFS2VKN6BS2DVD",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "C++",
+          "C",
+          "GLSL"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "secondlife/viewer",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Replace tut with doctest",
+        "tryingSolvers": 6
+      },
+      {
+        "advertisedRewardUsd": 220,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/433",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 6,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 2,
+          "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/433",
+          "checkedAt": "2026-09-12T17:05:51.232Z",
+          "claimingSolvers": 6,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:51.232Z",
+              "detail": "$253.00 bounty for Challenge #6: Improve testing and ci/cd cycles: bump up GitHub/gitlab coverage via Makefile and/or code management tooling, iron out code Earn up to $253.00 by solving Challenge #6: Improve testing and ci/cd cycles: bump up GitHub/gitlab coverage via Makefile and/or code management tooling, iron out code for qtop/qtop. Project: qtop / qtop on GitHub . qtop (pronounced queue-top) is a tool written in order to monitor the state of Queueing Systems, along with related information relevant on HPC grid clusters. At present it supports **PBS, SGE OAR** families. There is a historic reference for the prior shell version of the tool, at former CERN source: Issue URL: https://github.com/qtop/qtop/issues/433 Status: Open . 2 available rewards and 1 paid rewards. 6 solvers are trying this issue and 6 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KSRE4X2EB3GH2FT1FG2CWTX2"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 1,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Python"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 253,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 6,
+          "url": "https://app.opire.dev/issues/01KSRE4X2EB3GH2FT1FG2CWTX2"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KSRE4X2EB3GH2FT1FG2CWTX2",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Python"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "qtop/qtop",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Challenge #6: Improve testing and ci/cd cycles: bump up GitHub/gitlab coverage via Makefile and/or code management tooling, iron out code",
+        "tryingSolvers": 6
+      },
+      {
+        "advertisedRewardUsd": 200,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/jahmeergnlt/traefik/issues/1",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 12,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 3,
+          "canonicalIssueUrl": "https://github.com/jahmeergnlt/traefik/issues/1",
+          "checkedAt": "2026-09-12T17:05:51.674Z",
+          "claimingSolvers": 12,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:51.674Z",
+              "detail": "$200.00 bounty for 🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates Earn up to $200.00 by solving 🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates for jahmeergnlt/traefik. Project: jahmeergnlt / traefik on GitHub . Issue URL: https://github.com/jahmeergnlt/traefik/issues/1 Status: Open . 3 available rewards and 0 paid rewards. 18 solvers are trying this issue and 12 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 200,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 18,
+          "url": "https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "jahmeergnlt/traefik",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "🎯 Fix Race Condition Causing Stale Middleware Chain During Concurrent Provider Updates",
+        "tryingSolvers": 18
+      },
+      {
+        "advertisedRewardUsd": 200,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/Leantime/leantime/issues/1099",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 5,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 2,
+          "canonicalIssueUrl": "https://github.com/Leantime/leantime/issues/1099",
+          "checkedAt": "2026-09-12T17:05:51.812Z",
+          "claimingSolvers": 5,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:51.812Z",
+              "detail": "$300.00 bounty for [FEATURE] Adding &quot;collaborators&quot; to a task (formerly: Assign tasks to multiple members) Earn up to $300.00 by solving [FEATURE] Adding &quot;collaborators&quot; to a task (formerly: Assign tasks to multiple members) for Leantime/leantime. Project: Leantime / leantime on GitHub . Leantime is a goals focused project management system for non-project managers. Building with ADHD, Autism, and dyslexia in mind. Issue URL: https://github.com/Leantime/leantime/issues/1099 Status: Open . 2 available rewards and 1 paid rewards. 5 solvers are trying this issue and 5 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01J8NCWJBS24GDWTCAQEK16PVK"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 1,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "PHP"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 300,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 5,
+          "url": "https://app.opire.dev/issues/01J8NCWJBS24GDWTCAQEK16PVK"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01J8NCWJBS24GDWTCAQEK16PVK",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "PHP"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "Leantime/leantime",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "[FEATURE] Adding \"collaborators\" to a task (formerly: Assign tasks to multiple members)",
+        "tryingSolvers": 5
+      },
+      {
+        "advertisedRewardUsd": 130,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 10,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 2,
+          "canonicalIssueUrl": "https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1",
+          "checkedAt": "2026-09-12T17:05:51.922Z",
+          "claimingSolvers": 10,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:51.922Z",
+              "detail": "$130.00 bounty for 🎯 Fix Pagination Loop Termination When Fetching Repository Issues with &#x27;Since&#x27; Filter Earn up to $130.00 by solving 🎯 Fix Pagination Loop Termination When Fetching Repository Issues with &#x27;Since&#x27; Filter for alisteuber4ee1/API-Integration-Pagination. Project: alisteuber4ee1 / API-Integration-Pagination on GitHub . Issue URL: https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1 Status: Closed . 2 available rewards and 0 paid rewards. 12 solvers are trying this issue and 10 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KV8CCCRX963HSE0H441753J6"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 130,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 12,
+          "url": "https://app.opire.dev/issues/01KV8CCCRX963HSE0H441753J6"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KV8CCCRX963HSE0H441753J6",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "alisteuber4ee1/API-Integration-Pagination",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "🎯 Fix Pagination Loop Termination When Fetching Repository Issues with 'Since' Filter",
+        "tryingSolvers": 12
+      },
+      {
+        "advertisedRewardUsd": 120,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/esp-rs/esp-hal/issues/4163",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 2,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 3,
+          "canonicalIssueUrl": "https://github.com/esp-rs/esp-hal/issues/4163",
+          "checkedAt": "2026-09-12T17:05:52.256Z",
+          "claimingSolvers": 2,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:52.256Z",
+              "detail": "$120.00 bounty for Support for Ethernet peripheral (ESP32 / ESP32-P4) Earn up to $120.00 by solving Support for Ethernet peripheral (ESP32 / ESP32-P4) for esp-rs/esp-hal. Project: esp-rs / esp-hal on GitHub . no_std Hardware Abstraction Layers for ESP32 microcontrollers Issue URL: https://github.com/esp-rs/esp-hal/issues/4163 Status: Open . 3 available rewards and 0 paid rewards. 2 solvers are trying this issue and 2 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01K9XSW1T5FY4DS4VMZ8NH98MP"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Rust"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 120,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 2,
+          "url": "https://app.opire.dev/issues/01K9XSW1T5FY4DS4VMZ8NH98MP"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01K9XSW1T5FY4DS4VMZ8NH98MP",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Rust"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "esp-rs/esp-hal",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Support for Ethernet peripheral (ESP32 / ESP32-P4)",
+        "tryingSolvers": 2
+      },
+      {
+        "advertisedRewardUsd": 120,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/madalynerlge2/gin/issues/1",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 2,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 2,
+          "canonicalIssueUrl": "https://github.com/madalynerlge2/gin/issues/1",
+          "checkedAt": "2026-09-12T17:05:52.404Z",
+          "claimingSolvers": 2,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:52.404Z",
+              "detail": "$120.00 bounty for 🎯 Close Request Body on Authentication Middleware Early-Return to Prevent Connection Leaks Earn up to $120.00 by solving 🎯 Close Request Body on Authentication Middleware Early-Return to Prevent Connection Leaks for madalynerlge2/gin. Project: madalynerlge2 / gin on GitHub . Issue URL: https://github.com/madalynerlge2/gin/issues/1 Status: Closed . 2 available rewards and 0 paid rewards. 4 solvers are trying this issue and 2 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KYGZ5YZBQDEZK98D9AVRBD2T"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 120,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 4,
+          "url": "https://app.opire.dev/issues/01KYGZ5YZBQDEZK98D9AVRBD2T"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KYGZ5YZBQDEZK98D9AVRBD2T",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "madalynerlge2/gin",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "🎯 Close Request Body on Authentication Middleware Early-Return to Prevent Connection Leaks",
+        "tryingSolvers": 4
+      },
+      {
+        "advertisedRewardUsd": 120,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/3",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 2,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 2,
+          "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/3",
+          "checkedAt": "2026-09-12T17:05:52.504Z",
+          "claimingSolvers": 2,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:52.504Z",
+              "detail": "$120.00 bounty for 🎯 Support new stateless GitHub App installation token format Earn up to $120.00 by solving 🎯 Support new stateless GitHub App installation token format for velldharami44d/go-github. Project: velldharami44d / go-github on GitHub . Issue URL: https://github.com/velldharami44d/go-github/issues/3 Status: Closed . 2 available rewards and 0 paid rewards. 2 solvers are trying this issue and 2 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 120,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 2,
+          "url": "https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "velldharami44d/go-github",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "🎯 Support new stateless GitHub App installation token format",
+        "tryingSolvers": 2
+      },
+      {
+        "advertisedRewardUsd": 120,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/flowese/UdioWrapper/issues/7",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 13,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 6,
+          "canonicalIssueUrl": "https://github.com/flowese/UdioWrapper/issues/7",
+          "checkedAt": "2026-09-12T17:05:52.949Z",
+          "claimingSolvers": 13,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:52.949Z",
+              "detail": "$120.00 bounty for 500 Server Error - Auto Solve hcapcha Earn up to $120.00 by solving 500 Server Error - Auto Solve hcapcha for flowese/UdioWrapper. Project: flowese / UdioWrapper on GitHub . UdioWrapper is a Python package that enables the generation of music tracks using Udio&#x27;s API through textual prompts. This package is based on the reverse engineering of the Udio API (https://www.udio.com/) and is not officially endorsed by Udio. Issue URL: https://github.com/flowese/UdioWrapper/issues/7 Status: Open . 6 available rewards and 0 paid rewards. 21 solvers are trying this issue and 13 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01HW8CK374Y67WDDZG22BYVZQ4"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Python"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 120,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 21,
+          "url": "https://app.opire.dev/issues/01HW8CK374Y67WDDZG22BYVZQ4"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01HW8CK374Y67WDDZG22BYVZQ4",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Python"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "flowese/UdioWrapper",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "500 Server Error - Auto Solve hcapcha",
+        "tryingSolvers": 21
+      },
+      {
+        "advertisedRewardUsd": 117,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/337",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 6,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 5,
+          "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/337",
+          "checkedAt": "2026-09-12T17:05:53.073Z",
+          "claimingSolvers": 6,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:53.073Z",
+              "detail": "$139.22 bounty for Request to execute qtop across two HPC clusters and apply first step of differential debugging Earn up to $139.22 by solving Request to execute qtop across two HPC clusters and apply first step of differential debugging for qtop/qtop. Project: qtop / qtop on GitHub . qtop (pronounced queue-top) is a tool written in order to monitor the state of Queueing Systems, along with related information relevant on HPC grid clusters. At present it supports **PBS, SGE OAR** families. There is a historic reference for the prior shell version of the tool, at former CERN source: Issue URL: https://github.com/qtop/qtop/issues/337 Status: Open . 5 available rewards and 1 paid rewards. 6 solvers are trying this issue and 6 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01KEWXJ6FH5C2Z7XZVSG7TACJE"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 1,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "Python"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 139.22,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 6,
+          "url": "https://app.opire.dev/issues/01KEWXJ6FH5C2Z7XZVSG7TACJE"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01KEWXJ6FH5C2Z7XZVSG7TACJE",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "Python"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "qtop/qtop",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Request to execute qtop across two HPC clusters and apply first step of differential debugging",
+        "tryingSolvers": 6
+      },
+      {
+        "advertisedRewardUsd": 100,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/5",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 2,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 1,
+          "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/5",
+          "checkedAt": "2026-09-12T17:05:53.192Z",
+          "claimingSolvers": 2,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:53.192Z",
+              "detail": "$100.00 bounty for 🎯 Support new stateless GitHub App installation token format in token handling and validation Earn up to $100.00 by solving 🎯 Support new stateless GitHub App installation token format in token handling and validation for velldharami44d/go-github. Project: velldharami44d / go-github on GitHub . Issue URL: https://github.com/velldharami44d/go-github/issues/5 Status: Closed . 1 available rewards and 0 paid rewards. 2 solvers are trying this issue and 2 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01M13BM9Y3NFTZRPZHBDMWAK6B"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 100,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 2,
+          "url": "https://app.opire.dev/issues/01M13BM9Y3NFTZRPZHBDMWAK6B"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01M13BM9Y3NFTZRPZHBDMWAK6B",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "velldharami44d/go-github",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "🎯 Support new stateless GitHub App installation token format in token handling and validation",
+        "tryingSolvers": 2
+      },
+      {
+        "advertisedRewardUsd": 100,
+        "botInstalled": true,
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/1",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 1,
+        "exactListing": {
+          "availability": "CLOSED",
+          "availableRewards": 1,
+          "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/1",
+          "checkedAt": "2026-09-12T17:05:53.986Z",
+          "claimingSolvers": 1,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:53.986Z",
+              "detail": "$100.00 bounty for 🎯 Support new GitHub App stateless installation token format Earn up to $100.00 by solving 🎯 Support new GitHub App stateless installation token format for velldharami44d/go-github. Project: velldharami44d / go-github on GitHub . Issue URL: https://github.com/velldharami44d/go-github/issues/1 Status: Closed . 1 available rewards and 0 paid rewards. 1 solvers are trying this issue and 1 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01M136H4TDRJBJS80ATRR1JFQ5"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [],
+          "provider": "Opire",
+          "rewardAmount": 100,
+          "rewardAvailable": false,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 1,
+          "url": "https://app.opire.dev/issues/01M136H4TDRJBJS80ATRR1JFQ5"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01M136H4TDRJBJS80ATRR1JFQ5",
+        "listingVerified": false,
+        "programmingLanguages": [],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "velldharami44d/go-github",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "🎯 Support new GitHub App stateless installation token format",
+        "tryingSolvers": 1
+      },
+      {
+        "advertisedRewardUsd": 100,
+        "botInstalled": false,
+        "canonicalIssueUrl": "https://github.com/aueangpanit/electron-template/issues/1",
+        "checkedAt": "2026-09-12T17:05:41.339Z",
+        "claimingSolvers": 2,
+        "exactListing": {
+          "availability": "OPEN",
+          "availableRewards": 1,
+          "canonicalIssueUrl": "https://github.com/aueangpanit/electron-template/issues/1",
+          "checkedAt": "2026-09-12T17:05:54.075Z",
+          "claimingSolvers": 2,
+          "evidence": [
+            {
+              "checkedAt": "2026-09-12T17:05:54.075Z",
+              "detail": "$100.00 bounty for Tray icon should have an orange dot indicator Earn up to $100.00 by solving Tray icon should have an orange dot indicator for aueangpanit/electron-template. Project: aueangpanit / electron-template on GitHub . Issue URL: https://github.com/aueangpanit/electron-template/issues/1 Status: Open . 1 available rewards and 0 paid rewards. 2 solvers are trying this issue and 2 solvers have claimed it.",
+              "url": "https://app.opire.dev/issues/01K6K4YTSWT7XF53GM3KCTBG7S"
+            }
+          ],
+          "fundingStatus": "PAY_ON_ACCEPTANCE",
+          "fundsReserved": false,
+          "issuerAuthority": "UNKNOWN",
+          "issuerIdentified": false,
+          "limitations": [
+            "Creator identity and issuer payout history are not exposed by this summary",
+            "Trying and claiming counts may overlap; do not add them",
+            "Listing is not proof of secured funds"
+          ],
+          "listingVerified": true,
+          "mechanicsSources": [
+            "https://docs.opire.dev/faq",
+            "https://docs.opire.dev/rewards/lifecycle",
+            "https://docs.opire.dev/overview/commands"
+          ],
+          "paidRewards": 0,
+          "paymentConfidence": "PARTIAL",
+          "paymentProvider": "Stripe",
+          "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+          "platformVerified": true,
+          "programmingLanguages": [
+            "TypeScript"
+          ],
+          "provider": "Opire",
+          "rewardAmount": 100,
+          "rewardAvailable": true,
+          "rewardCreator": null,
+          "rewardCurrency": "USD",
+          "tryingSolvers": 2,
+          "url": "https://app.opire.dev/issues/01K6K4YTSWT7XF53GM3KCTBG7S"
+        },
+        "failure": null,
+        "listingUrl": "https://app.opire.dev/issues/01K6K4YTSWT7XF53GM3KCTBG7S",
+        "listingVerified": false,
+        "programmingLanguages": [
+          "TypeScript"
+        ],
+        "provider": "Opire",
+        "providerActivityEvidence": {
+          "checkedAt": "2026-09-12T17:05:41.339Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification",
+          "url": "https://app.opire.dev/home"
+        },
+        "repository": "aueangpanit/electron-template",
+        "sourceUrl": "https://app.opire.dev/home",
+        "title": "Tray icon should have an orange dot indicator",
+        "tryingSolvers": 2
+      }
+    ],
+    "status": "FETCHED",
+    "url": "https://app.opire.dev/home"
+  },
+  "entriesParsed": 30,
+  "exactListingsVerified": 29,
+  "mode": "PROVIDER_CHECK_ONLY",
+  "requests": [
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:40.787Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/home",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/home",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:41.355Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KSXXX60RR76RSSXZXD0F4AGF",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KSXXX60RR76RSSXZXD0F4AGF",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:41.356Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KPXMGCQ9ZBFBJV1E6RXM7W58",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KPXMGCQ9ZBFBJV1E6RXM7W58",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:41.358Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:41.762Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01J8YJ06HPSY7ZAMAW08T83YBD",
+      "error": "TimeoutError",
+      "message": "The operation was aborted due to timeout",
+      "url": "https://app.opire.dev/issues/01J8YJ06HPSY7ZAMAW08T83YBD"
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:42.189Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KCKZCP14P37WZQZQA9W6BGJJ",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KCKZCP14P37WZQZQA9W6BGJJ",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:42.336Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KPYN6H77TSG3YCD1GCMBB8TH",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KPYN6H77TSG3YCD1GCMBB8TH",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:42.889Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KZVNMXEPC56DA7F7BEZF9KJK",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KZVNMXEPC56DA7F7BEZF9KJK",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:43.341Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01JN06N9GS8Q1KB2NJ318258HR",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01JN06N9GS8Q1KB2NJ318258HR",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:43.451Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KT0PSXD0JZ4RRQW361CD36R8",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:43.880Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01J73BXYSGA83XKW25TPF2QMK0",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01J73BXYSGA83XKW25TPF2QMK0",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:43.969Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01HWJNZ5HQMVG2TCW6XHQQJ3QT",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01HWJNZ5HQMVG2TCW6XHQQJ3QT",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:44.994Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01J6HJZCK02FVD4XG900FY36EE",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01J6HJZCK02FVD4XG900FY36EE",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:46.681Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01M13CT35250482VKZJ3F6V02C",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01M13CT35250482VKZJ3F6V02C",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:47.553Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01HWT26R3S59MS778MAE9786YG",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01HWT26R3S59MS778MAE9786YG",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:49.500Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KVF9XSZYWYWB798QEBTYQVYD",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KVF9XSZYWYWB798QEBTYQVYD",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:49.580Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01J0Y2SDJ86WRYJAYMMZJBFBAJ",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01J0Y2SDJ86WRYJAYMMZJBFBAJ",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:49.767Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KVR6PWMT3NF9RTZSME5PKWFD",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KVR6PWMT3NF9RTZSME5PKWFD",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:50.358Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01K16ZAX52F6EFS2VKN6BS2DVD",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01K16ZAX52F6EFS2VKN6BS2DVD",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:50.389Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KSRE4X2EB3GH2FT1FG2CWTX2",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KSRE4X2EB3GH2FT1FG2CWTX2",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:51.099Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KYRESD5QRR8KX7BA97JMG2MF",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:51.234Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01J8NCWJBS24GDWTCAQEK16PVK",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01J8NCWJBS24GDWTCAQEK16PVK",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:51.316Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KV8CCCRX963HSE0H441753J6",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KV8CCCRX963HSE0H441753J6",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:51.675Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01K9XSW1T5FY4DS4VMZ8NH98MP",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01K9XSW1T5FY4DS4VMZ8NH98MP",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:51.813Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KYGZ5YZBQDEZK98D9AVRBD2T",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KYGZ5YZBQDEZK98D9AVRBD2T",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:51.923Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01M139CMFHRNMRTQKF10H3CDNM",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:52.257Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01HW8CK374Y67WDDZG22BYVZQ4",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01HW8CK374Y67WDDZG22BYVZQ4",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:52.405Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01KEWXJ6FH5C2Z7XZVSG7TACJE",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01KEWXJ6FH5C2Z7XZVSG7TACJE",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:52.506Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01M13BM9Y3NFTZRPZHBDMWAK6B",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01M13BM9Y3NFTZRPZHBDMWAK6B",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:52.950Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01M136H4TDRJBJS80ATRR1JFQ5",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01M136H4TDRJBJS80ATRR1JFQ5",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    },
+    {
+      "attempt": 1,
+      "attemptedAt": "2026-09-12T17:05:53.074Z",
+      "authenticated": false,
+      "category": "PROVIDER",
+      "endpoint": "/issues/01K6K4YTSWT7XF53GM3KCTBG7S",
+      "retry-after": null,
+      "status": 200,
+      "url": "https://app.opire.dev/issues/01K6K4YTSWT7XF53GM3KCTBG7S",
+      "x-ratelimit-limit": null,
+      "x-ratelimit-remaining": null,
+      "x-ratelimit-reset": null
+    }
+  ],
+  "scanCreated": false
+}
