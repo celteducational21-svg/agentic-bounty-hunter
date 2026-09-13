@@ -23,13 +23,13 @@ export default async function handler(request, response) {
       if (!durable) return response.status(503).json({ error: 'Durable history is not configured' });
       return response.status(200).json({ ...await durable.scanSnapshot(request.query.snapshot), snapshotReadOnly: true, persistence: { durable: true, backend: 'supabase-postgres' } });
     }
-    const payload = await buildStagedScan({ deepLimit: 5 });
+    const payload = await buildStagedScan({ deepLimit: 10 });
     const persisted = durable ? await durable.persistScan(payload) : null;
     const snapshots = durable ? [] : payload.candidates.map((item) => history.upsert(item, payload.fetchedAt));
     response.setHeader("Cache-Control", "no-store");
     response.setHeader("X-ABH-Policy", "analysis-only");
     return response.status(200).json({ ...payload, snapshotCount: durable ? payload.candidates.length : snapshots.length,
-      engineRevision: 'phase2.4-live-validation', phase2ExitGate: 'NOT_PASSED',
+      engineRevision: 'phase2.5-private-admission', phase2ExitGate: 'NOT_PASSED',
       persistence: { durable: persisted?.persisted === true, backend: durable ? 'supabase-postgres' : 'warm-instance-memory', changes: persisted?.changes ?? null },
       humanApprovalRequired: true });
   } catch (error) {

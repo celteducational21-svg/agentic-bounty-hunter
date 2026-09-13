@@ -1,4 +1,8 @@
 const rules = [
+  ['GITHUB_APP', 'USER_INPUT_REQUIRED', /GitHub App|installation (?:access )?token|stateless tokens?/i],
+  ['EXTERNAL_SERVICE', 'USER_INPUT_REQUIRED', /real API call|live API|runtime account|external service/i],
+  ['GRAPHICAL_RUNTIME', 'EASY_TO_PROVISION', /system tray|tray icon|graphical runtime|desktop session|Wayland|X11/i],
+  ['GO_RACE_TOOLCHAIN', 'EASY_TO_PROVISION', /go test\s+-race/i],
   ['EXTERNAL_API_CREDENTIAL', 'USER_INPUT_REQUIRED', /(?:Claude|Anthropic|OpenAI|Gemini)\s+API|API\s+(?:key|token)|calls?\s+(?:Claude|OpenAI)/i],
   ['WEBHOOK_OR_ACCOUNT', 'USER_INPUT_REQUIRED', /(?:email|Discord|Slack).{0,45}(?:deliver|send|notif|webhook)|(?:deliver|send|notif).{0,70}(?:email|Discord|Slack)|\bwebhook\b/i],
   ['RUNTIME_ENVIRONMENT', 'EASY_TO_PROVISION', /\bn8n\b|(?:real|local)\s+(?:execution|runtime|Docker)/i],
@@ -23,6 +27,9 @@ export function dependencyIntelligence(issue, context = {}) {
       const key = `${type}:${source.source}`;
       if (!found.has(key)) found.set(key, { type, provisioning, severity: provisioning === 'HARD_BLOCKER' ? 'HARD' : 'REQUIRES_VERIFICATION', source: source.source, description: line.trim().slice(0, 500), resolved: false });
     }
+  }
+  for (const file of context.repoDetails?.expectedFiles ?? []) if (file.status === 'MISSING') {
+    found.set('MISSING_EXPECTED_FILE:' + file.path, { type: 'MISSING_EXPECTED_FILE', provisioning: 'UNKNOWN', severity: 'REQUIRES_VERIFICATION', source: issue.url, description: `Issue names ${file.path}, absent from inspected repository tree`, resolved: false });
   }
   return [...found.values()];
 }

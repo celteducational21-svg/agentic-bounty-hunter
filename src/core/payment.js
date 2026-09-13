@@ -16,7 +16,7 @@ export function extractReward(issue, { tokenPrices = {}, now = new Date() } = {}
   const linkedTasks = [...new Set(String(issue.body).match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+/g) ?? [])];
   const aggregationReport = /BountyScout|bounty[-_ ]?(?:radar|aggregator|plaza)|bounty alert:.*opportunit/i.test(`${issue.repository}\n${issue.title}`) && linkedTasks.filter(url => url !== issue.url).length > 1;
   for (const [location, raw] of [['title', issue.title], ['body', issue.body]]) {
-    if (aggregationReport) continue; // Linked tasks do not pay for this report record.
+    if (aggregationReport || issue.providerSeed || /mirror|repost|Originally posted|Source URL|original (?:issue|bounty|source)|upstream issue|bounty-plaza/i.test(`${issue.repository}\n${issue.body}`) && linkedTasks.some(url => url !== issue.url)) continue; // Linked tasks do not pay for this report record.
     for (const line of clean(raw).split(/\n/)) {
       const links = line.match(/https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/issues\/\d+/g) ?? [];
       if (links.length && links.every(url => url !== issue.url)) continue;

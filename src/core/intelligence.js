@@ -68,7 +68,7 @@ export function analyzeLegitimacy(issue, reward, context = {}) {
   if (/\b(?:no ai|ai contributions? (?:are )?(?:not allowed|prohibited)|human-written only)\b/i.test(text)) reject("Bounty explicitly disallows AI contributions");
   if (/\b(?:hack|exploit)\b/i.test(text) && !/authorized|security policy|bug bounty/i.test(text)) reject("Security work lacks clear authorization");
   if (context.repo?.archived) reject("Repository is archived");
-  if (issue.state !== "open" || issue.closedAt) reject("Issue is closed/completed");
+  if (issue.state === "closed" || issue.closedAt) reject("Issue is closed/completed");
   if (issue.isPullRequest) reject("Search result is a pull request, not a bounty issue");
   if (reward.rewardAmount !== null) { score += 20; findings.push(evidence("legitimacy", "Explicit numeric reward", issue.url)); }
   if (reward.credibleMarketValue) score += 10;
@@ -218,7 +218,7 @@ export function hardRejectionReasons(issue, context, reward, legitimacy, competi
   if ((issue.assignees ?? []).length || competition.claimStatus === "ASSIGNED") reasons.push("Already assigned to another contributor");
   if (competition.claimStatus === "COMPLETED_SOLUTION") reasons.push("Existing completed solution detected");
   if (context.repo?.archived) reasons.push("Repository archived");
-  if (issue.state !== "open") reasons.push("Issue closed/completed");
+  if (issue.state === "closed") reasons.push("Issue closed/completed");
   if (PRIVATE_DEPENDENCY.test(text)) reasons.push("Inaccessible private infrastructure required");
   if (/\b(?:impersonat|deceptive action|fake identity)\b/i.test(text)) reasons.push("Prohibited or deceptive action required");
   if (/\b(?:no ai|ai contributions? (?:are )?(?:not allowed|prohibited))\b/i.test(text)) reasons.push("AI contributions explicitly disallowed");

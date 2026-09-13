@@ -1,4 +1,6 @@
+import { operationalMemory } from '../core/learning.js';
 import { searchLiveIssues } from './github.js';
+import { scopeIntelligence } from '../core/quality.js';
 import { normalizeIssue } from '../core/intelligence.js';
 import { preliminaryPriority, sourceTarget, basicRejections, finishEnrichment, STEPS } from '../core/enrichment.js';
 import { opireListingUrl, parseOpireListing, parseOpireCatalogue } from '../providers/opire.js';
@@ -37,7 +39,7 @@ async function pages(budget, path, expected = 0, limit = 1) {
   }
   return { items, responses, complete };
 }
-async function repositoryEvidence(issue, budget) {
+export async function repositoryEvidence(issue, budget) {
   const base = `/repos/${issue.repository}`;
   const repo = await budget.request(gh(base));
   if (!repo.ok) return { ok: false, responses: [repo], context: {} };
@@ -45,13 +47,16 @@ async function repositoryEvidence(issue, budget) {
   const responses = [repo, tree];
   if (!tree.ok || !Array.isArray(tree.data.tree) || tree.data.truncated) return { ok: false, responses, context: { repo: repo.data }, reason: 'Repository tree unavailable or truncated' };
   const paths = tree.data.tree.filter(x => x.type === 'blob').map(x => x.path);
+  const mentioned = [...new Set(String(issue.body).match(/\b(?:[\w.-]+\/)*[\w.-]+\.(?:tsx?|jsx?|py|go|rs|md|json|ya?ml)\b/g) ?? [])];
+  const expectedFiles = mentioned.map(path => ({ path, status: paths.includes(path) ? 'PRESENT' : 'MISSING' }));
   const wanted = [...new Set([
+    ...mentioned.filter(path => paths.includes(path)).slice(0, 6),
     paths.find(x => /^readme(?:\.md|\.rst|\.txt)?$/i.test(x)),
     paths.find(x => /^(?:\.github\/)?contributing(?:\.md|\.rst)?$/i.test(x)),
     ...['package.json', 'pyproject.toml', 'requirements.txt', 'Cargo.toml', 'go.mod', 'Makefile', 'CMakeLists.txt'].filter(x => paths.includes(x)),
     ...paths.filter(x => /^\.github\/workflows\/[^/]+\.ya?ml$/.test(x)).slice(0, 2)
-  ].filter(Boolean))];
-  const details = { sourceFiles: [], workflows: paths.filter(x => /^\.github\/workflows\/[^/]+\.ya?ml$/.test(x)).map(name => ({ name })) };
+  ].filter(Boolean))].slice(0, 12);
+  const details = { expectedFiles, explicitCommands: scopeIntelligence(issue).explicitCommands, sourceFiles: [], workflows: paths.filter(x => /^\.github\/workflows\/[^/]+\.ya?ml$/.test(x)).map(name => ({ name })) };
   async function read(path) {
     // Public raw files avoid spending REST quota on every README/workflow.
     // Branch/path originate in this repository's verified metadata/tree.
@@ -72,13 +77,14 @@ async function repositoryEvidence(issue, budget) {
   const testPath = details.packageJson?.scripts?.test?.match(/^node\s+((?:test|tests)\/[\w./-]+\.m?js)$/)?.[1];
   if (testPath && paths.includes(testPath)) { const f = await read(testPath); if (f) { details.testSource = f.text; details.testSourceUrl = f.url; } }
   const rootEntries = [...new Set(tree.data.tree.map(x => x.path.split('/')[0]))].map(name => ({ name }));
-  const ok = files.every(Boolean) && (!testPath || Boolean(details.testSource));
+  details.deferredNamedFiles = mentioned.filter(path => paths.includes(path) && !details.sourceFiles.some(x => x.path === path));
+  const ok = details.deferredNamedFiles.length === 0 && files.every(Boolean) && (!testPath || Boolean(details.testSource));
   return { ok, responses, context: { repo: repo.data, rootEntries, repoDetails: details }, reason: ok ? null : 'Required repository file could not be inspected' };
 }
 export async function enrichCandidate(discovery, budget, repoCache = new Map(), providerHint = null) {
   const steps = [record('BASIC_SCREENED', true)]; const source = await resolveSource(discovery, budget);
   steps.push(record('SOURCE_RESOLVED', source.ok, source.responses, source.failureReason));
-  const issue = source.issue, context = { retrievalTimestamp: new Date().toISOString() };
+  const issue = { ...source.issue, providerDiscovery: discovery.providerDiscovery, providerSeed: !source.ok && discovery.providerSeed }, context = { retrievalTimestamp: new Date().toISOString() };
   let provider = null;
   if (source.ok) {
     const base = `/repos/${issue.repository}`;
@@ -109,8 +115,8 @@ export async function enrichCandidate(discovery, budget, repoCache = new Map(), 
     const competitionComplete = comments.complete && timeline.complete && search.ok && !search.data.incomplete_results && search.data.total_count <= search.data.items.length && unique.length <= 10 && prs.every(x => x.ok) && (!url || provider?.listingVerified);
     context.solutionSearchCompleteness = competitionComplete ? 'BOUNDED_COMPLETE' : 'PARTIAL';
     steps.push(record('COMPETITION_CHECKED', competitionComplete, [...comments.responses, ...timeline.responses, search, ...prs], competitionComplete ? null : 'Comments, PR search, timeline, provider or PR details incomplete'));
-    if (!repoCache.has(issue.repository)) repoCache.set(issue.repository, repositoryEvidence(issue, budget));
-    const repository = await repoCache.get(issue.repository); Object.assign(context, repository.context);
+    if (!repoCache.has(issue.url)) repoCache.set(issue.url, repositoryEvidence(issue, budget));
+    const repository = await repoCache.get(issue.url); Object.assign(context, repository.context);
     steps.push(record('REPO_CHECKED', repository.ok, repository.responses, repository.reason));
     steps.push(record('SCOPE_CHECKED', true, source.responses));
     steps.push(record('DEPENDENCY_CHECKED', repository.ok, repository.responses, repository.ok ? null : 'Repository dependencies not completely inspected'));
@@ -157,32 +163,75 @@ export function mergeDiscovery(githubIssues, listings) {
   }
   return [...byUrl.values()];
 }
+export async function preflightCandidate(seed, budget) {
+  const source = await resolveSource(seed, budget);
+  const { issue: original, responses, ...provenance } = source;
+  const issue = { ...original, providerDiscovery: seed.providerDiscovery, providerSeed: !source.ok && seed.providerSeed };
+  const context = {}, reasons = [];
+  let provider = null, terminal = false;
+  if (!source.ok) { reasons.push(source.unavailable ? 'Original bounty source unavailable' : 'Canonical source needs investigation'); terminal = Boolean(source.unavailable); }
+  if (source.ok) {
+    const repo = await budget.request(gh('/repos/' + issue.repository));
+    if (repo.ok) context.repo = repo.data;
+    else { reasons.push(repo.status === 404 ? 'Repository unavailable' : 'Repository reachability unknown'); terminal ||= repo.status === 404; }
+    const hard = basicRejections(issue);
+    if (repo.data?.archived) hard.push('Repository archived');
+    if (repo.ok && repo.data.private !== false) hard.push('Public repository inaccessible');
+    reasons.push(...hard); terminal ||= hard.length > 0;
+    const url = opireListingUrl(seed.providerDiscovery?.listingUrl) ?? (String(issue.body).match(/https:\/\/app\.opire\.dev\/issues\/[A-Za-z0-9]+/) ?? [])[0];
+    if (url) {
+      const response = await budget.request(url, 'text');
+      provider = parseOpireListing(response.ok ? response.data : '', url, issue.url, new Date().toISOString());
+      if (provider.listingVerified && (provider.availability === 'CLOSED' || provider.availableRewards === 0)) { reasons.push('Provider listing has no available reward'); terminal = true; }
+    }
+    // A first comments page cheaply reveals explicit owner completion/assignment.
+    if (!terminal && issue.comments > 0) {
+      const comments = await pages(budget, '/repos/' + issue.repository + '/issues/' + issue.number + '/comments', issue.comments);
+      context.comments = comments.items;
+      const checked = basicRejections(issue); // Full enrichment performs bounded PR inspection.
+      const ownerDone = comments.items.some(c => ['OWNER','MEMBER','COLLABORATOR'].includes(c.author_association) && /(?:I|we) (?:have )?(?:force[- ]applied|merged)|(?:issue|task|bounty|solution) (?:is |has been )?(?:completed|resolved)|(?:applied|implemented).{0,60}(?:paid|disbursed)/i.test(String(c.body)));
+      const ownerAssigned = comments.items.some(c => ['OWNER','MEMBER','COLLABORATOR'].includes(c.author_association) && /assigned to\s*@|assigning (?:this to )?@/i.test(String(c.body)));
+      if (ownerDone) checked.push('Owner reports completed solution; payment unverified');
+      if (ownerAssigned) checked.push('Owner assigned task to another contributor');
+      reasons.push(...checked); terminal ||= checked.length > 0;
+    }
+  }
+  return { admitted: source.ok && Boolean(context.repo) && !terminal, terminal, reasons, issue, context, provider, source: { ...provenance, responses } };
+}
 export async function buildStagedScan({ discovery, budget = createBudget(), deepLimit = 5, providerDiscovery } = {}) {
   const fetchedAt = new Date().toISOString(), liveDiscovery = !discovery;
   providerDiscovery ??= liveDiscovery ? await discoverOpire(budget) : { listings: [], status: 'NOT_REQUESTED' };
   discovery ??= await searchLiveIssues(budget);
   let issues = mergeDiscovery(discovery.issues, providerDiscovery.listings);
-  // Medium source checks use at most ten provider candidates from distinct repos.
-  // This establishes real state/assignees/comment cost before the five-slot audit.
-  const medium = selectDiverse(issues.filter(x => x.providerSeed), 10);
-  for (const seed of medium) {
-    const r = await budget.request(gh('/repos/' + seed.repository + '/issues/' + seed.number));
-    if (r.ok) {
-      const original = normalizeIssue(r.data);
-      const repo = await budget.request(gh('/repos/' + seed.repository));
-      issues = issues.map(x => x.url === seed.url ? { ...original, sourceRepository: repo.ok ? { fork: repo.data.fork, parent: repo.data.parent?.html_url ?? null } : null, providerSeed: false, providerDiscovery: seed.providerDiscovery, discoverySources: seed.discoverySources } : x);
+  // One frozen population; cheap terminal checks refill slots without discovery.
+  const ranked = selectDiverse(issues, issues.length);
+  const selected = [], selectedUrls = new Set(), repoCache = new Map(), results = [], admissionAttempts = [];
+  const attemptedUrls = new Set();
+  const target = Math.min(10, Math.max(0, deepLimit));
+  for (const seed of ranked) {
+    if (selected.length >= target || selected.length >= 10) break;
+    const preflight = await preflightCandidate(seed, budget);
+    attemptedUrls.add(seed.url);
+    if (!preflight.admitted) {
+      const result = finishEnrichment(preflight.issue, preflight.context, [record('BASIC_SCREENED', true), record('SOURCE_RESOLVED', preflight.source.ok, preflight.source.responses), ...STEPS.slice(2).map(step => ({ step, status: 'DEFERRED', failureReason: preflight.reasons.join('; ') }))], preflight.source, preflight.provider);
+      result.decision = preflight.terminal ? 'REJECT' : 'INCOMPLETE';
+      result.rejectionReasons = preflight.terminal ? preflight.reasons : [];
+      result.reason = preflight.reasons.join('; ');
+      result.candidatePhase3Status = preflight.terminal ? 'REJECTED' : 'INVESTIGATE';
+      result.discoverySources = seed.discoverySources;
+      result.providerDiscovery = seed.providerDiscovery;
+      results.push(result);
+      admissionAttempts.push({ url: seed.url, canonicalIssueUrl: preflight.source.canonicalIssueUrl, stage: 'PREFLIGHT', outcome: result.decision, reasons: preflight.reasons, checkedAt: new Date().toISOString() });
+      continue;
     }
+    selected.push(seed); selectedUrls.add(seed.url);
+    const result = await enrichCandidate(seed, budget, repoCache, seed.providerDiscovery?.listingUrl);
+    results.push(result);
+    admissionAttempts.push({ url: seed.url, canonicalIssueUrl: result.canonicalIssueUrl, stage: 'DEEP', outcome: result.candidatePhase3Status, reasons: result.rejectionReasons.length ? result.rejectionReasons : result.phase3Admission.missingEvidence, checkedAt: new Date().toISOString() });
   }
-  const ranked = [...issues].sort((a,b) => investigationPriority(b) - investigationPriority(a) || a.url.localeCompare(b.url));
-  const selected = selectDiverse(ranked.filter(x => x.providerSeed || !basicRejections(x).length), deepLimit);
-  const selectedUrls = new Set(selected.map(x => x.url)), repoCache = new Map(), results = [];
-  // API requests are serialized by the shared transport; file reads can overlap.
-  let cursor = 0;
-  await Promise.all([0,1].map(async () => { while (cursor < selected.length) {
-    const issue = selected[cursor++];
-    results.push(await enrichCandidate(issue, budget, repoCache, issue.providerDiscovery?.listingUrl));
-  } }));
-  for (const issue of ranked.filter(x => !selectedUrls.has(x.url))) {
+  // Preserve population members beyond the per-repository admission cap too.
+  const allRanked = [...issues].sort((a,b) => investigationPriority(b) - investigationPriority(a));
+  for (const issue of allRanked.filter(x => !attemptedUrls.has(x.url))) {
     const result = finishEnrichment(issue, {}, [{ step: 'BASIC_SCREENED', status: issue.providerSeed ? 'DEFERRED' : 'COMPLETE', checkedAt: fetchedAt }, ...STEPS.slice(1).map(step => ({ step, status: 'DEFERRED', retryable: true, failureReason: 'Outside this scan enrichment budget' }))], { discoveryUrl: issue.url, canonicalIssueUrl: sourceTarget(issue), sourceResolutionConfidence: 0 });
     // Provider catalogue state is unknown until the original issue is fetched.
     if (issue.providerSeed) { result.decision = 'INCOMPLETE'; result.enrichmentState = 'INCOMPLETE'; result.rejectionReasons = []; result.reason = 'Provider-discovered original awaiting verification'; }
@@ -197,5 +246,7 @@ export async function buildStagedScan({ discovery, budget = createBudget(), deep
   const candidates = [...canonical.values()].sort((a,b) => Number(selectedUrls.has(b.url)) - Number(selectedUrls.has(a.url)) || b.preliminaryPriority - a.preliminaryPriority);
   const counts = candidates.reduce((acc,x) => { acc[x.decision]++; return acc; }, { HUNT:0, WATCH:0, SKIP:0, REJECT:0, INCOMPLETE:0 });
   const funnel = { raw: discovery.rawCount + providerDiscovery.listings.length, githubRaw: discovery.rawCount, providerDiscovered: providerDiscovery.listings.length, unique: issues.length, basicScreened: issues.filter(x => !x.providerSeed).length, canonicalResolved: candidates.filter(x => x.enrichment.steps.some(s => s.step === 'SOURCE_RESOLVED' && s.status === 'COMPLETE')).length, providerVerified: candidates.filter(x => x.paymentTrust.listingVerified).length, fullyEnriched: candidates.filter(x => x.enrichment.complete).length, selectedRepositories: new Set(selected.map(x => x.repository.toLowerCase())).size };
-  return { mode:'LIVE', phase:'2.2', source:'GitHub Search API + Opire public catalogue', fetchedAt, rawCount:funnel.raw, uniqueCount:funnel.unique, apparentBountyCount:candidates.length, legitimacyPassedCount:candidates.filter(x => ['STRONG','VERIFIED'].includes(x.paymentConfidence)).length, deepCheckedCount:funnel.fullyEnriched, funnel, counts, candidates, auditSelection:selected.map(x => x.url), requests:budget.requests, searchCoverage:discovery.searchCoverage, providerDiscovery };
+  const payload = { mode:'LIVE', phase:'2.2', source:'GitHub Search API + Opire public catalogue', fetchedAt, rawCount:funnel.raw, uniqueCount:funnel.unique, apparentBountyCount:candidates.length, legitimacyPassedCount:candidates.filter(x => ['STRONG','VERIFIED'].includes(x.paymentConfidence)).length, deepCheckedCount:funnel.fullyEnriched, funnel, counts, candidates, phase2MarketCertification:'INCOMPLETE', admissionAttempts, frozenDiscovery: { github: discovery, provider: providerDiscovery }, phase3EligibleCount:candidates.filter(x => x.candidatePhase3Status === 'PHASE3_ELIGIBLE').length, deepAdmissionAttempts:selected.length, auditSelection:selected.map(x => x.url), requests:budget.requests, searchCoverage:discovery.searchCoverage, providerDiscovery };
+  payload.operationalMemory = operationalMemory(payload);
+  return payload;
 }

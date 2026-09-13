@@ -1,3 +1,7 @@
+# Current operating policy — 2026-09-13
+
+Candidate-specific PHASE3_ELIGIBLE can proceed to private proof while global Phase 2 stays INCOMPLETE. This supersedes historical statements below that required global Phase 2 completion before Phase 3. Public claims, comments, submissions, wallet disclosure and legal/payment commitments still require owner approval. See operations/README.md. Historical audit verdicts are preserved.
+
 # Delivery phases
 
 ## Phase 0 — Foundation

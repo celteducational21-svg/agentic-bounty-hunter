@@ -7,6 +7,9 @@ export function materialState(opportunity) {
   return {
     ...state,
     assignees: [...(state.assignees ?? [])].sort(),
+    candidatePhase3Status: opportunity.candidatePhase3Status ?? null,
+    rewardProvenance: ['advertisedReward','canonicalIssueReward','providerVerifiedReward','currentlyAvailableReward','payableRewardEstimate'].map(k => opportunity[k] ?? null),
+    dependencyEvidence: opportunity.dependencyEvidence ?? [],
     rewardConfidence: opportunity.rewardConfidence ?? null,
     paymentMethod: opportunity.paymentMethod ?? null,
     paymentRisk: opportunity.paymentRisk ?? null,
