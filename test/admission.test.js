@@ -63,3 +63,29 @@ test('owner reward command retains identity without secured-funds assertion',()=
  const r=finishEnrichment(issue,{...deep,comments:[{author_association:'OWNER',user:{login:'owner'},body:'/reward 100',html_url:issue.url+'#issuecomment-1'}]},steps,source,{...listing});
  assert.equal(r.paymentTrust.knownRewardContributors[0].amount,100);assert.equal(r.paymentTrust.knownRewardContributors[0].fundingSecured,false);
 });
+test('manual integration steps retained without treating router rebuild synchronization as a test',()=>{
+ const r=scopeIntelligence({...issue,body:'## Acceptance Criteria\n- [ ] Synchronize router rebuilds atomically\n## 🧪 Verification & Testing\n### Manual Verification\n1. Simulate simultaneous provider updates\n2. Verify that each response uses the latest middleware'});
+ assert.ok(r.requiredTests.includes('Simulate simultaneous provider updates'));assert.ok(r.requiredTests.includes('Verify that each response uses the latest middleware'));assert.ok(!r.requiredTests.includes('Synchronize router rebuilds atomically'));
+});
+function selectionBudget(tasks) {
+ return createBudget({fetchImpl:async address=>{
+  const u=new URL(address);let data;
+  if(/\/issues\/\d+$/.test(u.pathname)) {const t=tasks.find(t=>address.endsWith('/repos/'+t.repository+'/issues/'+t.number));data={...t,html_url:t.url,repository_url:'https://api.github.com/repos/'+t.repository};}
+  else if(u.pathname.endsWith('/timeline'))data=[];
+  else if(u.pathname==='/search/issues')data={items:[],total_count:0,incomplete_results:false};
+  else if(u.pathname.includes('/git/trees/'))data={tree:[],truncated:false};
+  else data={...deep.repo,private:false,default_branch:'main'};
+  return {ok:true,status:200,json:async()=>data};
+ }});
+}
+test('terminal checks do not consume repository deep-admission quota',async()=>{
+ const tasks=[1,2,3].map(n=>({...issue,number:n,url:issue.repositoryUrl+'/issues/'+n,state:n<3?'closed':'open'}));
+ tasks.push({...issue,repository:'other/repo',repositoryUrl:'https://github.com/other/repo',url:'https://github.com/other/repo/issues/10'});
+ const r=await buildStagedScan({discovery:{issues:tasks,rawCount:4},deepLimit:2,budget:selectionBudget(tasks)});
+ assert.equal(r.deepAdmissionAttempts,2);assert.ok(r.auditSelection.includes(issue.repositoryUrl+'/issues/3'));assert.equal(r.funnel.basicScreened,4);
+});
+test('requested deep limit above ten is clamped to ten',async()=>{
+ const tasks=Array.from({length:13},(_,i)=>({...issue,repository:'acme/r'+i,repositoryUrl:'https://github.com/acme/r'+i,url:'https://github.com/acme/r'+i+'/issues/10'}));
+ const r=await buildStagedScan({discovery:{issues:tasks,rawCount:13},deepLimit:50,budget:selectionBudget(tasks)});
+ assert.equal(r.deepAdmissionAttempts,10);assert.equal(r.candidates.length,13);
+});

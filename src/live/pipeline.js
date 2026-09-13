@@ -204,7 +204,9 @@ export async function buildStagedScan({ discovery, budget = createBudget(), deep
   discovery ??= await searchLiveIssues(budget);
   let issues = mergeDiscovery(discovery.issues, providerDiscovery.listings);
   // One frozen population; cheap terminal checks refill slots without discovery.
-  const ranked = selectDiverse(issues, issues.length);
+  const diverse = selectDiverse(issues, issues.length);
+  const ranked = [...diverse, ...issues.filter(x => !diverse.includes(x)).sort((a,b) => investigationPriority(b) - investigationPriority(a))];
+  const deepRepositories = new Map(), deepCanonicals = new Set();
   const selected = [], selectedUrls = new Set(), repoCache = new Map(), results = [], admissionAttempts = [];
   const attemptedUrls = new Set();
   const target = Math.min(10, Math.max(0, deepLimit));
@@ -212,6 +214,11 @@ export async function buildStagedScan({ discovery, budget = createBudget(), deep
     if (selected.length >= target || selected.length >= 10) break;
     const preflight = await preflightCandidate(seed, budget);
     attemptedUrls.add(seed.url);
+    const canonical = preflight.source.canonicalIssueUrl?.toLowerCase();
+    const repository = preflight.issue.repository.toLowerCase();
+    if (preflight.admitted && (deepCanonicals.has(canonical) || (deepRepositories.get(repository) ?? 0) >= 2)) {
+      preflight.admitted = false; preflight.reasons = ['Canonical duplicate or repository deep-admission cap reached'];
+    }
     if (!preflight.admitted) {
       const result = finishEnrichment(preflight.issue, preflight.context, [record('BASIC_SCREENED', true), record('SOURCE_RESOLVED', preflight.source.ok, preflight.source.responses), ...STEPS.slice(2).map(step => ({ step, status: 'DEFERRED', failureReason: preflight.reasons.join('; ') }))], preflight.source, preflight.provider);
       result.decision = preflight.terminal ? 'REJECT' : 'INCOMPLETE';
@@ -225,6 +232,7 @@ export async function buildStagedScan({ discovery, budget = createBudget(), deep
       continue;
     }
     selected.push(seed); selectedUrls.add(seed.url);
+    deepCanonicals.add(canonical); deepRepositories.set(repository, (deepRepositories.get(repository) ?? 0) + 1);
     const result = await enrichCandidate(seed, budget, repoCache, seed.providerDiscovery?.listingUrl);
     results.push(result);
     admissionAttempts.push({ url: seed.url, canonicalIssueUrl: result.canonicalIssueUrl, stage: 'DEEP', outcome: result.candidatePhase3Status, reasons: result.rejectionReasons.length ? result.rejectionReasons : result.phase3Admission.missingEvidence, checkedAt: new Date().toISOString() });
@@ -245,7 +253,7 @@ export async function buildStagedScan({ discovery, budget = createBudget(), deep
   }
   const candidates = [...canonical.values()].sort((a,b) => Number(selectedUrls.has(b.url)) - Number(selectedUrls.has(a.url)) || b.preliminaryPriority - a.preliminaryPriority);
   const counts = candidates.reduce((acc,x) => { acc[x.decision]++; return acc; }, { HUNT:0, WATCH:0, SKIP:0, REJECT:0, INCOMPLETE:0 });
-  const funnel = { raw: discovery.rawCount + providerDiscovery.listings.length, githubRaw: discovery.rawCount, providerDiscovered: providerDiscovery.listings.length, unique: issues.length, basicScreened: issues.filter(x => !x.providerSeed).length, canonicalResolved: candidates.filter(x => x.enrichment.steps.some(s => s.step === 'SOURCE_RESOLVED' && s.status === 'COMPLETE')).length, providerVerified: candidates.filter(x => x.paymentTrust.listingVerified).length, fullyEnriched: candidates.filter(x => x.enrichment.complete).length, selectedRepositories: new Set(selected.map(x => x.repository.toLowerCase())).size };
+  const funnel = { raw: discovery.rawCount + providerDiscovery.listings.length, githubRaw: discovery.rawCount, providerDiscovered: providerDiscovery.listings.length, unique: issues.length, basicScreened: candidates.filter(x => x.enrichment.steps.some(s => s.step === 'BASIC_SCREENED' && s.status === 'COMPLETE')).length, canonicalResolved: candidates.filter(x => x.enrichment.steps.some(s => s.step === 'SOURCE_RESOLVED' && s.status === 'COMPLETE')).length, providerVerified: candidates.filter(x => x.paymentTrust.listingVerified).length, fullyEnriched: candidates.filter(x => x.enrichment.complete).length, selectedRepositories: new Set(selected.map(x => x.repository.toLowerCase())).size };
   const payload = { mode:'LIVE', phase:'2.2', source:'GitHub Search API + Opire public catalogue', fetchedAt, rawCount:funnel.raw, uniqueCount:funnel.unique, apparentBountyCount:candidates.length, legitimacyPassedCount:candidates.filter(x => ['STRONG','VERIFIED'].includes(x.paymentConfidence)).length, deepCheckedCount:funnel.fullyEnriched, funnel, counts, candidates, phase2MarketCertification:'INCOMPLETE', admissionAttempts, frozenDiscovery: { github: discovery, provider: providerDiscovery }, phase3EligibleCount:candidates.filter(x => x.candidatePhase3Status === 'PHASE3_ELIGIBLE').length, deepAdmissionAttempts:selected.length, auditSelection:selected.map(x => x.url), requests:budget.requests, searchCoverage:discovery.searchCoverage, providerDiscovery };
   payload.operationalMemory = operationalMemory(payload);
   return payload;

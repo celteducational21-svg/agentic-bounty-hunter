@@ -43,7 +43,7 @@ export function finishEnrichment(issue, context, steps, source, provider, now = 
   if (complete && !result.isDirectTaskReward && !provider?.listingVerified) hard.push('No direct task reward established after source/payment inspection');
   if (provider?.listingVerified && (provider.availability === 'CLOSED' || provider.availableRewards === 0)) hard.push('Provider listing has no available reward');
   hard.push(...blockers.map(x => `${x.type}: ${x.description}`));
-  const paymentTrust = provider ?? { provider: 'GitHub-native/UNKNOWN', platformVerified: true, listingVerified: false, issuerAuthority: result.payerRole, fundingStatus: 'UNKNOWN', paymentProvider: result.paymentProvider, paymentTrigger: result.paymentTrigger, paymentConfidence: result.paymentConfidence, evidence: result.paymentEvidence };
+  const paymentTrust = provider ? { ...provider } : { provider: 'GitHub-native/UNKNOWN', platformVerified: true, listingVerified: false, issuerAuthority: result.payerRole, fundingStatus: 'UNKNOWN', paymentProvider: result.paymentProvider, paymentTrigger: result.paymentTrigger, paymentConfidence: result.paymentConfidence, evidence: result.paymentEvidence };
   if (provider?.listingVerified) {
     const valueKnown = Number.isFinite(provider.rewardAmount) && provider.rewardAmount > 0;
     result.rewardAmount = provider.rewardAmount; result.rewardCurrency = 'USD'; result.rewardUsdEstimate = provider.rewardAmount;

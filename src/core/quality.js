@@ -92,21 +92,26 @@ export function executionReadiness(repo = {}, entries = [], details = {}, commen
 export function scopeIntelligence(issue) {
   const lines = clean(issue.body).split(/\n/).map(x => x.trim()).filter(Boolean);
   const safe = lines.filter(x => !/ignore .*instructions|secret|override .*policy|print env|cat \.env/i.test(x));
-  const actionable = []; let requirementSection = false;
+  const actionable = [], sectionTests = []; let requirementSection = false, testSection = false;
   for (const line of safe) {
     const normalized = line.replace(/\*\*/g, '');
     if (/^(?:#{1,6}\s*)?(?:Acceptance Criteria|Requirements|Deliverables|Definition of Done)\s*:?$/i.test(normalized)) { requirementSection = true; continue; }
-    if (/^#{1,6}\s/.test(normalized)) { requirementSection = false; continue; }
+    if (/^#{1,6}\s/.test(normalized)) {
+      testSection = /verification|testing|automated tests|manual verification|integration tests|reproduction/i.test(normalized);
+      requirementSection = testSection || /acceptance criteria|requirements|deliverables|definition of done/i.test(normalized);
+      continue;
+    }
     const checkbox = /^[-*+]\s*\[[ xX]\]\s+/.test(normalized);
     const listed = /^(?:[-*+]\s+|\d+[.)]\s+)/.test(normalized);
     const item = normalized.replace(/^(?:[-*+]\s*(?:\[[ xX]\]\s*)?|\d+[.)]\s+)/, '').trim();
     const action = /^(?:must|include|tested on|add|fix|implement|define|accept|update|remove|ensure|reproduce|write|test|run|document|support|return|preserve|npm|pytest|all tests)\b/i.test(item);
     if (item && !/^(?:acceptance criteria|requirements|deliverables|reward|payment|bounty)\s*:?$/i.test(item) && (checkbox || listed && (requirementSection || action) || action && /^(?:must|include|tested on)\b/i.test(item))) actionable.push(item);
+    if (testSection && listed && item) sectionTests.push(item);
   }
   const dependencyEvidence = dependencyIntelligence(issue);
   const dependencies = [...new Set([...safe.filter(x => /\b(?:api key|external account|manual testing|screenshot|deployment|external api)\b/i.test(x)), ...dependencyEvidence.map(x => x.description)])];
   const inaccessible = dependencyEvidence.filter(x => x.provisioning === 'HARD_BLOCKER').map(x => x.description);
-  const tests = actionable.filter(x => /test|lint|typecheck|build|screenshot|demo|real.*(?:execution|n8n)|works on|tested on/i.test(x));
+  const tests = [...new Set([...sectionTests, ...actionable.filter(x => /\b(?:tests?|lint|typecheck|build|screenshot|demo)\b|real.*(?:execution|n8n)|works on|tested on/i.test(x))])];
   const files = [...new Set(safe.join('\n').match(/\b(?:[\w.-]+\/)*[\w.-]+\.(?:tsx?|jsx?|py|go|rs|md|json|ya?ml)\b/g) ?? [])];
   const clarity = clamp(15 + Math.min(40, actionable.length * 10) + (tests.length ? 20 : 0) + (files.length ? 10 : 0) + (/expected behavior|reproduc/i.test(safe.join('\n')) ? 15 : 0) - (/tbd|details later|build everything/i.test(safe.join('\n')) ? 35 : 0));
   const explicitCommands = [...new Set((String(issue.body).match(/(?:go test|npm (?:run test|test)|pytest|python -m pytest|pnpm test|yarn test)\b[^\n`<>]*/g) ?? []).map(x => x.trim()))].map(command => ({ command, status: 'NOT_RUN', source: issue.url }));
