@@ -1,5 +1,25 @@
 # ABH continuation — 2026-09-13
 
+## Browser access and deployment follow-up
+
+The access blocker recorded below is resolved through the owner's authenticated browser. The dedicated ABH Supabase project `xyuxxunpmzlyqocberia` is visible and healthy; `abh_history`, `abh_opportunities`, and `abh_scans` exist. The separate connector sessions still point elsewhere and were not used to modify CELT.
+
+Added only ABH to the existing Vercel GitHub installation's selected repositories, preserving its existing repository selection. Connected the existing ABH Vercel project to `celteducational21-svg/agentic-bounty-hunter`. Correction commit `a23c535226224c138046dddaac8d97fca562236a` built successfully as preview `CFSj2d7bx7KpgXzL1zUz1CZnsbqP`; preview lacked Supabase configuration. Vercel then rebuilt that exact commit with the existing production environment. Production deployment `AHKNVMo56zgmMG6GvYAjFFVxsBwU` is Ready and assigned to https://agentic-bounty-hunter.vercel.app.
+
+Verified the production dashboard reads immutable snapshot `2026-09-12T17:11:05.218Z` from Supabase after deployment: 90 raw opportunities, 78 candidates, 26 rejected, 52 incomplete. These are historical snapshot figures, not new discovery results. Cross-deployment database reads work. The reviewed code has 183 passing tests and zero failures. A single current scan was started for live validation; final outcome is recorded below when available.
+
+No owner login action remains outstanding. No bounty has yet received a private reproduction proof or hunt approval. Global Phase 2 certification remains INCOMPLETE. The earlier access-blocked status below is historical.
+
+### Current production validation
+
+Scan `2026-09-13T14:33:05.333Z`, engine `phase2.5-private-admission`: 90 raw opportunities (60 GitHub, 30 Opire), 79 unique candidates, 11 canonical resolutions, 10 verified provider listings, three deep admission attempts across three repositories, zero fully completed enrichments, nine REJECT, 70 INCOMPLETE, zero PHASE3_ELIGIBLE. Supabase persistence reports durable=true and six material history changes. Operational memory includes the candidate ledger and daily record; no private tests, claims or public contributions were executed.
+
+Deep attempts: jahmeergnlt/traefik#1, claude-builders-bounty/claude-builders-bounty#1, and lb1192176991-lab/zeroeye#2. Competition/completion evidence remained incomplete; the latter two also have unresolved payment/scope evidence. Terminal preflights skipped closed issues, assignment conflicts, unavailable originals and unavailable rewards without consuming deep slots.
+
+The production GitHub requests are unauthenticated. The core quota reached zero after 60 calls; GitHub returned RATE_LIMIT (403), with retryAt `2026-09-13T14:59:09.000Z`. Thus the configured ten-attempt allowance was not reached. Remaining candidates were retained as INCOMPLETE, not rejected for missing evidence. Do not present 79 preflight records as 79 successful canonical investigations.
+
+NEXT: resume investigation from this frozen population after rate reset, or configure the runtime GitHub credential through the owner's secure Vercel environment settings. Browser GitHub login and Vercel's repository connection do not authenticate the application's outbound GitHub API requests. Do not rescan to replace failures. No current candidate is approved for public hunting; Phase 3 setup/reproduction remain NOT_RUN.
+
 ## Authoritative state and verification
 
 GitHub main remains `959c958c02f1069e2807b0a9bfd665102916eb93`. The existing correction branch was verified at `7a872b8560b71387ad0b677fa9b83c954d29ace6`; its tree exactly matches local commit `641492b`. Local uncommitted refinements were preserved and verified: **183 tests passed, zero failed**; diff whitespace checks passed. No production deployment was performed. Global market certification remains INCOMPLETE.
@@ -58,5 +78,3 @@ Phase 3: setup NOT_RUN; reproduction NOT_RUN; root cause not applicable/establis
 Next: restore ABH-scoped Vercel/Supabase access, deploy the reviewed correction branch after resolving the prior shared-branch approval requirement, verify durable write/read, and continue qtop evidence investigation or the seven remaining frozen candidates. Owner participation would be needed before any qtop public contribution, including understanding the solution and personally satisfying identity/DCO requirements. Do not request Opire/Stripe setup until useful.
 
 **Decision: NEEDS_HUMAN_INPUT for infrastructure access. No hunt is approved.** One legitimate, reproducible bounty has NOT yet been proven. No claim, public bounty comment, PR, wallet disclosure, terms acceptance, or payment action occurred.
-
-Persistence note: automatic approval review rejected public upload of the large captured audit payload due to possible sensitive data. Detailed evidence is retained separately in the owner's private ABH audit archive; this branch stores reviewed code and concise findings only. This continuation supersedes incomplete local publication plans. Raw payload publication requires owner approval.
