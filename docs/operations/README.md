@@ -11,7 +11,7 @@ Each new scan persists `admissionAttempts`, the frozen discovery population and 
 Next-run workflow:
 1. Read latest dated activity record, ledger and latest repository commit.
 2. Read the latest immutable database scan; do not relabel old failed audits.
-3. Continue investigation from the frozen population where possible; maximum 10 deep attempts, maximum 2 candidates per repository, diverse repositories first.
+3. Follow the current owner-directed discovery mode. As of 2026-09-14, run fresh provider-first discovery and investigate up to 20 promising candidates if needed, with repository diversity and at most two candidates per repository. Preserve old populations and audits without spending the run primarily on them.
 4. For PHASE3_ELIGIBLE, privately prove setup/reproduction/root cause and produce APPROVE_HUNT, DO_NOT_HUNT or NEEDS_HUMAN_INPUT.
 5. If APPROVE_HUNT, request owner approval before public actions. Opire setup is useful at this point.
 6. Record actual time, tests, setup blockers and later maintainer/claim/acceptance/payment outcomes. Learn from repeated evidence; never convert a single failure into a universal rejection rule.

@@ -1,0 +1,114 @@
+[
+  {
+    "issue": "https://github.com/ArcaneCircle/pixelsocial/issues/3",
+    "outcome": "REJECT",
+    "reason": "Deleted original (410).",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/formbricks/formbricks/issues/3302",
+    "outcome": "REJECT",
+    "reason": "Closed; assigned;48comments.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/ToolJet/ToolJet/issues/6655",
+    "outcome": "REJECT",
+    "reason": "Closed original.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/mmccl5/go-task-task/issues/1",
+    "outcome": "REJECT",
+    "reason": "Closed original.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/electron/electron/issues/48191",
+    "outcome": "REJECT",
+    "reason": "Closed original.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/colmev080/sqlc/issues/1",
+    "outcome": "REJECT",
+    "reason": "Closed original.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/aozorayama45/Traefik/issues/1",
+    "outcome": "REJECT",
+    "reason": "Closed original.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/buape/kiai-bounties/issues/1",
+    "outcome": "INVESTIGATE",
+    "reason": "Original404; deletion versus rename/private state not established.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/zcharliebeer/gRPC-GitHub-Repository/issues/1",
+    "outcome": "REJECT",
+    "reason": "Closed original.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/tal7aouy/vscode-icons/issues/87",
+    "outcome": "INVESTIGATE",
+    "reason": "Original404; deletion versus rename/private state not established.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/RichieHakim/sparse_convolution/issues/1",
+    "outcome": "REJECT",
+    "reason": "Closed original.",
+    "stage": "PREFLIGHT",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/Scottcjn/rustchain-bounties/issues/2127",
+    "outcome": "NEEDS_HUMAN_INPUT",
+    "reason": "25RTC exact reward; owner VPS access needed for deployment acceptance;48comments. Not selected.",
+    "stage": "DEEP_FOLLOWUP",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/qtop/qtop/issues/551",
+    "outcome": "INVESTIGATE",
+    "reason": "Open identity-verification proof-of-concept; scope and contributor identity setup broader than selected software analysis.",
+    "stage": "SOURCE_FOLLOWUP",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/Bitcoindefi/OpenAO/issues/3",
+    "outcome": "INVESTIGATE",
+    "reason": "$100canonical reward label; campaign availability unverified.3openunmerged solution PRs; scope several days.",
+    "stage": "DEEP",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/Bitcoindefi/OpenAO/issues/19",
+    "outcome": "DO_NOT_HUNT",
+    "reason": "$50canonical reward label;4openunmerged solution PRs plus further implementations. Crowded for starter hunt; not called solved.",
+    "stage": "DEEP",
+    "publicAction": "NONE"
+  },
+  {
+    "issue": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+    "outcome": "PHASE3_ELIGIBLE",
+    "reason": "100NIS canonical reward; open public nonarchived; payment aftermerge;5interested actors; priorPR19closed unmerged; no active matching PR observed.",
+    "stage": "DEEP",
+    "publicAction": "NONE"
+  }
+]

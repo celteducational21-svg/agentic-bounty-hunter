@@ -1,0 +1,1626 @@
+{
+  "project": "ABH",
+  "date": "2026-09-14",
+  "mode": "FRESH_PROVIDER_FIRST_WITH_PRIVATE_PROOF",
+  "phase2MarketCertification": "INCOMPLETE",
+  "mainSynchronizedTo": "e16d9dfac87b9f7447467b6b5613bbca3c2fce19",
+  "deploymentAtScan": "dpqnWjZfjnEQCMqMeQvF24qGgLPG",
+  "authentication": {
+    "checkedAt": "2026-09-14T12:00:36.248Z",
+    "credentialSource": "ABH_GITHUB_TOKEN",
+    "authorizationSent": true,
+    "authenticated": true,
+    "githubStatus": 200,
+    "rateLimit": 5000,
+    "remaining": 4710,
+    "resetAt": "2026-09-14T12:31:28.000Z",
+    "failure": null
+  },
+  "tests": {
+    "ABH": {
+      "passed": 184,
+      "failed": 0
+    },
+    "candidateFocusedUnitTests": {
+      "passed": 9,
+      "failed": 0,
+      "deselected": 10
+    }
+  },
+  "discovery": {
+    "snapshot": "2026-09-14T11:56:38.575Z",
+    "raw": 90,
+    "preCanonicalUnique": 80,
+    "persistedCandidates": 79,
+    "runtimeDeepAttempts": 5,
+    "runtimeRequestCount": 120,
+    "runtimeBudgetLimit": 120,
+    "runtimeTimeBudgetMs": 50000,
+    "runtimeAdmissionAttempts": [
+      {
+        "url": "https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1",
+        "canonicalIssueUrl": "https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Issue closed/completed",
+          "Provider listing has no available reward"
+        ],
+        "checkedAt": "2026-09-14T11:56:41.923Z"
+      },
+      {
+        "url": "https://github.com/aueangpanit/electron-template/issues/1",
+        "canonicalIssueUrl": "https://github.com/aueangpanit/electron-template/issues/1",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Original bounty source unavailable"
+        ],
+        "checkedAt": "2026-09-14T11:56:42.058Z"
+      },
+      {
+        "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+        "canonicalIssueUrl": "https://github.com/jahmeergnlt/traefik/issues/1",
+        "stage": "DEEP",
+        "outcome": "INVESTIGATE",
+        "reasons": [
+          "noCompletedSolution",
+          "competitionNotHopeless"
+        ],
+        "checkedAt": "2026-09-14T11:56:49.047Z"
+      },
+      {
+        "url": "https://github.com/madalynerlge2/gin/issues/1",
+        "canonicalIssueUrl": "https://github.com/madalynerlge2/gin/issues/1",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Issue closed/completed",
+          "Provider listing has no available reward"
+        ],
+        "checkedAt": "2026-09-14T11:56:50.804Z"
+      },
+      {
+        "url": "https://github.com/Opire/docs/issues/27",
+        "canonicalIssueUrl": "https://github.com/Opire/docs/issues/27",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Original bounty source unavailable"
+        ],
+        "checkedAt": "2026-09-14T11:56:50.930Z"
+      },
+      {
+        "url": "https://github.com/qtop/qtop/issues/433",
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/433",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Already assigned to another contributor",
+          "Issue closed/completed"
+        ],
+        "checkedAt": "2026-09-14T11:56:51.887Z"
+      },
+      {
+        "url": "https://github.com/velldharami44d/go-github/issues/3",
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/3",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Issue closed/completed",
+          "Provider listing has no available reward"
+        ],
+        "checkedAt": "2026-09-14T11:56:52.900Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2127",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/2127",
+        "stage": "DEEP",
+        "outcome": "INVESTIGATE",
+        "reasons": [
+          "paymentUnderstood",
+          "noCompletedSolution"
+        ],
+        "checkedAt": "2026-09-14T11:56:57.065Z"
+      },
+      {
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+        "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+        "stage": "DEEP",
+        "outcome": "INVESTIGATE",
+        "reasons": [
+          "paymentUnderstood",
+          "noCompletedSolution",
+          "competitionNotHopeless"
+        ],
+        "checkedAt": "2026-09-14T11:57:03.857Z"
+      },
+      {
+        "url": "https://github.com/autokey/autokey/issues/87",
+        "canonicalIssueUrl": "https://github.com/autokey/autokey/issues/87",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Issue closed/completed",
+          "Provider listing has no available reward"
+        ],
+        "checkedAt": "2026-09-14T11:57:05.418Z"
+      },
+      {
+        "url": "https://github.com/keycloak/keycloak/issues/14644",
+        "canonicalIssueUrl": "https://github.com/keycloak/keycloak/issues/14644",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Already assigned to another contributor",
+          "Issue closed/completed"
+        ],
+        "checkedAt": "2026-09-14T11:57:06.259Z"
+      },
+      {
+        "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "stage": "DEEP",
+        "outcome": "INVESTIGATE",
+        "reasons": [
+          "noCompletedSolution",
+          "competitionNotHopeless",
+          "softwareScope"
+        ],
+        "checkedAt": "2026-09-14T11:57:12.617Z"
+      },
+      {
+        "url": "https://github.com/Leantime/leantime/issues/1099",
+        "canonicalIssueUrl": "https://github.com/Leantime/leantime/issues/1099",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Issue closed/completed"
+        ],
+        "checkedAt": "2026-09-14T11:57:13.706Z"
+      },
+      {
+        "url": "https://github.com/storybookjs/storybook/issues/12641",
+        "canonicalIssueUrl": "https://github.com/storybookjs/storybook/issues/12641",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Already assigned to another contributor",
+          "Issue closed/completed"
+        ],
+        "checkedAt": "2026-09-14T11:57:14.748Z"
+      },
+      {
+        "url": "https://github.com/typeorm/typeorm/issues/12578",
+        "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/12578",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Already assigned to another contributor",
+          "Issue closed/completed"
+        ],
+        "checkedAt": "2026-09-14T11:57:15.633Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/932",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/932",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Issue closed/completed",
+          "Provider listing has no available reward"
+        ],
+        "checkedAt": "2026-09-14T11:57:16.304Z"
+      },
+      {
+        "url": "https://github.com/secondlife/viewer/issues/4445",
+        "canonicalIssueUrl": "https://github.com/secondlife/viewer/issues/4445",
+        "stage": "PREFLIGHT",
+        "outcome": "REJECT",
+        "reasons": [
+          "Issue is closed/completed",
+          "Issue closed/completed",
+          "Provider listing has no available reward"
+        ],
+        "checkedAt": "2026-09-14T11:57:17.111Z"
+      },
+      {
+        "url": "https://github.com/dot-Justin/BonziAssist/issues/7",
+        "canonicalIssueUrl": "https://github.com/dot-Justin/BonziAssist/issues/7",
+        "stage": "DEEP",
+        "outcome": "INVESTIGATE",
+        "reasons": [
+          "noCompletedSolution",
+          "competitionNotHopeless",
+          "softwareScope",
+          "repositoryInvestigated"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.356Z"
+      },
+      {
+        "url": "https://github.com/flowese/UdioWrapper/issues/7",
+        "canonicalIssueUrl": "https://github.com/flowese/UdioWrapper/issues/7",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.356Z"
+      },
+      {
+        "url": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+        "canonicalIssueUrl": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.357Z"
+      },
+      {
+        "url": "https://github.com/zed-industries/zed/issues/4642",
+        "canonicalIssueUrl": "https://github.com/zed-industries/zed/issues/4642",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.357Z"
+      },
+      {
+        "url": "https://github.com/esp-rs/esp-hal/issues/4163",
+        "canonicalIssueUrl": "https://github.com/esp-rs/esp-hal/issues/4163",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.358Z"
+      },
+      {
+        "url": "https://github.com/2510034127qq-wq/BountyScout/issues/89",
+        "canonicalIssueUrl": "https://github.com/2510034127qq-wq/BountyScout/issues/89",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.359Z"
+      },
+      {
+        "url": "https://github.com/go-gitea/gitea/issues/24635",
+        "canonicalIssueUrl": "https://github.com/go-gitea/gitea/issues/24635",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.359Z"
+      },
+      {
+        "url": "https://github.com/rodrigompy/bugb/issues/1",
+        "canonicalIssueUrl": "https://github.com/rodrigompy/bugb/issues/1",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.359Z"
+      },
+      {
+        "url": "https://github.com/uswriting/zeroperl/issues/7",
+        "canonicalIssueUrl": "https://github.com/uswriting/zeroperl/issues/7",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.360Z"
+      },
+      {
+        "url": "https://github.com/podzemniytip/shipradar/issues/1",
+        "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/198",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.361Z"
+      },
+      {
+        "url": "https://github.com/dev-kp-eloper/BountyScout/issues/1391",
+        "canonicalIssueUrl": "https://github.com/dev-kp-eloper/BountyScout/issues/1391",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.363Z"
+      },
+      {
+        "url": "https://github.com/devpool-directory/devpool-directory/issues/5924",
+        "canonicalIssueUrl": "https://github.com/devpool-directory/devpool-directory/issues/5924",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.364Z"
+      },
+      {
+        "url": "https://github.com/freedom-winds/BountyScout/issues/1056",
+        "canonicalIssueUrl": "https://github.com/freedom-winds/BountyScout/issues/1056",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.364Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/Rustchain/issues/7888",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/Rustchain/issues/7888",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.365Z"
+      },
+      {
+        "url": "https://github.com/vansh-09/BountyScout/issues/1126",
+        "canonicalIssueUrl": "https://github.com/vansh-09/BountyScout/issues/1126",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.366Z"
+      },
+      {
+        "url": "https://github.com/microg/GmsCore/issues/2994",
+        "canonicalIssueUrl": "https://github.com/microg/GmsCore/issues/2994",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.366Z"
+      },
+      {
+        "url": "https://github.com/maitebloger111/Apache-Arrow/issues/1",
+        "canonicalIssueUrl": "https://github.com/maitebloger111/Apache-Arrow/issues/1",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.369Z"
+      },
+      {
+        "url": "https://github.com/QubesOS/qubes-issues/issues/7231",
+        "canonicalIssueUrl": "https://github.com/QubesOS/qubes-issues/issues/7231",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.370Z"
+      },
+      {
+        "url": "https://github.com/RUMBO-IA/Rumbo/issues/135",
+        "canonicalIssueUrl": "https://github.com/RUMBO-IA/Rumbo/issues/135",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.373Z"
+      },
+      {
+        "url": "https://github.com/hexgrad/kokoro/issues/290",
+        "canonicalIssueUrl": "https://github.com/hexgrad/kokoro/issues/290",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.373Z"
+      },
+      {
+        "url": "https://github.com/kostasuser01gr/VoiceAI-Support-Dashboard/issues/81",
+        "canonicalIssueUrl": "https://github.com/kostasuser01gr/VoiceAI-Support-Dashboard/issues/81",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.375Z"
+      },
+      {
+        "url": "https://github.com/NightVibes33/FlekDeck/issues/2",
+        "canonicalIssueUrl": "https://github.com/NightVibes33/FlekDeck/issues/2",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.376Z"
+      },
+      {
+        "url": "https://github.com/godotengine/godot/issues/70796",
+        "canonicalIssueUrl": "https://github.com/godotengine/godot/issues/70796",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.376Z"
+      },
+      {
+        "url": "https://github.com/IntersectMBO/cc-portal/issues/635",
+        "canonicalIssueUrl": "https://github.com/IntersectMBO/cc-portal/issues/635",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.385Z"
+      },
+      {
+        "url": "https://github.com/tadanobutubutu/screeps/issues/5",
+        "canonicalIssueUrl": "https://github.com/tadanobutubutu/screeps/issues/5",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.390Z"
+      },
+      {
+        "url": "https://github.com/velldharami44d/go-github/issues/5",
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/5",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.391Z"
+      },
+      {
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
+        "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.392Z"
+      },
+      {
+        "url": "https://github.com/qtop/qtop/issues/551",
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/551",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.392Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13477",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/13477",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.393Z"
+      },
+      {
+        "url": "https://github.com/typeorm/typeorm/issues/3357",
+        "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/3357",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.393Z"
+      },
+      {
+        "url": "https://github.com/ivrit-ai/ivrit-py/issues/14",
+        "canonicalIssueUrl": "https://github.com/ivrit-ai/ivrit-py/issues/14",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.393Z"
+      },
+      {
+        "url": "https://github.com/auscaster/frantic-board/issues/194",
+        "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/194",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.394Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1665",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1665",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.396Z"
+      },
+      {
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+        "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.397Z"
+      },
+      {
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+        "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.398Z"
+      },
+      {
+        "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4",
+        "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.399Z"
+      },
+      {
+        "url": "https://github.com/velldharami44d/go-github/issues/7",
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/7",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.399Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16863",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/16863",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.400Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16472",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/16472",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.401Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16471",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/16471",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.403Z"
+      },
+      {
+        "url": "https://github.com/qtop/qtop/issues/337",
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/337",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.403Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/1112",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/1112",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.406Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/442",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/442",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.408Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2271",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/2271",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.409Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2819",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/2819",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.412Z"
+      },
+      {
+        "url": "https://github.com/auscaster/frantic-board/issues/391",
+        "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/391",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.413Z"
+      },
+      {
+        "url": "https://github.com/auscaster/frantic-board/issues/198",
+        "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/198",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.414Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/1618",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/1618",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.414Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/254",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/254",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.416Z"
+      },
+      {
+        "url": "https://github.com/Scottcjn/rustchain-bounties/issues/256",
+        "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/256",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.417Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1672",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1672",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.418Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1673",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1673",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.424Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1666",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1666",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.426Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1146",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1146",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.427Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1145",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1145",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.429Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1397",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1397",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.429Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1675",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1675",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.431Z"
+      },
+      {
+        "url": "https://github.com/auscaster/frantic-board/issues/330",
+        "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/330",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.432Z"
+      },
+      {
+        "url": "https://github.com/auscaster/frantic-board/issues/106",
+        "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/106",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.433Z"
+      },
+      {
+        "url": "https://github.com/auscaster/frantic-board/issues/53",
+        "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/53",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.434Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1635",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1635",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.444Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1663",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1663",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.446Z"
+      },
+      {
+        "url": "https://github.com/Ikalus1988/MisakaNet/issues/1662",
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1662",
+        "stage": "PREFLIGHT",
+        "outcome": "INCOMPLETE",
+        "reasons": [
+          "Canonical source needs investigation"
+        ],
+        "checkedAt": "2026-09-14T11:57:20.447Z"
+      }
+    ],
+    "runtimePersistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "changes": 7
+    },
+    "immutableReadbackEqual": true,
+    "supplementalOpireUniqueCards": 58,
+    "supplementalOpireSources": [
+      "https://app.opire.dev/home",
+      "https://app.opire.dev/home?maxPrice=300&minPrice=20",
+      "https://app.opire.dev/home?maxPrice=49&minPrice=1"
+    ],
+    "supplementalPopulation": [
+      {
+        "canonicalIssueUrl": "https://github.com/microg/GmsCore/issues/2994",
+        "listingUrl": "https://app.opire.dev/issues/01KPXMGCQ9ZBFBJV1E6RXM7W58",
+        "advertisedRewardUsd": 1909380,
+        "claimingSolvers": 6,
+        "tryingSolvers": 6,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/rodrigompy/bugb/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KSXXX60RR76RSSXZXD0F4AGF",
+        "advertisedRewardUsd": 1363340,
+        "claimingSolvers": 0,
+        "tryingSolvers": 0,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "listingUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "advertisedRewardUsd": 100841,
+        "claimingSolvers": 11,
+        "tryingSolvers": 15,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/551",
+        "listingUrl": "https://app.opire.dev/issues/01M24CPAN10ENHF7NZP6D0ZDSS",
+        "advertisedRewardUsd": 10062,
+        "claimingSolvers": 0,
+        "tryingSolvers": 0,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/godotengine/godot/issues/70796",
+        "listingUrl": "https://app.opire.dev/issues/01J8YJ06HPSY7ZAMAW08T83YBD",
+        "advertisedRewardUsd": 3280,
+        "claimingSolvers": 10,
+        "tryingSolvers": 10,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/hexgrad/kokoro/issues/290",
+        "listingUrl": "https://app.opire.dev/issues/01KCKZCP14P37WZQZQA9W6BGJJ",
+        "advertisedRewardUsd": 3140,
+        "claimingSolvers": 10,
+        "tryingSolvers": 10,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/go-gitea/gitea/issues/24635",
+        "listingUrl": "https://app.opire.dev/issues/01KPYN6H77TSG3YCD1GCMBB8TH",
+        "advertisedRewardUsd": 2130,
+        "claimingSolvers": 1,
+        "tryingSolvers": 1,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/932",
+        "listingUrl": "https://app.opire.dev/issues/01KZVNMXEPC56DA7F7BEZF9KJK",
+        "advertisedRewardUsd": 1542,
+        "claimingSolvers": 2,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/uswriting/zeroperl/issues/7",
+        "listingUrl": "https://app.opire.dev/issues/01JN06N9GS8Q1KB2NJ318258HR",
+        "advertisedRewardUsd": 1500,
+        "claimingSolvers": 0,
+        "tryingSolvers": 0,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/Opire/docs/issues/27",
+        "listingUrl": "https://app.opire.dev/issues/01KT0PSXD0JZ4RRQW361CD36R8",
+        "advertisedRewardUsd": 1040,
+        "claimingSolvers": 4,
+        "tryingSolvers": 5,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/3357",
+        "listingUrl": "https://app.opire.dev/issues/01HWJNZ5HQMVG2TCW6XHQQJ3QT",
+        "advertisedRewardUsd": 610,
+        "claimingSolvers": 26,
+        "tryingSolvers": 26,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/autokey/autokey/issues/87",
+        "listingUrl": "https://app.opire.dev/issues/01J73BXYSGA83XKW25TPF2QMK0",
+        "advertisedRewardUsd": 590,
+        "claimingSolvers": 13,
+        "tryingSolvers": 26,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/zed-industries/zed/issues/4642",
+        "listingUrl": "https://app.opire.dev/issues/01J6HJZCK02FVD4XG900FY36EE",
+        "advertisedRewardUsd": 395,
+        "claimingSolvers": 6,
+        "tryingSolvers": 6,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/7",
+        "listingUrl": "https://app.opire.dev/issues/01M13CT35250482VKZJ3F6V02C",
+        "advertisedRewardUsd": 360,
+        "claimingSolvers": 2,
+        "tryingSolvers": 3,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/storybookjs/storybook/issues/12641",
+        "listingUrl": "https://app.opire.dev/issues/01HWT26R3S59MS778MAE9786YG",
+        "advertisedRewardUsd": 308,
+        "claimingSolvers": 5,
+        "tryingSolvers": 5,
+        "checkedAt": "2026-09-14T11:57:26.345Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/12578",
+        "listingUrl": "https://app.opire.dev/issues/01KVF9XSZYWYWB798QEBTYQVYD",
+        "advertisedRewardUsd": 300,
+        "claimingSolvers": 16,
+        "tryingSolvers": 16,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/keycloak/keycloak/issues/14644",
+        "listingUrl": "https://app.opire.dev/issues/01J0Y2SDJ86WRYJAYMMZJBFBAJ",
+        "advertisedRewardUsd": 270,
+        "claimingSolvers": 2,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/dot-Justin/BonziAssist/issues/7",
+        "listingUrl": "https://app.opire.dev/issues/01KVR6PWMT3NF9RTZSME5PKWFD",
+        "advertisedRewardUsd": 270,
+        "claimingSolvers": 20,
+        "tryingSolvers": 23,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/secondlife/viewer/issues/4445",
+        "listingUrl": "https://app.opire.dev/issues/01K16ZAX52F6EFS2VKN6BS2DVD",
+        "advertisedRewardUsd": 270,
+        "claimingSolvers": 1,
+        "tryingSolvers": 6,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/433",
+        "listingUrl": "https://app.opire.dev/issues/01KSRE4X2EB3GH2FT1FG2CWTX2",
+        "advertisedRewardUsd": 220,
+        "claimingSolvers": 6,
+        "tryingSolvers": 6,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/jahmeergnlt/traefik/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KYRESD5QRR8KX7BA97JMG2MF",
+        "advertisedRewardUsd": 200,
+        "claimingSolvers": 12,
+        "tryingSolvers": 18,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/Leantime/leantime/issues/1099",
+        "listingUrl": "https://app.opire.dev/issues/01J8NCWJBS24GDWTCAQEK16PVK",
+        "advertisedRewardUsd": 200,
+        "claimingSolvers": 5,
+        "tryingSolvers": 5,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KV8CCCRX963HSE0H441753J6",
+        "advertisedRewardUsd": 130,
+        "claimingSolvers": 10,
+        "tryingSolvers": 12,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/madalynerlge2/gin/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KYGZ5YZBQDEZK98D9AVRBD2T",
+        "advertisedRewardUsd": 120,
+        "claimingSolvers": 3,
+        "tryingSolvers": 5,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/flowese/UdioWrapper/issues/7",
+        "listingUrl": "https://app.opire.dev/issues/01HW8CK374Y67WDDZG22BYVZQ4",
+        "advertisedRewardUsd": 120,
+        "claimingSolvers": 13,
+        "tryingSolvers": 21,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/3",
+        "listingUrl": "https://app.opire.dev/issues/01M139CMFHRNMRTQKF10H3CDNM",
+        "advertisedRewardUsd": 120,
+        "claimingSolvers": 3,
+        "tryingSolvers": 3,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/esp-rs/esp-hal/issues/4163",
+        "listingUrl": "https://app.opire.dev/issues/01K9XSW1T5FY4DS4VMZ8NH98MP",
+        "advertisedRewardUsd": 120,
+        "claimingSolvers": 2,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/337",
+        "listingUrl": "https://app.opire.dev/issues/01KEWXJ6FH5C2Z7XZVSG7TACJE",
+        "advertisedRewardUsd": 117,
+        "claimingSolvers": 6,
+        "tryingSolvers": 6,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/aueangpanit/electron-template/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01K6K4YTSWT7XF53GM3KCTBG7S",
+        "advertisedRewardUsd": 100,
+        "claimingSolvers": 2,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/5",
+        "listingUrl": "https://app.opire.dev/issues/01M13BM9Y3NFTZRPZHBDMWAK6B",
+        "advertisedRewardUsd": 100,
+        "claimingSolvers": 3,
+        "tryingSolvers": 3,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01M136H4TDRJBJS80ATRR1JFQ5",
+        "advertisedRewardUsd": 100,
+        "claimingSolvers": 2,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/electron/electron/issues/48191",
+        "listingUrl": "https://app.opire.dev/issues/01KPXQ3E5HG0S4MDWQ33Q63KMS",
+        "advertisedRewardUsd": 100,
+        "claimingSolvers": 1,
+        "tryingSolvers": 1,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/357",
+        "listingUrl": "https://app.opire.dev/issues/01KRPNS7FV0DJCWV5ASMAJ1WR4",
+        "advertisedRewardUsd": 98.22,
+        "claimingSolvers": 4,
+        "tryingSolvers": 4,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/bogeeee/restfuncs/issues/6",
+        "listingUrl": "https://app.opire.dev/issues/01HWAKVG8489QKN1NEGQA2RJC4",
+        "advertisedRewardUsd": 90,
+        "claimingSolvers": 2,
+        "tryingSolvers": 10,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/mmccl5/go-task-task/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KT4P994B3T2MTC6JBNWHZH8R",
+        "advertisedRewardUsd": 86,
+        "claimingSolvers": 8,
+        "tryingSolvers": 12,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/denoland/deno/issues/18147",
+        "listingUrl": "https://app.opire.dev/issues/01J8T24PJDXX69RM7XV24SQT11",
+        "advertisedRewardUsd": 70,
+        "claimingSolvers": 4,
+        "tryingSolvers": 4,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/strapi/strapi/issues/11998",
+        "listingUrl": "https://app.opire.dev/issues/01HWT2MKE4GWPJXDPMAFEAHHHE",
+        "advertisedRewardUsd": 70,
+        "claimingSolvers": 4,
+        "tryingSolvers": 4,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/XAMPPRocky/octocrab/issues/224",
+        "listingUrl": "https://app.opire.dev/issues/01HWR51JFNKM63CH4NS657FSCD",
+        "advertisedRewardUsd": 70,
+        "claimingSolvers": 5,
+        "tryingSolvers": 5,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/ArcaneCircle/pixelsocial/issues/3",
+        "listingUrl": "https://app.opire.dev/issues/01K9AEB05K6XCMKMAVNB0P0FQ8",
+        "advertisedRewardUsd": 70,
+        "claimingSolvers": 2,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/trovu/trovu/issues/329",
+        "listingUrl": "https://app.opire.dev/issues/01HTN11YX5NYSS7GGB3SHNCJSS",
+        "advertisedRewardUsd": 70,
+        "claimingSolvers": 22,
+        "tryingSolvers": 37,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/formbricks/formbricks/issues/3302",
+        "listingUrl": "https://app.opire.dev/issues/01JARC75G44M6EQCJCR1DTBHD6",
+        "advertisedRewardUsd": 60,
+        "claimingSolvers": 3,
+        "tryingSolvers": 3,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/Opire/docs/issues/2",
+        "listingUrl": "https://app.opire.dev/issues/01HS1E49GE7BKN2S8ESVCEE56V",
+        "advertisedRewardUsd": 60,
+        "claimingSolvers": 3,
+        "tryingSolvers": 4,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/microg/GmsCore/issues/2843",
+        "listingUrl": "https://app.opire.dev/issues/01KPXP82M5RJ9B8ENA8M3DFDRY",
+        "advertisedRewardUsd": 50,
+        "claimingSolvers": 2,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/sebastianbergmann/phpunit/issues/4440",
+        "listingUrl": "https://app.opire.dev/issues/01HWX4P9F1935V3ZXN4TY7VDEQ",
+        "advertisedRewardUsd": 50,
+        "claimingSolvers": 3,
+        "tryingSolvers": 3,
+        "checkedAt": "2026-09-14T11:58:01.774Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/ToolJet/ToolJet/issues/6655",
+        "listingUrl": "https://app.opire.dev/issues/01J8898W2WES9F4FJ57GDG0BYS",
+        "advertisedRewardUsd": 45,
+        "claimingSolvers": 6,
+        "tryingSolvers": 6,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/radumarias/rencfs/issues/3",
+        "listingUrl": "https://app.opire.dev/issues/01J42C08V4J78ZAWH8JH2RQS8G",
+        "advertisedRewardUsd": 42,
+        "claimingSolvers": 0,
+        "tryingSolvers": 0,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/tinygo-org/pio/issues/38",
+        "listingUrl": "https://app.opire.dev/issues/01KDR8QS8J9YF0BJ3NCK0BTFZT",
+        "advertisedRewardUsd": 40,
+        "claimingSolvers": 1,
+        "tryingSolvers": 1,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/ReVanced/revanced-patches/issues/1583",
+        "listingUrl": "https://app.opire.dev/issues/01JPA7XMYJCAXV83EF0GEKTTZH",
+        "advertisedRewardUsd": 40,
+        "claimingSolvers": 1,
+        "tryingSolvers": 1,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/RichieHakim/sparse_convolution/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01JCPC4RSRT5Q6A9PC3CTMFZJR",
+        "advertisedRewardUsd": 40,
+        "claimingSolvers": 6,
+        "tryingSolvers": 6,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/Surge-Org/Surge/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01M28HXANSCJ20KZ0GQZBKE3JS",
+        "advertisedRewardUsd": 40,
+        "claimingSolvers": 1,
+        "tryingSolvers": 1,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/484",
+        "listingUrl": "https://app.opire.dev/issues/01KTSVY26F7FTDAV3D1CFKK5JZ",
+        "advertisedRewardUsd": 33,
+        "claimingSolvers": 8,
+        "tryingSolvers": 8,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/colmev080/sqlc/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KZBF1FMSWQJ2WKYR4PS8DE7J",
+        "advertisedRewardUsd": 20,
+        "claimingSolvers": 1,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/aozorayama45/Traefik/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KTCBPE50PS93SJGP2CEYJTD5",
+        "advertisedRewardUsd": 20,
+        "claimingSolvers": 1,
+        "tryingSolvers": 3,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/buape/kiai-bounties/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01JYY6Y3VD3NR0104WDMWC20AZ",
+        "advertisedRewardUsd": 20,
+        "claimingSolvers": 0,
+        "tryingSolvers": 0,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/zcharliebeer/gRPC-GitHub-Repository/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KT5KHB963FZ2TW6GQ7909W5T",
+        "advertisedRewardUsd": 20,
+        "claimingSolvers": 1,
+        "tryingSolvers": 2,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/portapack-mayhem/mayhem-firmware/issues/2045",
+        "listingUrl": "https://app.opire.dev/issues/01JJJDVER78MF2EZ313058AF2Q",
+        "advertisedRewardUsd": 20,
+        "claimingSolvers": 1,
+        "tryingSolvers": 1,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/tal7aouy/vscode-icons/issues/87",
+        "listingUrl": "https://app.opire.dev/issues/01JH00AXGKW2B660P4QE078RKC",
+        "advertisedRewardUsd": 20,
+        "claimingSolvers": 1,
+        "tryingSolvers": 1,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      },
+      {
+        "canonicalIssueUrl": "https://github.com/Vicentegg4212/sasmex-rss-bounty/issues/1",
+        "listingUrl": "https://app.opire.dev/issues/01KYT29FYNNNHQZDQF3QE5TQNE",
+        "advertisedRewardUsd": 20,
+        "claimingSolvers": 0,
+        "tryingSolvers": 0,
+        "checkedAt": "2026-09-14T11:58:38.848Z"
+      }
+    ],
+    "manualAttempts": [
+      {
+        "issue": "https://github.com/ArcaneCircle/pixelsocial/issues/3",
+        "outcome": "REJECT",
+        "reason": "Deleted original (410).",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/formbricks/formbricks/issues/3302",
+        "outcome": "REJECT",
+        "reason": "Closed; assigned;48comments.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/ToolJet/ToolJet/issues/6655",
+        "outcome": "REJECT",
+        "reason": "Closed original.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/mmccl5/go-task-task/issues/1",
+        "outcome": "REJECT",
+        "reason": "Closed original.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/electron/electron/issues/48191",
+        "outcome": "REJECT",
+        "reason": "Closed original.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/colmev080/sqlc/issues/1",
+        "outcome": "REJECT",
+        "reason": "Closed original.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/aozorayama45/Traefik/issues/1",
+        "outcome": "REJECT",
+        "reason": "Closed original.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/buape/kiai-bounties/issues/1",
+        "outcome": "INVESTIGATE",
+        "reason": "Original404; deletion versus rename/private state not established.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/zcharliebeer/gRPC-GitHub-Repository/issues/1",
+        "outcome": "REJECT",
+        "reason": "Closed original.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/tal7aouy/vscode-icons/issues/87",
+        "outcome": "INVESTIGATE",
+        "reason": "Original404; deletion versus rename/private state not established.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/RichieHakim/sparse_convolution/issues/1",
+        "outcome": "REJECT",
+        "reason": "Closed original.",
+        "stage": "PREFLIGHT",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/Scottcjn/rustchain-bounties/issues/2127",
+        "outcome": "NEEDS_HUMAN_INPUT",
+        "reason": "25RTC exact reward; owner VPS access needed for deployment acceptance;48comments. Not selected.",
+        "stage": "DEEP_FOLLOWUP",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/qtop/qtop/issues/551",
+        "outcome": "INVESTIGATE",
+        "reason": "Open identity-verification proof-of-concept; scope and contributor identity setup broader than selected software analysis.",
+        "stage": "SOURCE_FOLLOWUP",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/Bitcoindefi/OpenAO/issues/3",
+        "outcome": "INVESTIGATE",
+        "reason": "$100canonical reward label; campaign availability unverified.3openunmerged solution PRs; scope several days.",
+        "stage": "DEEP",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/Bitcoindefi/OpenAO/issues/19",
+        "outcome": "DO_NOT_HUNT",
+        "reason": "$50canonical reward label;4openunmerged solution PRs plus further implementations. Crowded for starter hunt; not called solved.",
+        "stage": "DEEP",
+        "publicAction": "NONE"
+      },
+      {
+        "issue": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+        "outcome": "PHASE3_ELIGIBLE",
+        "reason": "100NIS canonical reward; open public nonarchived; payment aftermerge;5interested actors; priorPR19closed unmerged; no active matching PR observed.",
+        "stage": "DEEP",
+        "publicAction": "NONE"
+      }
+    ],
+    "totalDistinctDeepCandidates": 8,
+    "deepCountExplanation": "5 runtime + selected ivrit + two OpenAO; Scottcjn followup revisits an existing runtime deep candidate. qtop source read is not counted as completed deep investigation."
+  },
+  "phase3EligibleCount": 1,
+  "selected": {
+    "issue": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+    "repository": "ivrit-ai/ivrit-py",
+    "repositoryCommit": "76cac007abbf3e4ab2bea9fc28495d583d8a7926",
+    "provider": "GitHub-native",
+    "advertisedReward": {
+      "amount": 100,
+      "currency": "NIS"
+    },
+    "canonicalIssueReward": {
+      "amount": 100,
+      "currency": "NIS",
+      "status": "STATED_BY_PROJECT"
+    },
+    "providerVerifiedReward": null,
+    "currentlyAvailableReward": {
+      "amount": 100,
+      "currency": "NIS",
+      "status": "CREDIBLE_OPEN_ISSUE_PROMISE_NOT_RESERVED"
+    },
+    "payableRewardEstimate": {
+      "amount": 100,
+      "currency": "NIS",
+      "condition": "Maintainer reservation and accepted merged PR; payment rail and fees not established"
+    },
+    "paymentModel": "AFTER_MERGE",
+    "escrowProven": false,
+    "competition": {
+      "interestComments": 5,
+      "activeMatchingSolutionPRsObserved": 0,
+      "priorMatchingPR": "https://github.com/ivrit-ai/ivrit-py/pull/19",
+      "priorPRState": "CLOSED_UNMERGED",
+      "assessment": "MODERATE; owner has not reserved task for ABH"
+    },
+    "scope": "Analyze word-level streaming alternatives, specifically repeated transcribe calls with confidence analysis; runnable repo-specific probe and tested analysis helpers proposed.",
+    "candidatePhase3Status": "PHASE3_ELIGIBLE"
+  },
+  "proof": {
+    "setup": "PASS",
+    "reproduction": "PASS_FOR_SESSION_FAILURE_AND_REAL_REPEATED_CALLS",
+    "bountyCompletion": "NOT_COMPLETE",
+    "rootCauseIdentified": true,
+    "rootCause": "WhisperSession._transcribe_buffered omits required output_options in transcribe_core; broad exception handling returns no segments and retains PCM. Existing session test permits empty results.",
+    "relevantFiles": [
+      "ivrit/audio.py",
+      "ivrit/types.py",
+      "tests/test_session.py",
+      "tests/test_input_10s.mp3"
+    ],
+    "deterministicResult": {
+      "unmodified": {
+        "backend_calls": 0,
+        "segments": 0,
+        "retained_bytes": 32000
+      },
+      "options_adapter": {
+        "backend_calls": 1,
+        "segments": 1,
+        "probability": 0.95
+      },
+      "scope": "deterministic contract reproduction; not model accuracy validation"
+    },
+    "realAudio": {
+      "model": "tiny",
+      "device": "cpu",
+      "computeType": "int8",
+      "windows": [
+        {
+          "audioSeconds": 2,
+          "elapsedSeconds": 0.613,
+          "words": 4,
+          "samePrefixWordsAsPrevious": 0,
+          "minWordProbability": 0.46468909084796906,
+          "maxWordProbability": 0.6940966645876566
+        },
+        {
+          "audioSeconds": 4,
+          "elapsedSeconds": 0.542,
+          "words": 8,
+          "samePrefixWordsAsPrevious": 0,
+          "minWordProbability": 0.24173210561275482,
+          "maxWordProbability": 0.7514665623505911
+        },
+        {
+          "audioSeconds": 6,
+          "elapsedSeconds": 0.573,
+          "words": 13,
+          "samePrefixWordsAsPrevious": 0,
+          "minWordProbability": 0.253209188580513,
+          "maxWordProbability": 0.9781604409217834
+        },
+        {
+          "audioSeconds": 8,
+          "elapsedSeconds": 0.753,
+          "words": 18,
+          "samePrefixWordsAsPrevious": 4,
+          "minWordProbability": 0.24709369987249374,
+          "maxWordProbability": 0.9800342321395874
+        },
+        {
+          "audioSeconds": 10,
+          "elapsedSeconds": 0.775,
+          "words": 21,
+          "samePrefixWordsAsPrevious": 4,
+          "minWordProbability": 0.11935190856456757,
+          "maxWordProbability": 0.971404492855072
+        }
+      ],
+      "unmodifiedSessionSegments": 0,
+      "adapterSessionSegments": 1,
+      "limitations": "One short Hebrew fixture; no ground-truth accuracy, real-time, calibrated confidence or production-model performance claim. Model options other than language/word timestamps are not forwarded by current FasterWhisper transcribe_core."
+    },
+    "proposedSolution": [
+      "Prepare a repo-specific alternatives report with measured CPU prefix probes and limits.",
+      "Propose supplying consistent output options and a regression that requires nonempty session output, subject to maintainer scope agreement.",
+      "Evaluate stable word-prefix emission across repeated rolling windows with offset tracking, duplicate suppression and uncertain-word handling.",
+      "Compare baseline segment streaming against repeated calls; document quality/latency/cost tradeoffs without equating likelihood with correctness."
+    ],
+    "testsNeeded": [
+      "Nonempty session append/flush; output-options forwarding; no silent failure.",
+      "Word/probability propagation, revised words, punctuation, repeated words and chunk seams.",
+      "Timestamp offsets after buffer trimming, empty/silent input, final flush, bounded window and unchanged sync/batch paths.",
+      "Real audio comparison using recorded model/version, ground truth where available and latency distributions."
+    ],
+    "effort": "6-10 focused engineering hours for analysis/probe/tests; larger-model validation may add time",
+    "aiSolvability": "HIGH for bounded analysis and regression; full comparative deliverable not yet implemented",
+    "hardBlockers": [],
+    "humanActionBeforePublicWork": "Owner approval to ask maintainer for scope confirmation and two-week reservation; discuss payment rail and live-review expectations before commitment.",
+    "maintainerResponse": "NOT_CONTACTED",
+    "claim": "NOT_CLAIMED",
+    "submission": "NOT_SUBMITTED",
+    "payment": "NOT_REQUESTED"
+  },
+  "decision": "APPROVE_HUNT",
+  "learning": [
+    "Fresh provider cards can still reference closed originals; check canonical status cheaply.",
+    "Runtime5000quota does not remove internal120request/50second scan bounds. Continue targeted reads rather than declaring market failure.",
+    "Issue-stated non-USD reward can justify private proof without a fabricated USD estimate.",
+    "A session test that merely loops over an empty result can falsely appear healthy.",
+    "Cheap CPU probes and deterministic contract tests complement each other; neither proves full speech accuracy.",
+    "Keep unknown payment rail and maintainer responsiveness as followup, not automatic rejection."
+  ],
+  "persistence": {
+    "freshRuntimeScan": "SUPABASE_CONFIRMED",
+    "manualAndProofLog": "GITHUB_MAIN_AFTER_THIS_COMMIT",
+    "manualAndProofDatabase": "PENDING_ABH_ADMIN_LOGIN; prepared append-only payload; no write to CELT connector"
+  },
+  "next": [
+    "Owner approval for maintainer scope/reservation request.",
+    "After owner approval, respect maintainer reservation before full implementation.",
+    "Complete solver then independentQA then prepare submission; require approval before publicPR.",
+    "Restore ABH Supabase browser access and append prepared operation record without modifying historical scan."
+  ],
+  "independentQA": {
+    "decision": "APPROVE_HUNT",
+    "deterministicProof": "RERUN_PASS",
+    "realAudioEvidence": "REVIEW_PASS",
+    "limits": "Single10sfixture,tinyCPUmodel,not full comparative deliverable."
+  }
+}
