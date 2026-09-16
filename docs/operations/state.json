@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-16T11:35:00.000Z",
+  "updatedAt": "2026-09-16T11:42:17.593Z",
   "operations": [
     {
       "opportunityId": "ABH-GH-ivrit-ai-ivrit-py-12",
@@ -116,12 +116,153 @@
         }
       ],
       "resumeStatus": null
+    },
+    {
+      "opportunityId": "ABH-GH-copperheadhq-copperhead-66",
+      "title": "Complete an eight-stage KiCad run",
+      "source": "GitHub",
+      "sourceUrl": "https://github.com/copperheadhq/copperhead/issues/66",
+      "provider": "GitHub maintainer",
+      "reward": {
+        "amount": 50,
+        "currency": "USD"
+      },
+      "competition": "Multiple open implementations and two assignees",
+      "effort": "UNKNOWN; live-run complexity",
+      "latestActivity": "Explicit task-linked $50 paid-on-merge verified; no ABH proof yet",
+      "status": "INVESTIGATING",
+      "version": 2,
+      "evidence": {
+        "reference": "docs/operations/2026-09-16-candidates.md"
+      },
+      "humanActionRequired": null,
+      "nextAction": "Resolve missing practical evidence",
+      "createdAt": "2026-09-16T11:42:17.593Z",
+      "updatedAt": "2026-09-16T11:42:17.593Z",
+      "transitions": [
+        {
+          "id": "ABH-GH-copperheadhq-copperhead-66:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-16T11:42:17.593Z",
+          "actor": "fresh-qualifier",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "ABH-GH-copperheadhq-copperhead-66:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-16T11:42:17.593Z",
+          "actor": "fresh-qualifier",
+          "reason": "Live canonical investigation; see dated candidate evidence",
+          "evidence": {
+            "reference": "docs/operations/2026-09-16-candidates.md"
+          }
+        }
+      ],
+      "resumeStatus": null
+    },
+    {
+      "opportunityId": "ABH-GH-dot-Justin-BonziAssist-7",
+      "title": "Startup failure investigation",
+      "source": "GitHub + Opire",
+      "sourceUrl": "https://github.com/dot-Justin/BonziAssist/issues/7",
+      "provider": "Opire",
+      "reward": {
+        "amount": 270,
+        "currency": "USD"
+      },
+      "competition": "20 claiming; 23 trying reported",
+      "effort": "UNKNOWN; scope unclear",
+      "latestActivity": "Live investigation retained; identify distinct unresolved startup failure",
+      "status": "INVESTIGATING",
+      "version": 2,
+      "evidence": {
+        "reference": "docs/operations/2026-09-16-candidates.md"
+      },
+      "humanActionRequired": null,
+      "nextAction": "Resolve missing practical evidence",
+      "createdAt": "2026-09-16T11:42:17.593Z",
+      "updatedAt": "2026-09-16T11:42:17.593Z",
+      "transitions": [
+        {
+          "id": "ABH-GH-dot-Justin-BonziAssist-7:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-16T11:42:17.593Z",
+          "actor": "fresh-qualifier",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "ABH-GH-dot-Justin-BonziAssist-7:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-16T11:42:17.593Z",
+          "actor": "fresh-qualifier",
+          "reason": "Live canonical investigation; see dated candidate evidence",
+          "evidence": {
+            "reference": "docs/operations/2026-09-16-candidates.md"
+          }
+        }
+      ],
+      "resumeStatus": null
+    },
+    {
+      "opportunityId": "ABH-GH-qtop-qtop-551",
+      "title": "Lighter proof-of-humanity process",
+      "source": "GitHub + Opire",
+      "sourceUrl": "https://github.com/qtop/qtop/issues/551",
+      "provider": "Opire",
+      "reward": null,
+      "competition": "No issue comments or assignees observed",
+      "effort": "UNKNOWN",
+      "latestActivity": "Task open; exact available reward remains unverified",
+      "status": "INVESTIGATING",
+      "version": 2,
+      "evidence": {
+        "reference": "docs/operations/2026-09-16-candidates.md"
+      },
+      "humanActionRequired": null,
+      "nextAction": "Resolve missing practical evidence",
+      "createdAt": "2026-09-16T11:42:17.593Z",
+      "updatedAt": "2026-09-16T11:42:17.593Z",
+      "transitions": [
+        {
+          "id": "ABH-GH-qtop-qtop-551:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-16T11:42:17.593Z",
+          "actor": "fresh-qualifier",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "ABH-GH-qtop-qtop-551:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-16T11:42:17.593Z",
+          "actor": "fresh-qualifier",
+          "reason": "Live canonical investigation; see dated candidate evidence",
+          "evidence": {
+            "reference": "docs/operations/2026-09-16-candidates.md"
+          }
+        }
+      ],
+      "resumeStatus": null
     }
   ],
   "humanActions": [
     {
       "id": "opire-setup",
-      "action": "Log in to Opire, confirm developer profile and complete payout onboarding when required",
+      "action": "Confirm Opire payout onboarding before first claim/payment; signed in as celteducational21-svg, payout status not yet verified",
       "blocks": "Opire claiming/payment only"
     },
     {
@@ -157,7 +298,7 @@
       "proofs": "No new proof yet; historical #12 passed",
       "waitingMaintainer": 1,
       "activeSolves": 0,
-      "qa": "Independent review PASS; 205 tests passed",
+      "qa": "Independent QA fixes verified; 206 tests passed",
       "submitted": 0,
       "paid": 0,
       "lessons": [

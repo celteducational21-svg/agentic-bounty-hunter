@@ -10,7 +10,8 @@ export function discoveryOperations(scan) {
     let row = createOperation({ opportunityId: candidate.opportunityId, title: candidate.title,
       source: 'GitHub', sourceUrl: candidate.canonicalIssueUrl || candidate.originalIssueUrl,
       reward: candidate.currentlyAvailableReward || candidate.canonicalIssueReward || null,
-      provider: candidate.paymentProvider || candidate.paymentTrust?.provider || 'GitHub',
+      provider: candidate.paymentTrust?.provider === 'Opire' || candidate.providerDiscovery ? 'Opire' : 'GitHub maintainer',
+      paymentProcessor: candidate.paymentProvider || null,
       competition: candidate.activeCompetitors ?? 'UNKNOWN', effort: candidate.effortEstimate || 'UNKNOWN',
       latestActivity: candidate.reason, admission: candidate.candidatePhase3Status
     }, { at, actor: 'scout' });

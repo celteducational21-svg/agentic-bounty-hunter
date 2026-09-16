@@ -29,3 +29,9 @@ test('verified closure removes stale Phase3 eligibility and appends history',()=
  assert.deepEqual(actual.transitions.slice(0,3),row.transitions);
  assert.equal(actual.transitions.length,4);
 });
+test('Opire learning keys use bounty provider rather than Stripe processor',()=>{
+ const scan={fetchedAt:at,candidates:[{opportunityId:'opire-task',canonicalIssueUrl:'https://github.com/a/b/issues/1',paymentProvider:'Stripe',paymentTrust:{provider:'Opire'}}]};
+ const row=operatingView(scan,empty).operations[0];
+ assert.equal(row.provider,'Opire');
+ assert.equal(row.paymentProcessor,'Stripe');
+});

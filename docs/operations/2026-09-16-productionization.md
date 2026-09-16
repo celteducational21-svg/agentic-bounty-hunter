@@ -25,3 +25,9 @@ Separate reviewer caught and verified fixes for disappearing historical operatio
 Other bounded live investigations are in 2026-09-16-candidates.md. No additional successful proof or income claimed.
 
 Opire browser logged out: owner login/profile/payout setup needed before platform action. #27 cleanup attempted via GitHub integration, denied 403; account that created it must close as not planned. Vercel connector lacks project scope; GitHub deployment status and direct runtime HTTP checks remain available. Supabase admin verification is deferred maintenance, not a blocker.
+
+## Live deployment verification
+
+Operational build c8ddfeff635ad63acc97ee2958a35742dbdbc628 deployed successfully: Vercel GitHub status success, deployment CuGfxRyHQfdAXNUN39FQj6AfwrKr. Live `/api/operations` returned the same commit, runtime durable=true, WAITING_FOR_MAINTAINER=1 and active investigation records. Browser rendered live status counts and human actions. Saved-scan endpoint returned the prior immutable scan without starting discovery. Follow-up QA corrected provider normalization (Opire bounty provider vs Stripe processor); regression test added, 206 tests pass. Final patch receives a subsequent deployment check.
+
+Opire follow-up: existing sign-in session recovered through Log in; fresh page shows account celteducational21-svg. Settings and Solving dashboard inspected, zero trying/claimed/paid. No payout-onboarding control was presented on those pages, so payout eligibility remains unverified and is a candidate-level prerequisite before claim/payment, not a present login blocker. No identity/bank details were entered and no account access was expanded.
