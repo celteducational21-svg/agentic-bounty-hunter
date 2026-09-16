@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-16T11:35:00.000Z",
+  "operations": [
+    {
+      "opportunityId": "ABH-GH-ivrit-ai-ivrit-py-12",
+      "title": "Analyze alternatives for word-level streaming",
+      "source": "GitHub",
+      "sourceUrl": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+      "reward": {
+        "amount": 100,
+        "currency": "NIS"
+      },
+      "provider": "GitHub maintainer",
+      "competition": "Multiple interest comments; no confirmed reservation observed",
+      "effort": "6\u201310 hours plus maintainer review",
+      "latestActivity": "Reservation request already posted; no maintainer confirmation in retrieved comments",
+      "status": "WAITING_FOR_MAINTAINER",
+      "version": 5,
+      "evidence": {
+        "eligibility": {
+          "issueOpen": true,
+          "repositoryAccessible": true,
+          "credibleReward": true,
+          "scopeUnderstandable": true,
+          "competitionNotHopeless": true,
+          "noHardBlocker": true
+        },
+        "reference": "docs/operations/2026-09-14-fresh-proof.md",
+        "proof": {
+          "setup": "PASS",
+          "reproduction": "PASS",
+          "focusedTests": "PASS",
+          "reference": "docs/operations/2026-09-14-fresh-proof.md"
+        },
+        "reservationRequest": {
+          "reference": "https://github.com/ivrit-ai/ivrit-py/issues/12#issuecomment-5666992174",
+          "confirmed": false
+        }
+      },
+      "humanActionRequired": null,
+      "nextAction": "Monitor existing reservation thread; do not duplicate comments",
+      "createdAt": "2026-09-16T11:35:00.000Z",
+      "updatedAt": "2026-09-16T11:35:00.000Z",
+      "transitions": [
+        {
+          "id": "ABH-GH-ivrit-ai-ivrit-py-12:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-16T11:35:00.000Z",
+          "actor": "operations-recovery",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "ABH-GH-ivrit-ai-ivrit-py-12:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-16T11:35:00.000Z",
+          "actor": "operations-recovery",
+          "reason": "Recover existing candidate from committed 2026-09-14 report",
+          "evidence": {}
+        },
+        {
+          "id": "ABH-GH-ivrit-ai-ivrit-py-12:3",
+          "version": 3,
+          "from": "INVESTIGATING",
+          "to": "PHASE3_ELIGIBLE",
+          "at": "2026-09-16T11:35:00.000Z",
+          "actor": "operations-recovery",
+          "reason": "Historical private admission, not a new proof",
+          "evidence": {
+            "eligibility": {
+              "issueOpen": true,
+              "repositoryAccessible": true,
+              "credibleReward": true,
+              "scopeUnderstandable": true,
+              "competitionNotHopeless": true,
+              "noHardBlocker": true
+            },
+            "reference": "docs/operations/2026-09-14-fresh-proof.md"
+          }
+        },
+        {
+          "id": "ABH-GH-ivrit-ai-ivrit-py-12:4",
+          "version": 4,
+          "from": "PHASE3_ELIGIBLE",
+          "to": "PRIVATE_PROOF",
+          "at": "2026-09-16T11:35:00.000Z",
+          "actor": "operations-recovery",
+          "reason": "Import historically completed private proof",
+          "evidence": {}
+        },
+        {
+          "id": "ABH-GH-ivrit-ai-ivrit-py-12:5",
+          "version": 5,
+          "from": "PRIVATE_PROOF",
+          "to": "WAITING_FOR_MAINTAINER",
+          "at": "2026-09-16T11:35:00.000Z",
+          "actor": "operations-recovery",
+          "reason": "Prior proof passed; existing request awaits maintainer confirmation; do not duplicate",
+          "evidence": {
+            "proof": {
+              "setup": "PASS",
+              "reproduction": "PASS",
+              "focusedTests": "PASS",
+              "reference": "docs/operations/2026-09-14-fresh-proof.md"
+            },
+            "reservationRequest": {
+              "reference": "https://github.com/ivrit-ai/ivrit-py/issues/12#issuecomment-5666992174",
+              "confirmed": false
+            }
+          }
+        }
+      ],
+      "resumeStatus": null
+    }
+  ],
+  "humanActions": [
+    {
+      "id": "opire-setup",
+      "action": "Log in to Opire, confirm developer profile and complete payout onboarding when required",
+      "blocks": "Opire claiming/payment only"
+    },
+    {
+      "id": "vercel-scope",
+      "action": "Connect Vercel account with access to celteducational21-3805 for deployment administration",
+      "blocks": "Vercel connector administration only"
+    },
+    {
+      "id": "issue-27-cleanup",
+      "action": "Close accidental ivrit-ai/ivrit-py #27 as not planned using the account that created it",
+      "blocks": "Nothing; GitHub integration returned 403"
+    }
+  ],
+  "workers": {
+    "Scout": "Runtime discovery available",
+    "Qualifier": "Runtime practical admission available",
+    "Proof": "Agent workflow; prior #12 proof passed",
+    "Solver": "Agent workflow; waiting for confirmed reservation",
+    "QA": "Separate-agent workflow; mandatory before readiness",
+    "Submission": "Draft only; exact public approval required",
+    "Tracking": "Scheduled agent workflow; source replies checked 2026-09-16",
+    "Learning": "Committed evidence and immutable runtime snapshots"
+  },
+  "dailyLogs": [
+    {
+      "date": "2026-09-16",
+      "checkedAt": "2026-09-16T11:32:06.775Z",
+      "discovered": 72,
+      "sourceEntries": 90,
+      "opireEntries": 30,
+      "runtimePersistence": "PASS",
+      "githubAuth": "PASS; 5000 limit",
+      "proofs": "No new proof yet; historical #12 passed",
+      "waitingMaintainer": 1,
+      "activeSolves": 0,
+      "qa": "Independent review PASS; 205 tests passed",
+      "submitted": 0,
+      "paid": 0,
+      "lessons": [
+        "Load saved scans on dashboard refresh; do not launch expensive discovery automatically.",
+        "Supabase runtime access remains healthy despite unavailable admin login.",
+        "Outcome-based priority remains neutral until three completed evidenced outcomes; never inflate payment confidence."
+      ]
+    }
+  ],
+  "schedule": {
+    "dailyAutomation": "ABH Daily Operations",
+    "timezone": "Asia/Kuwait",
+    "cadence": "Daily morning",
+    "existingHumanGate": "ABH Human Gate hourly"
+  }
+}

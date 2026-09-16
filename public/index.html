@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Evidence-backed intelligence for legitimate, realistically winnable open-source bounties." />
-  <title>Agentic Bounty Hunter · Opportunity Intelligence</title>
+  <title>Agentic Bounty Hunter · Operations</title>
   <style>
     :root{color-scheme:dark;--bg:#06100d;--panel:#0c1b17;--panel2:#11251f;--line:#214238;--ink:#effff8;--muted:#94b3a5;--lime:#aaff6b;--amber:#ffc85a;--red:#ff7979;--blue:#70c8ff}
     *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,#194834 0,transparent 30%),var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,sans-serif}main{max-width:1240px;margin:auto;padding:42px 22px 90px}
@@ -13,36 +13,66 @@
     .toolbar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.toolbar h2{margin:3px 0 0;font-size:23px}.small{color:var(--muted);font-size:13px}button{border:0;border-radius:11px;padding:12px 17px;background:var(--lime);color:#07110e;font-weight:900;cursor:pointer}button:disabled{opacity:.55;cursor:wait}
     .queue{display:grid;gap:14px}.opportunity{padding:0;overflow:hidden}.op-head{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;padding:19px}.rank{width:44px;height:44px;border-radius:13px;background:var(--panel2);display:grid;place-items:center;font:900 18px ui-monospace}.title{font-size:18px;font-weight:800;margin:0 0 4px}.title a{color:var(--ink);text-decoration:none}.title a:hover{color:var(--lime)}.meta{color:var(--muted);font-size:12px}.decision{padding:6px 10px;border-radius:999px;font:900 11px ui-monospace}.decision.HUNT{background:#244f32;color:var(--lime)}.decision.WATCH{background:#163f58;color:var(--blue)}.decision.SKIP{background:#4c3b1c;color:var(--amber)}.decision.REJECT{background:#4c2525;color:var(--red)}
     .facts{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.fact{padding:13px 16px;border-right:1px solid var(--line)}.fact:last-child{border:0}.fact span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.06em}.fact b{font-size:14px}.reason{padding:14px 18px;color:#cce3d8}.evidence summary{cursor:pointer;color:var(--lime);font-weight:800;padding:0 18px 16px}.evidence-body{background:#07130f;padding:16px 20px}.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.score{background:var(--panel2);border-radius:9px;padding:9px}.score span{display:block;color:var(--muted);font-size:10px}.links{margin-top:12px}.links a{color:var(--blue);margin-right:12px}.empty{padding:34px;text-align:center;color:var(--muted)}
-    .guard{margin-top:22px;border-left:3px solid var(--amber)}code{font:12px ui-monospace,monospace;color:#c7ffe0}
+    .opportunity .op-head:has(>div:first-child:not(.rank)){grid-template-columns:1fr auto}.fact b{overflow-wrap:anywhere}.guard{margin-top:22px;border-left:3px solid var(--amber)}code{font:12px ui-monospace,monospace;color:#c7ffe0}
     @media(max-width:980px){.metrics{grid-template-columns:repeat(4,1fr)}.facts{grid-template-columns:repeat(3,1fr)}.breakdown{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){main{padding:28px 14px}.metrics{grid-template-columns:repeat(2,1fr)}.toolbar{align-items:flex-start;flex-direction:column}.op-head{grid-template-columns:auto 1fr}.op-head .decision{grid-column:2}.facts{grid-template-columns:repeat(2,1fr)}h1{font-size:44px}}
   </style>
 </head>
 <body><main>
-  <div class="eyebrow">Standalone ABH · Phase 2</div>
-  <h1>Find the bounty.<br>Prove it is worth hunting.</h1>
-  <p class="lead">Live GitHub opportunity intelligence that rejects false positives, verifies reward evidence, estimates competition and effort, and ranks realistic early wins. A large advertised reward never overrides weak evidence.</p>
-  <div class="policy">ANALYSIS ONLY · HUMAN APPROVAL REQUIRED BEFORE ANY EXTERNAL ACTION</div>
+  <div class="eyebrow">Standalone ABH · Daily operations</div>
+  <h1>Find. Prove. Deliver.</h1>
+  <p class="lead">Work toward the first accepted paid bounty. Track evidence, private delivery, independent QA, maintainer responses and payment in one operational queue.</p>
+  <div class="policy">PRIVATE WORK CONTINUES · OWNER APPROVAL BEFORE PUBLIC SUBMISSION</div>
+  <section aria-label="Bounty operations" style="margin-top:28px">
+    <div class="toolbar"><div><div class="eyebrow">Operational state</div><h2>Current bounty work</h2><div id="ops-health" class="small" role="status">Loading persisted operations…</div></div><button id="refreshBtn">Refresh operations</button></div>
+    <div id="ops-metrics" class="metrics"></div>
+    <aside class="card guard" aria-labelledby="human-title"><h2 id="human-title">HUMAN ACTION REQUIRED</h2><div id="human-actions" class="small">Loading human actions…</div></aside>
+    <h2>Active bounties</h2><div id="active-bounties" class="queue"><div class="card empty">Loading persisted work…</div></div>
+    <details class="card" style="margin-top:20px"><summary>Worker workflow status</summary><div id="workers" class="breakdown" style="margin-top:12px"></div></details>
+    <details class="card" style="margin-top:14px"><summary>Daily operational logs</summary><div id="daily-logs" class="small" style="margin-top:12px"></div></details>
+  </section>
+  <h2 style="margin-top:40px">Discovery and scan history</h2>
   <section class="metrics">
     <div class="card metric"><span>Scanned</span><b id="scanned">—</b></div><div class="card metric"><span>Apparent</span><b id="apparent">—</b></div><div class="card metric"><span>Legitimate</span><b id="legit">—</b></div>
     <div class="card metric HUNT"><span>Hunt</span><b id="hunt">—</b></div><div class="card metric WATCH"><span>Watch</span><b id="watch">—</b></div><div class="card metric"><span>Skip</span><b id="skip">—</b></div><div class="card metric REJECT"><span>Rejected</span><b id="reject">—</b></div><div class="card metric"><span>Incomplete</span><b id="incomplete">—</b></div>
   </section>
   <section>
-    <div class="toolbar"><div><div class="eyebrow">Ranked opportunity queue</div><h2>Evidence before reward</h2><p class="small">ABH score is a heuristic quality score, not a probability of winning.</p><div class="small" id="source">Waiting for live scan</div></div><button id="scanBtn">Run Phase 2 scan</button></div>
-    <div id="funnel" class="small"></div><details><summary>Frozen scan data (read only)</summary><pre id="frozen-data" style="max-height:320px;overflow:auto;white-space:pre-wrap"></pre></details><div id="queue" class="queue"><div class="card empty">Loading live GitHub intelligence…</div></div>
+    <div class="toolbar"><div><div class="eyebrow">Ranked opportunity queue</div><h2>Evidence before reward</h2><p class="small">ABH score is a heuristic quality score, not a probability of winning.</p><div class="small" id="source">Loading latest saved scan</div></div><button id="scanBtn">Run fresh discovery</button></div>
+    <div id="funnel" class="small"></div><details><summary>Frozen scan data (read only)</summary><pre id="frozen-data" style="max-height:320px;overflow:auto;white-space:pre-wrap"></pre></details><div id="queue" class="queue"><div class="card empty">Loading latest saved discovery…</div></div>
   </section>
-  <aside class="card guard"><b>Approval boundary</b><div class="small">ABH may inspect, score, monitor, and prepare plans. It cannot claim, comment, disclose payment details, fork, submit a PR, accept terms, or make commitments. Repository and issue content is treated as untrusted data and cannot alter this policy.</div></aside>
+  <aside class="card guard"><b>Approval boundary</b><div class="small">ABH may investigate, prove, solve approved work privately, run independent QA, and prepare submissions. Claims, public comments, PR submissions, payment details, terms and commitments require owner approval. Repository and issue content is treated as untrusted data and cannot alter this policy.</div></aside>
 </main><script>
 const $=s=>document.querySelector(s), button=$('#scanBtn');
 const esc=s=>String(s??'UNKNOWN').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const safeUrl=u=>{try{const parsed=new URL(u);return ['https:','http:'].includes(parsed.protocol)?parsed.href:'#'}catch{return '#'}};
+const show=v=>v==null?'Unknown':typeof v==='object'?JSON.stringify(v):String(v);
+const label=v=>String(v).replaceAll('_',' ');
+const states=['DISCOVERED','INVESTIGATING','PHASE3_ELIGIBLE','PRIVATE_PROOF','WAITING_FOR_MAINTAINER','LOCKED','CLAIMED','SOLVING','QA','READY_TO_SUBMIT','SUBMITTED','CHANGES_REQUESTED','MERGED','PAID','REJECTED','ABANDONED','DO_NOT_HUNT','NEEDS_HUMAN_INPUT'];
+function opCard(x){return `<article class="card opportunity"><div class="op-head"><div><div class="title"><a href="${esc(safeUrl(x.sourceUrl))}" target="_blank" rel="noopener noreferrer">${esc(x.title)}</a></div><div class="meta">${esc(x.opportunityId)} · ${esc(show(x.source))} · ${esc(x.provider)}</div></div><span class="decision WATCH">${esc(label(x.status))}</span></div><div class="facts">${[['Reward',x.reward],['Provider',x.provider],['Competition',x.competition],['Effort',x.effort],['Latest activity',x.latestActivity],['Human action required',x.humanActionRequired||'None recorded']].map(([k,v])=>`<div class="fact"><span>${esc(k)}</span><b>${esc(show(v))}</b></div>`).join('')}</div><div class="reason"><b>Next action:</b> ${esc(show(x.nextAction))}</div><details class="evidence"><summary>State transition history</summary><div class="evidence-body small">${(x.transitions||[]).map(t=>`<p>${esc(show(t))}</p>`).join('')||'No transitions recorded.'}</div></details></article>`}
+async function loadOperations(){
+  const refresh=$('#refreshBtn');refresh.disabled=true;
+  try{
+    const r=await fetch('/api/operations',{cache:'no-store'}),d=await r.json();if(!r.ok)throw new Error(d.error||'Operations unavailable');
+    $('#ops-health').textContent=d.runtime?.durable?'Operations loaded · durable runtime persistence confirmed':`Operations loaded · durable persistence not confirmed${d.runtime?.error?' · '+d.runtime.error:''}`;
+    $('#ops-metrics').innerHTML=states.map(s=>`<div class="card metric"><span>${esc(label(s))}</span><b>${Number.isFinite(d.counts?.[s])?d.counts[s]:'—'}</b></div>`).join('');
+    const active=(d.operations||[]).filter(x=>!['PAID','REJECTED','ABANDONED','DO_NOT_HUNT'].includes(x.status));
+    $('#active-bounties').innerHTML=active.length?active.map(opCard).join(''):'<div class="card empty">No active bounties recorded.</div>';
+    const actions=d.humanActions?.length?d.humanActions:active.filter(x=>x.humanActionRequired).map(x=>({title:x.title,action:x.humanActionRequired,nextAction:x.nextAction}));
+    $('#human-actions').innerHTML=actions.length?actions.map(a=>`<p>${esc(show(a))}</p>`).join(''):'No human actions recorded.';
+    $('#workers').innerHTML=['Scout','Qualifier','Proof','Solver','QA','Submission','Tracking','Learning'].map(role=>`<div class="score"><span>${esc(role)}</span><b>${esc(show(d.workers?.[role]??d.workers?.[role.toLowerCase()]??'Not reported'))}</b></div>`).join('');
+    $('#daily-logs').innerHTML=(d.dailyLogs||[]).slice(-14).reverse().map(log=>`<pre style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(JSON.stringify(log,null,2))}</pre>`).join('')||'No daily cycles recorded.';
+  }catch(e){$('#ops-health').textContent='Operations unavailable: '+e.message;$('#ops-metrics').innerHTML='';$('#active-bounties').innerHTML='<div class="card empty">Operational state could not be verified. Refresh to retry.</div>';$('#human-actions').textContent='Unavailable — human action status could not be verified.';$('#workers').textContent='Unavailable';$('#daily-logs').textContent='Unavailable';}
+  finally{refresh.disabled=false;}
+}
 const value=n=>n==null?'UNKNOWN':Number.isFinite(Number(n))?Number(n):'UNKNOWN';
 function reward(x){if(x.currentlyAvailableReward){const r=x.currentlyAvailableReward;return r.amount==null?"UNKNOWN":`${Number(r.amount).toLocaleString()} ${esc(r.currency)}`}return x.rewardUsdEstimate==null?`${esc(x.rewardAmount)} ${esc(x.rewardCurrency)} · USD unknown`:`$${Number(x.rewardUsdEstimate).toLocaleString()} ${esc(x.rewardCurrency)}`}
-function card(x,i){const scores=x.scoreBreakdown||{};const links=(x.evidenceUrls||[]).slice(0,6).map((u,j)=>`<a href="${esc(u)}" target="_blank" rel="noopener">Evidence ${j+1}</a>`).join('');return `<article class="card opportunity"><div class="op-head"><div class="rank">${i+1}</div><div><div class="title"><a href="${esc(x.originalIssueUrl)}" target="_blank" rel="noopener">${esc(x.title)}</a></div><div class="meta">${esc(x.opportunityId)} · ${esc(x.repository)} · ${esc(x.enrichmentState||x.analysisDepth)} · ${value(x.enrichment?.completed)}/${value(x.enrichment?.total)} steps · Private proof: ${esc(x.candidatePhase3Status||"NOT_EVALUATED")}</div></div><span class="decision ${esc(x.decision)}">${esc(x.decision)}</span></div><div class="facts"><div class="fact"><span>Reward</span><b>${reward(x)}</b></div><div class="fact"><span>ABH score</span><b>${value(x.winScore)}</b></div><div class="fact"><span>AI solvability</span><b>${value(x.aiSolvabilityScore)}</b></div><div class="fact"><span>Competition</span><b>${value(x.activeCompetitors)} active</b></div><div class="fact"><span>Effort</span><b>${esc(x.effortEstimate)}</b></div><div class="fact"><span>Payment confidence</span><b>${esc(x.paymentConfidence)}</b></div></div><div class="reason">${esc(x.reason)}</div><details class="evidence"><summary>Evidence & score explanation</summary><div class="evidence-body"><div class="breakdown">${Object.entries(scores).map(([k,v])=>`<div class="score"><span>${esc(k)}</span><b>${value(v)}/100</b></div>`).join('')}</div><p class="small"><b>Enrichment:</b> ${esc((x.enrichment?.steps||[]).map(s=>s.step+": "+s.status+(s.failureReason?" — "+s.failureReason:"")).join(" · "))}</p><p class="small"><b>Platform/listing:</b> ${esc(x.paymentTrust?.provider)} · platform ${esc(x.paymentTrust?.platformVerified)} · listing ${esc(x.paymentTrust?.listingVerified)} · issuer ${esc(x.paymentTrust?.issuerAuthority)} · funding ${esc(x.paymentTrust?.fundingStatus)}</p><p class="small"><b>Payment:</b> ${esc(x.payer)} · ${esc(x.paymentProvider)} · ${esc(x.paymentTrigger)} · authority ${value(x.issuerAuthorityScore)}/100 · funding ${value(x.fundingConfidence)}/100</p><p class="small"><b>Private proof admission:</b> ${esc(x.candidatePhase3Status||"NOT_EVALUATED")} · Market certification: ${esc(x.phase2MarketCertification||"INCOMPLETE")} · Public action requires owner approval.</p><p class="small"><b>Reward provenance:</b> ${esc(["advertisedReward","canonicalIssueReward","providerVerifiedReward","currentlyAvailableReward","payableRewardEstimate"].map(k=>k+": "+(x[k]?.amount??"UNKNOWN")+" "+(x[k]?.currency??"")).join(" · "))}</p><p class="small"><b>Issue test commands:</b> ${esc((x.acceptanceCriteria?.explicitCommands||[]).map(t=>t.command+" ["+t.status+"]").join(" · ")||"UNKNOWN")}</p><p class="small"><b>Dependency investigation:</b> ${esc((x.dependencyEvidence||[]).map(d=>d.type+": "+d.provisioning+" — "+d.description).join(" · ")||"No requirements detected")}</p><p class="small"><b>Reward source:</b> ${esc(x.reward?.evidenceLocation)} — ${esc(x.reward?.evidenceText)}</p><p class="small"><b>Execution readiness:</b> ${value(x.executionReadinessScore)}/100 · setup ${esc(x.setupCommand)} · tests ${esc(x.testCommand)} · build ${esc(x.buildStatus)}</p><p class="small"><b>Competition coverage:</b> ${esc(x.competitionConfidence)} · ${esc(x.solutionSearchCompleteness)}</p><p class="small"><b>Hidden blockers:</b> ${esc(x.hiddenBlockerRisk)} · ${esc((x.externalDependencies||[]).join(" · "))}</p><p class="small"><b>HUNT gates needing evidence:</b> ${esc(Object.entries(x.huntGates||{}).filter(([,v])=>!v).map(([k])=>k).join(" · ")||"None")}</p><p class="small"><b>Scope criteria:</b> ${esc((x.acceptanceCriteria?.criteria||[]).join(' · ')||'None extracted')}</p><p class="small"><b>Rejection gates:</b> ${esc((x.rejectionReasons||[]).join(' · ')||'None')}</p><p class="small"><b>Prompt-injection scan:</b> ${x.promptInjection?.detected?'FLAGGED — isolated as untrusted data':'clear'}</p><div class="links">${links}</div></div></details></article>`}
-async function scan(){
+function card(x,i){const scores=x.scoreBreakdown||{};const links=(x.evidenceUrls||[]).slice(0,6).map((u,j)=>`<a href="${esc(safeUrl(u))}" target="_blank" rel="noopener">Evidence ${j+1}</a>`).join('');return `<article class="card opportunity"><div class="op-head"><div class="rank">${i+1}</div><div><div class="title"><a href="${esc(safeUrl(x.originalIssueUrl))}" target="_blank" rel="noopener">${esc(x.title)}</a></div><div class="meta">${esc(x.opportunityId)} · ${esc(x.repository)} · ${esc(x.enrichmentState||x.analysisDepth)} · ${value(x.enrichment?.completed)}/${value(x.enrichment?.total)} steps · Private proof: ${esc(x.candidatePhase3Status||"NOT_EVALUATED")}</div></div><span class="decision ${esc(x.decision)}">${esc(x.decision)}</span></div><div class="facts"><div class="fact"><span>Reward</span><b>${reward(x)}</b></div><div class="fact"><span>ABH score</span><b>${value(x.winScore)}</b></div><div class="fact"><span>AI solvability</span><b>${value(x.aiSolvabilityScore)}</b></div><div class="fact"><span>Competition</span><b>${value(x.activeCompetitors)} active</b></div><div class="fact"><span>Effort</span><b>${esc(x.effortEstimate)}</b></div><div class="fact"><span>Payment confidence</span><b>${esc(x.paymentConfidence)}</b></div></div><div class="reason">${esc(x.reason)}</div><details class="evidence"><summary>Evidence & score explanation</summary><div class="evidence-body"><div class="breakdown">${Object.entries(scores).map(([k,v])=>`<div class="score"><span>${esc(k)}</span><b>${value(v)}/100</b></div>`).join('')}</div><p class="small"><b>Enrichment:</b> ${esc((x.enrichment?.steps||[]).map(s=>s.step+": "+s.status+(s.failureReason?" — "+s.failureReason:"")).join(" · "))}</p><p class="small"><b>Platform/listing:</b> ${esc(x.paymentTrust?.provider)} · platform ${esc(x.paymentTrust?.platformVerified)} · listing ${esc(x.paymentTrust?.listingVerified)} · issuer ${esc(x.paymentTrust?.issuerAuthority)} · funding ${esc(x.paymentTrust?.fundingStatus)}</p><p class="small"><b>Payment:</b> ${esc(x.payer)} · ${esc(x.paymentProvider)} · ${esc(x.paymentTrigger)} · authority ${value(x.issuerAuthorityScore)}/100 · funding ${value(x.fundingConfidence)}/100</p><p class="small"><b>Private proof admission:</b> ${esc(x.candidatePhase3Status||"NOT_EVALUATED")} · Market certification: ${esc(x.phase2MarketCertification||"INCOMPLETE")} · Public action requires owner approval.</p><p class="small"><b>Reward provenance:</b> ${esc(["advertisedReward","canonicalIssueReward","providerVerifiedReward","currentlyAvailableReward","payableRewardEstimate"].map(k=>k+": "+(x[k]?.amount??"UNKNOWN")+" "+(x[k]?.currency??"")).join(" · "))}</p><p class="small"><b>Issue test commands:</b> ${esc((x.acceptanceCriteria?.explicitCommands||[]).map(t=>t.command+" ["+t.status+"]").join(" · ")||"UNKNOWN")}</p><p class="small"><b>Dependency investigation:</b> ${esc((x.dependencyEvidence||[]).map(d=>d.type+": "+d.provisioning+" — "+d.description).join(" · ")||"No requirements detected")}</p><p class="small"><b>Reward source:</b> ${esc(x.reward?.evidenceLocation)} — ${esc(x.reward?.evidenceText)}</p><p class="small"><b>Execution readiness:</b> ${value(x.executionReadinessScore)}/100 · setup ${esc(x.setupCommand)} · tests ${esc(x.testCommand)} · build ${esc(x.buildStatus)}</p><p class="small"><b>Competition coverage:</b> ${esc(x.competitionConfidence)} · ${esc(x.solutionSearchCompleteness)}</p><p class="small"><b>Hidden blockers:</b> ${esc(x.hiddenBlockerRisk)} · ${esc((x.externalDependencies||[]).join(" · "))}</p><p class="small"><b>HUNT gates needing evidence:</b> ${esc(Object.entries(x.huntGates||{}).filter(([,v])=>!v).map(([k])=>k).join(" · ")||"None")}</p><p class="small"><b>Scope criteria:</b> ${esc((x.acceptanceCriteria?.criteria||[]).join(' · ')||'None extracted')}</p><p class="small"><b>Rejection gates:</b> ${esc((x.rejectionReasons||[]).join(' · ')||'None')}</p><p class="small"><b>Prompt-injection scan:</b> ${x.promptInjection?.detected?'FLAGGED — isolated as untrusted data':'clear'}</p><div class="links">${links}</div></div></details></article>`}
+async function scan(fresh=false){
   button.disabled=true;
-  button.textContent='Inspecting evidence…';
-  $('#queue').innerHTML='<div class="card empty">Searching GitHub, checking claims, PRs, repositories and scope…</div>';
+  button.textContent=fresh?'Inspecting evidence…':'Loading saved scan…';
+  $('#queue').innerHTML='<div class="card empty">'+(fresh?'Searching GitHub, checking claims, PRs, repositories and scope…':'Loading persisted scan history…')+'</div>';
   try {
-    const r=await fetch('/api/opportunities'+(new URLSearchParams(location.search).has('snapshot')?'?snapshot='+encodeURIComponent(new URLSearchParams(location.search).get('snapshot')):''));
+    const snapshot=new URLSearchParams(location.search).get('snapshot');
+    const r=await fetch('/api/opportunities'+(!fresh&&snapshot?'?snapshot='+encodeURIComponent(snapshot):fresh?'':'?latest=1'));
     const d=await r.json();
     if(!r.ok)throw new Error(d.error||'Scan failed');
     $('#frozen-data').textContent=JSON.stringify(d,null,2);
@@ -50,11 +80,11 @@ async function scan(){
     $('#scanned').textContent=d.rawCount;
     $('#apparent').textContent=d.apparentBountyCount;
     $('#legit').textContent=d.legitimacyPassedCount;
-    for(const decision of ['HUNT','WATCH','SKIP','REJECT','INCOMPLETE']) $('#'+decision.toLowerCase()).textContent=d.counts[decision]||0;
+    for(const decision of ['HUNT','WATCH','SKIP','REJECT','INCOMPLETE']) $('#'+decision.toLowerCase()).textContent=d.counts?.[decision]||0;
     $('#source').textContent=`${d.source} · ${d.deepCheckedCount} deep checked · ${new Date(d.fetchedAt).toLocaleString()} · ${d.persistence?.durable?'History saved to database':'History not durably stored'}`;
     const ranked=(d.candidates||[]).slice(0,12);
-    $('#queue').innerHTML=ranked.length?ranked.map(card).join(''):'<div class="card empty">0 HUNT candidates today. No weak opportunity will be forced through.</div>';
-    if(d.persistence?.durable) document.querySelectorAll('.evidence-body').forEach((panel,i)=>{
+    $('#queue').innerHTML=ranked.length?ranked.map(card).join(''):'<div class="card empty">No candidates in this saved scan. Run fresh discovery to investigate current opportunities.</div>';
+    if(d.persistence?.durable) document.querySelectorAll('#queue .evidence-body').forEach((panel,i)=>{
       const historyButton=document.createElement('button');
       historyButton.textContent='Load score history';
       const output=document.createElement('p');
@@ -71,10 +101,13 @@ async function scan(){
       });
       panel.append(historyButton,output);
     });
-    localStorage.setItem('abh:last-scan',JSON.stringify({fetchedAt:d.fetchedAt,counts:d.counts}));
+    try{localStorage.setItem('abh:last-scan',JSON.stringify({fetchedAt:d.fetchedAt,counts:d.counts}));}catch{}
+    if(fresh)await loadOperations();
   } catch(e){$('#queue').innerHTML=`<div class="card empty" style="color:var(--red)">${esc(e.message)}</div>`;}
-  finally {button.disabled=false;button.textContent='Run Phase 2 scan';}
+  finally {button.disabled=false;button.textContent='Run fresh discovery';}
 }
-button.addEventListener('click',scan);
-scan();
+button.addEventListener('click',()=>scan(true));
+$('#refreshBtn').addEventListener('click',loadOperations);
+scan(false);
+loadOperations();
 </script></body></html>

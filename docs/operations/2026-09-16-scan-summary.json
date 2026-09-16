@@ -1,0 +1,780 @@
+{
+  "fetchedAt": "2026-09-16T11:32:06.775Z",
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 72,
+    "basicScreened": 71,
+    "canonicalResolved": 18,
+    "providerVerified": 15,
+    "fullyEnriched": 0,
+    "selectedRepositories": 5
+  },
+  "counts": {
+    "HUNT": 0,
+    "WATCH": 0,
+    "SKIP": 0,
+    "REJECT": 14,
+    "INCOMPLETE": 57
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 0
+  },
+  "phase3EligibleCount": 0,
+  "admissionAttempts": [
+    {
+      "url": "https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1",
+      "canonicalIssueUrl": "https://github.com/alisteuber4ee1/API-Integration-Pagination/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Issue closed/completed",
+        "Provider listing has no available reward"
+      ],
+      "checkedAt": "2026-09-16T11:32:10.388Z"
+    },
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "canonicalIssueUrl": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "stage": "DEEP",
+      "outcome": "INVESTIGATE",
+      "reasons": [
+        "noCompletedSolution",
+        "competitionNotHopeless"
+      ],
+      "checkedAt": "2026-09-16T11:32:17.177Z"
+    },
+    {
+      "url": "https://github.com/madalynerlge2/gin/issues/1",
+      "canonicalIssueUrl": "https://github.com/madalynerlge2/gin/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Issue closed/completed",
+        "Provider listing has no available reward"
+      ],
+      "checkedAt": "2026-09-16T11:32:18.060Z"
+    },
+    {
+      "url": "https://github.com/Opire/docs/issues/27",
+      "canonicalIssueUrl": "https://github.com/Opire/docs/issues/27",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Original bounty source unavailable"
+      ],
+      "checkedAt": "2026-09-16T11:32:18.191Z"
+    },
+    {
+      "url": "https://github.com/qtop/qtop/issues/433",
+      "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/433",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Already assigned to another contributor",
+        "Issue closed/completed"
+      ],
+      "checkedAt": "2026-09-16T11:32:18.983Z"
+    },
+    {
+      "url": "https://github.com/velldharami44d/go-github/issues/1",
+      "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Issue closed/completed",
+        "Provider listing has no available reward"
+      ],
+      "checkedAt": "2026-09-16T11:32:19.753Z"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "stage": "DEEP",
+      "outcome": "INVESTIGATE",
+      "reasons": [
+        "paymentUnderstood",
+        "noCompletedSolution",
+        "competitionNotHopeless"
+      ],
+      "checkedAt": "2026-09-16T11:32:26.580Z"
+    },
+    {
+      "url": "https://github.com/autokey/autokey/issues/87",
+      "canonicalIssueUrl": "https://github.com/autokey/autokey/issues/87",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Issue closed/completed",
+        "Provider listing has no available reward"
+      ],
+      "checkedAt": "2026-09-16T11:32:27.897Z"
+    },
+    {
+      "url": "https://github.com/keycloak/keycloak/issues/14644",
+      "canonicalIssueUrl": "https://github.com/keycloak/keycloak/issues/14644",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Already assigned to another contributor",
+        "Issue closed/completed"
+      ],
+      "checkedAt": "2026-09-16T11:32:28.687Z"
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "stage": "DEEP",
+      "outcome": "INVESTIGATE",
+      "reasons": [
+        "noCompletedSolution",
+        "competitionNotHopeless",
+        "softwareScope"
+      ],
+      "checkedAt": "2026-09-16T11:32:35.400Z"
+    },
+    {
+      "url": "https://github.com/Leantime/leantime/issues/1099",
+      "canonicalIssueUrl": "https://github.com/Leantime/leantime/issues/1099",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Issue closed/completed"
+      ],
+      "checkedAt": "2026-09-16T11:32:36.287Z"
+    },
+    {
+      "url": "https://github.com/storybookjs/storybook/issues/12641",
+      "canonicalIssueUrl": "https://github.com/storybookjs/storybook/issues/12641",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Already assigned to another contributor",
+        "Issue closed/completed"
+      ],
+      "checkedAt": "2026-09-16T11:32:37.384Z"
+    },
+    {
+      "url": "https://github.com/typeorm/typeorm/issues/12578",
+      "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/12578",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Already assigned to another contributor",
+        "Issue closed/completed"
+      ],
+      "checkedAt": "2026-09-16T11:32:38.303Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16497",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/16497",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Requirements are unrealistic for the accessible environment"
+      ],
+      "checkedAt": "2026-09-16T11:32:38.696Z"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/932",
+      "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/932",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Issue closed/completed",
+        "Provider listing has no available reward"
+      ],
+      "checkedAt": "2026-09-16T11:32:39.359Z"
+    },
+    {
+      "url": "https://github.com/secondlife/viewer/issues/4445",
+      "canonicalIssueUrl": "https://github.com/secondlife/viewer/issues/4445",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Issue is closed/completed",
+        "Issue closed/completed",
+        "Provider listing has no available reward"
+      ],
+      "checkedAt": "2026-09-16T11:32:40.162Z"
+    },
+    {
+      "url": "https://github.com/dot-Justin/BonziAssist/issues/7",
+      "canonicalIssueUrl": "https://github.com/dot-Justin/BonziAssist/issues/7",
+      "stage": "DEEP",
+      "outcome": "INVESTIGATE",
+      "reasons": [
+        "noCompletedSolution",
+        "competitionNotHopeless",
+        "softwareScope"
+      ],
+      "checkedAt": "2026-09-16T11:32:46.789Z"
+    },
+    {
+      "url": "https://github.com/flowese/UdioWrapper/issues/7",
+      "canonicalIssueUrl": "https://github.com/flowese/UdioWrapper/issues/7",
+      "stage": "PREFLIGHT",
+      "outcome": "REJECT",
+      "reasons": [
+        "Owner reports completed solution; payment unverified"
+      ],
+      "checkedAt": "2026-09-16T11:32:47.994Z"
+    },
+    {
+      "url": "https://github.com/OmniBlocks/bountyfarmer/issues/5",
+      "canonicalIssueUrl": "https://github.com/OmniBlocks/bountyfarmer/issues/5",
+      "stage": "DEEP",
+      "outcome": "INVESTIGATE",
+      "reasons": [
+        "paymentUnderstood",
+        "noCompletedSolution",
+        "softwareScope",
+        "repositoryInvestigated"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.621Z"
+    },
+    {
+      "url": "https://github.com/zed-industries/zed/issues/4642",
+      "canonicalIssueUrl": "https://github.com/zed-industries/zed/issues/4642",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.621Z"
+    },
+    {
+      "url": "https://github.com/esp-rs/esp-hal/issues/4163",
+      "canonicalIssueUrl": "https://github.com/esp-rs/esp-hal/issues/4163",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.621Z"
+    },
+    {
+      "url": "https://github.com/go-gitea/gitea/issues/24635",
+      "canonicalIssueUrl": "https://github.com/go-gitea/gitea/issues/24635",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.622Z"
+    },
+    {
+      "url": "https://github.com/rodrigompy/bugb/issues/1",
+      "canonicalIssueUrl": "https://github.com/rodrigompy/bugb/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.623Z"
+    },
+    {
+      "url": "https://github.com/uswriting/zeroperl/issues/7",
+      "canonicalIssueUrl": "https://github.com/uswriting/zeroperl/issues/7",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.623Z"
+    },
+    {
+      "url": "https://github.com/2510034127qq-wq/BountyScout/issues/98",
+      "canonicalIssueUrl": "https://github.com/2510034127qq-wq/BountyScout/issues/98",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.624Z"
+    },
+    {
+      "url": "https://github.com/auscaster/frantic-board/issues/389",
+      "canonicalIssueUrl": "https://github.com/auscaster/frantic-board/issues/389",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.625Z"
+    },
+    {
+      "url": "https://github.com/dev-kp-eloper/BountyScout/issues/1401",
+      "canonicalIssueUrl": "https://github.com/dev-kp-eloper/BountyScout/issues/1401",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.626Z"
+    },
+    {
+      "url": "https://github.com/tscircuit/docs/issues/886",
+      "canonicalIssueUrl": "https://github.com/tscircuit/docs/issues/886",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.627Z"
+    },
+    {
+      "url": "https://github.com/EstefanyLonsway6/traefik/issues/1",
+      "canonicalIssueUrl": "https://github.com/EstefanyLonsway6/traefik/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.630Z"
+    },
+    {
+      "url": "https://github.com/Kristywvs22/chi/issues/1",
+      "canonicalIssueUrl": "https://github.com/Kristywvs22/chi/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.632Z"
+    },
+    {
+      "url": "https://github.com/Kristywvs22/gin/issues/1",
+      "canonicalIssueUrl": "https://github.com/Kristywvs22/gin/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.635Z"
+    },
+    {
+      "url": "https://github.com/Kristywvs22/zap/issues/1",
+      "canonicalIssueUrl": "https://github.com/Kristywvs22/zap/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.642Z"
+    },
+    {
+      "url": "https://github.com/MariaThomasxt0/gocron/issues/1",
+      "canonicalIssueUrl": "https://github.com/MariaThomasxt0/gocron/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.644Z"
+    },
+    {
+      "url": "https://github.com/NashKara96/resty/issues/1",
+      "canonicalIssueUrl": "https://github.com/NashKara96/resty/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.647Z"
+    },
+    {
+      "url": "https://github.com/rasoolharlym8/Grafana-Mimir/issues/1",
+      "canonicalIssueUrl": "https://github.com/rasoolharlym8/Grafana-Mimir/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.649Z"
+    },
+    {
+      "url": "https://github.com/SimsChad12/go-redis/issues/1",
+      "canonicalIssueUrl": "https://github.com/SimsChad12/go-redis/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.651Z"
+    },
+    {
+      "url": "https://github.com/microg/GmsCore/issues/2994",
+      "canonicalIssueUrl": "https://github.com/microg/GmsCore/issues/2994",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.652Z"
+    },
+    {
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1509",
+      "canonicalIssueUrl": "https://github.com/tenstorrent/tt-metal/issues/56290",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.653Z"
+    },
+    {
+      "url": "https://github.com/Kristywvs22/go-redis/issues/1",
+      "canonicalIssueUrl": "https://github.com/Kristywvs22/go-redis/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.656Z"
+    },
+    {
+      "url": "https://github.com/hexgrad/kokoro/issues/290",
+      "canonicalIssueUrl": "https://github.com/hexgrad/kokoro/issues/290",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.656Z"
+    },
+    {
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1559",
+      "canonicalIssueUrl": "https://github.com/OmniBlocks/monorepo/issues/794",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.661Z"
+    },
+    {
+      "url": "https://github.com/jaykode2025/stargazers-log/issues/1",
+      "canonicalIssueUrl": "https://github.com/jaykode2025/stargazers-log/issues/1",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.662Z"
+    },
+    {
+      "url": "https://github.com/godotengine/godot/issues/70796",
+      "canonicalIssueUrl": "https://github.com/godotengine/godot/issues/70796",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.662Z"
+    },
+    {
+      "url": "https://github.com/copperheadhq/copperhead/issues/66",
+      "canonicalIssueUrl": "https://github.com/copperheadhq/copperhead/issues/66",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.665Z"
+    },
+    {
+      "url": "https://github.com/tadanobutubutu/screeps/issues/5",
+      "canonicalIssueUrl": "https://github.com/tadanobutubutu/screeps/issues/5",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.671Z"
+    },
+    {
+      "url": "https://github.com/velldharami44d/go-github/issues/3",
+      "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/3",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.671Z"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
+      "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.672Z"
+    },
+    {
+      "url": "https://github.com/qtop/qtop/issues/551",
+      "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/551",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.672Z"
+    },
+    {
+      "url": "https://github.com/typeorm/typeorm/issues/3357",
+      "canonicalIssueUrl": "https://github.com/typeorm/typeorm/issues/3357",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.673Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13949",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/13949",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.674Z"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/1650",
+      "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1650",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.675Z"
+    },
+    {
+      "url": "https://github.com/secondlife/viewer/issues/5048",
+      "canonicalIssueUrl": "https://github.com/secondlife/viewer/issues/5048",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.681Z"
+    },
+    {
+      "url": "https://github.com/velldharami44d/go-github/issues/5",
+      "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/5",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.681Z"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+      "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.682Z"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4",
+      "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.683Z"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+      "canonicalIssueUrl": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.684Z"
+    },
+    {
+      "url": "https://github.com/velldharami44d/go-github/issues/7",
+      "canonicalIssueUrl": "https://github.com/velldharami44d/go-github/issues/7",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.684Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/282",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/282",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.685Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2155",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/2155",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.686Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/378",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/378",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.687Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9017",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/9017",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.688Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16238",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/16238",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.701Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/14481",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/14481",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.702Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16601",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/16601",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.705Z"
+    },
+    {
+      "url": "https://github.com/qtop/qtop/issues/337",
+      "canonicalIssueUrl": "https://github.com/qtop/qtop/issues/337",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.705Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2180",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/2180",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.705Z"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/1753",
+      "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1753",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.708Z"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/1654",
+      "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1654",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.709Z"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/1655",
+      "canonicalIssueUrl": "https://github.com/Ikalus1988/MisakaNet/issues/1655",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.711Z"
+    },
+    {
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/1560",
+      "canonicalIssueUrl": "https://github.com/OmniBlocks/bountyfarmer/issues/5",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical duplicate or repository deep-admission cap reached"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.712Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/171",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/171",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.724Z"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/165",
+      "canonicalIssueUrl": "https://github.com/Scottcjn/rustchain-bounties/issues/165",
+      "stage": "PREFLIGHT",
+      "outcome": "INCOMPLETE",
+      "reasons": [
+        "Canonical source needs investigation"
+      ],
+      "checkedAt": "2026-09-16T11:32:48.726Z"
+    }
+  ]
+}

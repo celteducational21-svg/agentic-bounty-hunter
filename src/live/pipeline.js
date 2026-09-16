@@ -144,7 +144,7 @@ export function selectDiverse(issues, limit = 5) {
 }
 export function investigationPriority(issue) {
   const p = issue.providerDiscovery;
-  return preliminaryPriority(issue) + (p ? (p.botInstalled ? 8 : 0) + (p.advertisedRewardUsd >= 50 && p.advertisedRewardUsd <= 300 ? 8 : 0) + (p.programmingLanguages.some(x => /TypeScript|JavaScript|Python/i.test(x)) ? 8 : 0) - (p.advertisedRewardUsd > 1000 ? 20 : 0) - (p.tryingSolvers > 5 ? 8 : 0) : 0)
+  return preliminaryPriority(issue) + (issue.learnedPriorityAdjustment || 0) + (p ? (p.botInstalled ? 8 : 0) + (p.advertisedRewardUsd >= 50 && p.advertisedRewardUsd <= 300 ? 8 : 0) + (p.programmingLanguages.some(x => /TypeScript|JavaScript|Python/i.test(x)) ? 8 : 0) - (p.advertisedRewardUsd > 1000 ? 20 : 0) - (p.tryingSolvers > 5 ? 8 : 0) : 0)
     + (/\b(?:bug|fix|test|testing|ci\/cd|SDK|API|regression)\b/i.test(issue.title) ? 8 : 0)
     - (/confused|\(help\)|captcha|hcapcha|donation|entire|architecture|Ethernet peripheral|HPC clusters|RCS Support|web platform exports/i.test(issue.title) ? 20 : 0)
     - (issue.sourceRepository?.fork ? 25 : 0);
@@ -198,11 +198,12 @@ export async function preflightCandidate(seed, budget) {
   }
   return { admitted: source.ok && Boolean(context.repo) && !terminal, terminal, reasons, issue, context, provider, source: { ...provenance, responses } };
 }
-export async function buildStagedScan({ discovery, budget = createBudget(), deepLimit = 5, providerDiscovery } = {}) {
+export async function buildStagedScan({ discovery, budget = createBudget(), deepLimit = 5, providerDiscovery, learnedProviders = {} } = {}) {
   const fetchedAt = new Date().toISOString(), liveDiscovery = !discovery;
   providerDiscovery ??= liveDiscovery ? await discoverOpire(budget) : { listings: [], status: 'NOT_REQUESTED' };
   discovery ??= await searchLiveIssues(budget);
   let issues = mergeDiscovery(discovery.issues, providerDiscovery.listings);
+  issues = issues.map(issue => ({...issue, learnedPriorityAdjustment: Math.max(-5,Math.min(5,Number(learnedProviders[issue.providerDiscovery ? 'Opire' : 'GitHub maintainer']?.rankingAdjustment) || 0))}));
   // One frozen population; cheap terminal checks refill slots without discovery.
   const diverse = selectDiverse(issues, issues.length);
   const ranked = [...diverse, ...issues.filter(x => !diverse.includes(x)).sort((a,b) => investigationPriority(b) - investigationPriority(a))];

@@ -60,6 +60,11 @@ export class SupabaseSnapshotStore {
         p_items: unique.map(opportunity => ({ opportunity, state: materialState(opportunity) })) })
     });
   }
+  async latestScan() {
+    const params = new URLSearchParams({select:'checked_at,summary', order:'checked_at.desc', limit:'1', 'summary->>phase':'eq.2.2'});
+    const rows = await this.request(`abh_scans?${params}`);
+    return rows[0]?.summary?.frozenSnapshot ?? null;
+  }
   async scanSnapshot(timestamp) {
     if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(timestamp)) throw new Error('Invalid scan timestamp');
     const params = new URLSearchParams({ checked_at: `eq.${timestamp}`, select: 'checked_at,summary', limit: '1' });

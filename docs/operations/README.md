@@ -1,19 +1,34 @@
-# ABH operating memory
+# ABH operations — current instructions
 
-ABH is separate from ARES and CELT. GitHub plus dedicated Supabase project `xyuxxunpmzlyqocberia` are authoritative.
+Goal: first accepted paid bounty. Work, learn, improve from observed outcomes. Global historical Phase 2 certification is not an operating gate. ABH remains separate from ARES and CELT.
 
-Global Phase 2 market certification remains INCOMPLETE. Candidate-specific PHASE3_ELIGIBLE independently permits private setup, tests, reproduction and a solution plan. It never authorizes a claim, public comment, PR, wallet disclosure or terms acceptance.
+## Recover and run
 
-UNKNOWN means investigate. Provisionable dependencies and owner Opire profile/payout setup do not by themselves reject a technical task. Preserve explicit hard blockers and credible evidence of closed/completed work, unavailable originals, scams, absent rewards and unacceptable competition. Do not invent payment guarantees or escrow.
+1. Pull GitHub main; read `state.json`, `WORKER_RUNBOOK.md`, and latest daily/candidate evidence.
+2. Read `/api/operations` and `/api/opportunities?latest=1`. Loading the dashboard reads saved data; it does not start discovery.
+3. Run `npm run operations:daily` for fresh provider-first discovery and durable runtime persistence. GitHub authentication diagnostics: `/api/github-auth`. UNKNOWN means investigate; pay-on-acceptance is acceptable.
+4. Invoke Scout → Qualifier → Proof → Solver → independent QA → Submission preparation → Tracking → Learning using the runbook. These are scheduled/invoked coding-agent workers, not continuously running LLM services on Vercel.
+5. Import an admitted runtime operation into `state.json` before private execution, preserving its complete transitions/version. Use `npm run operations:transition -- --id ... --to ... --actor ... --reason ... --expected-version ... --evidence-file ...`. Authenticate evidence provenance; names/boolean fields alone are not authorization.
+6. Commit state, evidence and daily log; push without force. On conflict, reload latest state and reapply against current version. Never overwrite a competing writer's events. A transition is complete only after GitHub commit succeeds. Fresh runtime scans mirror committed execution records and all prior runtime records in immutable Supabase scan summaries.
+7. Check runtime readback. If mirroring fails, GitHub remains durable; mark runtime mirror deferred and retry later. Supabase admin login is not a blocker. Only project `xyuxxunpmzlyqocberia` is allowed.
 
-Each new scan persists `admissionAttempts`, the frozen discovery population and `operationalMemory` inside the existing immutable Supabase scan summary. This requires no new table or permission. Every attempt has a distinct observed outcome; unattempted proof/payment fields remain NOT_RUN/NOT_REQUESTED. Daily private-proof reports and the append-only `learning-ledger.jsonl` live here for continuity.
+## Schedule
 
-Next-run workflow:
-1. Read latest dated activity record, ledger and latest repository commit.
-2. Read the latest immutable database scan; do not relabel old failed audits.
-3. Follow the current owner-directed discovery mode. As of 2026-09-14, run fresh provider-first discovery and investigate up to 20 promising candidates if needed, with repository diversity and at most two candidates per repository. Preserve old populations and audits without spending the run primarily on them.
-4. For PHASE3_ELIGIBLE, privately prove setup/reproduction/root cause and produce APPROVE_HUNT, DO_NOT_HUNT or NEEDS_HUMAN_INPUT.
-5. If APPROVE_HUNT, request owner approval before public actions. Opire setup is useful at this point.
-6. Record actual time, tests, setup blockers and later maintainer/claim/acceptance/payment outcomes. Learn from repeated evidence; never convert a single failure into a universal rejection rule.
+`ABH Daily Operations` is enabled daily in Kuwait mornings (approximately 08:00); `ABH Human Gate` already checks hourly. First daily execution remains pending until observed. Each cycle uses actual available tooling and records failures honestly. A scheduled prompt is not evidence that a solve/test/payment occurred.
 
-No recurring job is enabled by this change. Activity is recorded when ABH runs.
+## Current work
+
+ivrit-ai/ivrit-py #12: historical setup/reproduction/focused tests PASS; existing reservation request posted. Keep WAITING_FOR_MAINTAINER. No new claim/comment. Require maintainer confirmation of active reward, scope and two-week reservation before LOCKED → SOLVING. Public PR requires exact owner approval after independent QA.
+
+## Durable records and organization
+
+- `src/`, `api/`, `public/`: production code.
+- `state.json`: committed execution projection and full transition events.
+- `WORKER_RUNBOOK.md`: current logical worker contracts and evidence shapes.
+- `daily/`: dated immutable scan/run outputs; never relabel failures as successes.
+- Dated proof/candidate documents in this directory: original evidence retained in place.
+- `../PHASE2*.md`: historical development audits, preserved for provenance, not active release gates.
+
+Daily cycle records discovery, investigations, proofs, waiting replies, solves, QA, submissions, payment, human actions and lessons. Preserve actual effort, reviewer identity/revision, maintainer response, acceptance reason and payment evidence. Unknown outcomes stay unknown. No inferred income or fabricated success.
+
+Human gates are candidate-specific: logins, account permissions, CAPTCHA/identity, payout configuration, paid access, financial/legal decisions, claim/comments/public submission. They do not stop other private work.

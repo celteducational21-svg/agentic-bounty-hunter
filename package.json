@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node --test test/*.test.js",
     "validate:live": "node scripts/validate-live.mjs",
-    "snapshot:live": "node scripts/snapshot-live.mjs"
+    "snapshot:live": "node scripts/snapshot-live.mjs",
+    "operations:daily": "node scripts/daily-operations.mjs",
+    "operations:transition": "node scripts/transition-operation.mjs"
   },
   "engines": {
     "node": ">=20"
