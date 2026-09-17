@@ -1,0 +1,62 @@
+diff --git a/mux.go b/mux.go
+index 71620c0..3da7f3f 100644
+--- a/mux.go
++++ b/mux.go
+@@ -472,7 +472,7 @@ func (mx *Mux) routeHTTP(w http.ResponseWriter, r *http.Request) {
+ 			value := rctx.URLParams.Values[i]
+ 			r.SetPathValue(key, value)
+ 		}
+-		r.Pattern = rctx.routePattern
++		r.Pattern = rctx.RoutePattern()
+ 
+ 		h.ServeHTTP(w, r)
+ 		return
+diff --git a/pattern_test.go b/pattern_test.go
+index bf8a304..af579e8 100644
+--- a/pattern_test.go
++++ b/pattern_test.go
+@@ -54,3 +54,44 @@ func TestPattern(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func TestPatternNestedRoutes(t *testing.T) {
++	for _, mount := range []bool{false, true} {
++		t.Run(map[bool]string{false: "Route", true: "Mount"}[mount], func(t *testing.T) {
++			router := NewRouter()
++			var observed string
++			router.Use(func(next http.Handler) http.Handler {
++				return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++					next.ServeHTTP(w, r)
++					observed = r.Pattern
++				})
++			})
++			register := func(r Router) {
++				r.Route("/{userID}", func(r Router) {
++					r.Get("/files/*", func(w http.ResponseWriter, r *http.Request) {
++						want := RouteContext(r.Context()).RoutePattern()
++						if r.Pattern != want {
++							t.Errorf("Pattern = %q, RoutePattern = %q", r.Pattern, want)
++						}
++						w.WriteHeader(http.StatusNoContent)
++					})
++				})
++			}
++			if mount {
++				sub := NewRouter()
++				register(sub)
++				router.Mount("/users", sub)
++			} else {
++				router.Route("/users", register)
++			}
++			response := httptest.NewRecorder()
++			router.ServeHTTP(response, httptest.NewRequest("GET", "/users/42/files/a/b", nil))
++			if response.Code != http.StatusNoContent {
++				t.Fatalf("status = %d", response.Code)
++			}
++			if observed != "/users/{userID}/files/*" {
++				t.Errorf("middleware Pattern = %q", observed)
++			}
++		})
++	}
++}

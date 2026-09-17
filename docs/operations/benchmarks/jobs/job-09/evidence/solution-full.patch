@@ -1,0 +1,45 @@
+diff --git a/more_itertools/more.py b/more_itertools/more.py
+index 7f73d6e..4d6c762 100755
+--- a/more_itertools/more.py
++++ b/more_itertools/more.py
+@@ -1391,7 +1391,9 @@ def split_after(iterable, pred, maxsplit=-1):
+         if pred(item) and buf:
+             yield buf
+             if maxsplit == 1:
+-                yield list(it)
++                remainder = list(it)
++                if remainder:
++                    yield remainder
+                 return
+             buf = []
+             maxsplit -= 1
+diff --git a/tests/test_more.py b/tests/test_more.py
+index 6b78ca5..4afccfc 100644
+--- a/tests/test_more.py
++++ b/tests/test_more.py
+@@ -1418,6 +1418,25 @@ class SplitAfterTest(TestCase):
+         expected = [['o', 'o', 'o']]
+         self.assertEqual(actual, expected)
+ 
++    def test_max_split_at_end(self):
++        for iterable, maxsplit, expected in [
++            ([1], 1, [[1]]),
++            ([1], 2, [[1]]),
++            ([1], -1, [[1]]),
++            ([0, 1], 1, [[0, 1]]),
++            ([1, 1], 2, [[1], [1]]),
++            ([1, 0], 1, [[1], [0]]),
++            ([], 1, []),
++            ([], 0, [[]]),
++        ]:
++            with self.subTest(iterable=iterable, maxsplit=maxsplit):
++                actual = list(
++                    mi.split_after(
++                        iter(iterable), lambda x: x == 1, maxsplit=maxsplit
++                    )
++                )
++                self.assertEqual(actual, expected)
++
+     def test_max_split(self):
+         for args, expected in [
+             (

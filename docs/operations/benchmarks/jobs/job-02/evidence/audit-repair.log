@@ -1,0 +1,2 @@
+"a='back\\\\'\nb='sentinel'\n"
+expected: ('back\\', 'sentinel') actual: ('back\\', 'sentinel')

@@ -1,0 +1,73 @@
+
+$ /workspace/scratch/abh-toolchains/go/bin/go version
+go version go1.27.1 linux/amd64
+
+exit=0 seconds=0.01
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test ./...
+go: error obtaining buildID for go tool compile: fork/exec /workspace/scratch/abh-toolchains/go/pkg/tool/linux_amd64/compile: permission denied
+
+exit=1 seconds=0.12
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test ./middleware -run TestHttpFancyWriterReadFromCountsBytesOnce -v
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=false
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=true
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=false
+    wrap_writer_test.go:121: expecting values to be equal but got: '18' and '29'
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=true
+    wrap_writer_test.go:121: expecting values to be equal but got: '18' and '29'
+--- FAIL: TestHttpFancyWriterReadFromCountsBytesOnce (0.00s)
+    --- PASS: TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=false (0.00s)
+    --- PASS: TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=true (0.00s)
+    --- FAIL: TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=false (0.00s)
+    --- FAIL: TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=true (0.00s)
+FAIL
+FAIL	github.com/go-chi/chi/v5/middleware	0.003s
+FAIL
+
+exit=1 seconds=0.59
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test ./...
+ok  	github.com/go-chi/chi/v5	1.541s
+ok  	github.com/go-chi/chi/v5/middleware	26.145s
+
+exit=0 seconds=41.94
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test ./middleware -run TestHttpFancyWriterReadFromCountsBytesOnce -v
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=false
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=true
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=false
+=== RUN   TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=true
+--- PASS: TestHttpFancyWriterReadFromCountsBytesOnce (0.00s)
+    --- PASS: TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=false (0.00s)
+    --- PASS: TestHttpFancyWriterReadFromCountsBytesOnce/tee=false/writerTo=true (0.00s)
+    --- PASS: TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=false (0.00s)
+    --- PASS: TestHttpFancyWriterReadFromCountsBytesOnce/tee=true/writerTo=true (0.00s)
+PASS
+ok  	github.com/go-chi/chi/v5/middleware	0.004s
+
+exit=0 seconds=0.69
+
+$ git diff --check
+
+exit=0 seconds=0.01
+
+$ /workspace/scratch/abh-toolchains/go/bin/gofmt -l middleware/wrap_writer.go middleware/wrap_writer_test.go
+
+exit=0 seconds=0.01
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test -race ./...
+ok  	github.com/go-chi/chi/v5	16.398s
+ok  	github.com/go-chi/chi/v5/middleware	27.325s
+
+exit=0 seconds=45.53
+
+$ /workspace/scratch/abh-toolchains/go/bin/go vet ./...
+
+exit=0 seconds=1.92
+
+$ /workspace/scratch/abh-toolchains/go/bin/go build ./...
+
+exit=0 seconds=0.19

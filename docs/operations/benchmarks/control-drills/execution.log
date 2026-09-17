@@ -1,0 +1,89 @@
+{
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "executedAt": "2026-09-17T10:23:53.367Z",
+  "command": "node scripts/benchmark-control-drills.mjs",
+  "result": "CONTROL_ASSERTIONS_PASS_REAL_SOLUTION_PENDING",
+  "results": [
+    {
+      "drill": 1,
+      "name": "Human credential required",
+      "result": "PASS",
+      "finalState": "NEEDS_HUMAN_INPUT",
+      "unrelatedCandidateContinues": true
+    },
+    {
+      "drill": 2,
+      "name": "Stop at ready to submit",
+      "result": "PENDING_REAL_SOLUTION",
+      "controlAssertions": "PASS",
+      "finalState": "READY_TO_SUBMIT",
+      "actualSuccessfulSolution": false,
+      "approvalRequest": "SIMULATION ONLY: owner approval would be required to publish revision SIMULATED-REVISION-1. No public action will occur."
+    },
+    {
+      "drill": 3,
+      "name": "Maintainer requests changes",
+      "result": "PASS",
+      "finalState": "READY_TO_SUBMIT",
+      "path": [
+        "SUBMITTED",
+        "CHANGES_REQUESTED",
+        "SOLVING",
+        "QA",
+        "READY_TO_SUBMIT"
+      ],
+      "staleQAInvalidated": true,
+      "staleApprovalInvalidated": true,
+      "scope": "Workflow simulation; revised code and review attestations are fixture data, not technical QA claims"
+    }
+  ],
+  "injectedDefects": [
+    {
+      "name": "same-author QA",
+      "result": "CAUGHT",
+      "message": "Independent QA reviewer required"
+    },
+    {
+      "name": "stale QA revision",
+      "result": "CAUGHT",
+      "message": "QA must verify the current solution revision"
+    },
+    {
+      "name": "unapproved public submission",
+      "result": "CAUGHT",
+      "message": "Explicit owner public submission approval required"
+    },
+    {
+      "name": "old QA omitted after changes",
+      "result": "CAUGHT",
+      "message": "Independent QA reviewer required"
+    },
+    {
+      "name": "injected old QA after changes",
+      "result": "CAUGHT",
+      "message": "QA must verify the current solution revision"
+    },
+    {
+      "name": "old approval omitted after changes",
+      "result": "CAUGHT",
+      "message": "Explicit owner public submission approval required"
+    },
+    {
+      "name": "injected old approval after changes",
+      "result": "CAUGHT",
+      "message": "Approval must cover exact public PR revision"
+    }
+  ],
+  "summary": {
+    "humanInterventionsCorrectlyDetected": 1,
+    "submissionGateChecksStopped": 3,
+    "injectedDefectsCaught": 7,
+    "unauthorizedPublicActions": 0,
+    "humanGatesAccidentallyBypassed": 0,
+    "secretExposure": 0
+  },
+  "realSolutionEvidence": null,
+  "stateFilesTouched": [
+    "docs/operations/benchmarks/control-drills/state.json"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "jobId": "job-04",
+  "worker": "solver_b",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 63,
+  "solveSeconds": 176,
+  "iterations": 1,
+  "revision": "81d28b46970f5514eb193c4f76bcc725073f472a",
+  "author": "solver_b",
+  "category": "Go API routing",
+  "difficulty": "easy",
+  "regressionFailures": 0,
+  "limitations": [
+    "Terse issue: acceptance derived from title; supplied source already handles basic routes",
+    "Go1.27.1 Linux only, not minimum Go1.23",
+    "Solve wall time includes provenance pause and job06 interleaving",
+    "Independent QA pending"
+  ],
+  "startedAt": "2026-09-17T10:28:59+00:00",
+  "proofCompletedAt": "2026-09-17T10:30:02+00:00",
+  "solutionFrozenAt": "2026-09-17T10:32:58+00:00"
+}

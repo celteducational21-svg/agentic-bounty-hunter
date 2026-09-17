@@ -1,0 +1,20 @@
+{
+  "id": "job-02",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "theskumar/python-dotenv",
+  "issue": "https://github.com/theskumar/python-dotenv/issues/661",
+  "title": "set_key corrupts values containing backslashes (Windows paths, regexes) on round-trip",
+  "issueBody": "## Summary\n\n`set_key` (and the `dotenv set` CLI) writes single-quoted values but only escapes single quotes, not backslashes. Since the single-quoted-value parser treats backslash as an escape character, any value containing a backslash is corrupted when read back.\n\n## Reproduction\n\n```python\nimport dotenv\n\ndotenv.set_key(\".env\", \"PATH\", r\"C:\\Users\")\nprint(dotenv.get_key(\".env\", \"PATH\"))   # -> \"C:Users\"  (backslash lost)\n\ndotenv.set_key(\".env\", \"RE\", r\"\\d+\")\nprint(dotenv.get_key(\".env\", \"RE\"))      # -> \"d+\"\n```\n\nThe file ends up containing `PATH='C:\\Users'`. On read, the single-quote parser decodes `\\U` as an escape, so the backslash disappears. Doubling the backslash (`C:\\\\Users`) collapses to a single one. This affects Windows paths and regular expressions in particular.\n\n",
+  "preFixSha": "751f8c148222e58aa173c83c4e5e6cfccb2cc124",
+  "category": "Python parser serialization",
+  "difficulty": "medium",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [
+    "Removed original issue Root cause and Fix sections to avoid revealing the proposed solution; retained reported symptoms and reproduction."
+  ],
+  "repo": "theskumar/python-dotenv",
+  "issueUrl": "https://github.com/theskumar/python-dotenv/issues/661",
+  "issueNumber": 661,
+  "language": "Python"
+}

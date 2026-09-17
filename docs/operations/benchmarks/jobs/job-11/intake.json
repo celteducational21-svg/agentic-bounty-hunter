@@ -1,0 +1,18 @@
+{
+  "id": "job-11",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "sindresorhus/p-map",
+  "issue": "https://github.com/sindresorhus/p-map/issues/75",
+  "title": "Memory leak when using abort signals",
+  "issueBody": "We have encountered a memory leak issue. After an extensive search for the source of the leak, it was found that it occurred in pMap. Upon reviewing the source code of your package, I discovered that you subscribe to the AbortSignal event but do not unsubscribe from it, which causes the memory leak.",
+  "preFixSha": "a38d5a7180ba9ecd6a02e37ec5cc6ae11f3433ac",
+  "category": "JavaScript async lifecycle",
+  "difficulty": "harder-bounded",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [],
+  "repo": "sindresorhus/p-map",
+  "issueUrl": "https://github.com/sindresorhus/p-map/issues/75",
+  "issueNumber": 75,
+  "language": "JavaScript/TypeScript"
+}

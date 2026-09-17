@@ -1,0 +1,3 @@
+input="A=foo\rB=bar" values=map[string]string{"A":"foo\rB=bar"} error=<nil>
+input="A=foo bar\rB=baz" values=map[string]string{"A":"foo bar\rB=baz"} error=<nil>
+input="A=foo bar # comment # second\nB=baz" values=map[string]string{"A":"foo bar", "B":"baz"} error=<nil>

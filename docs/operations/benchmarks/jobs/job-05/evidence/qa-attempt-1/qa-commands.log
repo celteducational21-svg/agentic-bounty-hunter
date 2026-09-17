@@ -1,0 +1,25 @@
+$ /workspace/scratch/abh-toolchains/go/bin/go test ./...
+ok  	github.com/joho/godotenv	0.004s
+?   	github.com/joho/godotenv/autoload	[no test files]
+?   	github.com/joho/godotenv/cmd/godotenv	[no test files]
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-toolchains/go/bin/go test -race ./...
+ok  	github.com/joho/godotenv	1.022s
+?   	github.com/joho/godotenv/autoload	[no test files]
+?   	github.com/joho/godotenv/cmd/godotenv	[no test files]
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-toolchains/go/bin/go vet ./...
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-toolchains/go/bin/go build ./...
+
+EXIT_CODE=0
+$ git diff --check
+
+EXIT_CODE=0
+$ git rev-parse HEAD
+25ac173a1af27467018189061e627d28a78432e4
+
+EXIT_CODE=0

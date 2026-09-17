@@ -1,0 +1,112 @@
+diff --git a/src/dotenv/main.py b/src/dotenv/main.py
+index 3c4608d..5711543 100644
+--- a/src/dotenv/main.py
++++ b/src/dotenv/main.py
+@@ -216,7 +216,9 @@ def set_key(
+     )
+ 
+     if quote:
+-        value_out = "'{}'".format(value_to_set.replace("'", "\\'"))
++        value_out = "'{}'".format(
++            value_to_set.replace("\\", "\\\\").replace("'", "\\'")
++        )
+     else:
+         value_out = value_to_set
+     if export:
+diff --git a/src/dotenv/parser.py b/src/dotenv/parser.py
+index 6677360..36ccfb9 100644
+--- a/src/dotenv/parser.py
++++ b/src/dotenv/parser.py
+@@ -22,7 +22,7 @@ _export = make_regex(r"(?:export[^\S\r\n]+)?")
+ _single_quoted_key = make_regex(r"'([^']+)'")
+ _unquoted_key = make_regex(r"([^=\#\s]+)")
+ _equal_sign = make_regex(r"(=[^\S\r\n]*)")
+-_single_quoted_value = make_regex(r"'((?:\\'|[^'])*)'")
++_single_quoted_value = make_regex(r"'((?:\\[\\']|[^'])*)'")
+ _double_quoted_value = make_regex(r'"((?:\\"|[^"])*)"')
+ _unquoted_value = make_regex(r"([^\r\n]*)")
+ _comment = make_regex(r"(?:[^\S\r\n]*#[^\r\n]*)?")
+diff --git a/tests/test_cli.py b/tests/test_cli.py
+index d4e3ad4..4eb199d 100644
+--- a/tests/test_cli.py
++++ b/tests/test_cli.py
+@@ -103,6 +103,19 @@ def test_unset_non_existent_value(cli, dotenv_path):
+     assert dotenv_path.read_text() == ""
+ 
+ 
++@pytest.mark.parametrize("quote_mode", ["always", "auto"])
++def test_set_backslash_round_trip(cli, dotenv_path, quote_mode):
++    value = r"\\server\share" + "\\"
++    result = cli.invoke(
++        dotenv_cli,
++        ["--file", dotenv_path, "--quote", quote_mode, "set", "VALUE", value],
++    )
++
++    assert result.exit_code == 0, result.output
++    result = cli.invoke(dotenv_cli, ["--file", dotenv_path, "get", "VALUE"])
++    assert (result.exit_code, result.output) == (0, value + "\n")
++
++
+ @pytest.mark.parametrize(
+     "quote_mode,variable,value,expected",
+     (
+diff --git a/tests/test_main.py b/tests/test_main.py
+index 1c33c80..ab00b12 100644
+--- a/tests/test_main.py
++++ b/tests/test_main.py
+@@ -54,6 +54,35 @@ def test_set_key(dotenv_path, before, key, value, expected, after):
+     mock_warning.assert_not_called()
+ 
+ 
++@pytest.mark.parametrize("quote_mode", ["always", "auto", "never"])
++@pytest.mark.parametrize("before", ["", "VALUE=old\nOTHER=keep\n"])
++@pytest.mark.parametrize(
++    "value",
++    [
++        r"C:\Users",
++        r"\d+",
++        r"\\server\share",
++        r"\\d+",
++        "C:\\Users\\",
++        "\\" * 4,
++        "before" + "\\" * 2 + "'after",
++        "'quoted'",
++    ],
++)
++def test_set_key_backslash_round_trip(dotenv_path, quote_mode, before, value):
++    dotenv_path.write_text(before)
++
++    result = dotenv.set_key(dotenv_path, "VALUE", value, quote_mode=quote_mode)
++
++    assert result == (True, "VALUE", value)
++    if quote_mode == "never":
++        assert dotenv_path.read_text().startswith(f"VALUE={value}\n")
++    else:
++        assert dotenv.get_key(dotenv_path, "VALUE") == value
++    if before:
++        assert dotenv.get_key(dotenv_path, "OTHER") == "keep"
++
++
+ def test_set_key_encoding(dotenv_path):
+     encoding = "latin-1"
+ 
+@@ -708,3 +737,19 @@ def test_dotenv_values_file_stream(dotenv_path):
+         result = dotenv.dotenv_values(stream=f)
+ 
+     assert result == {"a": "b"}
++
++
++@pytest.mark.parametrize("quote_mode", ["always", "auto"])
++@pytest.mark.parametrize("count", [1, 2, 3, 4])
++def test_set_key_trailing_backslash_before_quoted_binding(
++    dotenv_path, quote_mode, count
++):
++    value = "back" + "\\" * count
++    dotenv.set_key(dotenv_path, "a", value, quote_mode=quote_mode)
++    dotenv.set_key(dotenv_path, "b", "sentinel")
++
++    assert dotenv.get_key(dotenv_path, "a") == value
++    assert dotenv.get_key(dotenv_path, "b") == "sentinel"
++    dotenv.set_key(dotenv_path, "b", "replacement")
++    assert dotenv.get_key(dotenv_path, "a") == value
++    assert dotenv.get_key(dotenv_path, "b") == "replacement"

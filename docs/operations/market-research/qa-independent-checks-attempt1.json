@@ -1,0 +1,54 @@
+{
+  "executedAt": "2026-09-17T11:03:04.163Z",
+  "checks": [
+    {
+      "name": "deadline exactly now is expired",
+      "result": "FAIL",
+      "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "duplicate conflict {\"status\":\"CLOSED\"}",
+      "result": "FAIL",
+      "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "duplicate conflict {\"agentAccess\":\"HUMAN_ONLY\"}",
+      "result": "FAIL",
+      "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "duplicate conflict {\"sponsor\":{\"isVerified\":false}}",
+      "result": "FAIL",
+      "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "duplicate conflict {\"isWinnersAnnounced\":true}",
+      "result": "FAIL",
+      "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "source GET failure isolated and error content suppressed",
+      "result": "PASS"
+    },
+    {
+      "name": "hackathon total no proof or paid promotion and real benchmark title retained",
+      "result": "PASS"
+    },
+    {
+      "name": "active operation unchanged under discovery outage",
+      "result": "PASS"
+    },
+    {
+      "name": "benchmark proof cannot become economics",
+      "result": "PASS"
+    },
+    {
+      "name": "unknown status alone contributes no economic outcomes",
+      "result": "PASS"
+    },
+    {
+      "name": "existing snapshot RPC payload includes source and operations without schema writes",
+      "result": "PASS"
+    }
+  ]
+}

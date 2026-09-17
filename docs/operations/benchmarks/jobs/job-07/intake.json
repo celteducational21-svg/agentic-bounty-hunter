@@ -1,0 +1,18 @@
+{
+  "id": "job-07",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "mahmoud/boltons",
+  "issue": "https://github.com/mahmoud/boltons/issues/383",
+  "title": "Supporting more PathLike in path-related methods",
+  "issueBody": "Whilst working on https://github.com/mahmoud/boltons/pull/382 I noticed a few places (`AtomicSaver`'s `dest_path` parameter to name one) where the code could be updated to support `os.PathLike` instead of just a string.\n\nIt wasn't my goal there to do any logic changes. But that's something I noticed could be worth improving support for. And will be easier to spot with annotations in place.",
+  "preFixSha": "ebc7a8f776debfa33f0b380b57a444bca75a251b",
+  "category": "Python filesystem API",
+  "difficulty": "medium",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [],
+  "repo": "mahmoud/boltons",
+  "issueUrl": "https://github.com/mahmoud/boltons/issues/383",
+  "issueNumber": 383,
+  "language": "Python"
+}

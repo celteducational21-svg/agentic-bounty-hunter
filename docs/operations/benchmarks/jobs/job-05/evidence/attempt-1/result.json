@@ -1,0 +1,24 @@
+{
+  "jobId": "job-05",
+  "worker": "solver_a",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 69.0,
+  "solveSeconds": 10.0,
+  "iterations": 1,
+  "revision": "25ac173a1af27467018189061e627d28a78432e4",
+  "author": "solver_a",
+  "category": "Go configuration parsing",
+  "difficulty": "medium",
+  "regressionFailures": 0,
+  "limitations": [
+    "Go1.27.1 used; older Go matrix not run.",
+    "Line boundaries retain existing LF and normalized CRLF semantics.",
+    "Separate lint N/A: none configured; go vet and gofmt passed; go build covers typing."
+  ],
+  "startedAt": "2026-09-17T10:32:16Z",
+  "proofCompletedAt": "2026-09-17T10:33:25Z",
+  "solutionFrozenAt": "2026-09-17T10:33:35Z"
+}

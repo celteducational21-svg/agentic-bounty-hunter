@@ -1,0 +1,24 @@
+{
+  "jobId": "job-11",
+  "worker": "solver_a",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 104.0,
+  "solveSeconds": 131.0,
+  "iterations": 1,
+  "revision": "6a8d05a5e772ad90db29c2ec0c574bdcd89f8087",
+  "author": "solver_a",
+  "category": "JavaScript async lifecycle",
+  "difficulty": "harder-bounded",
+  "regressionFailures": 0,
+  "limitations": [
+    "Node24.19.0 only; supported older Node matrix not run.",
+    "No compilation step configured; npm pack validates package contents.",
+    "Initial failing regression reporter timed out when comparing function arrays; scalar-count assertions subsequently produce all 9 expected baseline failures."
+  ],
+  "startedAt": "2026-09-17T10:41:16Z",
+  "proofCompletedAt": "2026-09-17T10:43:00Z",
+  "solutionFrozenAt": "2026-09-17T10:45:11Z"
+}

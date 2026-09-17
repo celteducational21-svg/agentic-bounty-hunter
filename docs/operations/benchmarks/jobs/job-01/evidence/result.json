@@ -1,0 +1,25 @@
+{
+  "jobId": "job-01",
+  "worker": "solver_a",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 168.0,
+  "solveSeconds": 28.0,
+  "iterations": 1,
+  "revision": "793425f99da7da72fd30ad42c70925393b61bae5",
+  "author": "solver_a",
+  "category": "documentation + executable CLI",
+  "difficulty": "easy",
+  "regressionFailures": 0,
+  "limitations": [
+    "Historical mypy<0.900 cannot install typed_ast on Python 3.12; typing NOT_RUN, documentation-only patch.",
+    "flake8 reports pre-existing unused typing.Pattern in src/dotenv/variables.py; same before and after.",
+    "Initial IPython 9 baseline had 3 failures; compatible IPython 7.34 restores all 132 tests.",
+    "Timing starts at environment setup; initial read-only intake inspection precedes timestamp."
+  ],
+  "startedAt": "2026-09-17T10:25:13Z",
+  "proofCompletedAt": "2026-09-17T10:28:01Z",
+  "solutionFrozenAt": "2026-09-17T10:28:29Z"
+}

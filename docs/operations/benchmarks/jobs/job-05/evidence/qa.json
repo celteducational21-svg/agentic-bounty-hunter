@@ -1,0 +1,35 @@
+{
+  "jobId": "job-05",
+  "reviewer": "independent_qa_lab",
+  "revision": "1cfdfe67a481004d5453a5f474e877b07f4be514",
+  "reviewedRevision": "1cfdfe67a481004d5453a5f474e877b07f4be514",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": false,
+  "iterations": 2,
+  "auditDetectedFalsePositive": true,
+  "regressionFailures": 1,
+  "finalRegressionFailures": 0,
+  "completedAt": "2026-09-17T10:43:15.560806+00:00",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  },
+  "findings": [],
+  "evidence": {
+    "tests": "Full and race suites pass with independent tests",
+    "independent": "27 mixed LF/CRLF/CR line-separator forms with comments, empty and quoted/unquoted values;3auditor reproduction forms; original5composition cases retained",
+    "lint": "go vet and diff --check pass",
+    "build": "go build passes and compiler typechecks"
+  },
+  "limitations": [
+    "Initial QA missed CR-only regression and auditor caught it; attempt1 preserved",
+    "Go1.27.1 Linux only"
+  ]
+}

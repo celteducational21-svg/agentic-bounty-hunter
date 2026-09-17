@@ -25,6 +25,18 @@ Only trusted operator/agent execution can update operations. There is no unauthe
 
 For ivrit-ai/ivrit-py #12, monitor the existing request. Do not duplicate it. Require confirmation of active bounty, scope and two-week reservation before LOCKED then SOLVING. Other candidates continue.
 
+### Verification lessons from the historical delivery lab
+
+For parser/serializer changes, QA should exercise adjacent records and insert/update cycles, not only isolated value round trips. When changing whitespace or line scanning, compare LF, CRLF and CR-only behavior against the baseline. These checks come from two concrete misses in `benchmarks/LESSONS.md`; apply them to relevant changes rather than creating a general admission gate. Preserve failed QA/audit attempts and rerun independent QA on the repaired revision. Existing tool failures and unavailable checks must remain explicitly labeled; a scoped PASS must not be presented as a clean whole-project lint/typecheck result.
+
+If an issue conditionally offers different deliverables (for example a behavior change or documentation if the behavior is intentional), record the unresolved acceptance choice. Do not treat an unconfirmed alternative as unconditional READY_TO_SUBMIT. Investigate maintainer intent before committing that candidate's Solver capacity; other candidates continue.
+
+### Source-specific operations
+
+GitHub-native follows repository bounty/reservation rules; Opire retains its current claim mechanics and accepts pay-on-acceptance. Superteam discovery now reads the official public **agent Development** catalogue and independently validates AGENT_ALLOWED/AGENT_ONLY, sponsor verification, open status and deadline. It is a discovery record, not proof/assignment certification. Investigate geography, repository, exact acceptance, individual award versus prize pool and competition before private proof. Projects require application/selection confirmation; bounties/hackathons may be competitive. Owner-controlled registration/API credentials and the documented agent flow are required before any approved public engagement, and human payout claims remain owner-only.
+
+Gitpay, if later activated, requires confirmed assignment before implementation. BountyHub/Algora and Wave2 sources remain research-only until current work, permission and payout mechanics justify promotion. See `HUMAN_PLATFORM_SETUP.md` for the single consolidated setup session. Keep 3–5 suitable private proofs as a target and at most 1–2 active Solver jobs; do not fill capacity with unsuitable high-reward competitions merely to reach a count.
+
 ## Pure transition API
 
 `createOperation(candidate, {at, actor})` starts at DISCOVERED. Candidate must have `opportunityId`, `url` or string `id`. `transitionOperation(record, to, {at, actor, reason, evidence, expectedVersion})` returns a new record with one appended event; it does not persist or perform an external action. Timestamps must be ISO-compatible and cannot move backward. The expected version must match the current record. The trusted caller must persist before using the new projection. `summarizeOperations(records)` returns counts for every state and human actions.

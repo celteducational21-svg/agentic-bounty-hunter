@@ -1,0 +1,18 @@
+{
+  "id": "job-06",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "chalk/ansi-regex",
+  "issue": "https://github.com/chalk/ansi-regex/issues/56",
+  "title": "Unable to match links ended with `\\u001B` rather than `\\u0007`.",
+  "issueBody": "`ansi-regex` cannot match link regexes that end in `\\u0001B`, as the regex only allows `\\u0007`.\r\n\r\nExample: `\\x1b]8;;http://example.com/\\x1b\\\\This is a link\\x1b]8;;\\x1b\\\\ hello`\r\nReference: https://github.com/nodejs/node/issues/53697",
+  "preFixSha": "b630317841f9ceef4a834ee31c70bf82f27ba1e3",
+  "category": "JavaScript terminal tooling",
+  "difficulty": "easy",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [],
+  "repo": "chalk/ansi-regex",
+  "issueUrl": "https://github.com/chalk/ansi-regex/issues/56",
+  "issueNumber": 56,
+  "language": "JavaScript/TypeScript"
+}

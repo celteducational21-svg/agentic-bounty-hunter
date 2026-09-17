@@ -1,0 +1,20 @@
+{
+  "id": "job-03",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "go-chi/chi",
+  "issue": "https://github.com/go-chi/chi/issues/1067",
+  "title": "httpFancyWriter.ReadFrom double-counts BytesWritten when Tee is set",
+  "issueBody": "## Description\n\n`httpFancyWriter.ReadFrom` in `middleware/wrap_writer.go` double-counts the bytes written when a `Tee` writer is set.\n\n## Reproduction\n\n```go\nfunc TestHttpFancyWriterReadFromWithTee(t *testing.T) {\n\toriginal := &httptest.ResponseRecorder{\n\t\tHeaderMap: make(http.Header),\n\t\tBody:      new(bytes.Buffer),\n\t}\n\tf := &httpFancyWriter{basicWriter: basicWriter{ResponseWriter: original}}\n\n\tvar teeBuf bytes.Buffer\n\tf.Tee(&teeBuf)\n\n\tinput := \"hello world\"\n\tn, err := f.ReadFrom(strings.NewReader(input))\n\t// n == 11, err == nil\n\t// f.BytesWritten() == 22  -- BUG: should be 11\n}\n```\n\n",
+  "preFixSha": "a54874f0e2f12647a19e82ee70dfa8185014100c",
+  "category": "Go HTTP integration",
+  "difficulty": "easy",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [
+    "Removed solution-revealing implementation diagnosis and Fix section; preserved original failure description and reproduction."
+  ],
+  "repo": "go-chi/chi",
+  "issueUrl": "https://github.com/go-chi/chi/issues/1067",
+  "issueNumber": 1067,
+  "language": "Go"
+}

@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-09-17T11:06:31.540Z",
+  "githubRaw": 60,
+  "opireRaw": 30,
+  "coreUnique": 76,
+  "corePersistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 29
+  },
+  "superteamCheckedAt": "2026-09-17T11:01:10.603Z",
+  "superteamTechnicalRetained": 1,
+  "deduplicatedCanonicalIssueOrListingUrls": 77,
+  "newSourcePrivateProofPromotions": 0,
+  "publicActions": 0
+}

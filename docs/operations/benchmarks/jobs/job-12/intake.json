@@ -1,0 +1,18 @@
+{
+  "id": "job-12",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "sindresorhus/p-map",
+  "issue": "https://github.com/sindresorhus/p-map/issues/76",
+  "title": "Incorrect `pMapIterable` behaviour",
+  "issueBody": "`pMapIterable` doesn't adhere to the concurrency limit when the source is an async iterable and `backpressure` > `concurrency`.\r\n\r\nHere's an example program that reproduces the issue:\r\n\r\n```ts\r\nimport { setTimeout } from 'timers/promises';\r\nimport { pMapIterable } from 'p-map';\r\n\r\nasync function* source() {\r\n  yield 1;\r\n  yield 2;\r\n  yield 3;\r\n}\r\n\r\nconst target = pMapIterable(source(), async n => {\r\n  console.log(`Running with ${n}...`);\r\n  await setTimeout(1000);\r\n  console.log(`Finished running with ${n}`);\r\n}, {\r\n  concurrency: 1,\r\n  backpressure: 2\r\n});\r\n\r\nfor await (const _ of target) { }\r\n```\r\n\r\nCurrent output:\r\n```\r\nRunning with 1...\r\nFinished running with 1\r\nRunning with 2...\r\nRunning with 3...\r\nFinished running with 2\r\nFinished running with 3\r\n```\r\n\r\nExpected output:\r\n```\r\nRunning with 1...\r\nFinished running with 1\r\nRunning with 2...\r\nFinished running with 2\r\nRunning with 3...\r\nFinished running with 3\r\n```\r\n\r\nAs you can see, the mapper function has two instances running in parallel even though concurrency is set to 1.\r\n\r\nFYI @Richienb ",
+  "preFixSha": "2ba3a002acac080c60c47ca1dfa2fad3e17f5b7c",
+  "category": "JavaScript async concurrency",
+  "difficulty": "harder-bounded",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [],
+  "repo": "sindresorhus/p-map",
+  "issueUrl": "https://github.com/sindresorhus/p-map/issues/76",
+  "issueNumber": 76,
+  "language": "JavaScript/TypeScript"
+}

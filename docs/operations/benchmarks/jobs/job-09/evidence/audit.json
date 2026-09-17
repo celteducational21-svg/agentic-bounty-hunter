@@ -1,0 +1,27 @@
+{
+  "jobId": "job-09",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "33f394fa3e87365d9d6a31214e9af424f8826258",
+  "historicalPR": "https://github.com/more-itertools/more-itertools/pull/659",
+  "historicalFixSha": "fc1f9acf1b7e11bbc64b54f8385f2e87ecd87452",
+  "preFixSha": "6793bd3e4ed15318746ed2511733f12a9932eb64",
+  "auditedAt": "2026-09-17T10:45:12.172070+00:00",
+  "freezeAuthorization": "Root authorized comparison after Solver and independent QA frozen.",
+  "comparisons": {
+    "rootCause": "MATCH: final permitted split blindly yields exhausted iterator remainder as emptylist.",
+    "behavior": "MATCH: materialize remainder andyieldonlyifnonempty; preserve laziness/predicatebudget.",
+    "tests": "Replay8boundarycasesversus historical1newcase; QA693suite tests+762independentcases andlaziness/predicate checks pass.",
+    "scope": "MATCH: split_after andfocusedtests only.",
+    "simplicity": "Equivalent3lineguard; replayuses clearer remaindername versus acceptedbuf reuse.",
+    "regressions": "Noobservedruntime regression; baseline lint/Black/stubtest failures independentlyreproduced unchanged andnotclaimedclean."
+  },
+  "limitations": [
+    "Python3.12only.",
+    "Existinglintandstubtypecheckdebt remains; not allgates clean."
+  ],
+  "requiresRepair": false,
+  "qaFalsePositive": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

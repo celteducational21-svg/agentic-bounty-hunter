@@ -1,0 +1,29 @@
+{
+  "jobId": "job-12",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "3a333c54c91bc117268e0d63be7933e65df851ca",
+  "historicalPR": "https://github.com/sindresorhus/p-map/pull/77",
+  "historicalFixSha": "82b8cdc26d9910c1a9abe6813ddad5f3a55f88b2",
+  "preFixSha": "2ba3a002acac080c60c47ca1dfa2fad3e17f5b7c",
+  "auditedAt": "2026-09-17T10:49:05.369180+00:00",
+  "freezeAuthorization": "Root authorized comparison after Solver and independent QA frozen.",
+  "comparisons": {
+    "rootCause": "MATCH: async iterator.next work not counted until await returns allows excess parallel spawning when backpressure exceeds concurrency.",
+    "behavior": "MATCH: reserve slot before awaiting source and release exhausted-source slot. Replay increments outside immediately invoked async closure; historical increments inside before firstawait, equivalent timing.",
+    "tests": "Replay6concurrency/backpressure combinations withskips; historicalsingleexample. QA15independentcases,8failbaseline,allpassfixed; final55AVA+XO+tsdPASS.",
+    "scope": "Focused scheduler slot accounting andregression tests. No unrelated API/cancellation redesign.",
+    "simplicity": "Replay retains countername; historical renames pendingPromisesCount. Same bounded correction withclear comment.",
+    "regressions": "No confirmedintroducedregression. One timing-sensitive existingperformanceassertion failed thenisolated/fullrerunspassed withoutcodechanges; transient failure preserved."
+  },
+  "limitations": [
+    "Node24Linuxonly; minimumNode18 notrun.",
+    "Initial unrelated performance assertion failure retained as transient, not hidden or counted as confirmedintroducedregression."
+  ],
+  "observedTransientTestFailures": 1,
+  "confirmedIntroducedRegressions": 0,
+  "requiresRepair": false,
+  "qaFalsePositive": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

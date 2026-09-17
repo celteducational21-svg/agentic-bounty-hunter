@@ -1,0 +1,13 @@
+# Evidence-backed delivery lessons
+
+**SIMULATION / HISTORICAL REPLAY — NOT PAID WORK**
+
+- **Tracking / QA authority:** the correction-cycle drill demonstrated retained QA and owner approval after renewed solving. A six-line production fix clears those current projections on renewed solving or revision change; append-only historical events remain. Targeted regression and independent review verify the fix.
+- **QA, job02:** thousands of individual serialization round trips did not test interactions between adjacent quoted bindings. Historical audit caught a real failure after QA PASS. Preserve this false positive and require a new Solver revision plus fresh QA. For parsers/serializers, test composition of records, escaping at boundaries and both insertion and replacement—not just more single-value permutations.
+- **QA, job05:** LF and CRLF tests missed a newly introduced CR-only line-boundary regression. Historical audit demonstrated the same input passing before the patch and failing after it. Add CR-only and mixed-line-boundary cases for this parser repair and retain the initial failed patch, QA false positive and new regression count.
+- **Scout / Qualifier, job04:** a terse issue may request a refinement to an already partly present feature. Verify pre-fix provenance and derive acceptance from the named public API before inventing scope. This case's provenance was valid; original specification thinness remains disclosed.
+- **Qualifier / submission readiness, job08:** an issue conditionally offered either a behavior fix or documentation clarification. Solver and QA validated the documentation alternative, but historical audit established that the accepted resolution changed behavior. This case is not a successful historical solve. In real work, resolve which alternative the maintainer accepts before claiming unconditional submission readiness. Preserve the abandoned replay and do not copy the revealed historical patch to inflate independent-solving results.
+- **Proof environment:** historical dependencies can fail on modern interpreters. Retain the failed setup output, pin compatible dependencies where practical, and distinguish baseline tool failures from patch regressions. Do not convert NOT_RUN or pre-existing lint failures into PASS.
+- **Submission evidence:** a scoped documentation QA PASS is not a statement that every historical whole-project tool is green. Preserve actual check status and applicability in the submission draft and control binding.
+
+These are targeted improvements from observed outcomes, not new global bounty admission gates. Historical replays remain engineering evidence only; market allocation still requires real accepted payments.

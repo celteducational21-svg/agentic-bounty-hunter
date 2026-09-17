@@ -1,0 +1,18 @@
+{
+  "id": "job-04",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "go-chi/chi",
+  "issue": "https://github.com/go-chi/chi/issues/1089",
+  "title": "Feature: on Go 1.23+, fill `(*http.Request).Pattern` with RoutePattern data",
+  "issueBody": "Similarly to https://github.com/go-chi/chi/issues/873",
+  "preFixSha": "f975af0cb10cbefaccf0422385420fe62722d648",
+  "category": "Go API routing",
+  "difficulty": "easy",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [],
+  "repo": "go-chi/chi",
+  "issueUrl": "https://github.com/go-chi/chi/issues/1089",
+  "issueNumber": 1089,
+  "language": "Go"
+}

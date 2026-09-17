@@ -1,0 +1,4 @@
+# Solution
+Use os.fspath in path_to_unicode to support the filesystem protocol while keeping established string/byte decoding semantics. Normalize AtomicSaver destinations and optional part filenames and iter_find_files roots before string operations. Document PathLike acceptance.
+
+17 regressions exercise str/bytes/pathlib/custom paths, commit and exception rollback, part-file cleanup, custom part names, directory depth and pathutils controls. All pass. Full tests/doctests: 610 PASS. Byte compilation PASS; git diff --check PASS. New tests pass flake8. Existing fileutils E704 and two W291 findings reproduced on baseline and unchanged. Typecheck N/A: no configured typing gate, unannotated module. Package wheel command/output logged. Linux tested; Windows native replace cannot be executed here, but its path_to_unicode conversion is covered. Solver verification only, not independent QA.

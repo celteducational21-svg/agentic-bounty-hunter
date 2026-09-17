@@ -1,0 +1,10 @@
+✔ real control-drill binding refuses missing or nonpassing actual QA checks without replacing reports (240.334197ms)
+✔ return to solving invalidates previous QA and public approval, preserving history (1.791696ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 336.778358

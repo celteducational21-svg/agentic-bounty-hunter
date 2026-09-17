@@ -1,0 +1,275 @@
+
+[2026-09-17T10:38:46.227599+00:00] $ node ../evidence/reproduce.mjs
+{
+  maximum: 2,
+  events: [ 'start 1', 'end 1', 'start 2', 'start 3', 'end 2', 'end 3' ]
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+2 !== 1
+
+    at file:///workspace/scratch/abh-benchmark-jobs/job-12/evidence/reproduce.mjs:18:8 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 2,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
+
+EXIT 1
+
+[2026-09-17T10:38:58.469720+00:00] $ npm install --ignore-scripts --package-lock=false
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 621 packages in 39s
+
+EXIT 0
+
+[2026-09-17T10:39:22.592148+00:00] $ node node_modules/ava/entrypoints/cli.mjs --match *async source concurrency*
+
+  ✘ [fail]: test › pMapIterable - async source concurrency 3, backpressure 4 Maximum active mappers: 4
+  ✘ [fail]: test › pMapIterable - async source concurrency 3, backpressure Infinity Maximum active mappers: 4
+  ✘ [fail]: test › pMapIterable - async source concurrency 2, backpressure 3 Maximum active mappers: 3
+  ✘ [fail]: test › pMapIterable - async source concurrency 2, backpressure Infinity Maximum active mappers: 3
+  ✘ [fail]: test › pMapIterable - async source concurrency 1, backpressure 2 Maximum active mappers: 2
+  ✘ [fail]: test › pMapIterable - async source concurrency 1, backpressure Infinity Maximum active mappers: 2
+  ─
+
+  test › pMapIterable - async source concurrency 3, backpressure 4
+
+  test.js:668
+
+   667:                                                                         
+   668:       t.true(maximum <= concurrency, `Maximum active mappers: ${maximum…
+   669:       t.is(active, 0);                                                  
+
+  Maximum active mappers: 4
+
+  Value is not `true`:
+
+  false
+
+  › file://test.js:668:10
+
+
+
+  test › pMapIterable - async source concurrency 3, backpressure Infinity
+
+  test.js:668
+
+   667:                                                                         
+   668:       t.true(maximum <= concurrency, `Maximum active mappers: ${maximum…
+   669:       t.is(active, 0);                                                  
+
+  Maximum active mappers: 4
+
+  Value is not `true`:
+
+  false
+
+  › file://test.js:668:10
+
+
+
+  test › pMapIterable - async source concurrency 2, backpressure 3
+
+  test.js:668
+
+   667:                                                                         
+   668:       t.true(maximum <= concurrency, `Maximum active mappers: ${maximum…
+   669:       t.is(active, 0);                                                  
+
+  Maximum active mappers: 3
+
+  Value is not `true`:
+
+  false
+
+  › file://test.js:668:10
+
+
+
+  test › pMapIterable - async source concurrency 2, backpressure Infinity
+
+  test.js:668
+
+   667:                                                                         
+   668:       t.true(maximum <= concurrency, `Maximum active mappers: ${maximum…
+   669:       t.is(active, 0);                                                  
+
+  Maximum active mappers: 3
+
+  Value is not `true`:
+
+  false
+
+  › file://test.js:668:10
+
+
+
+  test › pMapIterable - async source concurrency 1, backpressure 2
+
+  test.js:668
+
+   667:                                                                         
+   668:       t.true(maximum <= concurrency, `Maximum active mappers: ${maximum…
+   669:       t.is(active, 0);                                                  
+
+  Maximum active mappers: 2
+
+  Value is not `true`:
+
+  false
+
+  › file://test.js:668:10
+
+
+
+  test › pMapIterable - async source concurrency 1, backpressure Infinity
+
+  test.js:668
+
+   667:                                                                         
+   668:       t.true(maximum <= concurrency, `Maximum active mappers: ${maximum…
+   669:       t.is(active, 0);                                                  
+
+  Maximum active mappers: 2
+
+  Value is not `true`:
+
+  false
+
+  › file://test.js:668:10
+
+  ─
+
+  6 tests failed
+
+EXIT 1
+
+[2026-09-17T10:39:44.039805+00:00] $ node ../evidence/reproduce.mjs
+{
+  maximum: 1,
+  events: [ 'start 1', 'end 1', 'start 2', 'end 2', 'start 3', 'end 3' ]
+}
+
+EXIT 0
+
+[2026-09-17T10:39:47.072629+00:00] $ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> p-map@7.0.3 test
+> xo && ava && tsd
+
+
+  test.js:651:18
+  ✖  651:18  Missing space before *.          generator-star-spacing
+  ✖  653:6   Unexpected await inside a loop.  no-await-in-loop
+
+  2 errors
+
+EXIT 1
+
+[2026-09-17T10:40:29.236948+00:00] $ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> p-map@7.0.3 test
+> xo && ava && tsd
+
+
+  ✔ test › handles empty iterable
+  ✔ test › asyncIterator - handles empty iterable
+  ✔ test › pMapIterable - empty
+  ✔ test › invalid mapper
+  ✔ test › already aborted signal
+  ✔ test › pMapIterable - iterable that throws
+  ✔ test › pMapSkip
+  ✔ test › pMapIterable - mapper that throws
+  ✔ test › all pMapSkips
+  ✔ test › multiple pMapSkips
+  ✔ test › pMapIterable - pMapSkip
+  ✔ test › enforce number in options.concurrency
+  ✔ test › asyncIterator - enforce number in options.concurrency
+  ✔ test › asyncIterator - pMapSkip
+  ✔ test › pMapIterable - async source concurrency 3, backpressure 4
+  ✔ test › pMapIterable - async source concurrency 3, backpressure Infinity
+  ✔ test › asyncIterator - all pMapSkips
+  ✔ test › pMapIterable - async source concurrency 2, backpressure 3
+  ✔ test › pMapIterable - async source concurrency 2, backpressure Infinity
+  ✔ test › pMapIterable - async source concurrency 1, backpressure 2
+  ✔ test › pMapIterable - async source concurrency 1, backpressure Infinity
+  ✔ test › asyncIterator - multiple pMapSkips
+  ✔ test › abort by AbortController (101ms)
+  ✔ test › no unhandled rejected promises from mapper throws - infinite concurrency (102ms)
+  ✔ test › no unhandled rejected promises from mapper throws - concurrency 1 (102ms)
+  ✔ test › pMapIterable - stop on error (104ms)
+  ✔ multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity
+  ✔ test › async with concurrency: 2 (out of order time sequence) (207ms)
+  ✔ test › async with concurrency: 2 (problematic time sequence) (210ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (out of order time sequence) (210ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (problematic time sequence) (254ms)
+  ✔ test › async with concurrency: 2 (random time sequence) (261ms)
+  ✔ test › main (308ms)
+  ✔ test › pMapIterable (302ms)
+  ✔ test › catches exception from source iterator - 1st item (307ms)
+  ✔ test › asyncIterator - main (310ms)
+  ✔ test › pMapIterable - concurrency: 2 (352ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (random time sequence) (388ms)
+  ✔ test › catches exception from source iterator - 2nd item (402ms)
+  ✔ test › catches exception from source iterator - 2nd item after 1st item mapper throw (403ms)
+  ✔ test › asyncIterator - get the correct exception after stop-on-error (501ms)
+  ✔ test › incorrect input type (502ms)
+  ✔ test › immediately rejects when stopOnError is true (526ms)
+  ✔ test › asyncIterator - immediately rejects when stopOnError is true (572ms)
+  ✔ test › all mappers should run when concurrency is infinite, even after stop-on-error happened (605ms)
+  ✔ test › pMapIterable - index in mapper (602ms)
+  ✔ test › concurrency: 1 (607ms)
+  ✔ test › pMapIterable - concurrency: 1 (602ms)
+  ✔ test › asyncIterator - all mappers should run when concurrency is infinite, even after stop-on-error happened (610ms)
+  ✔ test › asyncIterator - concurrency: 1 (630ms)
+  ✔ test › pMapIterable - backpressure (1s)
+  ✔ test › aggregate errors when stopOnError is false (1.2s)
+  ✔ test › asyncIterator - aggregate errors when stopOnError is false (1.3s)
+  ✔ test › concurrency: 4 (2.7s)
+  ✔ test › asyncIterator - concurrency: 4 (3.2s)
+  ─
+
+  55 tests passed
+
+EXIT 0
+
+[2026-09-17T10:40:29.267086+00:00] $ git diff --check
+
+EXIT 0
+
+[2026-09-17T10:41:12.064264+00:00] $ git switch -c solver-b/job-12-reserve-concurrency
+Switched to a new branch 'solver-b/job-12-reserve-concurrency'
+
+EXIT 0
+
+[2026-09-17T10:41:12.095394+00:00] $ git add index.js test.js
+
+EXIT 0
+
+[2026-09-17T10:41:12.126273+00:00] $ git -c user.name=solver_b -c user.email=solver_b@simulation.invalid commit -m Reserve pMapIterable concurrency before awaiting source
+[solver-b/job-12-reserve-concurrency 3a333c5] Reserve pMapIterable concurrency before awaiting source
+ 2 files changed, 31 insertions(+), 2 deletions(-)
+
+EXIT 0
+
+[2026-09-17T10:41:12.159153+00:00] $ git status --short
+
+EXIT 0

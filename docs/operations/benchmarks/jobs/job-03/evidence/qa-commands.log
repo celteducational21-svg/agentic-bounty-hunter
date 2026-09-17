@@ -1,0 +1,23 @@
+$ /workspace/scratch/abh-toolchains/go/bin/go test ./...
+ok  	github.com/go-chi/chi/v5	1.541s
+ok  	github.com/go-chi/chi/v5/middleware	26.154s
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-toolchains/go/bin/go test -race ./...
+ok  	github.com/go-chi/chi/v5	13.829s
+ok  	github.com/go-chi/chi/v5/middleware	27.272s
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-toolchains/go/bin/go vet ./...
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-toolchains/go/bin/go build ./...
+
+EXIT_CODE=0
+$ git diff --check
+
+EXIT_CODE=0
+$ git rev-parse HEAD
+7b781a57bcd3027421a96ea24629ffa4831e691f
+
+EXIT_CODE=0

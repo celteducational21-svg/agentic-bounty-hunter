@@ -1,0 +1,8 @@
+npm test
+exit=0 tests=207 pass=207 fail=0 skipped=0
+node --test test/operations.test.js test/operations-review-cycle.test.js
+exit=0 tests=13 pass=13 fail=0 skipped=0
+Independent inline Node assertion harness
+exit=0; three return-to-SOLVING paths, immutable input, same-transition stale attestations stripped, changed revision invalidation and blocked stale advancement
+Isolated copy: node scripts/benchmark-control-drills.mjs
+exit=0 result=CONTROL_ASSERTIONS_PASS_REAL_SOLUTION_PENDING caught=7

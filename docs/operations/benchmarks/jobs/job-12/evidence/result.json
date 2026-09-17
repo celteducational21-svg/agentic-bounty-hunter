@@ -1,0 +1,25 @@
+{
+  "jobId": "job-12",
+  "worker": "solver_b",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 91,
+  "solveSeconds": 109,
+  "iterations": 1,
+  "revision": "3a333c54c91bc117268e0d63be7933e65df851ca",
+  "author": "solver_b",
+  "category": "JavaScript async concurrency",
+  "difficulty": "harder-bounded",
+  "regressionFailures": 0,
+  "limitations": [
+    "Node24 Linux tested; minimum Node18 not tested",
+    "Build not applicable: direct JavaScript package",
+    "Wall time includes interleaved job10 setup",
+    "Independent QA pending"
+  ],
+  "startedAt": "2026-09-17T10:37:52+00:00",
+  "proofCompletedAt": "2026-09-17T10:39:23+00:00",
+  "solutionFrozenAt": "2026-09-17T10:41:12+00:00"
+}

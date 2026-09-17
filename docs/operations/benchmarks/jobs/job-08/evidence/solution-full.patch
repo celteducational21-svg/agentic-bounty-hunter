@@ -1,0 +1,56 @@
+diff --git a/more_itertools/more.py b/more_itertools/more.py
+index 2fdd949..b768e71 100755
+--- a/more_itertools/more.py
++++ b/more_itertools/more.py
+@@ -4253,15 +4253,20 @@ def zip_broadcast(*objects, scalar_types=(str, bytes), strict=False):
+ 
+ 
+ def unique_in_window(iterable, n, key=None):
+-    """Yield the items from *iterable* that haven't been seen recently.
+-    *n* is the size of the lookback window.
++    """Yield the items from *iterable* that haven't been yielded recently.
++    The lookback window contains the last *n* yielded items, not the last
++    *n* input items. Skipped duplicates do not advance the window.
+ 
+-        >>> iterable = [0, 1, 0, 2, 3, 0]
+-        >>> n = 3
+-        >>> list(unique_in_window(iterable, n))
+-        [0, 1, 2, 3, 0]
++        >>> iterable = [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 3, 4, 2]
++        >>> list(unique_in_window(iterable, 2))
++        [0, 1, 2, 3, 4, 2]
++
++    The second ``0`` is skipped because it is among the last two yielded
++    items, even though many input items have intervened. The second ``2``
++    is yielded because the last two yielded items are ``3`` and ``4``.
+ 
+-    The *key* function, if provided, will be used to determine uniqueness:
++    The *key* function, if provided, will be used to determine uniqueness;
++    the window then contains the keys of the last *n* yielded items:
+ 
+         >>> list(unique_in_window('abAcda', 3, key=lambda x: x.lower()))
+         ['a', 'b', 'c', 'd', 'a']
+diff --git a/tests/test_more.py b/tests/test_more.py
+index 9f32acf..f2c346c 100644
+--- a/tests/test_more.py
++++ b/tests/test_more.py
+@@ -4867,6 +4867,19 @@ class ZipBroadcastTests(TestCase):
+ 
+ 
+ class UniqueInWindowTests(TestCase):
++    def test_duplicates_do_not_advance_window(self):
++        iterable = [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 3, 4, 2]
++        self.assertEqual(
++            list(mi.unique_in_window(iterable, 2)), [0, 1, 2, 3, 4, 2]
++        )
++
++    def test_key_window_contains_yielded_items(self):
++        iterable = ['A', 'b', 'B', 'b', 'a', 'c', 'd', 'A']
++        self.assertEqual(
++            list(mi.unique_in_window(iterable, 2, key=str.lower)),
++            ['A', 'b', 'c', 'd', 'A'],
++        )
++
+     def test_invalid_n(self):
+         with self.assertRaises(ValueError):
+             list(mi.unique_in_window([], 0))

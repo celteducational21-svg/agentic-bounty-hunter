@@ -1,0 +1,28 @@
+{
+  "jobId": "job-04",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "81d28b46970f5514eb193c4f76bcc725073f472a",
+  "historicalPR": "https://github.com/go-chi/chi/pull/1097",
+  "historicalFixSha": "818fdcfc4786168651768377ba647cf9dd5b3953",
+  "preFixSha": "f975af0cb10cbefaccf0422385420fe62722d648",
+  "auditedAt": "2026-09-17T10:41:22.471931+00:00",
+  "freezeAuthorization": "Root explicitly authorized comparison after frozen Solver and independent QA.",
+  "comparisons": {
+    "rootCause": "MATCH: Request.Pattern takes local subrouter pattern rather than public composed RoutePattern data requested by issue title.",
+    "behavior": "MATCH: composed nested route value is exposed on request. Implementation replacement matches historical source patch.",
+    "tests": "Replay covers nestedRoute and Mount,wildcards,middleware observation; independentQA covers Group,normalization,paramretention. Historicaltest coversnestedsubrouter.",
+    "scope": "Faithful to original title requiring RoutePattern data, independently reproduced against suppliedbase. Basic Pattern supportalreadyexisted; no invented feature expansion.",
+    "simplicity": "One-lineimplementation change plusfocused regressiontests, matchinghistoricalscope.",
+    "regressions": "FullGo suite,race,vet,build/typecheckPASS; noobservedregressions."
+  },
+  "intakeCaveat": "Issue body only links analogous earlier feature. Title supplies public-API equality acceptance; intake review verified correct pre-fix firstparent. No accepted patch was revealed during clarification.",
+  "limitations": [
+    "Thin original specification; acceptance derives from title and public repository API contract.",
+    "Go1.27.1 Linux only."
+  ],
+  "requiresRepair": false,
+  "qaFalsePositive": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

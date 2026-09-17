@@ -1,0 +1,59 @@
+diff --git a/index.js b/index.js
+index 1055800..06000c6 100644
+--- a/index.js
++++ b/index.js
+@@ -212,15 +212,17 @@ export function pMapIterable(
+ 					return;
+ 				}
+ 
++				// Reserve a slot before awaiting the source so other spawns count it.
++				runningMappersCount++;
++
+ 				const promise = (async () => {
+ 					const {done, value} = await iterator.next();
+ 
+ 					if (done) {
++						runningMappersCount--;
+ 						return {done: true};
+ 					}
+ 
+-					runningMappersCount++;
+-
+ 					// Spawn if still below concurrency and backpressure limit
+ 					trySpawn();
+ 
+diff --git a/test.js b/test.js
+index 9db3013..54b6ee3 100644
+--- a/test.js
++++ b/test.js
+@@ -644,3 +644,30 @@ test('pMapIterable - pMapSkip', async t => {
+ 		2,
+ 	], async value => value)), [1, 2]);
+ });
++
++for (const concurrency of [1, 2, 3]) {
++	for (const backpressure of [concurrency + 1, Number.POSITIVE_INFINITY]) {
++		test(`pMapIterable - async source concurrency ${concurrency}, backpressure ${backpressure}`, async t => {
++			async function * source() {
++				for (let value = 0; value < 12; value++) {
++					await Promise.resolve(); // eslint-disable-line no-await-in-loop
++					yield value;
++				}
++			}
++
++			let active = 0;
++			let maximum = 0;
++			const output = await collectAsyncIterable(pMapIterable(source(), async value => {
++				active++;
++				maximum = Math.max(maximum, active);
++				await delay(5);
++				active--;
++				return value % 3 === 0 ? pMapSkip : value;
++			}, {concurrency, backpressure}));
++
++			t.true(maximum <= concurrency, `Maximum active mappers: ${maximum}`);
++			t.is(active, 0);
++			t.deepEqual(output, [1, 2, 4, 5, 7, 8, 10, 11]);
++		});
++	}
++}

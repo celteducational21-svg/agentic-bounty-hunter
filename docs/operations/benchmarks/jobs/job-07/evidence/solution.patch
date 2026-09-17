@@ -1,0 +1,137 @@
+diff --git a/boltons/fileutils.py b/boltons/fileutils.py
+index 2a05770..0ab37d9 100644
+--- a/boltons/fileutils.py
++++ b/boltons/fileutils.py
+@@ -262,6 +262,7 @@ def atomic_save(dest_path, **kwargs):
+ 
+ 
+ def path_to_unicode(path):
++    path = os.fspath(path)
+     if isinstance(path, str):
+         return path
+     encoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
+@@ -341,7 +342,7 @@ class AtomicSaver:
+     moves occur).
+ 
+     Args:
+-        dest_path (str): The path where the completed file will be
++        dest_path (str | PathLike): The path where the completed file will be
+             written.
+         overwrite (bool): Whether to overwrite the destination file if
+             it exists at completion time. Defaults to ``True``.
+@@ -353,7 +354,7 @@ class AtomicSaver:
+             in octal 0644 or 0664.
+         text_mode (bool): Whether to open the destination file in text
+             mode (i.e., ``'w'`` not ``'wb'``). Defaults to ``False`` (``wb``).
+-        part_file (str): Name of the temporary *part_file*. Defaults
++        part_file (str | PathLike): Name of the temporary *part_file*. Defaults
+             to *dest_path* + ``.part``. Note that this argument is
+             just the filename, and not the full path of the part
+             file. To guarantee atomic saves, part files are always
+@@ -386,7 +387,7 @@ class AtomicSaver:
+ 
+     # TODO: option to abort if target file modify date has changed since start?
+     def __init__(self, dest_path, **kwargs):
+-        self.dest_path = dest_path
++        self.dest_path = dest_path = path_to_unicode(dest_path)
+         self.overwrite = kwargs.pop('overwrite', True)
+         self.file_perms = kwargs.pop('file_perms', None)
+         self.overwrite_part = kwargs.pop('overwrite_part', False)
+@@ -402,7 +403,7 @@ class AtomicSaver:
+         if not self.part_filename:
+             self.part_path = dest_path + '.part'
+         else:
+-            self.part_path = os.path.join(self.dest_dir, self.part_filename)
++            self.part_path = os.path.join(self.dest_dir, path_to_unicode(self.part_filename))
+         self.mode = 'w+' if self.text_mode else 'w+b'
+         self.open_flags = _TEXT_OPENFLAGS if self.text_mode else _BIN_OPENFLAGS
+ 
+@@ -495,7 +496,7 @@ def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_d
+     supports *ignored* patterns.
+ 
+     Args:
+-        directory (str): Path that serves as the root of the
++        directory (str | PathLike): Path that serves as the root of the
+             search. Yielded paths will include this as a prefix.
+         patterns (str or list): A single pattern or list of
+             glob-formatted patterns to find under *directory*.
+@@ -530,6 +531,7 @@ def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_d
+     elif isinstance(ignored, str):
+         ignored = [ignored]
+     ign_re = re.compile('|'.join([fnmatch.translate(p) for p in ignored]))
++    directory = path_to_unicode(directory)
+     start_depth = len(directory.split(os.path.sep))
+     for root, dirs, files in os.walk(directory):
+         if max_depth is not None and (len(root.split(os.path.sep)) - start_depth) > max_depth:
+diff --git a/tests/test_fileutils_pathlike.py b/tests/test_fileutils_pathlike.py
+new file mode 100644
+index 0000000..3b09ed1
+--- /dev/null
++++ b/tests/test_fileutils_pathlike.py
+@@ -0,0 +1,66 @@
++import os
++from pathlib import Path
++
++import pytest
++
++from boltons.fileutils import atomic_save, iter_find_files, path_to_unicode
++from boltons.pathutils import augpath, expandpath, shrinkuser
++
++
++class FileSystemPath:
++    def __init__(self, path):
++        self.path = path
++
++    def __fspath__(self):
++        return self.path
++
++    def __str__(self):
++        raise AssertionError('Use the filesystem path protocol, not str()')
++
++
++@pytest.mark.parametrize('path_type', [str, Path, FileSystemPath, os.fsencode])
++def test_atomic_save_pathlike(tmp_path, path_type):
++    dest = tmp_path / 'destination.txt'
++    with atomic_save(path_type(str(dest))) as output:
++        output.write(b'complete')
++        assert not dest.exists()
++    assert dest.read_bytes() == b'complete'
++    assert not (tmp_path / 'destination.txt.part').exists()
++    with pytest.raises(RuntimeError):
++        with atomic_save(path_type(str(dest))) as output:
++            output.write(b'incomplete')
++            raise RuntimeError('abort')
++    assert dest.read_bytes() == b'complete'
++    assert not (tmp_path / 'destination.txt.part').exists()
++
++
++@pytest.mark.parametrize('path_type', [str, Path, FileSystemPath, os.fsencode])
++def test_find_files_pathlike(tmp_path, path_type):
++    (tmp_path / 'one.txt').write_text('one')
++    child = tmp_path / 'child'
++    child.mkdir()
++    (child / 'two.txt').write_text('two')
++    directory = path_type(str(tmp_path))
++    assert list(iter_find_files(directory, '*.txt', max_depth=0)) == [str(tmp_path / 'one.txt')]
++    assert sorted(iter_find_files(directory, '*.txt')) == sorted([str(tmp_path / 'one.txt'), str(child / 'two.txt')])
++
++
++@pytest.mark.parametrize('path', ['example', b'example', Path('example'), FileSystemPath('example'), FileSystemPath(b'example')])
++def test_path_to_unicode_pathlike(path):
++    assert path_to_unicode(path) == 'example'
++
++
++def test_pathutils_pathlike_controls():
++    assert augpath(Path('example.txt'), suffix='_new') == 'example_new.txt'
++    assert expandpath(Path('example.txt')) == 'example.txt'
++    assert shrinkuser(Path(os.path.expanduser('~'))) == '~'
++
++
++@pytest.mark.parametrize('part_file', [Path('custom.part'), FileSystemPath('custom.part'), FileSystemPath(b'custom.part')])
++def test_atomic_save_pathlike_part_file(tmp_path, part_file):
++    dest = tmp_path / 'destination.txt'
++    with atomic_save(dest, part_file=part_file) as output:
++        output.write(b'complete')
++        assert (tmp_path / 'custom.part').exists()
++    assert dest.read_bytes() == b'complete'
++    assert not (tmp_path / 'custom.part').exists()

@@ -1,0 +1,39 @@
+diff --git a/index.js b/index.js
+index 9795fdc..5b45220 100644
+--- a/index.js
++++ b/index.js
+@@ -1,6 +1,6 @@
+ export default function ansiRegex({onlyFirst = false} = {}) {
+ 	const pattern = [
+-		'[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)',
++		'[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?(?:\\u0007|\\u001B\\\\))',
+ 		'(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-nq-uy=><~]))',
+ 	].join('|');
+ 
+diff --git a/test.js b/test.js
+index 7c19d21..9cf89ae 100644
+--- a/test.js
++++ b/test.js
+@@ -116,3 +116,22 @@ for (const [key, escapeCode] of Object.entries(ansiEscapes)) {
+ 		}
+ 	});
+ }
++
++for (const terminator of ['\u0007', '\u001B\\']) {
++	test(`match terminal links terminated by ${JSON.stringify(terminator)}`, t => {
++		const opening = `\u001B]8;;http://example.com/${terminator}`;
++		const closing = `\u001B]8;;${terminator}`;
++		const input = `${opening}This is a link${closing} hello`;
++		t.deepEqual(input.match(ansiRegex()), [opening, closing]);
++		t.is(input.replace(ansiRegex(), ''), 'This is a link hello');
++		t.is(input.match(ansiRegex({onlyFirst: true}))[0], opening);
++	});
++}
++
++test('terminal link terminators do not consume adjacent ANSI codes or text', t => {
++	const opening = '\u001B]8;id=1;https://example.com/\u001B\\';
++	const closing = '\u001B]8;;\u001B\\';
++	const input = `before${opening}\u001B[31mlink\u001B[0m${closing}after`;
++	t.deepEqual(input.match(ansiRegex()), [opening, '\u001B[31m', '\u001B[0m', closing]);
++	t.is(input.replace(ansiRegex(), ''), 'beforelinkafter');
++});

@@ -1,0 +1,71 @@
+{
+  "reviewer": "independent_qa_lab",
+  "verdict": "PASS",
+  "firstPass": false,
+  "scope": "Stage2 public Superteam discovery integration and descriptive source economics; Stage1 certification unchanged",
+  "completedAt": "2026-09-17T11:07:10.175481+00:00",
+  "reviewedRevision": {
+    "kind": "working-tree-sha256",
+    "files": {
+      "src/providers/superteam.js": "99fc9bd3739dc2765b791a2c330aa58477a6f679c937773e97547a2a82568d82",
+      "src/core/source-economics.js": "faee0397ec7f722063249dad9be910486ae4ad9fca1f355fe02f223dc69633d3",
+      "src/core/operating-store.js": "15f533711690b3559ccfde7b8f53b03d196bfc28c6cfe3cdfb0d69cb9162991f",
+      "api/opportunities.js": "424162bbb814709f82b98459e8ffc5b96c3563c5621b45b1144633fe51e71b06",
+      "api/operations.js": "b8a41b5f56a94ba4bbd6370110cef6ebc6373f9e7aa3036c0833a574cd0c9c3a",
+      "test/superteam.test.js": "c77298f60e44d26f133ac66d9b25f48e82a04a951d643c18804034341c62f095",
+      "test/source-economics.test.js": "85be8db275d77a64f66bd7886ac3c51029c6d0d849d2c9a9bb128e5a19566104",
+      "test/market-operations.test.js": "2f4ab62be28c8f78a5992b1ae90ab68458a010772a217f6b23119661958f4da7",
+      "test/api-error-redaction.test.js": "29a9c94eb15cd094c4121750e24f47ef8cf4b850fc8282d5b1ac56c642ceccde"
+    }
+  },
+  "checks": {
+    "fullSuite": {
+      "command": "npm test",
+      "pass": 226,
+      "fail": 0,
+      "exitCode": 0
+    },
+    "independentHarness": {
+      "checks": 13,
+      "pass": 13,
+      "exitCode": 0
+    },
+    "syntax": "PASS all5production files",
+    "livePublicGet": {
+      "status": "AVAILABLE",
+      "checkedAt": "2026-09-17T11:06:06.925Z",
+      "listings": 1,
+      "type": "hackathon",
+      "proofs": 0,
+      "accepted": 0,
+      "paid": 0
+    },
+    "durableIntegration": "PASS simulated existing abh_record_scan payload; no real database mutation or schema change",
+    "build": "NOT_APPLICABLE plain JavaScript no build script",
+    "lint": "NOT_APPLICABLE no lint script",
+    "typecheck": "NOT_APPLICABLE JavaScript no configured typecheck"
+  },
+  "resolvedFindings": [
+    {
+      "id": "QA-S2-1",
+      "description": "Deadline equal to check time accepted; fixed <= boundary",
+      "status": "VERIFIED_FIXED"
+    },
+    {
+      "id": "QA-S2-2",
+      "description": "Conflicting duplicate status/policy allowed stale permissive row; fixed both id and canonical slug identity",
+      "status": "VERIFIED_FIXED"
+    },
+    {
+      "id": "QA-S2-3",
+      "description": "Existing API catch exposed raw transport error; both opportunities and operations now generic errors",
+      "status": "VERIFIED_FIXED"
+    }
+  ],
+  "findings": [],
+  "limitations": [
+    "Live feed observation is bounded and point-in-time; not proof of task suitability, individual award, geographic eligibility or payment",
+    "Existing persistence path tested with stub fetch; no live database write/read claimed",
+    "No account registration, submission, claim, payout or other public mutation performed"
+  ]
+}

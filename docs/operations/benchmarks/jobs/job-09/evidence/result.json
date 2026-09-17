@@ -1,0 +1,25 @@
+{
+  "jobId": "job-09",
+  "worker": "solver_a",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 50.0,
+  "solveSeconds": 90.0,
+  "iterations": 1,
+  "revision": "33f394fa3e87365d9d6a31214e9af424f8826258",
+  "author": "solver_a",
+  "category": "Python iterator boundary bug",
+  "difficulty": "easy",
+  "regressionFailures": 0,
+  "limitations": [
+    "Python3.12 only; older version matrix not run.",
+    "flake8 E721 unchanged from baseline.",
+    "Current black would reformat baseline and patched files; no changes requested near patch (black.diff).",
+    "Current stubtest reports missing __all__ in two unchanged stubs on both baseline and patch."
+  ],
+  "startedAt": "2026-09-17T10:37:07Z",
+  "proofCompletedAt": "2026-09-17T10:37:57Z",
+  "solutionFrozenAt": "2026-09-17T10:39:27Z"
+}

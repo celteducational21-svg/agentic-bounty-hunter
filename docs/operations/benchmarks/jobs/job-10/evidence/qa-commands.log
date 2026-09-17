@@ -1,0 +1,75 @@
+$ npm test
+
+> p-limit@3.0.0 test
+> xo && ava && tsd
+
+
+  index.js:23:3
+  ⚠  23:3  Unexpected todo comment.  no-warning-comments
+
+  1 warning
+
+  ✔ clearQueue
+  ✔ accepts additional arguments
+  ✔ continues after sync throw
+  ✔ non-promise returning function
+  ✔ throws on invalid concurrency argument
+  ✔ does not ignore errors (114ms)
+  ✔ concurrency: 1 (607ms)
+  ✔ concurrency: 4 (2.4s)
+  ✔ activeCount and pendingCount properties (3s)
+
+  9 tests passed
+
+npm warn cli npm v11.9.0 does not support Node.js v18.20.8. This version of npm supports the following node versions: `^20.17.0 || >=22.9.0`. You can find the latest version at https://nodejs.org/.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-benchmark-jobs/job-10/node-runtime/node_modules/node-linux-x64/bin/node node_modules/tsd/libraries/typescript/lib/tsc.js --strict --module commonjs --target es2018 --skipLibCheck ../commonjs.ts
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-benchmark-jobs/job-10/node-runtime/node_modules/node-linux-x64/bin/node /workspace/scratch/abh-independent-qa/job-10/commonjs.js
+PASS independent CommonJS generics, named type and runtime
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-benchmark-jobs/job-10/node-runtime/node_modules/node-linux-x64/bin/node node_modules/tsd/libraries/typescript/lib/tsc.js --strict --module commonjs --target es2018 --skipLibCheck --esModuleInterop ../interop.ts
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-benchmark-jobs/job-10/node-runtime/node_modules/node-linux-x64/bin/node /workspace/scratch/abh-independent-qa/job-10/interop.js
+PASS independent default import with esModuleInterop
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-benchmark-jobs/job-10/node-runtime/node_modules/node-linux-x64/bin/node node_modules/tsd/libraries/typescript/lib/tsc.js --strict --module commonjs --target es2018 --skipLibCheck --noEmit ../negative.ts
+../negative.ts(2,8): error TS2339: Property 'default' does not exist on type '(concurrency: number) => Limit'.
+../negative.ts(3,29): error TS2345: Argument of type '"wrong"' is not assignable to parameter of type 'number'.
+../negative.ts(4,11): error TS2540: Cannot assign to 'activeCount' because it is a read-only property.
+
+EXIT_CODE=1
+$ npm pack --dry-run
+p-limit-3.0.0.tgz
+npm warn cli npm v11.9.0 does not support Node.js v18.20.8. This version of npm supports the following node versions: `^20.17.0 || >=22.9.0`. You can find the latest version at https://nodejs.org/.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm notice
+npm notice 📦  p-limit@3.0.0
+npm notice Tarball Contents
+npm notice 1.4kB index.d.ts
+npm notice 1.6kB index.js
+npm notice 1.1kB license
+npm notice 922B package.json
+npm notice 2.9kB readme.md
+npm notice Tarball Details
+npm notice name: p-limit
+npm notice version: 3.0.0
+npm notice filename: p-limit-3.0.0.tgz
+npm notice package size: 3.4 kB
+npm notice unpacked size: 7.9 kB
+npm notice shasum: 5d4664905135173dffd9f8bd440a6822515b53df
+npm notice integrity: sha512-vhd0uh0ssZ9WT[...]y/e2Hl2nCaX7Q==
+npm notice total files: 5
+npm notice
+
+EXIT_CODE=0
+$ git rev-parse HEAD
+6473d85e7f87f458b8fdadc1de9336478c0d2cfd
+
+EXIT_CODE=0

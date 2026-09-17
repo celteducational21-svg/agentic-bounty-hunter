@@ -1,0 +1,21 @@
+✔ return to solving invalidates previous QA and public approval, preserving history (3.583132ms)
+✔ all required states are explicit and unknown does not reject (3.044784ms)
+✔ private eligibility does not require escrow, full market certification or known effort (0.532199ms)
+✔ events append without mutating input or retaining caller-owned mutable evidence (0.334656ms)
+✔ concurrent stale versions, duplicate event IDs and backdated transitions fail (0.366403ms)
+✔ proof and reservation are required before solving (1.161231ms)
+✔ human gate preserves resume point without blocking another opportunity (0.687299ms)
+✔ independent QA cannot be performed by solver or on stale revision (1.034273ms)
+✔ nonapplicable QA tooling needs an explanation (0.7893ms)
+✔ public submission requires explicit owner approval matching reviewed revision (1.996429ms)
+✔ payment requires positive received payment evidence after merge (3.573638ms)
+✔ hard reject retains evidence and dashboard summarizes all states including human gates (0.954114ms)
+✔ trusted CLI writes one atomic local transition and refuses stale replay (163.030963ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 318.887591

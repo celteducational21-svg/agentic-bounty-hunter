@@ -1,0 +1,26 @@
+{
+  "jobId": "job-11",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "6a8d05a5e772ad90db29c2ec0c574bdcd89f8087",
+  "historicalPR": "https://github.com/sindresorhus/p-map/pull/81",
+  "historicalFixSha": "65e893e306f97fc4fbf1f12d126ba3141dafde48",
+  "preFixSha": "a38d5a7180ba9ecd6a02e37ec5cc6ae11f3433ac",
+  "auditedAt": "2026-09-17T10:49:44.991319+00:00",
+  "freezeAuthorization": "Root authorized comparison after Solver and independent QA frozen.",
+  "comparisons": {
+    "rootCause": "MATCH: anonymous abortlistener persists afterpMapsettles, retaining invocation state on sharedsignal.",
+    "behavior": "MATCH/BETTER: namedlistenercleanup onresolve/reject removes ownedlistener; alreadyabortedsignal returns immediately instead of laterregisteringlistener. Historicalpatch lacks thatreturn.",
+    "tests": "Replay9targeted lifecycle tests plus independent sharedsignalownership,external listenerpreservation,errors,activeabort,latecompletion/preabortedchecks. Full58AVA+XO+tsdPASS. Historicalpatch includesnoaddedtests.",
+    "scope": "Focused promise settlement lifecycle andtestfile; no unrelated scheduler changes.",
+    "simplicity": "Small namedhandler/cleanupwrappers; explicit removal suffices without historical onceflag. NativeAbortSignal behavior remainscorrect.",
+    "regressions": "Noobservedregression; external listenerspreserved,concurrent calls keep distinct ownership,pack/syntaxpass."
+  },
+  "limitations": [
+    "CurrentNodeLinuxonly; minimumNode18 notrun."
+  ],
+  "requiresRepair": false,
+  "qaFalsePositive": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

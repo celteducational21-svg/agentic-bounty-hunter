@@ -1,0 +1,104 @@
+$ node /workspace/scratch/abh-independent-qa/job-11/independent.mjs
+PASS independent concurrent shared-signal listener ownership, validation/factory/input rejection, active pending mapper and async iterator abort, late completion, pre-aborted signal
+
+EXIT_CODE=0
+$ npm test
+
+> p-map@7.0.2 test
+> xo && ava && tsd
+
+
+  ✔ abort-listeners › abort listener cleanup - iterator rejection, async=false
+  ✔ abort-listeners › abort listener cleanup - already aborted does not start mapper
+  ✔ abort-listeners › abort listener cleanup - mapper rejection, stopOnError=true
+  ✔ abort-listeners › abort listener cleanup - iterator rejection, async=true
+  ✔ abort-listeners › abort listener cleanup - active abort preserves reason
+  ✔ abort-listeners › abort listener cleanup - mapper rejection, stopOnError=false
+  ✔ abort-listeners › abort listener cleanup - empty
+  ✔ abort-listeners › abort listener cleanup - success
+  ✔ abort-listeners › abort listener cleanup - skip
+  ✔ test › handles empty iterable
+  ✔ test › asyncIterator - handles empty iterable
+  ✔ test › pMapIterable - empty
+  ✔ test › invalid mapper
+  ✔ test › already aborted signal
+  ✔ test › pMapIterable - iterable that throws
+  ✔ test › pMapSkip
+  ✔ test › pMapIterable - mapper that throws
+  ✔ test › all pMapSkips
+  ✔ test › multiple pMapSkips
+  ✔ test › pMapIterable - pMapSkip
+  ✔ test › enforce number in options.concurrency
+  ✔ test › asyncIterator - enforce number in options.concurrency
+  ✔ test › asyncIterator - pMapSkip
+  ✔ test › asyncIterator - all pMapSkips
+  ✔ test › asyncIterator - multiple pMapSkips
+  ✔ multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity
+  ✔ test › abort by AbortController (101ms)
+  ✔ test › no unhandled rejected promises from mapper throws - infinite concurrency (103ms)
+  ✔ test › no unhandled rejected promises from mapper throws - concurrency 1 (103ms)
+  ✔ test › pMapIterable - stop on error (102ms)
+  ✔ test › async with concurrency: 2 (out of order time sequence) (204ms)
+  ✔ test › async with concurrency: 2 (problematic time sequence) (209ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (out of order time sequence) (210ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (problematic time sequence) (256ms)
+  ✔ test › async with concurrency: 2 (random time sequence) (282ms)
+  ✔ test › main (306ms)
+  ✔ test › pMapIterable (303ms)
+  ✔ test › catches exception from source iterator - 1st item (304ms)
+  ✔ test › asyncIterator - main (310ms)
+  ✔ test › pMapIterable - concurrency: 2 (352ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (random time sequence) (384ms)
+  ✔ test › catches exception from source iterator - 2nd item (403ms)
+  ✔ test › catches exception from source iterator - 2nd item after 1st item mapper throw (403ms)
+  ✔ test › asyncIterator - get the correct exception after stop-on-error (501ms)
+  ✔ test › incorrect input type (501ms)
+  ✔ test › immediately rejects when stopOnError is true (527ms)
+  ✔ test › asyncIterator - immediately rejects when stopOnError is true (570ms)
+  ✔ test › all mappers should run when concurrency is infinite, even after stop-on-error happened (605ms)
+  ✔ test › concurrency: 1 (606ms)
+  ✔ test › pMapIterable - index in mapper (602ms)
+  ✔ test › pMapIterable - concurrency: 1 (602ms)
+  ✔ test › asyncIterator - all mappers should run when concurrency is infinite, even after stop-on-error happened (611ms)
+  ✔ test › asyncIterator - concurrency: 1 (630ms)
+  ✔ test › pMapIterable - backpressure (1s)
+  ✔ test › aggregate errors when stopOnError is false (1.2s)
+  ✔ test › asyncIterator - aggregate errors when stopOnError is false (1.3s)
+  ✔ test › concurrency: 4 (2.9s)
+  ✔ test › asyncIterator - concurrency: 4 (3s)
+  ─
+
+  58 tests passed
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+EXIT_CODE=0
+$ npm pack --dry-run
+p-map-7.0.2.tgz
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm notice
+npm notice 📦  p-map@7.0.2
+npm notice Tarball Contents
+npm notice 6.3kB index.d.ts
+npm notice 7.1kB index.js
+npm notice 1.1kB license
+npm notice 993B package.json
+npm notice 5.7kB readme.md
+npm notice Tarball Details
+npm notice name: p-map
+npm notice version: 7.0.2
+npm notice filename: p-map-7.0.2.tgz
+npm notice package size: 5.8 kB
+npm notice unpacked size: 21.2 kB
+npm notice shasum: 28f84f2c1ce36652bc7640da34124e79f3e03c4f
+npm notice integrity: sha512-dIzE7VWfQh2GT[...]P8n9Zx/V9OrqA==
+npm notice total files: 5
+npm notice
+
+EXIT_CODE=0
+$ node --check index.js
+
+EXIT_CODE=0
+$ git rev-parse HEAD
+6a8d05a5e772ad90db29c2ec0c574bdcd89f8087
+
+EXIT_CODE=0

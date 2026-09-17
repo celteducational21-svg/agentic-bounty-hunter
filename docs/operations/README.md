@@ -26,6 +26,10 @@ ivrit-ai/ivrit-py #12: historical setup/reproduction/focused tests PASS; existin
 - `state.json`: committed execution projection and full transition events.
 - `WORKER_RUNBOOK.md`: current logical worker contracts and evidence shapes.
 - `daily/`: dated immutable scan/run outputs; never relabel failures as successes.
+- `benchmarks/`: **SIMULATION / HISTORICAL REPLAY — NOT PAID WORK**. Separate delivery-lab packets, frozen patches, independent QA, audit comparisons, control drills and scorecards. Never import these jobs into live bounty state or count historical merges as ABH wins.
+- `benchmarks/REPORT.md`: frozen delivery certification, including failures, repairs and strict versus scoped submission readiness.
+- `market-research/`: source qualification, live discovery observations and economic learning. Superteam's official public agent Development catalogue is integrated into daily scans; other proposed sources require evidence before adapters.
+- `HUMAN_PLATFORM_SETUP.md`: consolidated owner steps; public discovery continues while account/payout setup waits.
 - Dated proof/candidate documents in this directory: original evidence retained in place.
 - `../PHASE2*.md`: historical development audits, preserved for provenance, not active release gates.
 

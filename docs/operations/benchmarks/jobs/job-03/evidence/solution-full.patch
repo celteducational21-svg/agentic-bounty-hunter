@@ -1,0 +1,75 @@
+diff --git a/middleware/wrap_writer.go b/middleware/wrap_writer.go
+index 367e0fc..88687df 100644
+--- a/middleware/wrap_writer.go
++++ b/middleware/wrap_writer.go
+@@ -208,9 +208,7 @@ func (f *http2FancyWriter) Push(target string, opts *http.PushOptions) error {
+ 
+ func (f *httpFancyWriter) ReadFrom(r io.Reader) (int64, error) {
+ 	if f.basicWriter.tee != nil {
+-		n, err := io.Copy(&f.basicWriter, r)
+-		f.basicWriter.bytes += int(n)
+-		return n, err
++		return io.Copy(&f.basicWriter, r)
+ 	}
+ 	rf := f.basicWriter.ResponseWriter.(io.ReaderFrom)
+ 	f.basicWriter.maybeWriteHeader()
+diff --git a/middleware/wrap_writer_test.go b/middleware/wrap_writer_test.go
+index 7e8f6ab..051c7f9 100644
+--- a/middleware/wrap_writer_test.go
++++ b/middleware/wrap_writer_test.go
+@@ -2,8 +2,11 @@ package middleware
+ 
+ import (
+ 	"bytes"
++	"fmt"
++	"io"
+ 	"net/http"
+ 	"net/http/httptest"
++	"strings"
+ 	"testing"
+ )
+ 
+@@ -84,3 +87,43 @@ func TestBasicWriterDiscardsWritesToOriginalResponseWriter(t *testing.T) {
+ 		assertEqual(t, 11, wrap.BytesWritten())
+ 	})
+ }
++
++// readerFromRecorder exercises the underlying ReaderFrom fast path.
++type readerFromRecorder struct {
++	*httptest.ResponseRecorder
++}
++
++func (r *readerFromRecorder) ReadFrom(src io.Reader) (int64, error) {
++	return io.Copy(r.ResponseRecorder, src)
++}
++
++func TestHttpFancyWriterReadFromCountsBytesOnce(t *testing.T) {
++	for _, tee := range []bool{false, true} {
++		for _, writerTo := range []bool{false, true} {
++			name := fmt.Sprintf("tee=%v/writerTo=%v", tee, writerTo)
++			t.Run(name, func(t *testing.T) {
++				original := &readerFromRecorder{httptest.NewRecorder()}
++				f := &httpFancyWriter{basicWriter: basicWriter{ResponseWriter: original}}
++				var teeBuf bytes.Buffer
++				if tee {
++					f.Tee(&teeBuf)
++				}
++				_, err := f.Write([]byte("prefix:"))
++				assertNoError(t, err)
++				var input io.Reader = strings.NewReader("hello world")
++				if !writerTo {
++					input = struct{ io.Reader }{input}
++				}
++				n, err := f.ReadFrom(input)
++				assertNoError(t, err)
++				assertEqual(t, int64(11), n)
++				assertEqual(t, "prefix:hello world", original.Body.String())
++				assertEqual(t, 18, f.BytesWritten())
++				assertEqual(t, http.StatusOK, f.Status())
++				if tee {
++					assertEqual(t, "prefix:hello world", teeBuf.String())
++				}
++			})
++		}
++	}
++}

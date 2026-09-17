@@ -1,0 +1,18 @@
+{
+  "id": "job-10",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "sindresorhus/p-limit",
+  "issue": "https://github.com/sindresorhus/p-limit/issues/29",
+  "title": "The type definition in v3 is broken",
+  "issueBody": "The default export was removed in this commit: https://github.com/sindresorhus/p-limit/commit/b35faf54fb0871d9ae592069a18083a2ba15d8a9#diff-168726dbe96b3ce427e7fedce31bb0bcL65\r\n\r\nHowever, the `.d.ts` file still suggests there is a default export",
+  "preFixSha": "0038c559658ad75445de4b3a8c6e0167129e813c",
+  "category": "TypeScript API typing",
+  "difficulty": "easy",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [],
+  "repo": "sindresorhus/p-limit",
+  "issueUrl": "https://github.com/sindresorhus/p-limit/issues/29",
+  "issueNumber": 29,
+  "language": "JavaScript/TypeScript"
+}

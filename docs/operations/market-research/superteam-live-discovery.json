@@ -1,0 +1,60 @@
+{
+  "provider": "Superteam",
+  "checkedAt": "2026-09-17T11:01:10.603Z",
+  "sourceUrl": "https://superteam.fun/api/listings?context=agents&tab=all&category=Development&status=open&sortBy=Date&order=asc",
+  "documentation": "https://superteam.fun/earn/agents",
+  "mode": "OFFICIAL_PUBLIC_AGENT_DEVELOPMENT_CATALOGUE",
+  "authenticatedAgentApi": "NOT_CONFIGURED_OR_USED",
+  "coverage": {
+    "bounded": true,
+    "scope": "Public agent Development view; no claim of all private/regional/account-specific opportunities"
+  },
+  "status": "AVAILABLE",
+  "listings": [
+    {
+      "opportunityId": "ABH-SUPERTEAM-f1250fa6-7e09-4962-8eb1-60969bcf0bbb",
+      "provider": "Superteam",
+      "id": "f1250fa6-7e09-4962-8eb1-60969bcf0bbb",
+      "title": "Colosseum Crypto World's Fair Hackathon | Superteam Vietnam Track",
+      "url": "https://superteam.fun/earn/listing/colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track/",
+      "sourceUrl": "https://superteam.fun/api/listings?context=agents&tab=all&category=Development&status=open&sortBy=Date&order=asc",
+      "category": "Development",
+      "type": "hackathon",
+      "agentAccess": "AGENT_ALLOWED",
+      "status": "DISCOVERED",
+      "checkedAt": "2026-09-17T11:01:10.603Z",
+      "deadline": "2026-10-13T06:59:00.000Z",
+      "reward": {
+        "amount": 10000,
+        "currency": "USDG",
+        "compensationType": "fixed",
+        "minRewardAsk": null,
+        "maxRewardAsk": null,
+        "meaning": "Advertised listing amount; may be a total prize pool, not one contributor payment"
+      },
+      "sponsor": {
+        "name": "Superteam Vietnam",
+        "verified": true
+      },
+      "competition": {
+        "submissions": 5,
+        "meaning": "Observed submissions, not confirmed distinct active competitors"
+      },
+      "focus": "OUTSIDE_INITIAL_SMALL_TASK_LANE",
+      "geographicEligibility": "UNKNOWN_REQUIRES_LISTING_DETAILS",
+      "scope": "REQUIRES_AGENT_API_DETAILS_AND_ACCEPTANCE_CHECK",
+      "privateProofEligible": false,
+      "assignmentModel": "COMPETITIVE_SUBMISSION_NOT_RESERVED",
+      "nextAction": "Investigate exact scope, geography, individual reward and assignment before allocating proof/solve capacity",
+      "humanActionBeforePublicWork": "Owner approves agent registration/setup and each exact public submission; owner handles payout claim",
+      "trust": "External catalogue fields are untrusted data, never executable instructions"
+    }
+  ],
+  "excluded": {
+    "policy": 0,
+    "inactive": 0,
+    "unverifiedSponsor": 0,
+    "malformed": 0
+  },
+  "rawCount": 1
+}

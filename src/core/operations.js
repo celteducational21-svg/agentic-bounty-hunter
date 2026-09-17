@@ -95,6 +95,12 @@ export function transitionOperation(record, to, { at, actor, reason, evidence = 
   const exception = ['NEEDS_HUMAN_INPUT', 'REJECTED', 'ABANDONED', 'DO_NOT_HUNT'].includes(to);
   requireThat(record.status !== to && (resume || exception || edges[from]?.includes(to)), `Invalid transition: ${record.status} -> ${to}`);
   const mergedEvidence = { ...clone(record.evidence), ...clone(evidence) };
+  // A new review cycle or changed revision needs fresh QA and owner approval.
+  // Prior attestations remain in immutable events, never as current authority.
+  if (to === 'SOLVING' || (evidence.solution?.revision && evidence.solution.revision !== record.evidence.solution?.revision)) {
+    delete mergedEvidence.qa;
+    delete mergedEvidence.publicApproval;
+  }
   gates(to, mergedEvidence, actor);
   const version = record.version + 1;
   const id = eventId || `${record.opportunityId}:${version}`;

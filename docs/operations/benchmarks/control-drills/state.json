@@ -1,0 +1,909 @@
+{
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "operations": [
+    {
+      "opportunityId": "SIMULATION/credential",
+      "title": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "status": "NEEDS_HUMAN_INPUT",
+      "version": 5,
+      "evidence": {
+        "eligibility": {
+          "issueOpen": true,
+          "repositoryAccessible": true,
+          "credibleReward": true,
+          "scopeUnderstandable": true,
+          "competitionNotHopeless": true,
+          "noHardBlocker": true
+        },
+        "humanAction": {
+          "action": "Owner must supply authorized API-account access; no fabricated credential",
+          "kind": "API_ACCOUNT"
+        }
+      },
+      "humanActionRequired": {
+        "action": "Owner must supply authorized API-account access; no fabricated credential",
+        "kind": "API_ACCOUNT"
+      },
+      "nextAction": "Resolve recorded human action",
+      "createdAt": "2026-09-17T10:37:20.008Z",
+      "updatedAt": "2026-09-17T10:37:20.008Z",
+      "transitions": [
+        {
+          "id": "SIMULATION/credential:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-scout",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/credential:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/credential:3",
+          "version": 3,
+          "from": "INVESTIGATING",
+          "to": "PHASE3_ELIGIBLE",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "eligibility": {
+              "issueOpen": true,
+              "repositoryAccessible": true,
+              "credibleReward": true,
+              "scopeUnderstandable": true,
+              "competitionNotHopeless": true,
+              "noHardBlocker": true
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/credential:4",
+          "version": 4,
+          "from": "PHASE3_ELIGIBLE",
+          "to": "PRIVATE_PROOF",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/credential:5",
+          "version": 5,
+          "from": "PRIVATE_PROOF",
+          "to": "NEEDS_HUMAN_INPUT",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "humanAction": {
+              "action": "Owner must supply authorized API-account access; no fabricated credential",
+              "kind": "API_ACCOUNT"
+            }
+          }
+        }
+      ],
+      "resumeStatus": "PRIVATE_PROOF"
+    },
+    {
+      "opportunityId": "SIMULATION/parallel-unblocked",
+      "title": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "status": "INVESTIGATING",
+      "version": 2,
+      "evidence": {},
+      "humanActionRequired": null,
+      "nextAction": "Resolve missing practical evidence",
+      "createdAt": "2026-09-17T10:37:20.008Z",
+      "updatedAt": "2026-09-17T10:37:20.008Z",
+      "transitions": [
+        {
+          "id": "SIMULATION/parallel-unblocked:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-scout",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/parallel-unblocked:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        }
+      ],
+      "resumeStatus": null
+    },
+    {
+      "opportunityId": "SIMULATION/submission",
+      "title": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "status": "READY_TO_SUBMIT",
+      "version": 8,
+      "evidence": {
+        "eligibility": {
+          "issueOpen": true,
+          "repositoryAccessible": true,
+          "credibleReward": true,
+          "scopeUnderstandable": true,
+          "competitionNotHopeless": true,
+          "noHardBlocker": true
+        },
+        "proof": {
+          "setup": "PASS",
+          "reproduction": "PASS",
+          "focusedTests": "PASS",
+          "reference": "simulation://proof"
+        },
+        "reservation": {
+          "confirmed": true,
+          "bountyActive": true,
+          "scopeConfirmed": true,
+          "reference": "simulation://assigned-job"
+        },
+        "solution": {
+          "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+          "author": "solver_a",
+          "reference": "docs/operations/benchmarks/jobs/job-03/evidence/solution.md"
+        },
+        "qa": {
+          "reviewer": "independent_qa_lab",
+          "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+          "reference": "docs/operations/benchmarks/jobs/job-03/evidence/QA.md",
+          "acceptanceCriteria": "PASS",
+          "tests": "PASS",
+          "regressions": "PASS",
+          "explainability": "PASS",
+          "prReadiness": "PASS",
+          "build": "PASS",
+          "lint": "PASS",
+          "typecheck": "PASS",
+          "notApplicableReasons": {},
+          "evidence": {
+            "tests": "go test ./... and go test -race ./... pass including independent tests",
+            "lint": "go vet ./... and git diff --check pass",
+            "build": "go build ./... passes; compiler performs typecheck",
+            "independent": "Empty/repeated ReadFrom, discard + tee, partial downstream write error and tee writer error preserve count/error/body"
+          }
+        }
+      },
+      "humanActionRequired": {
+        "action": "Approve exact public PR submission",
+        "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f"
+      },
+      "nextAction": "Request owner approval for exact public submission",
+      "createdAt": "2026-09-17T10:37:20.008Z",
+      "updatedAt": "2026-09-17T10:37:20.008Z",
+      "transitions": [
+        {
+          "id": "SIMULATION/submission:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-scout",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:3",
+          "version": 3,
+          "from": "INVESTIGATING",
+          "to": "PHASE3_ELIGIBLE",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "eligibility": {
+              "issueOpen": true,
+              "repositoryAccessible": true,
+              "credibleReward": true,
+              "scopeUnderstandable": true,
+              "competitionNotHopeless": true,
+              "noHardBlocker": true
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:4",
+          "version": 4,
+          "from": "PHASE3_ELIGIBLE",
+          "to": "PRIVATE_PROOF",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:5",
+          "version": 5,
+          "from": "PRIVATE_PROOF",
+          "to": "LOCKED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "proof": {
+              "setup": "PASS",
+              "reproduction": "PASS",
+              "focusedTests": "PASS",
+              "reference": "simulation://proof"
+            },
+            "reservation": {
+              "confirmed": true,
+              "bountyActive": true,
+              "scopeConfirmed": true,
+              "reference": "simulation://assigned-job"
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:6",
+          "version": 6,
+          "from": "LOCKED",
+          "to": "SOLVING",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:7",
+          "version": 7,
+          "from": "SOLVING",
+          "to": "QA",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "solution": {
+              "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+              "author": "solver_a",
+              "reference": "docs/operations/benchmarks/jobs/job-03/evidence/solution.md"
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:8",
+          "version": 8,
+          "from": "QA",
+          "to": "READY_TO_SUBMIT",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "qa": {
+              "reviewer": "independent_qa_lab",
+              "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+              "reference": "docs/operations/benchmarks/jobs/job-03/evidence/QA.md",
+              "acceptanceCriteria": "PASS",
+              "tests": "PASS",
+              "regressions": "PASS",
+              "explainability": "PASS",
+              "prReadiness": "PASS",
+              "build": "PASS",
+              "lint": "PASS",
+              "typecheck": "PASS",
+              "notApplicableReasons": {},
+              "evidence": {
+                "tests": "go test ./... and go test -race ./... pass including independent tests",
+                "lint": "go vet ./... and git diff --check pass",
+                "build": "go build ./... passes; compiler performs typecheck",
+                "independent": "Empty/repeated ReadFrom, discard + tee, partial downstream write error and tee writer error preserve count/error/body"
+              }
+            }
+          }
+        }
+      ],
+      "resumeStatus": null
+    },
+    {
+      "opportunityId": "SIMULATION/submission",
+      "title": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "status": "READY_TO_SUBMIT",
+      "version": 13,
+      "evidence": {
+        "eligibility": {
+          "issueOpen": true,
+          "repositoryAccessible": true,
+          "credibleReward": true,
+          "scopeUnderstandable": true,
+          "competitionNotHopeless": true,
+          "noHardBlocker": true
+        },
+        "proof": {
+          "setup": "PASS",
+          "reproduction": "PASS",
+          "focusedTests": "PASS",
+          "reference": "simulation://proof"
+        },
+        "reservation": {
+          "confirmed": true,
+          "bountyActive": true,
+          "scopeConfirmed": true,
+          "reference": "simulation://assigned-job"
+        },
+        "solution": {
+          "revision": "SIMULATED-REVISED-CODE-2",
+          "author": "solver_a",
+          "reference": "docs/operations/benchmarks/jobs/job-03/evidence/solution.md"
+        },
+        "submission": {
+          "url": "simulation://never-published/pr-1",
+          "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f"
+        },
+        "review": {
+          "reference": "simulation://review/add-empty-input-regression",
+          "request": "Add an empty-input regression test and keep the patch focused"
+        },
+        "qa": {
+          "reviewer": "simulation-independent-qa",
+          "revision": "SIMULATED-REVISED-CODE-2",
+          "reference": "simulation://independent-qa",
+          "acceptanceCriteria": "PASS",
+          "tests": "PASS",
+          "regressions": "PASS",
+          "explainability": "PASS",
+          "prReadiness": "PASS",
+          "build": "PASS",
+          "lint": "PASS",
+          "typecheck": "PASS"
+        }
+      },
+      "humanActionRequired": {
+        "action": "Approve exact public PR submission",
+        "revision": "SIMULATED-REVISED-CODE-2"
+      },
+      "nextAction": "Request owner approval for exact public submission",
+      "createdAt": "2026-09-17T10:37:20.008Z",
+      "updatedAt": "2026-09-17T10:37:20.008Z",
+      "transitions": [
+        {
+          "id": "SIMULATION/submission:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-scout",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:3",
+          "version": 3,
+          "from": "INVESTIGATING",
+          "to": "PHASE3_ELIGIBLE",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "eligibility": {
+              "issueOpen": true,
+              "repositoryAccessible": true,
+              "credibleReward": true,
+              "scopeUnderstandable": true,
+              "competitionNotHopeless": true,
+              "noHardBlocker": true
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:4",
+          "version": 4,
+          "from": "PHASE3_ELIGIBLE",
+          "to": "PRIVATE_PROOF",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:5",
+          "version": 5,
+          "from": "PRIVATE_PROOF",
+          "to": "LOCKED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "proof": {
+              "setup": "PASS",
+              "reproduction": "PASS",
+              "focusedTests": "PASS",
+              "reference": "simulation://proof"
+            },
+            "reservation": {
+              "confirmed": true,
+              "bountyActive": true,
+              "scopeConfirmed": true,
+              "reference": "simulation://assigned-job"
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:6",
+          "version": 6,
+          "from": "LOCKED",
+          "to": "SOLVING",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:7",
+          "version": 7,
+          "from": "SOLVING",
+          "to": "QA",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "solution": {
+              "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+              "author": "solver_a",
+              "reference": "docs/operations/benchmarks/jobs/job-03/evidence/solution.md"
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:8",
+          "version": 8,
+          "from": "QA",
+          "to": "READY_TO_SUBMIT",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "qa": {
+              "reviewer": "independent_qa_lab",
+              "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+              "reference": "docs/operations/benchmarks/jobs/job-03/evidence/QA.md",
+              "acceptanceCriteria": "PASS",
+              "tests": "PASS",
+              "regressions": "PASS",
+              "explainability": "PASS",
+              "prReadiness": "PASS",
+              "build": "PASS",
+              "lint": "PASS",
+              "typecheck": "PASS",
+              "notApplicableReasons": {},
+              "evidence": {
+                "tests": "go test ./... and go test -race ./... pass including independent tests",
+                "lint": "go vet ./... and git diff --check pass",
+                "build": "go build ./... passes; compiler performs typecheck",
+                "independent": "Empty/repeated ReadFrom, discard + tee, partial downstream write error and tee writer error preserve count/error/body"
+              }
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:9",
+          "version": 9,
+          "from": "READY_TO_SUBMIT",
+          "to": "SUBMITTED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "publicApproval": {
+              "approved": true,
+              "actor": "SIMULATED_OWNER",
+              "role": "OWNER",
+              "action": "PUBLIC_PR",
+              "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+              "reference": "simulation://owner-approval-not-real"
+            },
+            "submission": {
+              "url": "simulation://never-published/pr-1",
+              "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f"
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:10",
+          "version": 10,
+          "from": "SUBMITTED",
+          "to": "CHANGES_REQUESTED",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "review": {
+              "reference": "simulation://review/add-empty-input-regression",
+              "request": "Add an empty-input regression test and keep the patch focused"
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:11",
+          "version": 11,
+          "from": "CHANGES_REQUESTED",
+          "to": "SOLVING",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {}
+        },
+        {
+          "id": "SIMULATION/submission:12",
+          "version": 12,
+          "from": "SOLVING",
+          "to": "QA",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "solution": {
+              "revision": "SIMULATED-REVISED-CODE-2",
+              "author": "solver_a",
+              "reference": "docs/operations/benchmarks/jobs/job-03/evidence/solution.md"
+            }
+          }
+        },
+        {
+          "id": "SIMULATION/submission:13",
+          "version": 13,
+          "from": "QA",
+          "to": "READY_TO_SUBMIT",
+          "at": "2026-09-17T10:37:20.008Z",
+          "actor": "simulation-controller",
+          "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+          "evidence": {
+            "qa": {
+              "reviewer": "simulation-independent-qa",
+              "revision": "SIMULATED-REVISED-CODE-2",
+              "reference": "simulation://independent-qa",
+              "acceptanceCriteria": "PASS",
+              "tests": "PASS",
+              "regressions": "PASS",
+              "explainability": "PASS",
+              "prReadiness": "PASS",
+              "build": "PASS",
+              "lint": "PASS",
+              "typecheck": "PASS"
+            }
+          }
+        }
+      ],
+      "resumeStatus": null
+    }
+  ],
+  "history": [
+    {
+      "id": "SIMULATION/credential:1",
+      "version": 1,
+      "from": null,
+      "to": "DISCOVERED",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-scout",
+      "reason": "Opportunity discovered",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/credential:2",
+      "version": 2,
+      "from": "DISCOVERED",
+      "to": "INVESTIGATING",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/credential:3",
+      "version": 3,
+      "from": "INVESTIGATING",
+      "to": "PHASE3_ELIGIBLE",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "eligibility": {
+          "issueOpen": true,
+          "repositoryAccessible": true,
+          "credibleReward": true,
+          "scopeUnderstandable": true,
+          "competitionNotHopeless": true,
+          "noHardBlocker": true
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/credential:4",
+      "version": 4,
+      "from": "PHASE3_ELIGIBLE",
+      "to": "PRIVATE_PROOF",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/credential:5",
+      "version": 5,
+      "from": "PRIVATE_PROOF",
+      "to": "NEEDS_HUMAN_INPUT",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "humanAction": {
+          "action": "Owner must supply authorized API-account access; no fabricated credential",
+          "kind": "API_ACCOUNT"
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/parallel-unblocked:1",
+      "version": 1,
+      "from": null,
+      "to": "DISCOVERED",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-scout",
+      "reason": "Opportunity discovered",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/parallel-unblocked:2",
+      "version": 2,
+      "from": "DISCOVERED",
+      "to": "INVESTIGATING",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/submission:1",
+      "version": 1,
+      "from": null,
+      "to": "DISCOVERED",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-scout",
+      "reason": "Opportunity discovered",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/submission:2",
+      "version": 2,
+      "from": "DISCOVERED",
+      "to": "INVESTIGATING",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/submission:3",
+      "version": 3,
+      "from": "INVESTIGATING",
+      "to": "PHASE3_ELIGIBLE",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "eligibility": {
+          "issueOpen": true,
+          "repositoryAccessible": true,
+          "credibleReward": true,
+          "scopeUnderstandable": true,
+          "competitionNotHopeless": true,
+          "noHardBlocker": true
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/submission:4",
+      "version": 4,
+      "from": "PHASE3_ELIGIBLE",
+      "to": "PRIVATE_PROOF",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/submission:5",
+      "version": 5,
+      "from": "PRIVATE_PROOF",
+      "to": "LOCKED",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "proof": {
+          "setup": "PASS",
+          "reproduction": "PASS",
+          "focusedTests": "PASS",
+          "reference": "simulation://proof"
+        },
+        "reservation": {
+          "confirmed": true,
+          "bountyActive": true,
+          "scopeConfirmed": true,
+          "reference": "simulation://assigned-job"
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/submission:6",
+      "version": 6,
+      "from": "LOCKED",
+      "to": "SOLVING",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/submission:7",
+      "version": 7,
+      "from": "SOLVING",
+      "to": "QA",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "solution": {
+          "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+          "author": "solver_a",
+          "reference": "docs/operations/benchmarks/jobs/job-03/evidence/solution.md"
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/submission:8",
+      "version": 8,
+      "from": "QA",
+      "to": "READY_TO_SUBMIT",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "qa": {
+          "reviewer": "independent_qa_lab",
+          "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+          "reference": "docs/operations/benchmarks/jobs/job-03/evidence/QA.md",
+          "acceptanceCriteria": "PASS",
+          "tests": "PASS",
+          "regressions": "PASS",
+          "explainability": "PASS",
+          "prReadiness": "PASS",
+          "build": "PASS",
+          "lint": "PASS",
+          "typecheck": "PASS",
+          "notApplicableReasons": {},
+          "evidence": {
+            "tests": "go test ./... and go test -race ./... pass including independent tests",
+            "lint": "go vet ./... and git diff --check pass",
+            "build": "go build ./... passes; compiler performs typecheck",
+            "independent": "Empty/repeated ReadFrom, discard + tee, partial downstream write error and tee writer error preserve count/error/body"
+          }
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/submission:9",
+      "version": 9,
+      "from": "READY_TO_SUBMIT",
+      "to": "SUBMITTED",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "publicApproval": {
+          "approved": true,
+          "actor": "SIMULATED_OWNER",
+          "role": "OWNER",
+          "action": "PUBLIC_PR",
+          "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+          "reference": "simulation://owner-approval-not-real"
+        },
+        "submission": {
+          "url": "simulation://never-published/pr-1",
+          "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f"
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/submission:10",
+      "version": 10,
+      "from": "SUBMITTED",
+      "to": "CHANGES_REQUESTED",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "review": {
+          "reference": "simulation://review/add-empty-input-regression",
+          "request": "Add an empty-input regression test and keep the patch focused"
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/submission:11",
+      "version": 11,
+      "from": "CHANGES_REQUESTED",
+      "to": "SOLVING",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {}
+    },
+    {
+      "id": "SIMULATION/submission:12",
+      "version": 12,
+      "from": "SOLVING",
+      "to": "QA",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "solution": {
+          "revision": "SIMULATED-REVISED-CODE-2",
+          "author": "solver_a",
+          "reference": "docs/operations/benchmarks/jobs/job-03/evidence/solution.md"
+        }
+      }
+    },
+    {
+      "id": "SIMULATION/submission:13",
+      "version": 13,
+      "from": "QA",
+      "to": "READY_TO_SUBMIT",
+      "at": "2026-09-17T10:37:20.008Z",
+      "actor": "simulation-controller",
+      "reason": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+      "evidence": {
+        "qa": {
+          "reviewer": "simulation-independent-qa",
+          "revision": "SIMULATED-REVISED-CODE-2",
+          "reference": "simulation://independent-qa",
+          "acceptanceCriteria": "PASS",
+          "tests": "PASS",
+          "regressions": "PASS",
+          "explainability": "PASS",
+          "prReadiness": "PASS",
+          "build": "PASS",
+          "lint": "PASS",
+          "typecheck": "PASS"
+        }
+      }
+    }
+  ]
+}

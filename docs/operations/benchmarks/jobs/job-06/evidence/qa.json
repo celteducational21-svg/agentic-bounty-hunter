@@ -1,0 +1,33 @@
+{
+  "jobId": "job-06",
+  "reviewer": "independent_qa_lab",
+  "revision": "2f046e297a923a51c151136678d510e2dd208c5f",
+  "reviewedRevision": "2f046e297a923a51c151136678d510e2dd208c5f",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": true,
+  "iterations": 1,
+  "completedAt": "2026-09-17T10:35:12.020209+00:00",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "NOT_APPLICABLE",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  },
+  "notApplicableReasons": {
+    "build": "ESM source package without compilation; node syntax check and npm pack dry-run pass"
+  },
+  "findings": [],
+  "evidence": {
+    "npmTest": "XO lint,424 AVA tests and tsd pass",
+    "independentTests": "12 mixed BEL/ST hyperlink terminator cases pass with query/fragment URLs, adjacent ANSI styles, visible-text retention and onlyFirst",
+    "packaging": "npm pack --dry-run pass"
+  },
+  "limitations": [
+    "Current Node runtime only; minimum Node12 runtime not run"
+  ]
+}

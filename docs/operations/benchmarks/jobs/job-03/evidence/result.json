@@ -1,0 +1,23 @@
+{
+  "jobId": "job-03",
+  "worker": "solver_a",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 82.0,
+  "solveSeconds": 64.0,
+  "iterations": 1,
+  "revision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+  "author": "solver_a",
+  "category": "Go HTTP integration",
+  "difficulty": "easy",
+  "regressionFailures": 0,
+  "limitations": [
+    "Go1.27.1 used, supported older-version matrix not run.",
+    "No third-party lint configured; go vet, gofmt and compiler passed."
+  ],
+  "startedAt": "2026-09-17T10:29:23Z",
+  "proofCompletedAt": "2026-09-17T10:30:45Z",
+  "solutionFrozenAt": "2026-09-17T10:31:49Z"
+}

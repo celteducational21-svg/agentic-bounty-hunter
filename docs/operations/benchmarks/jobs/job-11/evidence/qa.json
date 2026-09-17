@@ -1,0 +1,33 @@
+{
+  "jobId": "job-11",
+  "reviewer": "independent_qa_lab",
+  "revision": "6a8d05a5e772ad90db29c2ec0c574bdcd89f8087",
+  "reviewedRevision": "6a8d05a5e772ad90db29c2ec0c574bdcd89f8087",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": true,
+  "iterations": 1,
+  "completedAt": "2026-09-17T10:48:32.496372+00:00",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "NOT_APPLICABLE",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  },
+  "notApplicableReasons": {
+    "build": "Uncompiled ESM source; Node syntax and npm pack dry-run pass"
+  },
+  "findings": [],
+  "evidence": {
+    "tests": "npm test XO+58AVA+tsd pass",
+    "independent": "Concurrent shared-signal listener ownership, external listener preservation, invalid options/iterator factory/input promise errors, pending mapper abort, pending async iterator abort, late completion, pre-aborted signal all pass",
+    "packaging": "npm pack --dry-run and node --check pass"
+  },
+  "limitations": [
+    "Current Node runtime only; minimum Node18 matrix not run"
+  ]
+}

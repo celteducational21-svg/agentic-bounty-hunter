@@ -1,0 +1,340 @@
+
+$ node --test ../qa-edge.mjs
+✔ async source concurrency=1 pressure=1 slowNext=false (47.17711ms)
+✔ async source concurrency=1 pressure=1 slowNext=true (63.391605ms)
+✔ async source concurrency=1 pressure=3 slowNext=false (43.335992ms)
+✔ async source concurrency=1 pressure=3 slowNext=true (66.822001ms)
+✔ async source concurrency=1 pressure=Infinity slowNext=false (45.13628ms)
+✔ async source concurrency=1 pressure=Infinity slowNext=true (65.074119ms)
+✔ async source concurrency=2 pressure=2 slowNext=false (35.449447ms)
+✔ async source concurrency=2 pressure=2 slowNext=true (47.23732ms)
+✔ async source concurrency=2 pressure=4 slowNext=false (26.746647ms)
+✔ async source concurrency=2 pressure=4 slowNext=true (37.709758ms)
+✔ async source concurrency=2 pressure=Infinity slowNext=false (27.623717ms)
+✔ async source concurrency=2 pressure=Infinity slowNext=true (35.20927ms)
+✔ finite backpressure limits prefetched work while consumer pauses (52.340917ms)
+✔ mapper rejection propagates and started work settles (25.942243ms)
+✔ source rejection and empty source terminate (0.834127ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 701.591601
+
+exit=0 seconds=0.76
+
+$ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> p-map@7.0.3 test
+> xo && ava && tsd
+
+
+  ✔ test › handles empty iterable
+  ✔ test › asyncIterator - handles empty iterable
+  ✔ test › pMapIterable - empty
+  ✔ test › invalid mapper
+  ✔ test › already aborted signal
+  ✔ test › pMapIterable - iterable that throws
+  ✔ test › pMapSkip
+  ✔ test › pMapIterable - mapper that throws
+  ✔ test › all pMapSkips
+  ✔ test › multiple pMapSkips
+  ✔ test › pMapIterable - pMapSkip
+  ✔ test › enforce number in options.concurrency
+  ✔ test › asyncIterator - enforce number in options.concurrency
+  ✔ test › pMapIterable - async source concurrency 3, backpressure 4
+  ✔ test › pMapIterable - async source concurrency 3, backpressure Infinity
+  ✔ test › asyncIterator - pMapSkip
+  ✔ test › pMapIterable - async source concurrency 2, backpressure 3
+  ✔ test › pMapIterable - async source concurrency 2, backpressure Infinity
+  ✔ test › asyncIterator - all pMapSkips
+  ✔ test › pMapIterable - async source concurrency 1, backpressure 2
+  ✔ test › pMapIterable - async source concurrency 1, backpressure Infinity
+  ✔ test › asyncIterator - multiple pMapSkips
+  ✘ [fail]: multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity 1.5661007999999998 ≤ 22.860376 ≰ 19.576259999999998
+  ✔ test › abort by AbortController (101ms)
+  ✔ test › no unhandled rejected promises from mapper throws - infinite concurrency (102ms)
+  ✔ test › no unhandled rejected promises from mapper throws - concurrency 1 (102ms)
+  ✔ test › pMapIterable - stop on error (105ms)
+  ✔ test › async with concurrency: 2 (out of order time sequence) (206ms)
+  ✔ test › async with concurrency: 2 (problematic time sequence) (209ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (out of order time sequence) (210ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (problematic time sequence) (256ms)
+  ✔ test › async with concurrency: 2 (random time sequence) (300ms)
+  ✔ test › main (306ms)
+  ✔ test › pMapIterable (301ms)
+  ✔ test › catches exception from source iterator - 1st item (306ms)
+  ✔ test › asyncIterator - main (311ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (random time sequence) (343ms)
+  ✔ test › pMapIterable - concurrency: 2 (352ms)
+  ✔ test › catches exception from source iterator - 2nd item (402ms)
+  ✔ test › catches exception from source iterator - 2nd item after 1st item mapper throw (403ms)
+  ✔ test › asyncIterator - get the correct exception after stop-on-error (500ms)
+  ✔ test › incorrect input type (501ms)
+  ✔ test › immediately rejects when stopOnError is true (526ms)
+  ✔ test › asyncIterator - immediately rejects when stopOnError is true (571ms)
+  ✔ test › all mappers should run when concurrency is infinite, even after stop-on-error happened (605ms)
+  ✔ test › concurrency: 1 (606ms)
+  ✔ test › pMapIterable - concurrency: 1 (602ms)
+  ✔ test › pMapIterable - index in mapper (602ms)
+  ✔ test › asyncIterator - all mappers should run when concurrency is infinite, even after stop-on-error happened (611ms)
+  ✔ test › asyncIterator - concurrency: 1 (631ms)
+  ✔ test › pMapIterable - backpressure (1s)
+  ✔ test › aggregate errors when stopOnError is false (1.2s)
+  ✔ test › asyncIterator - aggregate errors when stopOnError is false (1.3s)
+  ✔ test › concurrency: 4 (2.7s)
+  ✔ test › asyncIterator - concurrency: 4 (3.2s)
+  ─
+
+  multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity
+
+  test-multiple-pmapskips-performance.js:35
+
+   34:     // on the number of `pMapSkip` items in the input.                   
+   35:     assertInRange(t, longerDuration, {start: 1.2 * smallerDuration, end:…
+   36:   }                                                                      
+
+  1.5661007999999998 ≤ 22.860376 ≰ 19.576259999999998
+
+  › assertInRange (file://assert-in-range.js:8:5)
+  › file://test-multiple-pmapskips-performance.js:35:3
+
+  ─
+
+  1 test failed
+
+exit=1 seconds=6.74
+
+$ ./node_modules/.bin/ava test-multiple-pmapskips-performance.js
+
+  ✔ multiple pMapSkips - algorithmic complexity
+  ─
+
+  1 test passed
+
+exit=0 seconds=0.52
+
+$ ./node_modules/.bin/tsd
+
+exit=0 seconds=2.35
+
+$ sh -c git show HEAD^:index.js > index.js; node --test ../qa-edge.mjs
+✔ async source concurrency=1 pressure=1 slowNext=false (47.537976ms)
+✔ async source concurrency=1 pressure=1 slowNext=true (65.281418ms)
+✖ async source concurrency=1 pressure=3 slowNext=false (36.842112ms)
+✖ async source concurrency=1 pressure=3 slowNext=true (48.534304ms)
+✖ async source concurrency=1 pressure=Infinity slowNext=false (37.359488ms)
+✖ async source concurrency=1 pressure=Infinity slowNext=true (47.757021ms)
+✔ async source concurrency=2 pressure=2 slowNext=false (35.279556ms)
+✔ async source concurrency=2 pressure=2 slowNext=true (45.734813ms)
+✖ async source concurrency=2 pressure=4 slowNext=false (28.183016ms)
+✖ async source concurrency=2 pressure=4 slowNext=true (31.741341ms)
+✖ async source concurrency=2 pressure=Infinity slowNext=false (28.033655ms)
+✖ async source concurrency=2 pressure=Infinity slowNext=true (30.737213ms)
+✔ finite backpressure limits prefetched work while consumer pauses (52.748779ms)
+✔ mapper rejection propagates and started work settles (26.103355ms)
+✔ source rejection and empty source terminate (0.843851ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 7
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 638.633683
+
+✖ failing tests:
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=1 pressure=3 slowNext=false (36.842112ms)
+  AssertionError [ERR_ASSERTION]: Observed 2, limit 1
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=1 pressure=3 slowNext=true (48.534304ms)
+  AssertionError [ERR_ASSERTION]: Observed 3, limit 1
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=1 pressure=Infinity slowNext=false (37.359488ms)
+  AssertionError [ERR_ASSERTION]: Observed 2, limit 1
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=1 pressure=Infinity slowNext=true (47.757021ms)
+  AssertionError [ERR_ASSERTION]: Observed 3, limit 1
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=2 pressure=4 slowNext=false (28.183016ms)
+  AssertionError [ERR_ASSERTION]: Observed 3, limit 2
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=2 pressure=4 slowNext=true (31.741341ms)
+  AssertionError [ERR_ASSERTION]: Observed 3, limit 2
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=2 pressure=Infinity slowNext=false (28.033655ms)
+  AssertionError [ERR_ASSERTION]: Observed 3, limit 2
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../qa-edge.mjs:9:7
+✖ async source concurrency=2 pressure=Infinity slowNext=true (30.737213ms)
+  AssertionError [ERR_ASSERTION]: Observed 3, limit 2
+      at TestContext.<anonymous> (file:///workspace/scratch/abh-independent-control-qa/job-12/qa-edge.mjs:30:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+exit=1 seconds=0.7
+
+$ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> p-map@7.0.3 test
+> xo && ava && tsd
+
+
+  ✔ test › handles empty iterable
+  ✔ test › asyncIterator - handles empty iterable
+  ✔ test › pMapIterable - empty
+  ✔ test › invalid mapper
+  ✔ test › already aborted signal
+  ✔ test › pMapIterable - iterable that throws
+  ✔ test › pMapSkip
+  ✔ test › pMapIterable - mapper that throws
+  ✔ test › all pMapSkips
+  ✔ test › multiple pMapSkips
+  ✔ test › pMapIterable - pMapSkip
+  ✔ test › enforce number in options.concurrency
+  ✔ test › asyncIterator - enforce number in options.concurrency
+  ✔ test › pMapIterable - async source concurrency 3, backpressure 4
+  ✔ test › pMapIterable - async source concurrency 3, backpressure Infinity
+  ✔ test › asyncIterator - pMapSkip
+  ✔ test › pMapIterable - async source concurrency 2, backpressure 3
+  ✔ test › pMapIterable - async source concurrency 2, backpressure Infinity
+  ✔ test › asyncIterator - all pMapSkips
+  ✔ test › pMapIterable - async source concurrency 1, backpressure 2
+  ✔ test › pMapIterable - async source concurrency 1, backpressure Infinity
+  ✔ test › asyncIterator - multiple pMapSkips
+  ✔ multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity
+  ✔ test › abort by AbortController (101ms)
+  ✔ test › no unhandled rejected promises from mapper throws - infinite concurrency (103ms)
+  ✔ test › no unhandled rejected promises from mapper throws - concurrency 1 (103ms)
+  ✔ test › pMapIterable - stop on error (103ms)
+  ✔ test › async with concurrency: 2 (out of order time sequence) (206ms)
+  ✔ test › async with concurrency: 2 (problematic time sequence) (210ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (out of order time sequence) (211ms)
+  ✔ test › async with concurrency: 2 (random time sequence) (224ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (problematic time sequence) (255ms)
+  ✔ test › main (308ms)
+  ✔ test › pMapIterable (303ms)
+  ✔ test › catches exception from source iterator - 1st item (307ms)
+  ✔ test › asyncIterator - main (310ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (random time sequence) (314ms)
+  ✔ test › pMapIterable - concurrency: 2 (352ms)
+  ✔ test › catches exception from source iterator - 2nd item (403ms)
+  ✔ test › catches exception from source iterator - 2nd item after 1st item mapper throw (403ms)
+  ✔ test › asyncIterator - get the correct exception after stop-on-error (500ms)
+  ✔ test › incorrect input type (501ms)
+  ✔ test › immediately rejects when stopOnError is true (527ms)
+  ✔ test › asyncIterator - immediately rejects when stopOnError is true (571ms)
+  ✔ test › all mappers should run when concurrency is infinite, even after stop-on-error happened (605ms)
+  ✔ test › pMapIterable - index in mapper (603ms)
+  ✔ test › concurrency: 1 (609ms)
+  ✔ test › pMapIterable - concurrency: 1 (603ms)
+  ✔ test › asyncIterator - all mappers should run when concurrency is infinite, even after stop-on-error happened (610ms)
+  ✔ test › asyncIterator - concurrency: 1 (632ms)
+  ✔ test › pMapIterable - backpressure (1s)
+  ✔ test › aggregate errors when stopOnError is false (1.2s)
+  ✔ test › asyncIterator - aggregate errors when stopOnError is false (1.3s)
+  ✔ test › concurrency: 4 (2.9s)
+  ✔ test › asyncIterator - concurrency: 4 (3.2s)
+  ─
+
+  55 tests passed
+
+exit=0 seconds=8.78
+
+$ git diff HEAD^ HEAD --check
+
+exit=0 seconds=0.0
+
+$ node --check index.js
+
+exit=0 seconds=0.06

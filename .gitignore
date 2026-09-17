@@ -3,3 +3,8 @@ data/opportunity-history.json
 .env*
 node_modules
 validation-output.json
+docs/operations/benchmarks/jobs/*/evidence/baseline/
+docs/operations/benchmarks/jobs/*/evidence/baseline_package/
+docs/operations/benchmarks/jobs/*/evidence/dist/
+docs/operations/benchmarks/jobs/*/evidence/build/
+docs/operations/benchmarks/jobs/*/evidence/**/__pycache__/

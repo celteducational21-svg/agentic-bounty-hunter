@@ -1,0 +1,32 @@
+{
+  "jobId": "job-10",
+  "reviewer": "independent_qa_lab",
+  "revision": "6473d85e7f87f458b8fdadc1de9336478c0d2cfd",
+  "reviewedRevision": "6473d85e7f87f458b8fdadc1de9336478c0d2cfd",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": true,
+  "iterations": 1,
+  "completedAt": "2026-09-17T10:45:45.757186+00:00",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  },
+  "findings": [],
+  "evidence": {
+    "tests": "npm test XO+9AVA+tsd passes",
+    "independent": "CommonJS import assignment and named Limit type compile/run; esModuleInterop default consumer compile/run; invalid default property, bad function argument and readonly mutation rejected as expected",
+    "build": "Independent TypeScript consumer emitted and ran; npm pack dry-run passes",
+    "lint": "XO via npm test passes"
+  },
+  "limitations": [
+    "Node18.20.8 with legacy bundled TS compiler and @types/node12 installed by solver; minimum Node10 not run",
+    "npm11 warns Node18 unsupported but commands succeed; dependency manifests untouched"
+  ]
+}

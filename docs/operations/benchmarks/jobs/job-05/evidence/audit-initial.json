@@ -1,0 +1,38 @@
+{
+  "jobId": "job-05",
+  "auditor": "benchmark_curator",
+  "verdict": "FAIL",
+  "comparedRevision": "25ac173a1af27467018189061e627d28a78432e4",
+  "historicalPR": "https://github.com/joho/godotenv/pull/205",
+  "historicalFixSha": "3fc4292b58a67b78e1dbb6e47b4879a6cc602ec4",
+  "preFixSha": "b311b2657d7c3f549674adf6080d032437caa68c",
+  "auditedAt": "2026-09-17T10:39:57.972494+00:00",
+  "freezeAuthorization": "Root explicitly authorized comparison after frozen Solver and independent QA.",
+  "comparisons": {
+    "rootCause": "MATCH: unquoted parser stops on internal whitespace instead of line boundary.",
+    "behavior": "Core space preservation succeeds, but bare carriage-return line boundaries regress. A=foo\\rB=bar parsed into two bindings before patch, only one A binding after. Historical fix preserves both CR and LF as boundaries.",
+    "tests": "Replay9table cases and5independent QA cases coverLF,CRLF,comments,expansion but omitCR-only. Auditor executed same harness against exact baseline archive and frozen replay; mismatch confirmed.",
+    "scope": "Replay narrower than accepted refactor, retaining legacy helpers. Narrow scope is acceptable but CR-boundary regression is not.",
+    "simplicity": "Forward comment scan is straightforward and handles multiple hashes better than historical reverse search; newline-only scanning is insufficient.",
+    "regressions": "One audit-detected behavioral regression: bare-CR-separated assignments lose following variables. Full Go tests/race/vet/build passed yet missed this case."
+  },
+  "counterexample": {
+    "input": "A=foo\rB=bar",
+    "baseline": {
+      "A": "foo",
+      "B": "bar"
+    },
+    "frozen": {
+      "A": "foo\rB=bar"
+    },
+    "harness": "audit-reproduce.go",
+    "logs": [
+      "audit-baseline.log",
+      "audit-frozen.log"
+    ]
+  },
+  "requiresRepair": true,
+  "qaFalsePositive": true,
+  "readiness": "NOT_READY_TO_SUBMIT",
+  "paidWork": false
+}

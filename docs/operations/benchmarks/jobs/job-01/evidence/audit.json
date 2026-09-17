@@ -1,0 +1,28 @@
+{
+  "jobId": "job-01",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "793425f99da7da72fd30ad42c70925393b61bae5",
+  "historicalPR": "https://github.com/theskumar/python-dotenv/pull/346",
+  "historicalFixSha": "28dbb23b3fc05596877b36b0ea2761af14c4e706",
+  "preFixSha": "b8fdfba09957c6c4872f98c721b185a4ba1711ec",
+  "auditedAt": "2026-09-17T10:34:06.343528+00:00",
+  "freezeAuthorization": "Root explicitly authorized historical reveal after Solver and independent QA frozen.",
+  "comparisons": {
+    "rootCause": "MATCH: README incorrectly used KEY=VALUE whereas installed CLI requires separate KEY VALUE arguments.",
+    "behavior": "MATCH: both incorrect README commands corrected; independent QA executed actual README commands and verified persisted values/list output.",
+    "tests": "Both historical and Solver patches leave implementation/tests unchanged. Solver and independent QA ran132existing tests plus executable README verification. Historical fix had no new regression test.",
+    "scope": "MATCH: exactly two README command lines changed. No unrelated source changes.",
+    "simplicity": "MATCH: focused documentation correction equals accepted diff.",
+    "regressions": "None observed;132tests pass and distribution build passes. Historical baseline lint failure unchanged; mypy not executed due old toolchain incompatibility."
+  },
+  "limitations": [
+    "Documentation-only case does not demonstrate implementation difficulty.",
+    "Lint has pre-existing F401; historical mypy unavailable, NOT_RUN.",
+    "No persistent new automated test was added, but independent execution evidence verifies both examples."
+  ],
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

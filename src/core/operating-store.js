@@ -5,7 +5,7 @@ export function committedOperations() {
   return JSON.parse(readFileSync(new URL('../../docs/operations/state.json', import.meta.url), 'utf8'));
 }
 export function discoveryOperations(scan) {
-  return (scan?.candidates ?? []).map(candidate => {
+  const operations = (scan?.candidates ?? []).map(candidate => {
     const at = scan.fetchedAt;
     let row = createOperation({ opportunityId: candidate.opportunityId, title: candidate.title,
       source: 'GitHub', sourceUrl: candidate.canonicalIssueUrl || candidate.originalIssueUrl,
@@ -26,6 +26,19 @@ export function discoveryOperations(scan) {
     if (candidate.candidatePhase3Status !== 'PHASE3_ELIGIBLE' && code) advance('REJECTED', {rejection:{code,reference:row.sourceUrl}});
     return row;
   });
+  for (const listing of scan?.sourceExpansion?.opportunities ?? []) {
+    // Only the trusted read-only adapter's normalized data reaches this path.
+    // A listing starts investigation; it cannot certify its own proof/approval.
+    let row=createOperation({...listing,source:listing.provider,sourceUrl:listing.url,
+      reward:{...listing.reward,status:'ADVERTISED_LISTING_TOTAL_NOT_PAYMENT'},
+      competition:listing.competition?.submissions == null ? 'UNKNOWN' : `${listing.competition.submissions} observed submissions; distinct competitors unknown`,
+      effort:'UNKNOWN',latestActivity:`Agent-permitted catalogue listing. ${listing.focus}. Scope, geography and individual reward still require investigation.`
+    },{at:scan.fetchedAt,actor:'scout:Superteam'});
+    row=transitionOperation(row,'INVESTIGATING',{at:scan.fetchedAt,actor:'qualifier',expectedVersion:row.version,
+      reason:row.latestActivity,evidence:{source:{reference:listing.url,checkedAt:listing.checkedAt,agentAccess:listing.agentAccess}}});
+    operations.push(row);
+  }
+  return operations;
 }
 export function operatingView(scan, committed = committedOperations(), previousOperations = []) {
   const rows = new Map((scan?.operations || previousOperations).map(row => [row.opportunityId,row]));
@@ -55,11 +68,13 @@ export function operatingView(scan, committed = committedOperations(), previousO
   const summary = summarizeOperations(operations);
   return {operations,...summary,humanActions:[...summary.humanActions,...(committed.humanActions || [])],
     dailyLogs:committed.dailyLogs || [],workers:committed.workers || {},lastScan:scan?.fetchedAt ?? null,
+    sourceExpansion:scan?.sourceExpansion ?? null,sourceEconomics:scan?.sourceEconomics ?? null,
     deploymentCommit:process.env.VERCEL_GIT_COMMIT_SHA || null};
 }
 export function dailyCycle(scan, view) {
   return { date:scan.fetchedAt.slice(0,10), checkedAt:scan.fetchedAt,
-    newOpportunitiesDiscovered:scan.uniqueCount, candidatesInvestigated:scan.admissionAttempts?.length || 0,
+    newOpportunitiesDiscovered:scan.sourceExpansion?.deduplicatedCount ?? scan.uniqueCount, candidatesInvestigated:scan.admissionAttempts?.length || 0,
+    sources:scan.sourceExpansion?.sources?.map(x=>({provider:x.provider,status:x.status,rawCount:x.rawCount,retained:x.listings.length,coverage:x.coverage})) ?? [],
     phase3Proofs:view.operations.filter(x=>x.evidence?.proof).map(x=>({opportunityId:x.opportunityId,...x.evidence.proof})),
     waitingMaintainer:view.counts.WAITING_FOR_MAINTAINER, activeSolves:view.counts.SOLVING,
     qa:view.counts.QA,readyToSubmit:view.counts.READY_TO_SUBMIT,submitted:view.counts.SUBMITTED,

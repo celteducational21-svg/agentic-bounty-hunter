@@ -1,0 +1,173 @@
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test ./...
+ok  	github.com/joho/godotenv	0.003s
+?   	github.com/joho/godotenv/autoload	[no test files]
+?   	github.com/joho/godotenv/cmd/godotenv	[no test files]
+
+exit=0 seconds=0.29
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test -run TestUnquotedWhitespaceAndNewlines -v
+=== RUN   TestUnquotedWhitespaceAndNewlines
+=== RUN   TestUnquotedWhitespaceAndNewlines/spaces
+    parser_whitespace_test.go:30: got map[string]string{"":"bar", "MY_ENV":"foo"}, want map[string]string{"MY_ENV":"foo bar"}
+=== RUN   TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces
+    parser_whitespace_test.go:30: got map[string]string{"":"bar", "MY_ENV":"foo"}, want map[string]string{"MY_ENV":"foo\tbar"}
+=== RUN   TestUnquotedWhitespaceAndNewlines/following_assignment
+    parser_whitespace_test.go:27: unexpected character "\n" in variable name near "bar\nNEXT=baz qux\n"
+=== RUN   TestUnquotedWhitespaceAndNewlines/crlf
+    parser_whitespace_test.go:27: unexpected character "\n" in variable name near "bar\nNEXT=baz\n"
+=== RUN   TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines
+    parser_whitespace_test.go:27: unexpected character "\n" in variable name near "bar\n"
+=== RUN   TestUnquotedWhitespaceAndNewlines/inline_comment
+    parser_whitespace_test.go:27: unexpected character "#" in variable name near "bar # ignored\nNEXT=value"
+=== RUN   TestUnquotedWhitespaceAndNewlines/hash_in_value
+    parser_whitespace_test.go:27: unexpected character "#" in variable name near "baz#qux # ignored"
+=== RUN   TestUnquotedWhitespaceAndNewlines/variable_expansion
+    parser_whitespace_test.go:30: got map[string]string{"":"world", "FOO":"hello", "MY_ENV":"hello"}, want map[string]string{"FOO":"hello", "MY_ENV":"hello world"}
+=== RUN   TestUnquotedWhitespaceAndNewlines/quoted_control
+--- FAIL: TestUnquotedWhitespaceAndNewlines (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/spaces (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/following_assignment (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/crlf (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/inline_comment (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/hash_in_value (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/variable_expansion (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/quoted_control (0.00s)
+FAIL
+exit status 1
+FAIL	github.com/joho/godotenv	0.002s
+
+exit=1 seconds=0.27
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test -run TestUnquotedWhitespaceAndNewlines -v
+=== RUN   TestUnquotedWhitespaceAndNewlines
+=== RUN   TestUnquotedWhitespaceAndNewlines/spaces
+=== RUN   TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces
+=== RUN   TestUnquotedWhitespaceAndNewlines/following_assignment
+=== RUN   TestUnquotedWhitespaceAndNewlines/crlf
+=== RUN   TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines
+=== RUN   TestUnquotedWhitespaceAndNewlines/inline_comment
+=== RUN   TestUnquotedWhitespaceAndNewlines/hash_in_value
+=== RUN   TestUnquotedWhitespaceAndNewlines/variable_expansion
+=== RUN   TestUnquotedWhitespaceAndNewlines/quoted_control
+--- PASS: TestUnquotedWhitespaceAndNewlines (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/spaces (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/following_assignment (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/crlf (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/inline_comment (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/hash_in_value (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/variable_expansion (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/quoted_control (0.00s)
+PASS
+ok  	github.com/joho/godotenv	0.002s
+
+exit=0 seconds=0.28
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test -race ./...
+ok  	github.com/joho/godotenv	1.023s
+?   	github.com/joho/godotenv/autoload	[no test files]
+?   	github.com/joho/godotenv/cmd/godotenv	[no test files]
+
+exit=0 seconds=1.5
+
+$ /workspace/scratch/abh-toolchains/go/bin/go vet ./...
+
+exit=0 seconds=0.19
+
+$ /workspace/scratch/abh-toolchains/go/bin/go build ./...
+
+exit=0 seconds=0.19
+
+$ git diff --check
+
+exit=0 seconds=0.0
+
+$ /workspace/scratch/abh-toolchains/go/bin/gofmt -l parser.go parser_whitespace_test.go
+
+exit=0 seconds=0.01
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test -run TestUnquotedWhitespaceAndNewlines -v
+=== RUN   TestUnquotedWhitespaceAndNewlines
+=== RUN   TestUnquotedWhitespaceAndNewlines/spaces
+=== RUN   TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces
+=== RUN   TestUnquotedWhitespaceAndNewlines/following_assignment
+=== RUN   TestUnquotedWhitespaceAndNewlines/cr_only
+    parser_whitespace_test.go:32: got map[string]string{"MY_ENV":"foo bar\rNEXT=baz"}, want map[string]string{"MY_ENV":"foo bar", "NEXT":"baz"}
+=== RUN   TestUnquotedWhitespaceAndNewlines/cr_empty_and_comment
+    parser_whitespace_test.go:32: got map[string]string{"EMPTY":"# comment\rMY_ENV=foo bar"}, want map[string]string{"EMPTY":"", "MY_ENV":"foo bar"}
+=== RUN   TestUnquotedWhitespaceAndNewlines/crlf
+=== RUN   TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines
+=== RUN   TestUnquotedWhitespaceAndNewlines/inline_comment
+=== RUN   TestUnquotedWhitespaceAndNewlines/hash_in_value
+=== RUN   TestUnquotedWhitespaceAndNewlines/variable_expansion
+=== RUN   TestUnquotedWhitespaceAndNewlines/quoted_control
+--- FAIL: TestUnquotedWhitespaceAndNewlines (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/spaces (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/following_assignment (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/cr_only (0.00s)
+    --- FAIL: TestUnquotedWhitespaceAndNewlines/cr_empty_and_comment (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/crlf (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/inline_comment (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/hash_in_value (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/variable_expansion (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/quoted_control (0.00s)
+FAIL
+exit status 1
+FAIL	github.com/joho/godotenv	0.003s
+
+exit=1 seconds=0.23
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test -run TestUnquotedWhitespaceAndNewlines -v
+=== RUN   TestUnquotedWhitespaceAndNewlines
+=== RUN   TestUnquotedWhitespaceAndNewlines/spaces
+=== RUN   TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces
+=== RUN   TestUnquotedWhitespaceAndNewlines/following_assignment
+=== RUN   TestUnquotedWhitespaceAndNewlines/cr_only
+=== RUN   TestUnquotedWhitespaceAndNewlines/cr_empty_and_comment
+=== RUN   TestUnquotedWhitespaceAndNewlines/crlf
+=== RUN   TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines
+=== RUN   TestUnquotedWhitespaceAndNewlines/inline_comment
+=== RUN   TestUnquotedWhitespaceAndNewlines/hash_in_value
+=== RUN   TestUnquotedWhitespaceAndNewlines/variable_expansion
+=== RUN   TestUnquotedWhitespaceAndNewlines/quoted_control
+--- PASS: TestUnquotedWhitespaceAndNewlines (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/spaces (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/tabs_and_trailing_spaces (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/following_assignment (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/cr_only (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/cr_empty_and_comment (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/crlf (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/empty_and_blank_lines (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/inline_comment (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/hash_in_value (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/variable_expansion (0.00s)
+    --- PASS: TestUnquotedWhitespaceAndNewlines/quoted_control (0.00s)
+PASS
+ok  	github.com/joho/godotenv	0.002s
+
+exit=0 seconds=0.21
+
+$ /workspace/scratch/abh-toolchains/go/bin/go test -race ./...
+ok  	github.com/joho/godotenv	1.020s
+?   	github.com/joho/godotenv/autoload	[no test files]
+?   	github.com/joho/godotenv/cmd/godotenv	[no test files]
+
+exit=0 seconds=1.44
+
+$ /workspace/scratch/abh-toolchains/go/bin/go vet ./...
+
+exit=0 seconds=0.11
+
+$ /workspace/scratch/abh-toolchains/go/bin/go build ./...
+
+exit=0 seconds=0.22
+
+$ git diff --check
+
+exit=0 seconds=0.0

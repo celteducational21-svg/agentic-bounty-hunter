@@ -1,0 +1,15 @@
+diff --git a/README.md b/README.md
+index 045da07..9b56b54 100644
+--- a/README.md
++++ b/README.md
+@@ -141,8 +141,8 @@ without manually opening it.
+ 
+ ```shell
+ $ pip install "python-dotenv[cli]"
+-$ dotenv set USER=foo
+-$ dotenv set EMAIL=foo@example.org
++$ dotenv set USER foo
++$ dotenv set EMAIL foo@example.org
+ $ dotenv list
+ USER=foo
+ EMAIL=foo@example.org

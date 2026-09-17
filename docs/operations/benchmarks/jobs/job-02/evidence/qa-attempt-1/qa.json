@@ -1,0 +1,34 @@
+{
+  "jobId": "job-02",
+  "reviewer": "independent_qa_lab",
+  "revision": "866beae4af46caa1758cbc15a578a7fd65a30a76",
+  "reviewedRevision": "866beae4af46caa1758cbc15a578a7fd65a30a76",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": true,
+  "iterations": 1,
+  "completedAt": "2026-09-17T10:31:31.721972+00:00",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  },
+  "evidence": {
+    "fullTests": "272 passed, 1 skipped",
+    "independentTests": "3110 exhaustive roundtrips passed",
+    "lint": "ruff check and format check pass",
+    "typecheck": "mypy src tests: success20source files",
+    "build": "sdist and wheel pass"
+  },
+  "findings": [],
+  "limitations": [
+    "Linux Python3.12 only; supported alternate interpreter/Windows runtimes not executed",
+    "Initial QA build/install failed for missing setuptools; installed in isolated QA env and both retried successfully"
+  ],
+  "scope": "Independent frozen-revision review; no accepted upstream fixes accessed"
+}

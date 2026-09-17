@@ -1,0 +1,93 @@
+{
+  "jobId": "job-08",
+  "auditor": "benchmark_curator",
+  "verdict": "FAIL",
+  "comparedRevision": "081d4696f5770dae073a7e1d6cfc55ebb7e3e87a",
+  "historicalPR": "https://github.com/more-itertools/more-itertools/pull/720",
+  "historicalFixSha": "719a333bccd20ced15a7b4688fb6d47f05d8606d",
+  "preFixSha": "c8baa10e66de18662114b71edcfa32f5dfdd2881",
+  "auditedAt": "2026-09-17T10:48:01.103685+00:00",
+  "freezeAuthorization": "Root authorized comparison after Solver and independent QA frozen.",
+  "comparisons": {
+    "rootCause": "Different resolution of ambiguous contract: Solver treats behavior as intended and documentation misleading; accepted fix treats implementation as wrong against input-window contract.",
+    "behavior": "NOT_EQUIVALENT: historical implementation advances window on every input including duplicates; replay preserves yielded window. On original example window2, accepted output includes second0, replay omits it.",
+    "tests": "740 suite/doctests and independent729sequence reference tests validate chosen yielded-window contract but not historical accepted input window. New behavior tests pass baseline as expected; only documentation assertion fails baseline.",
+    "scope": "Replay docs/tests versus accepted runtime algorithm/tests. Original author conditionally offered docs fix IF behavior intentional; historical decision chose behavior change.",
+    "simplicity": "Clear focused docs, technically sound on conditional interpretation; does not deliver same historical behavior.",
+    "regressions": "No introduced runtime change or regression. Existing lint/typecheck/strict docs-build failures disclosed."
+  },
+  "failureReason": "Historical acceptance ambiguity unresolved at qualification; conditional documentation alternative not confirmed by maintainer evidence.",
+  "technicalPatchQuality": "PASS_FOR_DOCUMENTATION_ALTERNATIVE",
+  "historicalAcceptanceAlignment": "FAIL",
+  "qaFalsePositive": false,
+  "qualificationMiss": true,
+  "requiresRepair": false,
+  "defensibleAbandonment": true,
+  "abandonmentReason": "Original issue conditionally permits documentation change if runtime behavior intended, but no original maintainer confirmation supplied. Chosen interpretation differs from accepted behavioral resolution; decline post-reveal patch imitation.",
+  "finalDisposition": "ABANDONED/SCOPE_MISMATCH",
+  "readiness": "NOT_READY",
+  "paidWork": false,
+  "behaviorExamples": [
+    {
+      "input": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        3,
+        4,
+        2
+      ],
+      "window": 2,
+      "replay": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        2
+      ],
+      "historicalAccepted": [
+        0,
+        1,
+        0,
+        2,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "input": [
+        1,
+        2,
+        3,
+        4,
+        4,
+        4
+      ],
+      "window": 1,
+      "replay": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "historicalAccepted": [
+        1,
+        2,
+        3,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+✖ return to solving invalidates previous QA and public approval, preserving history (2.305318ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 84.384637
+
+✖ failing tests:
+
+test at test/operations-review-cycle.test.js:5:1
+✖ return to solving invalidates previous QA and public approval, preserving history (2.305318ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   acceptanceCriteria: 'PASS',
+  +   build: 'PASS',
+  +   explainability: 'PASS',
+  +   lint: 'PASS',
+  +   prReadiness: 'PASS',
+  +   reference: 'prior-qa',
+  +   regressions: 'PASS',
+  +   reviewer: 'independent-reviewer',
+  +   revision: 'frozen-revision',
+  +   tests: 'PASS',
+  +   typecheck: 'PASS'
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/da0d11de71cb/agentic-bounty-hunter/test/operations-review-cycle.test.js:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { reviewer: 'independent-reviewer', revision: 'frozen-revision', reference: 'prior-qa', acceptanceCriteria: 'PASS', tests: 'PASS', regressions: 'PASS', explainability: 'PASS', prReadiness: 'PASS', build: 'PASS', lint: 'PASS', typecheck: 'PASS' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

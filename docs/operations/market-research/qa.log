@@ -1,0 +1,9 @@
+Independent QA completed 2026-09-17T11:07:10.175481+00:00
+node /workspace/scratch/abh-stage2-independent-qa/check.mjs
+exit=0 checks=13 pass=13
+npm test
+exit=0 tests=226 pass=226 fail=0
+node --check [superteam,source-economics,operating-store,opportunities,operations]
+all exit=0
+Live discoverSuperteam() public GET executed twice independently; final AVAILABLE raw1 retained1 hackathon. Operations remains INVESTIGATING; economics proofs=accepted=paid=0.
+Initial rejected cases preserved in qa-independent-checks-attempt1.json; follow-up in attempt2. Exact full test output qa-full-suite.log; final test case results qa-independent-checks.json; live data qa-live-superteam.json; reviewed hashes qa-reviewed-files.json.

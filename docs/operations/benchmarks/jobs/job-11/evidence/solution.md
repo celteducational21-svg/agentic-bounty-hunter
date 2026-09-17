@@ -1,0 +1,4 @@
+# Solution
+Retain a named abort handler, share cleanup between all resolve/reject paths, and return immediately on pre-aborted input. Remove only this pMap call's listener. No signatures change, and abort/error reasons are preserved.
+
+Nine regressions cover success, empty and skipped results with shared signals and unrelated listener preservation; mapper and aggregate failure; synchronous and asynchronous iterator failure; active abort; and pre-aborted input without mapper start. Native listener counts return to baseline and ordinary output/error assertions pass. Baseline regression fails in all 9 cases; patched suite passes. Full npm test includes XO lint, 58 AVA tests and tsd PASS. npm pack and git diff --check PASS. No compilation/build step is configured; npm pack verifies published JS/type artifacts. Node24 only; older supported Node matrix not run. Solver verification only, not independent QA.

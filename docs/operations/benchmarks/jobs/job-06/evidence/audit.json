@@ -1,0 +1,27 @@
+{
+  "jobId": "job-06",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "2f046e297a923a51c151136678d510e2dd208c5f",
+  "historicalPR": "https://github.com/chalk/ansi-regex/pull/58",
+  "historicalFixSha": "9cba40dc3df00ee7316c01db4955d31ef7527012",
+  "preFixSha": "b630317841f9ceef4a834ee31c70bf82f27ba1e3",
+  "auditedAt": "2026-09-17T10:36:19.284456+00:00",
+  "freezeAuthorization": "Root explicitly authorized comparison after frozen Solver and independent QA.",
+  "comparisons": {
+    "rootCause": "MATCH: OSC hyperlink terminator recognizer allowed BEL but not ESC-backslash.",
+    "behavior": "PASS for original issue: ESC-backslash hyperlinks match and strip correctly, preserving visible text. Existing BEL behavior retained. Historical patch additionally supports C1 ST U+009C, absent from original issue requirements and replay patch.",
+    "tests": "Solver adds exact matching, stripping, onlyFirst and adjacent ANSI tests. QA424AVA/XO/tsd plus12mixed terminator tests pass. Auditor confirms BEL and ESC-backslash behavior; U+009C differential documented rather than retroactively expanding acceptance.",
+    "scope": "Both change recognizer and tests. Replay is narrower: requested ESC-backslash support only; accepted solution generalizes all3terminators.",
+    "simplicity": "Focused inline alternation, no API change; historical solution factors3terminators into named constant.",
+    "regressions": "No observed regressions within tested issue scope. C1-ST remains an existing limitation, not a regression introduced by this patch."
+  },
+  "limitations": [
+    "Not behaviorally identical to accepted fix: C1 ST U+009C remains unsupported.",
+    "Minimum Node12 runtime not tested."
+  ],
+  "requiresRepair": false,
+  "qaFalsePositive": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

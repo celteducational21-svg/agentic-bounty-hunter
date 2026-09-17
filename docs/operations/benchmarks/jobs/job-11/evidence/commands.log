@@ -1,0 +1,471 @@
+
+$ npm install --ignore-scripts --no-audit --no-fund --package-lock=false
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 621 packages in 6s
+
+exit=0 seconds=6.14
+
+$ node ../evidence/reproduce.mjs
+before: 0
+result: [ 1 ]
+after: 1
+
+exit=0 seconds=0.06
+
+$ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> p-map@7.0.2 test
+> xo && ava && tsd
+
+
+  ✔ test › handles empty iterable
+  ✔ test › asyncIterator - handles empty iterable
+  ✔ test › pMapIterable - empty
+  ✔ test › invalid mapper
+  ✔ test › already aborted signal
+  ✔ test › pMapIterable - iterable that throws
+  ✔ test › pMapSkip
+  ✔ test › pMapIterable - mapper that throws
+  ✔ test › all pMapSkips
+  ✔ test › multiple pMapSkips
+  ✔ test › pMapIterable - pMapSkip
+  ✔ test › enforce number in options.concurrency
+  ✔ test › asyncIterator - enforce number in options.concurrency
+  ✔ test › asyncIterator - pMapSkip
+  ✔ test › asyncIterator - all pMapSkips
+  ✔ test › asyncIterator - multiple pMapSkips
+  ✔ test › abort by AbortController (101ms)
+  ✔ test › no unhandled rejected promises from mapper throws - infinite concurrency (102ms)
+  ✔ test › no unhandled rejected promises from mapper throws - concurrency 1 (102ms)
+  ✔ test › pMapIterable - stop on error (103ms)
+  ✔ multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity (105ms)
+  ✔ test › async with concurrency: 2 (out of order time sequence) (204ms)
+  ✔ test › async with concurrency: 2 (problematic time sequence) (208ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (out of order time sequence) (211ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (problematic time sequence) (255ms)
+  ✔ test › async with concurrency: 2 (random time sequence) (292ms)
+  ✔ test › main (305ms)
+  ✔ test › pMapIterable (301ms)
+  ✔ test › catches exception from source iterator - 1st item (304ms)
+  ✔ test › asyncIterator - main (310ms)
+  ✔ test › pMapIterable - concurrency: 2 (351ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (random time sequence) (362ms)
+  ✔ test › catches exception from source iterator - 2nd item (402ms)
+  ✔ test › catches exception from source iterator - 2nd item after 1st item mapper throw (402ms)
+  ✔ test › asyncIterator - get the correct exception after stop-on-error (500ms)
+  ✔ test › incorrect input type (500ms)
+  ✔ test › immediately rejects when stopOnError is true (526ms)
+  ✔ test › asyncIterator - immediately rejects when stopOnError is true (572ms)
+  ✔ test › all mappers should run when concurrency is infinite, even after stop-on-error happened (603ms)
+  ✔ test › pMapIterable - index in mapper (603ms)
+  ✔ test › concurrency: 1 (606ms)
+  ✔ test › pMapIterable - concurrency: 1 (603ms)
+  ✔ test › asyncIterator - all mappers should run when concurrency is infinite, even after stop-on-error happened (610ms)
+  ✔ test › asyncIterator - concurrency: 1 (630ms)
+  ✔ test › pMapIterable - backpressure (1s)
+  ✔ test › aggregate errors when stopOnError is false (1.2s)
+  ✔ test › asyncIterator - aggregate errors when stopOnError is false (1.3s)
+  ✔ test › concurrency: 4 (2.9s)
+  ✔ test › asyncIterator - concurrency: 4 (3.3s)
+  ─
+
+  49 tests passed
+
+exit=0 seconds=9.3
+
+$ node ../evidence/lifecycle.mjs
+success listeners: 1
+empty listeners: 1
+skip listeners: 1
+mapper error listeners: 1
+aggregate error listeners: 1
+iterator error listeners: 1
+pre-aborted listeners: 1
+
+exit=0 seconds=0.07
+
+$ ./node_modules/.bin/ava test-abort-listeners.js
+
+
+  ✘ Timed out while running tests
+
+  ─
+
+
+exit=1 seconds=43.99
+
+$ ./node_modules/.bin/ava test-abort-listeners.js
+
+  ✔ abort listener cleanup - iterator rejection, async=false
+  ✔ abort listener cleanup - already aborted does not start mapper
+  ✔ abort listener cleanup - mapper rejection, stopOnError=true
+  ✔ abort listener cleanup - iterator rejection, async=true
+  ✔ abort listener cleanup - active abort preserves reason
+  ✔ abort listener cleanup - mapper rejection, stopOnError=false
+  ✔ abort listener cleanup - empty
+  ✔ abort listener cleanup - success
+  ✔ abort listener cleanup - skip
+  ─
+
+  9 tests passed
+
+exit=0 seconds=16.94
+
+$ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> p-map@7.0.2 test
+> xo && ava && tsd
+
+
+  ✔ abort-listeners › abort listener cleanup - iterator rejection, async=false
+  ✔ abort-listeners › abort listener cleanup - already aborted does not start mapper
+  ✔ abort-listeners › abort listener cleanup - mapper rejection, stopOnError=true
+  ✔ abort-listeners › abort listener cleanup - iterator rejection, async=true
+  ✔ abort-listeners › abort listener cleanup - active abort preserves reason
+  ✔ abort-listeners › abort listener cleanup - mapper rejection, stopOnError=false
+  ✔ abort-listeners › abort listener cleanup - empty
+  ✔ abort-listeners › abort listener cleanup - success
+  ✔ abort-listeners › abort listener cleanup - skip
+  ✔ test › handles empty iterable
+  ✔ test › asyncIterator - handles empty iterable
+  ✔ test › pMapIterable - empty
+  ✔ test › invalid mapper
+  ✔ test › already aborted signal
+  ✔ test › pMapIterable - iterable that throws
+  ✔ test › pMapSkip
+  ✔ test › pMapIterable - mapper that throws
+  ✔ test › all pMapSkips
+  ✔ test › multiple pMapSkips
+  ✔ test › pMapIterable - pMapSkip
+  ✔ test › enforce number in options.concurrency
+  ✔ test › asyncIterator - enforce number in options.concurrency
+  ✔ test › asyncIterator - pMapSkip
+  ✔ test › asyncIterator - all pMapSkips
+  ✔ test › asyncIterator - multiple pMapSkips
+  ✔ multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity
+  ✔ test › abort by AbortController
+  ✔ test › no unhandled rejected promises from mapper throws - infinite concurrency (104ms)
+  ✔ test › no unhandled rejected promises from mapper throws - concurrency 1 (103ms)
+  ✔ test › pMapIterable - stop on error (103ms)
+  ✔ test › async with concurrency: 2 (out of order time sequence) (206ms)
+  ✔ test › async with concurrency: 2 (problematic time sequence) (211ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (out of order time sequence) (210ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (problematic time sequence) (255ms)
+  ✔ test › main (308ms)
+  ✔ test › pMapIterable (303ms)
+  ✔ test › async with concurrency: 2 (random time sequence) (307ms)
+  ✔ test › catches exception from source iterator - 1st item (306ms)
+  ✔ test › asyncIterator - main (310ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (random time sequence) (346ms)
+  ✔ test › pMapIterable - concurrency: 2 (352ms)
+  ✔ test › catches exception from source iterator - 2nd item (404ms)
+  ✔ test › catches exception from source iterator - 2nd item after 1st item mapper throw (404ms)
+  ✔ test › asyncIterator - get the correct exception after stop-on-error (500ms)
+  ✔ test › incorrect input type (501ms)
+  ✔ test › immediately rejects when stopOnError is true (527ms)
+  ✔ test › asyncIterator - immediately rejects when stopOnError is true (572ms)
+  ✔ test › pMapIterable - index in mapper (604ms)
+  ✔ test › all mappers should run when concurrency is infinite, even after stop-on-error happened (606ms)
+  ✔ test › concurrency: 1 (608ms)
+  ✔ test › pMapIterable - concurrency: 1 (603ms)
+  ✔ test › asyncIterator - all mappers should run when concurrency is infinite, even after stop-on-error happened (611ms)
+  ✔ test › asyncIterator - concurrency: 1 (630ms)
+  ✔ test › pMapIterable - backpressure (1s)
+  ✔ test › aggregate errors when stopOnError is false (1.2s)
+  ✔ test › asyncIterator - aggregate errors when stopOnError is false (1.3s)
+  ✔ test › asyncIterator - concurrency: 4 (3.1s)
+  ✔ test › concurrency: 4 (3.1s)
+  ─
+
+  58 tests passed
+
+exit=0 seconds=8.89
+
+$ node ../evidence/lifecycle.mjs
+success listeners: 0
+empty listeners: 0
+skip listeners: 0
+mapper error listeners: 0
+aggregate error listeners: 0
+iterator error listeners: 0
+pre-aborted listeners: 0
+
+exit=0 seconds=0.05
+
+$ npm pack --ignore-scripts --pack-destination ../evidence
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm notice
+npm notice 📦  p-map@7.0.2
+npm notice Tarball Contents
+npm notice 6.3kB index.d.ts
+npm notice 7.1kB index.js
+npm notice 1.1kB license
+npm notice 993B package.json
+npm notice 5.7kB readme.md
+npm notice Tarball Details
+npm notice name: p-map
+npm notice version: 7.0.2
+npm notice filename: p-map-7.0.2.tgz
+npm notice package size: 5.8 kB
+npm notice unpacked size: 21.2 kB
+npm notice shasum: 28f84f2c1ce36652bc7640da34124e79f3e03c4f
+npm notice integrity: sha512-dIzE7VWfQh2GT[...]P8n9Zx/V9OrqA==
+npm notice total files: 5
+npm notice
+p-map-7.0.2.tgz
+
+exit=0 seconds=0.58
+
+$ git diff --check
+
+exit=0 seconds=0.0
+
+$ cd ../evidence/baseline && ../../repo/node_modules/.bin/ava test-abort-listeners.js --timeout=15s
+
+  ✘ [fail]: abort listener cleanup - iterator rejection, async=false
+  ✘ [fail]: abort listener cleanup - already aborted does not start mapper
+  ✘ [fail]: abort listener cleanup - mapper rejection, stopOnError=true
+  ✘ [fail]: abort listener cleanup - iterator rejection, async=true
+  ✘ [fail]: abort listener cleanup - active abort preserves reason
+  ✘ [fail]: abort listener cleanup - mapper rejection, stopOnError=false
+  ✘ [fail]: abort listener cleanup - empty
+  ✘ [fail]: abort listener cleanup - success
+  ✘ [fail]: abort listener cleanup - skip
+  ─
+
+  abort listener cleanup - iterator rejection, async=false
+
+  test-abort-listeners.js:60
+
+   59:     await t.throwsAsync(pMap(input, value => value, {signal}), {is: erro…
+   60:     t.is(getEventListeners(signal, 'abort').length, 0);                  
+   61:   });                                                                    
+
+  Difference (- actual, + expected):
+
+  - 1
+  + 0
+
+  › file://test-abort-listeners.js:60:5
+
+
+
+  abort listener cleanup - already aborted does not start mapper
+
+  test-abort-listeners.js:83
+
+   82:   t.false(called);                                              
+   83:   t.is(getEventListeners(controller.signal, 'abort').length, 0);
+   84: });                                                             
+
+  Difference (- actual, + expected):
+
+  - 1
+  + 0
+
+  › file://test-abort-listeners.js:83:4
+
+
+
+  abort listener cleanup - mapper rejection, stopOnError=true
+
+  test-abort-listeners.js:38
+
+   37:                                                        
+   38:     t.is(getEventListeners(signal, 'abort').length, 0);
+   39:   });                                                  
+
+  Difference (- actual, + expected):
+
+  - 1
+  + 0
+
+  › file://test-abort-listeners.js:38:5
+
+
+
+  abort listener cleanup - iterator rejection, async=true
+
+  test-abort-listeners.js:60
+
+   59:     await t.throwsAsync(pMap(input, value => value, {signal}), {is: erro…
+   60:     t.is(getEventListeners(signal, 'abort').length, 0);                  
+   61:   });                                                                    
+
+  Difference (- actual, + expected):
+
+  - 1
+  + 0
+
+  › file://test-abort-listeners.js:60:5
+
+
+
+  abort listener cleanup - active abort preserves reason
+
+  test-abort-listeners.js:71
+
+   70:   }, {signal: controller.signal}), {is: error});                
+   71:   t.is(getEventListeners(controller.signal, 'abort').length, 0);
+   72: });                                                             
+
+  Difference (- actual, + expected):
+
+  - 1
+  + 0
+
+  › file://test-abort-listeners.js:71:4
+
+
+
+  abort listener cleanup - mapper rejection, stopOnError=false
+
+  test-abort-listeners.js:38
+
+   37:                                                        
+   38:     t.is(getEventListeners(signal, 'abort').length, 0);
+   39:   });                                                  
+
+  Difference (- actual, + expected):
+
+  - 1
+  + 0
+
+  › file://test-abort-listeners.js:38:5
+
+
+
+  abort listener cleanup - empty
+
+  test-abort-listeners.js:18
+
+   17:       t.deepEqual(await pMap(input, mapper, {signal}), expected);   
+   18:       t.is(getEventListeners(signal, 'abort').length, 1);           
+   19:       t.true(getEventListeners(signal, 'abort').includes(listener));
+
+  Difference (- actual, + expected):
+
+  - 2
+  + 1
+
+  › file://test-abort-listeners.js:18:6
+
+
+
+  abort listener cleanup - success
+
+  test-abort-listeners.js:18
+
+   17:       t.deepEqual(await pMap(input, mapper, {signal}), expected);   
+   18:       t.is(getEventListeners(signal, 'abort').length, 1);           
+   19:       t.true(getEventListeners(signal, 'abort').includes(listener));
+
+  Difference (- actual, + expected):
+
+  - 2
+  + 1
+
+  › file://test-abort-listeners.js:18:6
+
+
+
+  abort listener cleanup - skip
+
+  test-abort-listeners.js:18
+
+   17:       t.deepEqual(await pMap(input, mapper, {signal}), expected);   
+   18:       t.is(getEventListeners(signal, 'abort').length, 1);           
+   19:       t.true(getEventListeners(signal, 'abort').includes(listener));
+
+  Difference (- actual, + expected):
+
+  - 2
+  + 1
+
+  › file://test-abort-listeners.js:18:6
+
+  ─
+
+  9 tests failed
+
+exit=1 seconds=0.44
+
+$ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> p-map@7.0.2 test
+> xo && ava && tsd
+
+
+  ✔ test › handles empty iterable
+  ✔ test › asyncIterator - handles empty iterable
+  ✔ test › pMapIterable - empty
+  ✔ test › invalid mapper
+  ✔ test › already aborted signal
+  ✔ test › pMapIterable - iterable that throws
+  ✔ test › pMapSkip
+  ✔ test › pMapIterable - mapper that throws
+  ✔ test › all pMapSkips
+  ✔ test › multiple pMapSkips
+  ✔ test › pMapIterable - pMapSkip
+  ✔ test › enforce number in options.concurrency
+  ✔ test › asyncIterator - enforce number in options.concurrency
+  ✔ abort-listeners › abort listener cleanup - iterator rejection, async=false
+  ✔ abort-listeners › abort listener cleanup - already aborted does not start mapper
+  ✔ abort-listeners › abort listener cleanup - mapper rejection, stopOnError=true
+  ✔ abort-listeners › abort listener cleanup - iterator rejection, async=true
+  ✔ abort-listeners › abort listener cleanup - active abort preserves reason
+  ✔ abort-listeners › abort listener cleanup - mapper rejection, stopOnError=false
+  ✔ abort-listeners › abort listener cleanup - empty
+  ✔ abort-listeners › abort listener cleanup - success
+  ✔ abort-listeners › abort listener cleanup - skip
+  ✔ test › asyncIterator - pMapSkip
+  ✔ test › asyncIterator - all pMapSkips
+  ✔ test › asyncIterator - multiple pMapSkips
+  ✔ test › abort by AbortController (101ms)
+  ✔ test › no unhandled rejected promises from mapper throws - infinite concurrency (102ms)
+  ✔ test › no unhandled rejected promises from mapper throws - concurrency 1 (102ms)
+  ✔ test › pMapIterable - stop on error (102ms)
+  ✔ multiple-pmapskips-performance › multiple pMapSkips - algorithmic complexity (114ms)
+  ✔ test › async with concurrency: 2 (out of order time sequence) (205ms)
+  ✔ test › async with concurrency: 2 (problematic time sequence) (208ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (out of order time sequence) (210ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (problematic time sequence) (256ms)
+  ✔ test › main (305ms)
+  ✔ test › pMapIterable (302ms)
+  ✔ test › catches exception from source iterator - 1st item (305ms)
+  ✔ test › async with concurrency: 2 (random time sequence) (309ms)
+  ✔ test › asyncIterator - main (311ms)
+  ✔ test › asyncIterator - async with concurrency: 2 (random time sequence) (345ms)
+  ✔ test › pMapIterable - concurrency: 2 (353ms)
+  ✔ test › catches exception from source iterator - 2nd item (403ms)
+  ✔ test › catches exception from source iterator - 2nd item after 1st item mapper throw (403ms)
+  ✔ test › asyncIterator - get the correct exception after stop-on-error (500ms)
+  ✔ test › incorrect input type (500ms)
+  ✔ test › immediately rejects when stopOnError is true (527ms)
+  ✔ test › asyncIterator - immediately rejects when stopOnError is true (571ms)
+  ✔ test › all mappers should run when concurrency is infinite, even after stop-on-error happened (604ms)
+  ✔ test › concurrency: 1 (605ms)
+  ✔ test › pMapIterable - index in mapper (603ms)
+  ✔ test › pMapIterable - concurrency: 1 (603ms)
+  ✔ test › asyncIterator - all mappers should run when concurrency is infinite, even after stop-on-error happened (610ms)
+  ✔ test › asyncIterator - concurrency: 1 (630ms)
+  ✔ test › pMapIterable - backpressure (1s)
+  ✔ test › aggregate errors when stopOnError is false (1.2s)
+  ✔ test › asyncIterator - aggregate errors when stopOnError is false (1.3s)
+  ✔ test › concurrency: 4 (2.7s)
+  ✔ test › asyncIterator - concurrency: 4 (3s)
+  ─
+
+  58 tests passed
+
+exit=0 seconds=8.33

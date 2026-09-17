@@ -1,0 +1,27 @@
+{
+  "jobId": "job-10",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "6473d85e7f87f458b8fdadc1de9336478c0d2cfd",
+  "historicalPR": "https://github.com/sindresorhus/p-limit/pull/30",
+  "historicalFixSha": "a8a76b639f2ae8bdda6f7f7503d3c693be60c60f",
+  "preFixSha": "0038c559658ad75445de4b3a8c6e0167129e813c",
+  "auditedAt": "2026-09-17T10:48:28.751698+00:00",
+  "freezeAuthorization": "Root authorized comparison after Solver and independent QA frozen.",
+  "comparisons": {
+    "rootCause": "MATCH: declaration advertises default export while runtime uses CommonJS export assignment.",
+    "behavior": "MATCH: declaration namespace merges Limit interface with callable pLimit and export assignment. Implementation declaration matches accepted patch.",
+    "tests": "Replay adds import-assignment/Limit type and rejected default property coverage. QA runs9AVA+XO+tsd and compiles/runs CommonJS and esModuleInterop consumers; invalid args/readonly mutations correctly rejected. Historicalpatch only changeddeclaration.",
+    "scope": "Declaration plus type-regression tests; no runtime algorithmchanges.",
+    "simplicity": "Idiomatic namespace/function merging identicalto accepteddeclaration.",
+    "regressions": "Noobserved type/runtime regression; lint/typechecks/test/consumerbuild/packPASS."
+  },
+  "limitations": [
+    "Node18.20.8 andlegacycompiler; minimumNode10 not run.",
+    "npm11 warns onNode18but commandsexecuted successfully."
+  ],
+  "requiresRepair": false,
+  "qaFalsePositive": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

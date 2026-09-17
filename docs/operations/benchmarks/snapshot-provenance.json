@@ -1,0 +1,110 @@
+[
+  {
+    "id": "job-01",
+    "upstreamPreFixSha": "b8fdfba09957c6c4872f98c721b185a4ba1711ec",
+    "localSyntheticBaselineSha": "053d39937466fa31d664282d890722eb30cb0f4e",
+    "snapshotTree": "5fa8d23d432c488591615a27120e6ce17ddbd2e8",
+    "archiveSha256": "e6805a68e7812a5cd2ed624a1f89e08202ffe103f4059770302d794babb97da6",
+    "archiveSource": "https://codeload.github.com/theskumar/python-dotenv/tar.gz/b8fdfba09957c6c4872f98c721b185a4ba1711ec",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-02",
+    "upstreamPreFixSha": "751f8c148222e58aa173c83c4e5e6cfccb2cc124",
+    "localSyntheticBaselineSha": "e4ac52dc9546b8adec5ec15c2b76e6f323f9edc6",
+    "snapshotTree": "1abdcc268cf2f4f5abd7a5153bb3af947bfdd055",
+    "archiveSha256": "691dacd7fecd675d0a1cc5f7f3f078711bc562a05bce0450912f90cdc9db3f8f",
+    "archiveSource": "https://codeload.github.com/theskumar/python-dotenv/tar.gz/751f8c148222e58aa173c83c4e5e6cfccb2cc124",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-03",
+    "upstreamPreFixSha": "a54874f0e2f12647a19e82ee70dfa8185014100c",
+    "localSyntheticBaselineSha": "0b83ca19fb94cb26d64ddf274436497245279d5f",
+    "snapshotTree": "f819b9a6a1796c16161f55d28e28f905bcc443dc",
+    "archiveSha256": "fd77cc1b664a94bc61fd96678560ea37affb6f985f6a9de82d00674fa5313c08",
+    "archiveSource": "https://codeload.github.com/go-chi/chi/tar.gz/a54874f0e2f12647a19e82ee70dfa8185014100c",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-04",
+    "upstreamPreFixSha": "f975af0cb10cbefaccf0422385420fe62722d648",
+    "localSyntheticBaselineSha": "73ebb1552384861a35fa96a66c354e0bde2573c3",
+    "snapshotTree": "ce5f741a71c3ff9a04cad7667bb3ee6fffa9daca",
+    "archiveSha256": "0e0e371ebc96de6617413e90e5b0d9946904b2f4aa8677a2f8cfb572921f26f7",
+    "archiveSource": "https://codeload.github.com/go-chi/chi/tar.gz/f975af0cb10cbefaccf0422385420fe62722d648",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-05",
+    "upstreamPreFixSha": "b311b2657d7c3f549674adf6080d032437caa68c",
+    "localSyntheticBaselineSha": "c3a49c36adf93c2fe3530bd377a982fe33e2ef83",
+    "snapshotTree": "933c12402d360b55168cd6b0b111caee0417f381",
+    "archiveSha256": "3a04f281ef51f68b07aa7d3a5fcdd19ce635b916a9a8fc42a9f9dcde8781c4aa",
+    "archiveSource": "https://codeload.github.com/joho/godotenv/tar.gz/b311b2657d7c3f549674adf6080d032437caa68c",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-06",
+    "upstreamPreFixSha": "b630317841f9ceef4a834ee31c70bf82f27ba1e3",
+    "localSyntheticBaselineSha": "bc214665d3fbd4c3067cefeb94a6b74474fc38da",
+    "snapshotTree": "d9a8209a42387bd8aed63679b9839cc944614370",
+    "archiveSha256": "b0ec8d1ef1ecd957c00576a4eec3eb7100a00af18d716bc50af0eeb0f8022d9c",
+    "archiveSource": "https://codeload.github.com/chalk/ansi-regex/tar.gz/b630317841f9ceef4a834ee31c70bf82f27ba1e3",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-07",
+    "upstreamPreFixSha": "ebc7a8f776debfa33f0b380b57a444bca75a251b",
+    "localSyntheticBaselineSha": "caf3763c960a27f411a4daa59d1c42ee7e43eafb",
+    "snapshotTree": "170b4c04bb9e97be8e3ff2b89d151f327bb11e04",
+    "archiveSha256": "6d69c541f9917e14156f6b0078078d86fe32587084bae30a3c23952846bb7cc9",
+    "archiveSource": "https://codeload.github.com/mahmoud/boltons/tar.gz/ebc7a8f776debfa33f0b380b57a444bca75a251b",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-08",
+    "upstreamPreFixSha": "c8baa10e66de18662114b71edcfa32f5dfdd2881",
+    "localSyntheticBaselineSha": "d4ad5645ec8370b084bdbba71cc8bc2888763723",
+    "snapshotTree": "7476cda4400c8ab16575f993e4e03e781681cb0d",
+    "archiveSha256": "0df2a820edaab8667b8cf1b58c99fa9e45c9568d31347322a3cbbdb617d26861",
+    "archiveSource": "https://codeload.github.com/more-itertools/more-itertools/tar.gz/c8baa10e66de18662114b71edcfa32f5dfdd2881",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-09",
+    "upstreamPreFixSha": "6793bd3e4ed15318746ed2511733f12a9932eb64",
+    "localSyntheticBaselineSha": "0ac518c52cda0f1affb43cf72c158fede74c6d64",
+    "snapshotTree": "b6aa66866b774202e6ab3a4936eaaf01831feb51",
+    "archiveSha256": "575c13958ac09d0fad04c224ecf6590b8ee82fec71f40d2f2b91d9005802de73",
+    "archiveSource": "https://codeload.github.com/more-itertools/more-itertools/tar.gz/6793bd3e4ed15318746ed2511733f12a9932eb64",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-10",
+    "upstreamPreFixSha": "0038c559658ad75445de4b3a8c6e0167129e813c",
+    "localSyntheticBaselineSha": "7b3dacd99b9a58f18ac7f3cb6893e3c51a4f6b77",
+    "snapshotTree": "5867ae9e53b33030fde2b7955a25a3ca9e2be548",
+    "archiveSha256": "57f3ffdc9c94c5245dbf63d8727bfc7d37a542bebd297f02369f57ed289795c5",
+    "archiveSource": "https://codeload.github.com/sindresorhus/p-limit/tar.gz/0038c559658ad75445de4b3a8c6e0167129e813c",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-11",
+    "upstreamPreFixSha": "a38d5a7180ba9ecd6a02e37ec5cc6ae11f3433ac",
+    "localSyntheticBaselineSha": "be3d28bb4319550ea3e8c7a5a1c55499f4fe4d4b",
+    "snapshotTree": "9ed191e626b9a0551ecbb1ff389925d21cd77c6d",
+    "archiveSha256": "f632fbf7c4ea78937c31ca8c73aa93631231fb15810574b844f187d7534d7285",
+    "archiveSource": "https://codeload.github.com/sindresorhus/p-map/tar.gz/a38d5a7180ba9ecd6a02e37ec5cc6ae11f3433ac",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  },
+  {
+    "id": "job-12",
+    "upstreamPreFixSha": "2ba3a002acac080c60c47ca1dfa2fad3e17f5b7c",
+    "localSyntheticBaselineSha": "2cadf47fed9723d755988575ba61a57ab959c059",
+    "snapshotTree": "baa565488f47a35dc1c164a3e05bbabcdf80b7c0",
+    "archiveSha256": "00e26984f65d4bffb202957c9c815441a647bf48e732a52122670334580f3208",
+    "archiveSource": "https://codeload.github.com/sindresorhus/p-map/tar.gz/2ba3a002acac080c60c47ca1dfa2fad3e17f5b7c",
+    "method": "Extract pre-fix archive preserving source and license; git init new root with no upstream history or remote. Synthetic SHA differs intentionally from upstream SHA."
+  }
+]

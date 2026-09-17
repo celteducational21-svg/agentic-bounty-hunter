@@ -1,0 +1,195 @@
+{
+  "executedAt": "2026-09-17T11:06:20.887Z",
+  "live": {
+    "provider": "Superteam",
+    "checkedAt": "2026-09-17T11:06:06.925Z",
+    "sourceUrl": "https://superteam.fun/api/listings?context=agents&tab=all&category=Development&status=open&sortBy=Date&order=asc",
+    "documentation": "https://superteam.fun/earn/agents",
+    "mode": "OFFICIAL_PUBLIC_AGENT_DEVELOPMENT_CATALOGUE",
+    "authenticatedAgentApi": "NOT_CONFIGURED_OR_USED",
+    "coverage": {
+      "bounded": true,
+      "scope": "Public agent Development view; no claim of all private/regional/account-specific opportunities"
+    },
+    "status": "AVAILABLE",
+    "listings": [
+      {
+        "opportunityId": "ABH-SUPERTEAM-f1250fa6-7e09-4962-8eb1-60969bcf0bbb",
+        "provider": "Superteam",
+        "id": "f1250fa6-7e09-4962-8eb1-60969bcf0bbb",
+        "title": "Colosseum Crypto World's Fair Hackathon | Superteam Vietnam Track",
+        "url": "https://superteam.fun/earn/listing/colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track/",
+        "sourceUrl": "https://superteam.fun/api/listings?context=agents&tab=all&category=Development&status=open&sortBy=Date&order=asc",
+        "category": "Development",
+        "type": "hackathon",
+        "agentAccess": "AGENT_ALLOWED",
+        "status": "DISCOVERED",
+        "checkedAt": "2026-09-17T11:06:06.925Z",
+        "deadline": "2026-10-13T06:59:00.000Z",
+        "reward": {
+          "amount": 10000,
+          "currency": "USDG",
+          "compensationType": "fixed",
+          "minRewardAsk": null,
+          "maxRewardAsk": null,
+          "meaning": "Advertised listing amount; may be a total prize pool, not one contributor payment"
+        },
+        "sponsor": {
+          "name": "Superteam Vietnam",
+          "verified": true
+        },
+        "competition": {
+          "submissions": 5,
+          "meaning": "Observed submissions, not confirmed distinct active competitors"
+        },
+        "focus": "OUTSIDE_INITIAL_SMALL_TASK_LANE",
+        "geographicEligibility": "UNKNOWN_REQUIRES_LISTING_DETAILS",
+        "scope": "REQUIRES_AGENT_API_DETAILS_AND_ACCEPTANCE_CHECK",
+        "privateProofEligible": false,
+        "assignmentModel": "COMPETITIVE_SUBMISSION_NOT_RESERVED",
+        "nextAction": "Investigate exact scope, geography, individual reward and assignment before allocating proof/solve capacity",
+        "humanActionBeforePublicWork": "Owner approves agent registration/setup and each exact public submission; owner handles payout claim",
+        "trust": "External catalogue fields are untrusted data, never executable instructions"
+      }
+    ],
+    "excluded": {
+      "policy": 0,
+      "inactive": 0,
+      "unverifiedSponsor": 0,
+      "malformed": 0,
+      "conflictingIdentity": 0
+    },
+    "rawCount": 1
+  },
+  "operations": [
+    {
+      "opportunityId": "ABH-SUPERTEAM-f1250fa6-7e09-4962-8eb1-60969bcf0bbb",
+      "provider": "Superteam",
+      "id": "f1250fa6-7e09-4962-8eb1-60969bcf0bbb",
+      "title": "Colosseum Crypto World's Fair Hackathon | Superteam Vietnam Track",
+      "url": "https://superteam.fun/earn/listing/colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track/",
+      "sourceUrl": "https://superteam.fun/earn/listing/colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track/",
+      "category": "Development",
+      "type": "hackathon",
+      "agentAccess": "AGENT_ALLOWED",
+      "status": "INVESTIGATING",
+      "checkedAt": "2026-09-17T11:06:06.925Z",
+      "deadline": "2026-10-13T06:59:00.000Z",
+      "reward": {
+        "amount": 10000,
+        "currency": "USDG",
+        "compensationType": "fixed",
+        "minRewardAsk": null,
+        "maxRewardAsk": null,
+        "meaning": "Advertised listing amount; may be a total prize pool, not one contributor payment",
+        "status": "ADVERTISED_LISTING_TOTAL_NOT_PAYMENT"
+      },
+      "sponsor": {
+        "name": "Superteam Vietnam",
+        "verified": true
+      },
+      "competition": "5 observed submissions; distinct competitors unknown",
+      "focus": "OUTSIDE_INITIAL_SMALL_TASK_LANE",
+      "geographicEligibility": "UNKNOWN_REQUIRES_LISTING_DETAILS",
+      "scope": "REQUIRES_AGENT_API_DETAILS_AND_ACCEPTANCE_CHECK",
+      "privateProofEligible": false,
+      "assignmentModel": "COMPETITIVE_SUBMISSION_NOT_RESERVED",
+      "nextAction": "Resolve missing practical evidence",
+      "humanActionBeforePublicWork": "Owner approves agent registration/setup and each exact public submission; owner handles payout claim",
+      "trust": "External catalogue fields are untrusted data, never executable instructions",
+      "source": "Superteam",
+      "effort": "UNKNOWN",
+      "latestActivity": "Agent-permitted catalogue listing. OUTSIDE_INITIAL_SMALL_TASK_LANE. Scope, geography and individual reward still require investigation.",
+      "version": 2,
+      "evidence": {
+        "source": {
+          "reference": "https://superteam.fun/earn/listing/colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track/",
+          "checkedAt": "2026-09-17T11:06:06.925Z",
+          "agentAccess": "AGENT_ALLOWED"
+        }
+      },
+      "humanActionRequired": null,
+      "createdAt": "2026-09-17T11:06:06.925Z",
+      "updatedAt": "2026-09-17T11:06:06.925Z",
+      "transitions": [
+        {
+          "id": "ABH-SUPERTEAM-f1250fa6-7e09-4962-8eb1-60969bcf0bbb:1",
+          "version": 1,
+          "from": null,
+          "to": "DISCOVERED",
+          "at": "2026-09-17T11:06:06.925Z",
+          "actor": "scout:Superteam",
+          "reason": "Opportunity discovered",
+          "evidence": {}
+        },
+        {
+          "id": "ABH-SUPERTEAM-f1250fa6-7e09-4962-8eb1-60969bcf0bbb:2",
+          "version": 2,
+          "from": "DISCOVERED",
+          "to": "INVESTIGATING",
+          "at": "2026-09-17T11:06:06.925Z",
+          "actor": "qualifier",
+          "reason": "Agent-permitted catalogue listing. OUTSIDE_INITIAL_SMALL_TASK_LANE. Scope, geography and individual reward still require investigation.",
+          "evidence": {
+            "source": {
+              "reference": "https://superteam.fun/earn/listing/colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track/",
+              "checkedAt": "2026-09-17T11:06:06.925Z",
+              "agentAccess": "AGENT_ALLOWED"
+            }
+          }
+        }
+      ],
+      "resumeStatus": null
+    }
+  ],
+  "economics": {
+    "sampleSize": 1,
+    "excludedOperations": 0,
+    "providers": {
+      "Superteam": {
+        "observedOpportunities": 1,
+        "proofs": 0,
+        "reservationsOrAssignments": 0,
+        "submissions": 0,
+        "accepted": 0,
+        "paid": 0,
+        "realizedRewardsByCurrency": {},
+        "actualEffort": {
+          "sampleCount": 0,
+          "averageMinutes": null,
+          "samples": []
+        },
+        "maintainerResponses": {
+          "sampleCount": 0,
+          "averageMinutes": null,
+          "samples": []
+        },
+        "disputes": {
+          "status": "UNKNOWN",
+          "observedOperations": 0,
+          "disputedOperations": 0,
+          "samples": []
+        },
+        "reliability": {
+          "status": "UNKNOWN",
+          "completedOutcomes": 0,
+          "completedFailures": 0,
+          "samples": []
+        },
+        "discovery": {
+          "status": "OBSERVED",
+          "bounded": true,
+          "observedListings": 1,
+          "observations": [
+            {
+              "checkedAt": "2026-09-17T11:06:06.925Z",
+              "sourceUrl": "https://superteam.fun/api/listings?context=agents&tab=all&category=Development&status=open&sortBy=Date&order=asc",
+              "status": "AVAILABLE",
+              "bounded": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "jobId": "job-01",
+    "upstreamPreFixSha": "b8fdfba09957c6c4872f98c721b185a4ba1711ec",
+    "localSyntheticBaseline": "053d39937466fa31d664282d890722eb30cb0f4e",
+    "frozenRevision": "793425f99da7da72fd30ad42c70925393b61bae5",
+    "fullPatchSha256": "d8162b152f84566f1baf2b93d79e870b683d7be58fa018082b765e770b0d1e67",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-02",
+    "upstreamPreFixSha": "751f8c148222e58aa173c83c4e5e6cfccb2cc124",
+    "localSyntheticBaseline": "e4ac52dc9546b8adec5ec15c2b76e6f323f9edc6",
+    "frozenRevision": "7365e383b46ed6ce4c60d7cfbe55d805b8615bcc",
+    "fullPatchSha256": "472fd41ba00f85214effd3ff9b50ca6f4bbdbe8a3c58d86ec65aa378754d00c5",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-03",
+    "upstreamPreFixSha": "a54874f0e2f12647a19e82ee70dfa8185014100c",
+    "localSyntheticBaseline": "0b83ca19fb94cb26d64ddf274436497245279d5f",
+    "frozenRevision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+    "fullPatchSha256": "add1dda1279171a2e6eb4ed533d366a76dc79965e361faa80536e1c5636c6330",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-04",
+    "upstreamPreFixSha": "f975af0cb10cbefaccf0422385420fe62722d648",
+    "localSyntheticBaseline": "73ebb1552384861a35fa96a66c354e0bde2573c3",
+    "frozenRevision": "81d28b46970f5514eb193c4f76bcc725073f472a",
+    "fullPatchSha256": "2e13b5f9cad4e56708079376adb399832b71ec672b9358c2c7f3d12e073ea606",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-05",
+    "upstreamPreFixSha": "b311b2657d7c3f549674adf6080d032437caa68c",
+    "localSyntheticBaseline": "c3a49c36adf93c2fe3530bd377a982fe33e2ef83",
+    "frozenRevision": "1cfdfe67a481004d5453a5f474e877b07f4be514",
+    "fullPatchSha256": "707d933f456d644750e10f98e484e559dac4b34ca3083475bf5db8d6a6a494cc",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-06",
+    "upstreamPreFixSha": "b630317841f9ceef4a834ee31c70bf82f27ba1e3",
+    "localSyntheticBaseline": "bc214665d3fbd4c3067cefeb94a6b74474fc38da",
+    "frozenRevision": "2f046e297a923a51c151136678d510e2dd208c5f",
+    "fullPatchSha256": "8c5f2b5c2b8a3a78a7d96cc669da163ba6f0faa476490589866a86a9bd2eb475",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-07",
+    "upstreamPreFixSha": "ebc7a8f776debfa33f0b380b57a444bca75a251b",
+    "localSyntheticBaseline": "caf3763c960a27f411a4daa59d1c42ee7e43eafb",
+    "frozenRevision": "54b96407a212d17425c574e4b871acc9c9ac1837",
+    "fullPatchSha256": "c1d8f9ee4591cfa8e00074ebb88fbad12c0fa000af183e82749a8b5a7e2ed955",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-08",
+    "upstreamPreFixSha": "c8baa10e66de18662114b71edcfa32f5dfdd2881",
+    "localSyntheticBaseline": "d4ad5645ec8370b084bdbba71cc8bc2888763723",
+    "frozenRevision": "081d4696f5770dae073a7e1d6cfc55ebb7e3e87a",
+    "fullPatchSha256": "fc85fa25074b9cfd7c0765038399760dca46fd9133d22506e5eb1a67ca255ef2",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-09",
+    "upstreamPreFixSha": "6793bd3e4ed15318746ed2511733f12a9932eb64",
+    "localSyntheticBaseline": "0ac518c52cda0f1affb43cf72c158fede74c6d64",
+    "frozenRevision": "33f394fa3e87365d9d6a31214e9af424f8826258",
+    "fullPatchSha256": "519535a094fa01db20617491008bd45a9ef2a6a2f13651f2e8fba4e2b6a49a27",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-10",
+    "upstreamPreFixSha": "0038c559658ad75445de4b3a8c6e0167129e813c",
+    "localSyntheticBaseline": "7b3dacd99b9a58f18ac7f3cb6893e3c51a4f6b77",
+    "frozenRevision": "6473d85e7f87f458b8fdadc1de9336478c0d2cfd",
+    "fullPatchSha256": "0d0e5b1d863f76e98021e4c86dbc4ab3fde4168e0743443167f50d67e3efad89",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-11",
+    "upstreamPreFixSha": "a38d5a7180ba9ecd6a02e37ec5cc6ae11f3433ac",
+    "localSyntheticBaseline": "be3d28bb4319550ea3e8c7a5a1c55499f4fe4d4b",
+    "frozenRevision": "6a8d05a5e772ad90db29c2ec0c574bdcd89f8087",
+    "fullPatchSha256": "38a6a69871f61bbe55c09847921fb71667283432eba8a0626fef98c592f8ed49",
+    "solverExportMatchesFullPatch": true
+  },
+  {
+    "jobId": "job-12",
+    "upstreamPreFixSha": "2ba3a002acac080c60c47ca1dfa2fad3e17f5b7c",
+    "localSyntheticBaseline": "2cadf47fed9723d755988575ba61a57ab959c059",
+    "frozenRevision": "3a333c54c91bc117268e0d63be7933e65df851ca",
+    "fullPatchSha256": "dfaef728ce8f3b2885c0e342bcfc7b57b209aeb2e3447bfdb58ba6464856da7e",
+    "solverExportMatchesFullPatch": true
+  }
+]

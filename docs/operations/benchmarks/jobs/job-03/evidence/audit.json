@@ -1,0 +1,26 @@
+{
+  "jobId": "job-03",
+  "auditor": "benchmark_curator",
+  "verdict": "PASS",
+  "comparedRevision": "7b781a57bcd3027421a96ea24629ffa4831e691f",
+  "historicalPR": "https://github.com/go-chi/chi/pull/1085",
+  "historicalFixSha": "4ef87eaf2cfb27d3126d48194e1a84806acc1aed",
+  "preFixSha": "a54874f0e2f12647a19e82ee70dfa8185014100c",
+  "auditedAt": "2026-09-17T10:36:53.793075+00:00",
+  "freezeAuthorization": "Root explicitly authorized comparison after frozen Solver and independent QA.",
+  "comparisons": {
+    "rootCause": "MATCH: tee ReadFrom delegates to basicWriter.Write, which already increments bytes; second addition double-counts.",
+    "behavior": "MATCH: remove redundant count update in tee branch while preserving copy result/error and unmodified non-tee fast path.",
+    "tests": "Replay expands accepted regression to tee/non-tee, reader WriterTo availability, earlier write accumulation, body,status and tee-content checks. Independent QA additionally validates repeated/empty reads,discard,partial downstream errors and tee errors.",
+    "scope": "MATCH: one function and focused test file only.",
+    "simplicity": "Replay directly returns io.Copy; accepted patch retains intermediate variables and explanatory comment. Equivalent behavior; replay simpler.",
+    "regressions": "Independent go test ./..., race suite,vet,build and compiler typecheck pass. No observed regression."
+  },
+  "limitations": [
+    "Go1.27.1 Linux only; other supported versions not run."
+  ],
+  "requiresRepair": false,
+  "qaFalsePositive": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "paidWork": false
+}

@@ -1,0 +1,57 @@
+{
+  "executedAt": "2026-09-17T11:05:11.144Z",
+  "checks": [
+    {
+      "name": "deadline exactly now is expired",
+      "result": "PASS"
+    },
+    {
+      "name": "duplicate conflict {\"status\":\"CLOSED\"}",
+      "result": "PASS"
+    },
+    {
+      "name": "duplicate conflict {\"agentAccess\":\"HUMAN_ONLY\"}",
+      "result": "PASS"
+    },
+    {
+      "name": "duplicate conflict {\"sponsor\":{\"isVerified\":false}}",
+      "result": "PASS"
+    },
+    {
+      "name": "duplicate conflict {\"isWinnersAnnounced\":true}",
+      "result": "PASS"
+    },
+    {
+      "name": "source GET failure isolated and error content suppressed",
+      "result": "PASS"
+    },
+    {
+      "name": "hackathon total no proof or paid promotion and real benchmark title retained",
+      "result": "PASS"
+    },
+    {
+      "name": "active operation unchanged under discovery outage",
+      "result": "PASS"
+    },
+    {
+      "name": "benchmark proof cannot become economics",
+      "result": "PASS"
+    },
+    {
+      "name": "unknown status alone contributes no economic outcomes",
+      "result": "PASS"
+    },
+    {
+      "name": "existing snapshot RPC payload includes source and operations without schema writes",
+      "result": "PASS"
+    },
+    {
+      "name": "canonical URL conflicts across IDs quarantined in both orders",
+      "result": "PASS"
+    },
+    {
+      "name": "API failures do not return raw transport errors",
+      "result": "PASS"
+    }
+  ]
+}

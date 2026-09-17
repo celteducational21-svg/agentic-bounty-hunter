@@ -1,0 +1,24 @@
+{
+  "jobId": "job-05",
+  "worker": "solver_a",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 69.0,
+  "solveSeconds": 59.0,
+  "iterations": 2,
+  "revision": "1cfdfe67a481004d5453a5f474e877b07f4be514",
+  "author": "solver_a",
+  "category": "Go configuration parsing",
+  "difficulty": "medium",
+  "regressionFailures": 1,
+  "limitations": [
+    "Go1.27.1 used; older Go matrix not run.",
+    "Separate lint N/A: none configured; go vet and gofmt passed; go build covers typing."
+  ],
+  "startedAt": "2026-09-17T10:32:16Z",
+  "proofCompletedAt": "2026-09-17T10:33:25Z",
+  "solutionFrozenAt": "2026-09-17T10:40:48Z",
+  "iteration2Seconds": 49.0
+}

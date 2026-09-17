@@ -1,0 +1,30 @@
+{
+  "jobId": "job-08", "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "reviewer": "control_drills_qa", "revision": "081d4696f5770dae073a7e1d6cfc55ebb7e3e87a",
+  "verdict": "PASS", "result": "PASS", "firstPass": true, "iterations": 1,
+  "completedAt": "2026-09-17T10:44:01Z",
+  "checks": {
+    "acceptanceCriteria": "PASS", "tests": "PASS", "regressions": "PASS",
+    "explainability": "PASS", "prReadiness": "PASS", "build": "PASS",
+    "lint": "FAIL_PRE_EXISTING", "typecheck": "FAIL_PRE_EXISTING"
+  },
+  "notApplicableReasons": {},
+  "evidence": {
+    "tests": "740 unittest/doctests passed including four independent cases",
+    "independent": "Exhaustive 729 length-six ternary sequences across four window sizes match independent yielded-window reference; keyed objects, empty/singleton/lazy consumption and documentation disambiguation verified",
+    "baseline": "Documentation contract assertion fails pre-fix; three behavioral tests pass pre-fix as expected for issue-author-permitted documentation clarification",
+    "build": "sdist and wheel build PASS; Sphinx HTML generated but -W gate exits1 for deprecated get_html_theme_path in unchanged docs/conf.py",
+    "lint": "Frozen changed files have same E721 as historical parent; Black tests/test_more.py fails both parent and solution, more.py passes",
+    "typecheck": "Historical CI does configure stubtest. Executed with modern mypy: same two missing __all__ declarations on parent and solution; stub files unchanged",
+    "scope": "Only unique_in_window docstring and two tests change; no runtime algorithm or type stub modifications; diff --check PASS"
+  },
+  "findings": [],
+  "limitations": [
+    "Linux Python3.12 only; historical full Python matrix not executed",
+    "No clean lint/typecheck certification: current tools expose unchanged baseline failures",
+    "Sphinx strict warning gate does not pass with installed modern theme; no clean docs-build claim",
+    "Initial stubtest invocation lacked local module path; corrected PYTHONPATH=. and retained both outputs",
+    "First whole-tree flake8 included deliberately unformatted QA-only test file; frozen-file lint separately executed and baseline compared",
+    "No accepted historical solution or upstream discussion accessed"
+  ]
+}

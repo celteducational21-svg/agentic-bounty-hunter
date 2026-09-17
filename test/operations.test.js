@@ -64,7 +64,7 @@ test('public submission requires explicit owner approval matching reviewed revis
  const submitted = advance(r, 'SUBMITTED', { submission, publicApproval: { ...publicApproval, revision: 'abc123' } });
  const changes = advance(submitted, 'CHANGES_REQUESTED', { review: { reference: 'review URL' } });
  const repeat = advance(advance(changes, 'SOLVING'), 'QA', { solution: { ...solution, revision: 'new' } });
- assert.throws(() => advance(repeat, 'READY_TO_SUBMIT'), /current solution/);
+ assert.throws(() => advance(repeat, 'READY_TO_SUBMIT'), /Independent QA/);
 });
 test('payment requires positive received payment evidence after merge', () => {
  const r = advance(ready(), 'SUBMITTED', { publicApproval: { approved: true, role: 'OWNER', actor: 'owner', reference: 'approval', action: 'PUBLIC_PR', revision: 'abc123' }, submission: { url: 'pr URL', revision: 'abc123' } });

@@ -1,0 +1,262 @@
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/python -m pytest -q tests/test_independent_pathlike.py tests/test_fileutils_pathlike.py
+.....................                                                    [100%]
+21 passed in 0.03s
+
+exit=0 seconds=0.2
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/python -m pytest -q --doctest-modules boltons tests
+........................................................................ [ 11%]
+........................................................................ [ 23%]
+........................................................................ [ 35%]
+........................................................................ [ 46%]
+........................................................................ [ 58%]
+........................................................................ [ 70%]
+........................................................................ [ 82%]
+........................................................................ [ 93%]
+......................................                                   [100%]
+614 passed in 1.94s
+
+exit=0 seconds=2.15
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/python -m build --no-isolation
+* Getting build dependencies for sdist...
+
+ERROR Unmet dependencies (checked against /workspace/scratch/abh-independent-control-qa/venv/bin/python):
+	flit_core<4,>=3.2
+		wanted: <4,>=3.2
+		found: 4.1.0
+
+exit=1 seconds=0.17
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/python -m flake8 boltons/fileutils.py tests/test_fileutils_pathlike.py --select E9,F63,F7,F82
+
+exit=0 seconds=0.2
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/python -m flake8 boltons/fileutils.py --ignore E501,W504
+boltons/fileutils.py:141:13: E704 multiple statements on one line (def)
+boltons/fileutils.py:508:73: W291 trailing whitespace
+boltons/fileutils.py:698:68: W291 trailing whitespace
+
+exit=1 seconds=0.17
+
+$ git diff HEAD^ HEAD --check
+
+exit=0 seconds=0.0
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/pip install flit_core>=3.2,<4
+Collecting flit_core<4,>=3.2
+  Using cached flit_core-3.12.0-py3-none-any.whl.metadata (888 bytes)
+Using cached flit_core-3.12.0-py3-none-any.whl (45 kB)
+Installing collected packages: flit_core
+  Attempting uninstall: flit_core
+    Found existing installation: flit_core 4.1.0
+    Uninstalling flit_core-4.1.0:
+      Successfully uninstalled flit_core-4.1.0
+Successfully installed flit_core-3.12.0
+
+exit=0 seconds=17.18
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/python -m build --no-isolation
+* Getting build dependencies for sdist...
+* Building sdist...
+Version number normalised: '26.0.1dev' -> '26.0.1.dev0' (see PEP 440)
+* Building wheel from sdist
+* Getting build dependencies for wheel...
+* Building wheel...
+Version number normalised: '26.0.1dev' -> '26.0.1.dev0' (see PEP 440)
+Successfully built boltons-26.0.1.dev0.tar.gz and boltons-26.0.1.dev0-py3-none-any.whl
+
+exit=0 seconds=0.49
+
+$ sh -c git show HEAD^:boltons/fileutils.py > boltons/fileutils.py; /workspace/scratch/abh-independent-control-qa/venv/bin/python -m pytest -q tests/test_independent_pathlike.py; /workspace/scratch/abh-independent-control-qa/venv/bin/python -m flake8 boltons/fileutils.py --ignore E501,W504
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+_____________________ test_bytes_protocol_atomic_and_abort _____________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-19/test_bytes_protocol_atomic_and0')
+
+    def test_bytes_protocol_atomic_and_abort(tmp_path):
+        dest = tmp_path / 'résumé.txt'
+        dest.write_bytes(b'old')
+        with pytest.raises(ValueError):
+            with atomic_save(BytesPath(dest), part_file=BytesPath('custom.tmp')) as f:
+                f.write(b'partial')
+                raise ValueError('cancel')
+        assert dest.read_bytes() == b'old'
+        assert not (tmp_path / 'custom.tmp').exists()
+>       with atomic_save(BytesPath(dest), part_file=Path('custom.tmp')) as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_independent_pathlike.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+boltons/fileutils.py:261: in atomic_save
+    return AtomicSaver(dest_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+boltons/fileutils.py:405: in __init__
+    self.part_path = os.path.join(self.dest_dir, self.part_filename)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen posixpath>:90: in join
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+funcname = 'join'
+args = (b'/tmp/pytest-of-root/pytest-19/test_bytes_protocol_atomic_and0', PosixPath('custom.tmp'))
+
+>   ???
+E   TypeError: join() argument must be str, bytes, or os.PathLike object, not 'PosixPath'
+
+<frozen genericpath>:164: TypeError
+___________________ test_overwrite_false_preserves_original ____________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-19/test_overwrite_false_preserves0')
+
+    def test_overwrite_false_preserves_original(tmp_path):
+        dest = tmp_path / 'exists.txt'
+        dest.write_bytes(b'old')
+        with pytest.raises(OSError):
+>           with atomic_save(dest, overwrite=False) as f: f.write(b'new')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_independent_pathlike.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+boltons/fileutils.py:261: in atomic_save
+    return AtomicSaver(dest_path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <boltons.fileutils.AtomicSaver object at 0x7f4854cc7740>
+dest_path = PosixPath('/tmp/pytest-of-root/pytest-19/test_overwrite_false_preserves0/exists.txt')
+kwargs = {}
+
+    def __init__(self, dest_path, **kwargs):
+        self.dest_path = dest_path
+        self.overwrite = kwargs.pop('overwrite', True)
+        self.file_perms = kwargs.pop('file_perms', None)
+        self.overwrite_part = kwargs.pop('overwrite_part', False)
+        self.part_filename = kwargs.pop('part_file', None)
+        self.rm_part_on_exc = kwargs.pop('rm_part_on_exc', True)
+        self.text_mode = kwargs.pop('text_mode', False)
+        self.buffering = kwargs.pop('buffering', -1)
+        if kwargs:
+            raise TypeError(f'unexpected kwargs: {kwargs.keys()!r}')
+    
+        self.dest_path = os.path.abspath(self.dest_path)
+        self.dest_dir = os.path.dirname(self.dest_path)
+        if not self.part_filename:
+>           self.part_path = dest_path + '.part'
+                             ^^^^^^^^^^^^^^^^^^^
+E           TypeError: unsupported operand type(s) for +: 'PosixPath' and 'str'
+
+boltons/fileutils.py:403: TypeError
+_____________________ test_depth_ignore_and_bytes_protocol _____________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-19/test_depth_ignore_and_bytes_pr0')
+
+    def test_depth_ignore_and_bytes_protocol(tmp_path):
+        (tmp_path / 'skip.txt').write_text('skip')
+        (tmp_path / 'keep.txt').write_text('keep')
+        child = tmp_path / 'child'
+        child.mkdir()
+        (child / 'nested.txt').write_text('deep')
+>       assert list(iter_find_files(BytesPath(tmp_path), '*.txt', ignored='skip*', max_depth=0)) == [str(tmp_path / 'keep.txt')]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_independent_pathlike.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+directory = <tests.test_independent_pathlike.BytesPath object at 0x7f4854ca9ee0>
+patterns = ['*.txt'], ignored = ['skip*'], include_dirs = False, max_depth = 0
+
+    def iter_find_files(directory, patterns, ignored=None, include_dirs=False, max_depth=None):
+        """Returns a generator that yields file paths under a *directory*,
+        matching *patterns* using `glob`_ syntax (e.g., ``*.txt``). Also
+        supports *ignored* patterns.
+    
+        Args:
+            directory (str): Path that serves as the root of the
+                search. Yielded paths will include this as a prefix.
+            patterns (str or list): A single pattern or list of
+                glob-formatted patterns to find under *directory*.
+            ignored (str or list): A single pattern or list of
+                glob-formatted patterns to ignore.
+            include_dirs (bool): Whether to include directories that match
+               patterns, as well. Defaults to ``False``.
+            max_depth (int): traverse up to this level of subdirectory.
+               I.e., 0 for the specified *directory* only, 1 for *directory*
+               and one level of subdirectory.
+    
+        For example, finding Python files in the current directory:
+    
+        >>> _CUR_DIR = os.path.dirname(os.path.abspath(__file__))
+        >>> filenames = sorted(iter_find_files(_CUR_DIR, '*.py'))
+        >>> os.path.basename(filenames[-1])
+        'urlutils.py'
+    
+        Or, Python files while ignoring emacs lockfiles:
+    
+        >>> filenames = iter_find_files(_CUR_DIR, '*.py', ignored='.#*')
+    
+        .. _glob: https://en.wikipedia.org/wiki/Glob_%28programming%29
+    
+        """
+        if isinstance(patterns, str):
+            patterns = [patterns]
+        pats_re = re.compile('|'.join([fnmatch.translate(p) for p in patterns]))
+    
+        if not ignored:
+            ignored = []
+        elif isinstance(ignored, str):
+            ignored = [ignored]
+        ign_re = re.compile('|'.join([fnmatch.translate(p) for p in ignored]))
+>       start_depth = len(directory.split(os.path.sep))
+                          ^^^^^^^^^^^^^^^
+E       AttributeError: 'BytesPath' object has no attribute 'split'
+
+boltons/fileutils.py:533: AttributeError
+________________________ test_invalid_protocol_rejected ________________________
+
+    def test_invalid_protocol_rejected():
+        class Invalid:
+            def __fspath__(self): return 12
+>       with pytest.raises(TypeError): path_to_unicode(Invalid())
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_independent_pathlike.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = <tests.test_independent_pathlike.test_invalid_protocol_rejected.<locals>.Invalid object at 0x7f4854cc73e0>
+
+    def path_to_unicode(path):
+        if isinstance(path, str):
+            return path
+        encoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
+>       return path.decode(encoding)
+               ^^^^^^^^^^^
+E       AttributeError: 'Invalid' object has no attribute 'decode'
+
+boltons/fileutils.py:268: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_independent_pathlike.py::test_bytes_protocol_atomic_and_abort
+FAILED tests/test_independent_pathlike.py::test_overwrite_false_preserves_original
+FAILED tests/test_independent_pathlike.py::test_depth_ignore_and_bytes_protocol
+FAILED tests/test_independent_pathlike.py::test_invalid_protocol_rejected - A...
+4 failed in 0.06s
+boltons/fileutils.py:141:13: E704 multiple statements on one line (def)
+boltons/fileutils.py:507:73: W291 trailing whitespace
+boltons/fileutils.py:696:68: W291 trailing whitespace
+
+exit=1 seconds=0.42
+
+$ /workspace/scratch/abh-independent-control-qa/venv/bin/python -m pytest -q tests/test_independent_pathlike.py
+....                                                                     [100%]
+4 passed in 0.02s
+
+exit=0 seconds=0.21
+
+$ git diff HEAD^ HEAD --stat
+ boltons/fileutils.py             | 12 +++++---
+ tests/test_fileutils_pathlike.py | 66 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 73 insertions(+), 5 deletions(-)
+
+exit=0 seconds=0.0

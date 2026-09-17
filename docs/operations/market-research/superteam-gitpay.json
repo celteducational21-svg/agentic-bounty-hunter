@@ -1,0 +1,222 @@
+{
+  "observedAt": "2026-09-17T10:58:57.297943+00:00",
+  "stage1Prerequisite": "Stage1 REPORT.md and stage1-freeze.json existed before research began; root explicitly authorized Stage2.",
+  "actions": "Read-only official pages, public APIs and open-source repository inspection; no registration, claims, terms acceptance, credentials, submissions, payment or public messages.",
+  "platforms": [
+    {
+      "name": "Superteam Earn",
+      "classification": "ADD_NOW",
+      "scope": "Read-only agent-eligible catalogue discovery; not a recommendation to solve current out-of-lane listings.",
+      "active": true,
+      "liveCount": 2,
+      "liveTechnicalCount": 1,
+      "earlyWin25to300Count": 0,
+      "proofPromotions": 0,
+      "publicDiscovery": {
+        "url": "https://superteam.fun/api/listings?context=agents&tab=all&category=All&status=open&sortBy=Date&order=asc",
+        "method": "GET",
+        "authentication": "none",
+        "observedHttpStatus": 200,
+        "response": "bare array",
+        "pagination": "Public UI endpoint has no pagination parameter in QueryParamsSchema; returns all matching agent-context rows. Do not claim unlimited future completeness.",
+        "developmentFilter": "category=Development",
+        "agentPolicy": "Only AGENT_ALLOWED or AGENT_ONLY; independently validate client-side. context=agents also enforces verified sponsor server-side.",
+        "fields": [
+          "id",
+          "title",
+          "slug",
+          "type",
+          "status",
+          "agentAccess",
+          "rewardAmount",
+          "token",
+          "deadline",
+          "compensationType",
+          "minRewardAsk",
+          "maxRewardAsk",
+          "isWinnersAnnounced",
+          "_count.Submission",
+          "_count.Comments",
+          "sponsor.name",
+          "sponsor.isVerified"
+        ]
+      },
+      "agentApi": {
+        "base": "https://superteam.fun",
+        "livePath": "/api/agents/listings/live",
+        "parameters": {
+          "take": "default10 max50",
+          "type": "bounty|project|hackathon",
+          "deadline": "ISO date/datetime lowerbound clamped to now",
+          "excludeIds[]": "repeat IDs to fetch further batches; no skip supported"
+        },
+        "detailsPath": "/api/agents/listings/details/{slug}",
+        "authentication": "Bearer agent API key",
+        "unauthenticatedObservedStatus": 401,
+        "configured": false,
+        "registration": "Owner-approved POST /api/agents creates agent profile, API key and claim code. NOT performed."
+      },
+      "payoutModel": "Sponsor-selected bounty/hackathon awards or project acceptance; token varies per listing. Human talent profile and verified wallet payout claim; no guaranteed escrow or payment.",
+      "assignmentModel": "Bounties/hackathons are competitive submissions, not reservations. Projects have application/selection and listing-specific terms; confirm assignment before substantial solve.",
+      "aiPolicy": "Explicit agent flow for AGENT_ALLOWED/AGENT_ONLY; HUMAN_ONLY excluded. No reuse of competitors submissions.",
+      "competitionVisibility": "Public _count.Submission and Comments; count is not acceptance probability.",
+      "geographicConstraints": "Listing-specific regional eligibility; example Vietnam track page labels Global but full requirements still need review. Platform terms exclude sanctioned/prohibited jurisdictions. Kuwait-specific token-payout legality/eligibility not established, do not assume it.",
+      "accountKyc": "No account needed for public discovery. Agent registration key needed for agent API/submission. Human sign-in, complete talent profile, verified wallet and any required human verification/terms must be owner handled. Agents do not perform OAuth/wallet signing/KYC.",
+      "ownerSteps": [
+        "Review platform and candidate terms plus geographic/payment eligibility before account or reward actions.",
+        "When useful listing exists, approve one agent registration and securely store API key server-side; do not paste key or claim code in logs.",
+        "Human signs in and completes talent profile; GitHub connection is not required by documented agent API.",
+        "Human chooses/verifies supported wallet and completes any required identity checks; do not fabricate payout details.",
+        "For projects provide owner Telegram URL if required.",
+        "After a win and owner review, human opens /earn/claim/{claimCode} and confirms claim. Agent must not claim on behalf of human."
+      ],
+      "sources": [
+        "https://superteam.fun/earn/agents",
+        "https://superteam.fun/earn/agents/listings",
+        "https://superteam.fun/skill.md",
+        "https://superteam.fun/earn/terms-of-use.pdf",
+        "https://github.com/SuperteamDAO/earn/blob/721bb5f06838e27b2643e8ad224775e1cd5e9c3a/src/app/api/listings/route.ts",
+        "https://github.com/SuperteamDAO/earn/blob/721bb5f06838e27b2643e8ad224775e1cd5e9c3a/src/features/listings/utils/query-builder.ts",
+        "https://github.com/SuperteamDAO/earn/blob/721bb5f06838e27b2643e8ad224775e1cd5e9c3a/src/pages/api/agents/listings/live.ts"
+      ],
+      "sample": [
+        {
+          "id": "3c12a2d7-88af-40cb-add1-79546e76b8a2",
+          "title": "Road to Colosseum | Builders Reflect & Share",
+          "slug": "road-to-colosseum-builders-reflect-and-share",
+          "type": "bounty",
+          "status": "OPEN",
+          "agentAccess": "AGENT_ALLOWED",
+          "rewardAmount": 1000,
+          "token": "USDC",
+          "deadline": "2026-10-12T16:59:00.000Z",
+          "_count": {
+            "Comments": 2,
+            "Submission": 13
+          },
+          "sponsor": {
+            "name": "Superteam Vietnam",
+            "slug": "superteamvn",
+            "logo": "https://res.cloudinary.com/dgvnuwspr/image/upload/v1784021655/earn-sponsor/p08gehc85azncmgt6ugs.webp",
+            "isVerified": true,
+            "chapter": {
+              "id": "6907b427-0c14-441b-b035-c8764b442e98"
+            }
+          }
+        },
+        {
+          "id": "f1250fa6-7e09-4962-8eb1-60969bcf0bbb",
+          "title": "Colosseum Crypto World's Fair Hackathon | Superteam Vietnam Track",
+          "slug": "colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track",
+          "type": "hackathon",
+          "status": "OPEN",
+          "agentAccess": "AGENT_ALLOWED",
+          "rewardAmount": 10000,
+          "token": "USDG",
+          "deadline": "2026-10-13T06:59:00.000Z",
+          "_count": {
+            "Comments": 2,
+            "Submission": 5
+          },
+          "sponsor": {
+            "name": "Superteam Vietnam",
+            "slug": "superteamvn",
+            "logo": "https://res.cloudinary.com/dgvnuwspr/image/upload/v1784021655/earn-sponsor/p08gehc85azncmgt6ugs.webp",
+            "isVerified": true,
+            "chapter": {
+              "id": "6907b427-0c14-441b-b035-c8764b442e98"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gitpay",
+      "classification": "MONITOR",
+      "active": true,
+      "liveOpenCount": 87,
+      "positiveDisplayedRewardCount": 0,
+      "fundedFilterObserved": {
+        "data": [],
+        "totalCount": 0
+      },
+      "earlyWin25to300Count": 0,
+      "proofPromotions": 0,
+      "discovery": {
+        "url": "https://gitpay.me/tasks/list?status=open",
+        "method": "GET",
+        "authentication": "none",
+        "observedHttpStatus": 200,
+        "schema": "Unpaginated array; with limit returns {data,totalCount}; limit,offset or zero-based page supported; hasBounty=true filters value>0.",
+        "detail": "GET /tasks/fetch/{id}",
+        "privacy": "Raw result contains unnecessary user/order/payment identifiers; retained report contains only aggregate task metadata. Do not persist raw payment fields."
+      },
+      "decisionReason": "Live platform and technical catalogue verified, but87open records all displayvalue0, fundedfilter empty. No credible current25\u2013300funded task confirmed; AI-agent policy notexplicit. Research now, no adapter merely because endpoint exists.",
+      "paymentCaveat": "One Readwise integration record has20USD order labeled succeeded but capturefalse and taskvalue0. Do not turn pending/uncaptured orders into confirmed bounty rewards.",
+      "assignmentModel": "Apply and await explicit assignment. Gitpay verifies underlying GitHub assignee before claim confirmation; delivery/acceptance precedes payment request.",
+      "payoutModel": "Stripe Connect default; Whop alternative; PayPal for some accounts/older tasks. Funding method and active payout configuration determine route. Country-specific verification/withdrawal eligibility must be confirmed.",
+      "aiPolicy": "UNKNOWN: reviewed official docs/terms do not explicitly permit or prohibit autonomous engineering; respect repository rules and obtain confirmation before autonomous participation. Unknown is investigate, not rejection.",
+      "competitionVisibility": "Task assigned and Assigns fields plus canonical GitHub issue/PR checks; complete competition not guaranteed.",
+      "geographicConstraints": "No blanket country guarantee established. Whop methods depend on country; Stripe/PayPal depend on account and provider eligibility. Kuwait support unverified.",
+      "accountKyc": "Human signup/email verification/profile, link GitHub, accept current terms personally, configure supported payout provider and identity/business verification. No account or API key required for public read-only catalogue.",
+      "ownerStepsIfLaterAdded": [
+        "Create/verify Gitpay account and link correct GitHub username.",
+        "Complete skills/profile and review platform/repository AI policy.",
+        "Check supported payout method for actual residence with provider, then complete identity/bank setup privately.",
+        "Approve individual assignment request before coding; await GitHub assignee and Gitpay confirmation."
+      ],
+      "sources": [
+        "https://docs.gitpay.me/docs/en/contributor/",
+        "https://docs.gitpay.me/docs/en/getting-started-contributor/",
+        "https://docs.gitpay.me/docs/en/claims/",
+        "https://docs.gitpay.me/docs/en/payouts/",
+        "https://docs.gitpay.me/docs/en/whop-payout-setup/",
+        "https://gitpay.me/tasks/list?status=open",
+        "https://gitpay.me/tasks/list?status=open&hasBounty=true&limit=50&offset=0",
+        "https://github.com/worknenjoy/gitpay/blob/ab2f9489f01cb4e1c744af9230cc7a4c4462d99c/src/app/routes/tasks.ts"
+      ],
+      "sample": [
+        {
+          "id": 1474,
+          "title": "[Qt] Boards improvements (alias Reddit clone)",
+          "issueUrl": "https://github.com/RetroShare/RetroShare/issues/1721",
+          "status": "open",
+          "displayedValue": "0",
+          "assigned": false
+        },
+        {
+          "id": 1441,
+          "title": "RCPTT model layer is not thread-safe: concurrent access causes spurious exceptions and deadlocks",
+          "issueUrl": "https://github.com/eclipse-rcptt/org.eclipse.rcptt/issues/176",
+          "status": "open",
+          "displayedValue": "0",
+          "assigned": false
+        },
+        {
+          "id": 1375,
+          "title": "ARA support",
+          "issueUrl": "https://github.com/robbert-vdh/yabridge/issues/146",
+          "status": "open",
+          "displayedValue": "0",
+          "assigned": false
+        },
+        {
+          "id": 1312,
+          "title": "Implement the goals/requirements initial list",
+          "issueUrl": "https://github.com/OpenSword/OpenIsopix/issues/1",
+          "status": "open",
+          "displayedValue": "0",
+          "assigned": false
+        },
+        {
+          "id": 1281,
+          "title": "Searchbar should be shown near the top in the sidebar",
+          "issueUrl": "https://github.com/just-the-docs/just-the-docs/issues/819",
+          "status": "open",
+          "displayedValue": "0",
+          "assigned": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "jobId": "job-06",
+  "worker": "solver_b",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 53,
+  "solveSeconds": 71,
+  "iterations": 1,
+  "revision": "2f046e297a923a51c151136678d510e2dd208c5f",
+  "author": "solver_b",
+  "category": "JavaScript terminal tooling",
+  "difficulty": "easy",
+  "regressionFailures": 0,
+  "limitations": [
+    "Node24 Linux only; minimum Node12 not tested",
+    "Build not applicable: direct JavaScript package",
+    "Independent QA pending"
+  ],
+  "startedAt": "2026-09-17T10:30:06+00:00",
+  "proofCompletedAt": "2026-09-17T10:30:59+00:00",
+  "solutionFrozenAt": "2026-09-17T10:32:10+00:00"
+}

@@ -1,0 +1,212 @@
+
+[2026-09-17T10:34:54.167628+00:00] $ env PYTHONPATH=. python ../evidence/reproduce.py
+module: /workspace/scratch/abh-benchmark-jobs/job-08/repo/more_itertools/__init__.py
+input: [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 3, 4, 2] n=2 output: [0, 1, 2, 3, 4, 2]
+documentation: Yield the items from *iterable* that haven't been seen recently.
+*n* is the size of the lookback window.
+
+    >>> iterable = [0, 1, 0, 2, 3, 0]
+    >>> n = 3
+    >>> list(unique_in_window(iterable, n))
+    [0, 1, 2, 3, 0]
+
+The *key* function, if provided, will be used to determine uniqueness:
+
+    >>> list(unique_in_window('abAcda', 3, key=lambda x: x.lower()))
+    ['a', 'b', 'c', 'd', 'a']
+
+The items in *iterable* must be hashable.
+Traceback (most recent call last):
+  File "/workspace/scratch/abh-benchmark-jobs/job-08/repo/../evidence/reproduce.py", line 9, in <module>
+    assert actual == expected_input_window, 'Documented seen-input interpretation disagrees with actual yielded-output window'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Documented seen-input interpretation disagrees with actual yielded-output window
+
+EXIT 1
+
+[2026-09-17T10:34:54.338419+00:00] $ python -m unittest tests.test_more.UniqueInWindowTests -v
+test_basic (tests.test_more.UniqueInWindowTests.test_basic) ... ok
+test_invalid_n (tests.test_more.UniqueInWindowTests.test_invalid_n) ... ok
+test_key (tests.test_more.UniqueInWindowTests.test_key) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+EXIT 0
+
+[2026-09-17T10:34:56.097013+00:00] $ python -m venv ../venv
+
+EXIT 0
+
+[2026-09-17T10:35:24.852910+00:00] $ python -m unittest tests.test_more.UniqueInWindowTests -v
+test_basic (tests.test_more.UniqueInWindowTests.test_basic) ... ok
+test_duplicates_do_not_advance_window (tests.test_more.UniqueInWindowTests.test_duplicates_do_not_advance_window) ... ok
+test_invalid_n (tests.test_more.UniqueInWindowTests.test_invalid_n) ... ok
+test_key (tests.test_more.UniqueInWindowTests.test_key) ... ok
+test_key_window_contains_yielded_items (tests.test_more.UniqueInWindowTests.test_key_window_contains_yielded_items) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK
+
+EXIT 0
+
+[2026-09-17T10:35:25.646918+00:00] $ ../venv/bin/python -m pip install build black
+Collecting build
+  Using cached build-1.6.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting black
+  Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (95 kB)
+Collecting packaging>=24.0 (from build)
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyproject_hooks (from build)
+  Using cached pyproject_hooks-1.3.3-py3-none-any.whl.metadata (1.3 kB)
+Collecting click>=8.0.0 (from black)
+  Using cached click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting mypy-extensions>=0.4.3 (from black)
+  Using cached mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=1.0.0 (from black)
+  Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+Collecting platformdirs>=2 (from black)
+  Downloading platformdirs-4.11.9-py3-none-any.whl.metadata (5.5 kB)
+Collecting pytokens~=0.4.0 (from black)
+  Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Using cached build-1.6.1-py3-none-any.whl (31 kB)
+Downloading black-26.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 113.0 MB/s eta 0:00:00
+Using cached click-8.5.0-py3-none-any.whl (125 kB)
+Using cached mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+Downloading platformdirs-4.11.9-py3-none-any.whl (24 kB)
+Downloading pytokens-0.4.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+Using cached pyproject_hooks-1.3.3-py3-none-any.whl (10 kB)
+Installing collected packages: pytokens, pyproject_hooks, platformdirs, pathspec, packaging, mypy-extensions, click, build, black
+Successfully installed black-26.5.1 build-1.6.1 click-8.5.0 mypy-extensions-1.1.0 packaging-26.3 pathspec-1.1.1 platformdirs-4.11.9 pyproject_hooks-1.3.3 pytokens-0.4.1
+
+EXIT 0
+
+[2026-09-17T10:35:26.088990+00:00] $ python -m unittest -q
+/workspace/scratch/abh-benchmark-jobs/job-08/repo/more_itertools/more.py:1644: DeprecationWarning: zip_equal will be removed in a future version of more-itertools. Use the builtin zip function with strict=True instead.
+  warnings.warn(
+/workspace/scratch/abh-benchmark-jobs/job-08/repo/more_itertools/recipes.py:877: DeprecationWarning: batched will be removed in a future version of more-itertools. Use the standard library itertools.batched function instead
+  warnings.warn(
+----------------------------------------------------------------------
+Ran 736 tests in 1.086s
+
+OK
+
+EXIT 0
+
+[2026-09-17T10:35:44.317654+00:00] $ ../venv/bin/black --check more_itertools/more.py tests/test_more.py
+would reformat tests/test_more.py
+
+Oh no! 💥 💔 💥
+1 file would be reformatted, 1 file would be left unchanged.
+
+EXIT 1
+
+[2026-09-17T10:35:44.349059+00:00] $ git diff --check
+
+EXIT 0
+
+[2026-09-17T10:36:07.024941+00:00] $ ../venv/bin/black --check --diff tests/test_more.py
+--- tests/test_more.py	2026-09-17 10:35:24.647983+00:00
++++ tests/test_more.py	2026-09-17 10:36:06.742447+00:00
+@@ -2129,13 +2129,13 @@
+         )
+         self.assertEqual(
+             mi.sort_together(
+                 iterables,
+                 key_list=(0, 2),
+-                key=lambda state, number: number
+-                if state == 'CT'
+-                else 2 * number,
++                key=lambda state, number: (
++                    number if state == 'CT' else 2 * number
++                ),
+             ),
+             [
+                 ('CT', 'GA', 'CT', 'CT', 'GA', 'GA'),
+                 ('July', 'Aug.', 'June', 'July', 'May', 'May'),
+                 (20, 20, 70, 100, 97, 100),
+would reformat tests/test_more.py
+
+Oh no! 💥 💔 💥
+1 file would be reformatted.
+
+EXIT 1
+
+[2026-09-17T10:36:16.916448+00:00] $ ../venv/bin/python -m build -o ../evidence/dist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - flit_core >=3.2,<4
+* Getting build dependencies for sdist...
+* Installed build dependency versions:
+  - flit-core==3.12.0
+* Building sdist...
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - flit_core >=3.2,<4
+* Getting build dependencies for wheel...
+* Installed build dependency versions:
+  - flit-core==3.12.0
+* Building wheel...
+Successfully built more_itertools-9.1.0.tar.gz and more_itertools-9.1.0-py3-none-any.whl
+
+EXIT 0
+
+[2026-09-17T10:36:25.886762+00:00] $ ../venv/bin/black --check --diff --line-length 79 --skip-string-normalization ../evidence/baseline-test_more.py
+--- ../evidence/baseline-test_more.py	2026-09-17 10:36:21.718226+00:00
++++ ../evidence/baseline-test_more.py	2026-09-17 10:36:25.593648+00:00
+@@ -2129,13 +2129,13 @@
+         )
+         self.assertEqual(
+             mi.sort_together(
+                 iterables,
+                 key_list=(0, 2),
+-                key=lambda state, number: number
+-                if state == 'CT'
+-                else 2 * number,
++                key=lambda state, number: (
++                    number if state == 'CT' else 2 * number
++                ),
+             ),
+             [
+                 ('CT', 'GA', 'CT', 'CT', 'GA', 'GA'),
+                 ('July', 'Aug.', 'June', 'July', 'May', 'May'),
+                 (20, 20, 70, 100, 97, 100),
+would reformat ../evidence/baseline-test_more.py
+
+Oh no! 💥 💔 💥
+1 file would be reformatted.
+
+EXIT 1
+
+[2026-09-17T10:36:26.600819+00:00] $ ../venv/bin/black --check --line-ranges 4874-4885 tests/test_more.py
+All done! ✨ 🍰 ✨
+1 file would be left unchanged.
+
+EXIT 0
+
+[2026-09-17T10:37:16.350608+00:00] $ git switch -c solver-b/job-08-window-docs
+Switched to a new branch 'solver-b/job-08-window-docs'
+
+EXIT 0
+
+[2026-09-17T10:37:16.394528+00:00] $ git add more_itertools/more.py tests/test_more.py
+
+EXIT 0
+
+[2026-09-17T10:37:16.440176+00:00] $ git -c user.name=solver_b -c user.email=solver_b@simulation.invalid commit -m Clarify that unique_in_window tracks yielded items
+[solver-b/job-08-window-docs 081d469] Clarify that unique_in_window tracks yielded items
+ 2 files changed, 25 insertions(+), 7 deletions(-)
+
+EXIT 0
+
+[2026-09-17T10:37:16.490542+00:00] $ git status --short
+
+EXIT 0

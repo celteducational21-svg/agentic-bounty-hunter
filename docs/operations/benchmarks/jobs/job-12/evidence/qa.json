@@ -1,0 +1,30 @@
+{
+  "jobId": "job-12", "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "reviewer": "control_drills_qa", "revision": "3a333c54c91bc117268e0d63be7933e65df851ca",
+  "verdict": "PASS", "result": "PASS", "firstPass": true, "iterations": 1,
+  "completedAt": "2026-09-17T10:47:32Z",
+  "checks": {
+    "acceptanceCriteria": "PASS", "tests": "PASS", "regressions": "PASS",
+    "explainability": "PASS", "prReadiness": "PASS", "build": "NOT_APPLICABLE",
+    "lint": "PASS", "typecheck": "PASS"
+  },
+  "notApplicableReasons": { "build": "Direct ES-module JavaScript package; package.json defines no compilation/build step. node --check index.js passed and runtime/type gates ran." },
+  "evidence": {
+    "independentTests": "15 passed, covering concurrency1/2; equal, greater, infinite backpressure; immediate/delayed source next; skipped values; output/index order; slow consumers; mapper rejection and settling; source rejection; empty source",
+    "baseline": "Historical parent fails8/15 independent cases: observed2-3 active mappers when configured maximum1-2; all15 pass frozen solution",
+    "fullSuite": "Final npm test passes XO, AVA55tests, tsd. Initial npm test had1 unrelated existing performance-ratio assertion failure; isolated performance retry and full suite rerun pass with no code changes",
+    "lint": "XO PASS and git diff --check PASS",
+    "typecheck": "tsd PASS independently and via final npm test",
+    "scope": "One slot reservation moved before iterator.next await; decremented for exhausted source; focused6 regression tests added; frozen checkout remains clean"
+  },
+  "findings": [],
+  "limitations": [
+    "Node24 Linux only; minimum-supported Node18 not exercised",
+    "Initial full-suite timing-sensitive pMapSkip performance test failed; exact failure retained, passed isolated and full rerun without code repair",
+    "No general cancellation protocol redesign or guarantee added; early consumer return bounded pending work and mapper-error settling checked",
+    "Execution transport briefly disconnected while full rerun ran; durable log confirms full command exited0",
+    "No accepted historical fix or audit materials accessed"
+  ],
+  "observedTransientTestFailures": 1,
+  "confirmedIntroducedRegressions": 0
+}

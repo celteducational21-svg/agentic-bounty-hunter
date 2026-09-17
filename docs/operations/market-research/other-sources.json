@@ -1,0 +1,85 @@
+{
+  "observedAt": "2026-09-17T10:54:15Z",
+  "stage": "STAGE_2_AFTER_STAGE_1_REPORT_FREEZE",
+  "mode": "READ_ONLY_RESEARCH",
+  "adaptersImplemented": [],
+  "qualifiedOpportunitiesImported": 0,
+  "deduplicatedImportedTotal": 0,
+  "publicActions": 0,
+  "sources": [
+    {
+      "name": "BountyHub", "classification": "MONITOR", "officialUrl": "https://www.bountyhub.dev/en",
+      "active": "WEBSITE_AND_DOCS_VERIFIED_CURRENT_TASKS_UNKNOWN",
+      "technicalWork": "GitHub issue/PR bounties documented; live tasks unverified",
+      "discovery": { "url": "https://www.bountyhub.dev/en/bounties", "status": "NO_EXTRACTABLE_TASK_ROWS_DIRECT_REQUEST403", "observedListingCount": 0, "activeListingCount": null, "countScope": "One linked catalogue page, not market total", "publicApi": "UNKNOWN" },
+      "payout": "Creator accepts claim; prepaid or pay-on-completion; Stripe preferred, PayPal fallback documented; merge alone insufficient",
+      "assignment": "Submit PR using same GitHub login, import PR URL as claim, refresh after merge; creator can accept fork instead; no exclusive reservation guarantee found",
+      "competition": "Existing claims documented on bounty detail pages; actual current claims NOT_RUN",
+      "aiAgentPolicy": "UNKNOWN",
+      "geographicPayoutConstraints": "Marketing advertises120+ countries; Kuwait eligibility and exact receiving channel UNKNOWN",
+      "account": { "required": "YES_TO_CLAIM", "githubConnection": "YES_SAME_PR_AUTHOR", "profile": "UNKNOWN", "kyc": "UNKNOWN_ONBOARDING_DEPENDENT", "payout": "Stripe or documented PayPal fallback", "apiKey": "UNKNOWN", "captchaLogin": "GitHub sign-in; CAPTCHA UNKNOWN" },
+      "ownerStepsIfPromoted": ["Review live source and terms", "Sign in with intended PR-author GitHub", "Confirm payout-country eligibility", "Personally complete supported Stripe onboarding or permitted PayPal payout setup"],
+      "interactionAssessment": "Read-only docs researched; automated discovery access not established; no adapter until working catalogue and current tasks verified",
+      "sources": ["https://www.bountyhub.dev/en", "https://www.bountyhub.dev/en/docs/claim-bounty", "https://www.bountyhub.dev/en/terms-of-service", "https://www.bountyhub.dev/en/bounties"]
+    },
+    {
+      "name": "IssueHunt", "classification": "REJECT_SOURCE", "reason": "CURRENT_SECURITY_SPECIALIST_PRODUCT_OUTSIDE_GENERAL_SOLVER", "officialUrl": "https://issuehunt.io/",
+      "active": "CURRENT_SITE_VERIFIED", "technicalWork": "Security vulnerabilities, not ordinary issue implementation",
+      "discovery": { "status": "NOT_RUN_SECURITY_LANE_EXCLUDED", "observedListingCount": null, "activeListingCount": null, "publicApi": "UNKNOWN" },
+      "payout": "Company triage/fix decision then bank or PayPal transfer",
+      "assignment": "Public, company-accepted application, or invited programme; scope/duplicate rules govern reports",
+      "competition": "Duplicate reports may not be rewarded; individual competitors UNKNOWN",
+      "aiAgentPolicy": "UNKNOWN", "geographicPayoutConstraints": "English supported; owner eligibility UNKNOWN",
+      "account": { "required": "YES_RESEARCHER_SIGNUP", "githubConnection": "UNKNOWN", "profile": "Researcher", "kyc": "UNKNOWN", "payout": "Bank or PayPal", "apiKey": "UNKNOWN", "captchaLogin": "UNKNOWN" },
+      "ownerStepsIfPromoted": [], "interactionAssessment": "Exclude general Solver; no registration or adapter", "sources": ["https://issuehunt.io/"]
+    },
+    {
+      "name": "Algora", "classification": "MONITOR", "officialUrl": "https://algora.io/",
+      "active": "RECRUITING_SITE_ACTIVE_CURRENT_BOUNTY_AVAILABILITY_UNVERIFIED",
+      "technicalWork": "Four public challenge pages sampled; all closed/rewarded/winner displayed",
+      "discovery": { "status": "BOUNDED_CHALLENGE_SAMPLE", "observedListingCount": 4, "verifiedActiveInSample": 0, "activeListingCount": null, "publicApi": "NOT_VERIFIED", "legacyCatalogue": "https://app.algora.io/bounties returned404", "countScope": "Four homepage-linked challenges, not global total" },
+      "payout": "Task-specific prizes/acceptance documented; current transfer rail UNKNOWN",
+      "assignment": "Turso PR merge/reward; Prettier/TSPerf first successful solution; Golem best implementation winner; not generic reservation",
+      "competition": "Public leaderboards and GitHub PRs for sampled historical challenges",
+      "aiAgentPolicy": "No universal permission found; historical Golem issue1004 forbids full AI-generated solution while allowing Copilot-like assistance",
+      "geographicPayoutConstraints": "UNKNOWN",
+      "account": { "required": "UNKNOWN_CURRENT_BOUNTY_FLOW", "githubConnection": "GitHub PR required for sampled challenges", "profile": "UNKNOWN", "kyc": "UNKNOWN", "payout": "UNKNOWN", "apiKey": "UNKNOWN", "captchaLogin": "UNKNOWN" },
+      "ownerStepsIfPromoted": ["Confirm current suitable active tasks", "Obtain authorized discovery access and task AI policy", "Confirm current contributor/payout eligibility before account setup"],
+      "interactionAssessment": "Published terms section8 prohibits automated monitoring/copying; no scraper adapter authorized or implemented",
+      "sources": ["https://algora.io/", "https://algora.io/legal/terms", "https://algora.io/challenges/turso", "https://algora.io/challenges/prettier", "https://algora.io/challenges/tsperf", "https://algora.io/challenges/golem", "https://github.com/golemcloud/golem/issues/1004"]
+    },
+    {
+      "name": "OnlyDust", "classification": "REJECT_SOURCE", "wave": 2, "officialUrl": "https://www.onlydust.com/",
+      "active": "CLOSED_PER_OFFICIAL_NOTICE", "technicalWork": "Former grant programme; no current opportunities verified",
+      "discovery": { "status": "NOT_RUN_CLOSED", "observedListingCount": null, "activeListingCount": 0, "countScope": "Closed programme per official notice", "publicApi": "NOT_APPLICABLE" },
+      "payout": "Former grant totals not current earning availability", "assignment": "NOT_APPLICABLE_CLOSED", "competition": "NOT_APPLICABLE_CLOSED",
+      "aiAgentPolicy": "Closure notice discusses harm from low-quality AI contributions; not treated as reusable agent permission",
+      "geographicPayoutConstraints": "NOT_APPLICABLE_CLOSED",
+      "account": { "required": "NO_SETUP", "githubConnection": "NOT_APPLICABLE", "profile": "NOT_APPLICABLE", "kyc": "NOT_APPLICABLE", "payout": "NOT_APPLICABLE", "apiKey": "NOT_APPLICABLE", "captchaLogin": "NOT_APPLICABLE" },
+      "ownerStepsIfPromoted": [], "interactionAssessment": "No adapter to closed programme", "sources": ["https://www.onlydust.com/"]
+    },
+    {
+      "name": "HackQuest", "classification": "MONITOR", "wave": 2, "officialUrl": "https://www.hackquest.io/",
+      "active": "VERIFIED_CURRENT_TECHNICAL_EVENT", "technicalWork": "Competitive Web3 product buildathons, not small reserved fixes",
+      "discovery": { "url": "https://www.hackquest.io/hackathons", "status": "BOUNDED_PUBLIC_CATALOGUE", "observedListingCount": 5, "endedInSample": 3, "upcomingInSample": 1, "registeringInSample": 1, "activeListingCount": null, "publicApi": "UNKNOWN" },
+      "sample": { "title": "Arbitrum Open House Singapore Online Buildathon", "submissionStart": "2026-09-13", "submissionEnd": "2026-10-04", "participantsLowerBound": 793, "url": "https://www.hackquest.io/hackathons/Arbitrum-Open-House-Singapore-Online-Buildathon" },
+      "payout": "USDC prize/grant tracks subject to milestones and host judging; platform disclaims responsibility for final reward distribution",
+      "assignment": "Register team/project and submit judged build; no exclusive assignment", "competition": "Public participant lower bound793 and project gallery tab",
+      "aiAgentPolicy": "AI-IDE preparation prompts present; autonomous account/submission permission UNKNOWN",
+      "geographicPayoutConstraints": "Online event; exact owner eligibility and prize restrictions UNKNOWN",
+      "account": { "required": "YES_TO_REGISTER", "githubConnection": "UNKNOWN", "profile": "Builder/team registration details UNKNOWN", "kyc": "UNKNOWN_EVENT_DEPENDENT", "payout": "USDC prizes; exact wallet/onboarding UNKNOWN", "apiKey": "UNKNOWN", "captchaLogin": "Sign-in/register controls; CAPTCHA UNKNOWN" },
+      "ownerStepsIfPromoted": ["Review specific event terms and AI policy", "Confirm country/KYC/payout requirements", "Personally register and provide permitted payout details only after choosing event"],
+      "interactionAssessment": "Research-only Wave2; no account or adapter now", "sources": ["https://www.hackquest.io/hackathons", "https://www.hackquest.io/hackathons/Arbitrum-Open-House-Singapore-Online-Buildathon"]
+    },
+    {
+      "name": "DoraHacks", "classification": "MONITOR", "wave": 2, "officialUrl": "https://dorahacks.io/",
+      "active": "UNKNOWN_ACCESS_FAILED", "technicalWork": "CURRENT_WORK_UNVERIFIED",
+      "discovery": { "url": "https://dorahacks.io/hackathon", "status": "HTTP405_OR_FETCH_ERROR", "observedListingCount": null, "activeListingCount": null, "publicApi": "UNKNOWN" },
+      "payout": "UNKNOWN", "assignment": "UNKNOWN", "competition": "UNKNOWN", "aiAgentPolicy": "UNKNOWN", "geographicPayoutConstraints": "UNKNOWN",
+      "account": { "required": "UNKNOWN", "githubConnection": "UNKNOWN", "profile": "UNKNOWN", "kyc": "UNKNOWN", "payout": "UNKNOWN", "apiKey": "UNKNOWN", "captchaLogin": "UNKNOWN" },
+      "ownerStepsIfPromoted": ["First verify accessible official catalogue and event-specific rules; no account request yet"],
+      "interactionAssessment": "No bypass of failed access, no adapter; inability to read is not rejection or closure evidence",
+      "sources": ["https://dorahacks.io/", "https://dorahacks.io/hackathon", "https://dorahacks.io/terms", "https://dorahacks.io/docs"]
+    }
+  ]
+}

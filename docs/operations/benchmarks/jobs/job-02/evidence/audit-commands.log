@@ -1,0 +1,11 @@
+python-dotenv could not parse statement starting at line 1
+Key a not found in /tmp/tmp6_zajw1o/.env.
+python-dotenv could not parse statement starting at line 1
+Key b not found in /tmp/tmp6_zajw1o/.env.
+"a='back\\\\'\nb='sentinel'\n"
+expected: ('back\\', 'sentinel') actual: (None, None)
+Traceback (most recent call last):
+  File "/workspace/scratch/abh-benchmark-jobs/job-02/evidence/audit-reproduce.py", line 14, in <module>
+    assert actual == ('back\\', 'sentinel')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

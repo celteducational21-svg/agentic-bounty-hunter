@@ -1,0 +1,24 @@
+{
+  "jobId": "job-02",
+  "worker": "solver_b",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 112,
+  "solveSeconds": 82,
+  "iterations": 1,
+  "revision": "866beae4af46caa1758cbc15a578a7fd65a30a76",
+  "author": "solver_b",
+  "category": "Python parser serialization",
+  "difficulty": "medium",
+  "regressionFailures": 0,
+  "limitations": [
+    "Runtime tests Linux Python 3.12 only; independent QA pending",
+    "Packet single-backslash examples pass; consecutive backslash defect confirmed",
+    "Initial test PATH error and formatting failure resolved"
+  ],
+  "startedAt": "2026-09-17T10:25:36Z",
+  "proofCompletedAt": "2026-09-17T10:27:28Z",
+  "solutionFrozenAt": "2026-09-17T10:28:50Z"
+}

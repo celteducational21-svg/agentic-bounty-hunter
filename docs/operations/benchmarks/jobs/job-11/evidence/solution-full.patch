@@ -1,0 +1,140 @@
+diff --git a/index.js b/index.js
+index 2f7d91c..35c358f 100644
+--- a/index.js
++++ b/index.js
+@@ -7,7 +7,7 @@ export default async function pMap(
+ 		signal,
+ 	} = {},
+ ) {
+-	return new Promise((resolve, reject_) => {
++	return new Promise((resolve_, reject_) => {
+ 		if (iterable[Symbol.iterator] === undefined && iterable[Symbol.asyncIterator] === undefined) {
+ 			throw new TypeError(`Expected \`input\` to be either an \`Iterable\` or \`AsyncIterable\`, got (${typeof iterable})`);
+ 		}
+@@ -30,20 +30,33 @@ export default async function pMap(
+ 		let currentIndex = 0;
+ 		const iterator = iterable[Symbol.iterator] === undefined ? iterable[Symbol.asyncIterator]() : iterable[Symbol.iterator]();
+ 
++		const abortHandler = () => {
++			reject(signal.reason);
++		};
++
++		const cleanup = () => {
++			signal?.removeEventListener('abort', abortHandler);
++		};
++
++		const resolve = value => {
++			cleanup();
++			resolve_(value);
++		};
++
+ 		const reject = reason => {
+ 			isRejected = true;
+ 			isResolved = true;
++			cleanup();
+ 			reject_(reason);
+ 		};
+ 
+ 		if (signal) {
+ 			if (signal.aborted) {
+ 				reject(signal.reason);
++				return;
+ 			}
+ 
+-			signal.addEventListener('abort', () => {
+-				reject(signal.reason);
+-			});
++			signal.addEventListener('abort', abortHandler);
+ 		}
+ 
+ 		const next = async () => {
+diff --git a/test-abort-listeners.js b/test-abort-listeners.js
+new file mode 100644
+index 0000000..857d837
+--- /dev/null
++++ b/test-abort-listeners.js
+@@ -0,0 +1,84 @@
++import {getEventListeners} from 'node:events';
++import test from 'ava';
++import pMap, {pMapSkip} from './index.js';
++
++for (const [name, input, mapper, expected] of [
++	['success', [1], value => value, [1]],
++	['empty', [], value => value, []],
++	['skip', [1], () => pMapSkip, []],
++]) {
++	test(`abort listener cleanup - ${name}`, async t => {
++		const {signal} = new AbortController();
++		const listener = () => {};
++		signal.addEventListener('abort', listener);
++
++		for (let index = 0; index < 3; index++) {
++			// eslint-disable-next-line no-await-in-loop
++			t.deepEqual(await pMap(input, mapper, {signal}), expected);
++			t.is(getEventListeners(signal, 'abort').length, 1);
++			t.true(getEventListeners(signal, 'abort').includes(listener));
++		}
++	});
++}
++
++for (const stopOnError of [true, false]) {
++	test(`abort listener cleanup - mapper rejection, stopOnError=${stopOnError}`, async t => {
++		const {signal} = new AbortController();
++		const error = new Error('mapper failure');
++		const thrown = await t.throwsAsync(pMap([1], () => {
++			throw error;
++		}, {signal, stopOnError}));
++		if (stopOnError) {
++			t.is(thrown, error);
++		} else {
++			t.true(thrown instanceof AggregateError);
++			t.deepEqual(thrown.errors, [error]);
++		}
++
++		t.is(getEventListeners(signal, 'abort').length, 0);
++	});
++}
++
++for (const asyncIterator of [false, true]) {
++	test(`abort listener cleanup - iterator rejection, async=${asyncIterator}`, async t => {
++		const {signal} = new AbortController();
++		const error = new Error('iterator failure');
++		const input = {
++			[asyncIterator ? Symbol.asyncIterator : Symbol.iterator]() {
++				return {
++					next() {
++						if (asyncIterator) {
++							return Promise.reject(error);
++						}
++
++						throw error;
++					},
++				};
++			},
++		};
++		await t.throwsAsync(pMap(input, value => value, {signal}), {is: error});
++		t.is(getEventListeners(signal, 'abort').length, 0);
++	});
++}
++
++test('abort listener cleanup - active abort preserves reason', async t => {
++	const controller = new AbortController();
++	const error = new Error('abort reason');
++	await t.throwsAsync(pMap([1], () => {
++		controller.abort(error);
++		return 1;
++	}, {signal: controller.signal}), {is: error});
++	t.is(getEventListeners(controller.signal, 'abort').length, 0);
++});
++
++test('abort listener cleanup - already aborted does not start mapper', async t => {
++	const controller = new AbortController();
++	const error = new Error('abort reason');
++	controller.abort(error);
++	let called = false;
++	await t.throwsAsync(pMap([1], () => {
++		called = true;
++	}, {signal: controller.signal}), {is: error});
++	t.false(called);
++	t.is(getEventListeners(controller.signal, 'abort').length, 0);
++});

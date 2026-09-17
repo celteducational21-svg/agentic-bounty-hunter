@@ -1,0 +1,4 @@
+# Solution, iteration 2
+Scan unquoted values through LF or CR line boundaries. Preserve internal whitespace, strip inline comments preceded by whitespace, trim trailing whitespace, then expand variables. Treat CR as a line break rather than intra-line space; comment skipping and unterminated-value diagnostics recognize CR too. Quoted values retain multiline contents.
+
+First freeze missed CR-only inputs and introduced a regression; archived in attempt-1. Fixed after root report, with new failing-before/passing-after regressions. Eleven focused cases, full race suite, vet, build and diff checks PASS. regressionFailures=1 records the discovered first-attempt regression; none outstanding. SolveSeconds sums active solve phases, excluding work on other jobs. Separate lint N/A (none configured); vet/gofmt used; compiler provides type checking. Solver verification only; fresh independent QA requested.

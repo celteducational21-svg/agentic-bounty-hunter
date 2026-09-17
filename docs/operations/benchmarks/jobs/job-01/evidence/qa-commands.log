@@ -1,0 +1,201 @@
+$ /workspace/scratch/abh-independent-qa/job-01/venv/bin/python -m pytest -q
+........................................................................ [ 54%]
+............................................................             [100%]
+=============================== warnings summary ===============================
+tests/test_cli.py: 20 warnings
+  /workspace/scratch/abh-benchmark-jobs/job-01/repo/tests/conftest.py:8: DeprecationWarning: 'isolated_filesystem' is deprecated and will be removed in Click 9.0. Use 'tempfile.TemporaryDirectory' or pytest's 'tmp_path' fixture with absolute paths instead.
+    with runner.isolated_filesystem():
+
+tests/test_ipython.py::test_ipython_existing_variable_no_override
+tests/test_ipython.py::test_ipython_existing_variable_override
+tests/test_ipython.py::test_ipython_new_variable
+  /workspace/scratch/abh-independent-qa/job-01/venv/lib/python3.12/site-packages/IPython/core/history.py:568: DeprecationWarning: The default datetime adapter is deprecated as of Python 3.12; see the sqlite3 documentation for suggested replacement recipes
+    cur = conn.execute("""INSERT INTO sessions VALUES (NULL, ?, NULL,
+
+tests/test_main.py::test_load_dotenv_in_current_dir
+  /workspace/scratch/abh-independent-qa/job-01/venv/lib/python3.12/site-packages/sh.py:1955: DeprecationWarning: This process (pid=9) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+132 passed, 24 warnings in 1.04s
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-independent-qa/job-01/venv/bin/python -m flake8 src tests
+src/dotenv/variables.py:3:1: F401 'typing.Pattern' imported but unused
+
+EXIT_CODE=1
+$ /workspace/scratch/abh-independent-qa/job-01/venv/bin/python -m mypy --python-version=3.9 src tests
+/workspace/scratch/abh-independent-qa/job-01/venv/bin/python: No module named mypy
+
+EXIT_CODE=1
+$ /workspace/scratch/abh-independent-qa/job-01/venv/bin/python -m build --no-isolation --outdir /workspace/scratch/abh-independent-qa/job-01/dist
+/workspace/scratch/abh-independent-qa/job-01/venv/bin/python: No module named build.__main__; 'build' is a package and cannot be directly executed
+
+EXIT_CODE=1
+$ /workspace/scratch/abh-independent-qa/job-01/venv/bin/python /workspace/scratch/abh-independent-qa/job-01/independent_readme.py
+Traceback (most recent call last):
+  File "/workspace/scratch/abh-independent-qa/job-01/independent_readme.py", line 8, in <module>
+    assert r.returncode==0,(args,r.stderr)
+           ^^^^^^^^^^^^^^^
+AssertionError: ('USER foo', "/workspace/scratch/abh-independent-qa/job-01/venv/bin/python: No module named dotenv.__main__; 'dotenv' is a package and cannot be directly executed\n")
+
+EXIT_CODE=1
+$ /workspace/scratch/abh-independent-qa/job-01/venv/bin/python setup.py sdist bdist_wheel
+running sdist
+running egg_info
+writing src/python_dotenv.egg-info/PKG-INFO
+writing dependency_links to src/python_dotenv.egg-info/dependency_links.txt
+writing entry points to src/python_dotenv.egg-info/entry_points.txt
+writing requirements to src/python_dotenv.egg-info/requires.txt
+writing top-level names to src/python_dotenv.egg-info/top_level.txt
+reading manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+running check
+creating python_dotenv-0.18.0
+creating python_dotenv-0.18.0/src/dotenv
+creating python_dotenv-0.18.0/src/python_dotenv.egg-info
+creating python_dotenv-0.18.0/tests
+copying files to python_dotenv-0.18.0...
+copying .editorconfig -> python_dotenv-0.18.0
+copying CHANGELOG.md -> python_dotenv-0.18.0
+copying CONTRIBUTING.md -> python_dotenv-0.18.0
+copying LICENSE -> python_dotenv-0.18.0
+copying MANIFEST.in -> python_dotenv-0.18.0
+copying Makefile -> python_dotenv-0.18.0
+copying README.md -> python_dotenv-0.18.0
+copying pyproject.toml -> python_dotenv-0.18.0
+copying requirements.txt -> python_dotenv-0.18.0
+copying setup.cfg -> python_dotenv-0.18.0
+copying setup.py -> python_dotenv-0.18.0
+copying tox.ini -> python_dotenv-0.18.0
+copying src/dotenv/__init__.py -> python_dotenv-0.18.0/src/dotenv
+copying src/dotenv/cli.py -> python_dotenv-0.18.0/src/dotenv
+copying src/dotenv/ipython.py -> python_dotenv-0.18.0/src/dotenv
+copying src/dotenv/main.py -> python_dotenv-0.18.0/src/dotenv
+copying src/dotenv/parser.py -> python_dotenv-0.18.0/src/dotenv
+copying src/dotenv/py.typed -> python_dotenv-0.18.0/src/dotenv
+copying src/dotenv/variables.py -> python_dotenv-0.18.0/src/dotenv
+copying src/dotenv/version.py -> python_dotenv-0.18.0/src/dotenv
+copying src/python_dotenv.egg-info/PKG-INFO -> python_dotenv-0.18.0/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/SOURCES.txt -> python_dotenv-0.18.0/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/dependency_links.txt -> python_dotenv-0.18.0/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/entry_points.txt -> python_dotenv-0.18.0/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/requires.txt -> python_dotenv-0.18.0/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/top_level.txt -> python_dotenv-0.18.0/src/python_dotenv.egg-info
+copying tests/__init__.py -> python_dotenv-0.18.0/tests
+copying tests/conftest.py -> python_dotenv-0.18.0/tests
+copying tests/test_cli.py -> python_dotenv-0.18.0/tests
+copying tests/test_ipython.py -> python_dotenv-0.18.0/tests
+copying tests/test_main.py -> python_dotenv-0.18.0/tests
+copying tests/test_parser.py -> python_dotenv-0.18.0/tests
+copying tests/test_utils.py -> python_dotenv-0.18.0/tests
+copying tests/test_variables.py -> python_dotenv-0.18.0/tests
+Writing python_dotenv-0.18.0/setup.cfg
+Creating tar archive
+removing 'python_dotenv-0.18.0' (and everything under it)
+running bdist_wheel
+running build
+running build_py
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/dotenv
+copying build/lib/dotenv/ipython.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/cli.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/main.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/parser.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/__init__.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/version.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/py.typed -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/variables.py -> build/bdist.linux-x86_64/wheel/./dotenv
+running install_egg_info
+Copying src/python_dotenv.egg-info to build/bdist.linux-x86_64/wheel/./python_dotenv-0.18.0-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/python_dotenv-0.18.0.dist-info/WHEEL
+creating 'dist/python_dotenv-0.18.0-py2.py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'dotenv/__init__.py'
+adding 'dotenv/cli.py'
+adding 'dotenv/ipython.py'
+adding 'dotenv/main.py'
+adding 'dotenv/parser.py'
+adding 'dotenv/py.typed'
+adding 'dotenv/variables.py'
+adding 'dotenv/version.py'
+adding 'python_dotenv-0.18.0.dist-info/licenses/LICENSE'
+adding 'python_dotenv-0.18.0.dist-info/METADATA'
+adding 'python_dotenv-0.18.0.dist-info/WHEEL'
+adding 'python_dotenv-0.18.0.dist-info/entry_points.txt'
+adding 'python_dotenv-0.18.0.dist-info/top_level.txt'
+adding 'python_dotenv-0.18.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+/workspace/scratch/abh-independent-qa/job-01/venv/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+warning: no files found matching '*.yml'
+warning: no files found matching '.bumpversion.cfg'
+warning: no files found matching '.coveragerc'
+/workspace/scratch/abh-independent-qa/job-01/venv/lib/python3.12/site-packages/setuptools/_distutils/cmd.py:119: SetuptoolsDeprecationWarning: bdist_wheel.universal is deprecated
+!!
+
+        ********************************************************************************
+        With Python 2.7 end-of-life, support for building universal wheels
+        (i.e., wheels that support both Python 2 and Python 3)
+        is being obviated.
+        Please discontinue using this option, or if you still need it,
+        file an issue with pypa/setuptools describing your use case.
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+        ********************************************************************************
+
+!!
+  self.finalize_options()
+/workspace/scratch/abh-independent-qa/job-01/venv/lib/python3.12/site-packages/setuptools/_distutils/cmd.py:90: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` directly.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+
+        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+
+EXIT_CODE=0
+$ git diff b8fdfba09957c6c4872f98c721b185a4ba1711ec HEAD -- src tests tox.ini setup.cfg
+fatal: bad object b8fdfba09957c6c4872f98c721b185a4ba1711ec
+
+EXIT_CODE=128
+$ git diff --check b8fdfba09957c6c4872f98c721b185a4ba1711ec HEAD
+fatal: bad object b8fdfba09957c6c4872f98c721b185a4ba1711ec
+
+EXIT_CODE=128
+$ /workspace/scratch/abh-independent-qa/job-01/venv/bin/python /workspace/scratch/abh-independent-qa/job-01/independent_readme.py
+PASS independent actual README set commands and list output end-to-end
+
+EXIT_CODE=0
+$ git diff HEAD^ HEAD -- src tests tox.ini setup.cfg
+
+EXIT_CODE=0
+$ git diff --check HEAD^ HEAD
+
+EXIT_CODE=0

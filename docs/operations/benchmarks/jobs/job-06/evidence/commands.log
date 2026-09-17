@@ -1,0 +1,515 @@
+
+[2026-09-17T10:30:20.632386+00:00] $ node --version
+v24.19.0
+
+EXIT 0
+
+[2026-09-17T10:30:39.919562+00:00] $ node ../evidence/reproduce.mjs
+{"input":"\u001b]8;;http://example.com/\u001b\\This is a link\u001b]8;;\u001b\\ hello","matches":["\u001b]8;;h","\u001b]8"],"stripped":"ttp://example.com/\u001b\\This is a link;;\u001b\\ hello"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'ttp://example.com/\x1B\\This is a link;;\x1B\\ hello'
+- 'This is a link hello'
+
+    at file:///workspace/scratch/abh-benchmark-jobs/job-06/evidence/reproduce.mjs:5:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'ttp://example.com/\x1B\\This is a link;;\x1B\\ hello',
+  expected: 'This is a link hello',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
+
+EXIT 1
+
+[2026-09-17T10:31:05.199802+00:00] $ node ../evidence/reproduce.mjs
+{"input":"\u001b]8;;http://example.com/\u001b\\This is a link\u001b]8;;\u001b\\ hello","matches":["\u001b]8;;http://example.com/\u001b\\","\u001b]8;;\u001b\\"],"stripped":"This is a link hello"}
+
+EXIT 0
+
+[2026-09-17T10:31:05.315878+00:00] $ node --check index.js
+
+EXIT 0
+
+[2026-09-17T10:31:05.353545+00:00] $ git diff --check
+
+EXIT 0
+
+[2026-09-17T10:31:10.865284+00:00] $ npm install --ignore-scripts --package-lock=false
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+
+added 684 packages in 50s
+
+EXIT 0
+
+[2026-09-17T10:31:31.136602+00:00] $ npm test
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ansi-regex@6.0.1 test
+> xo && ava && tsd
+
+
+  ✔ match ansi code in a string
+  ✔ match ansi code from ls command
+  ✔ match reset;setfg;setbg;italics;strike;underline sequence in a string
+  ✔ match clear tabs sequence in a string
+  ✔ match clear line from cursor right in a string
+  ✔ match clear screen in a string
+  ✔ match only first
+  ✔ match terminal link
+  ✔ match "change icon name and window title" in string
+  ✔ ansiCompatible - [176A → Cursor up Pn lines
+  ✔ ansiCompatible - [176A should not overconsume
+  ✔ ansiCompatible - [176B → Cursor down Pn lines
+  ✔ ansiCompatible - [176B should not overconsume
+  ✔ ansiCompatible - [176C → Cursor forward Pn characters (right)
+  ✔ ansiCompatible - [176C should not overconsume
+  ✔ ansiCompatible - [176D → Cursor backward Pn characters (left)
+  ✔ ansiCompatible - [176D should not overconsume
+  ✔ ansiCompatible - [176;176H → Direct cursor addressing, where Pl is line#, Pc is column#
+  ✔ ansiCompatible - [176;176H should not overconsume
+  ✔ ansiCompatible - [176;176f → Direct cursor addressing, where Pl is line#, Pc is column#
+  ✔ ansiCompatible - [176;176f should not overconsume
+  ✔ ansiCompatible - [SKIP] 7 → Save cursor and attributes
+  ✔ ansiCompatible - [SKIP] 7 should not overconsume
+  ✔ ansiCompatible - [SKIP] 8 → Restore cursor and attributes
+  ✔ ansiCompatible - [SKIP] 8 should not overconsume
+  ✔ ansiCompatible - [SKIP] #3 → Change this line to double-height top half
+  ✔ ansiCompatible - [SKIP] #3 should not overconsume
+  ✔ ansiCompatible - [SKIP] #4 → Change this line to double-height bottom half
+  ✔ ansiCompatible - [SKIP] #4 should not overconsume
+  ✔ ansiCompatible - [SKIP] #5 → Change this line to single-width single-height
+  ✔ ansiCompatible - [SKIP] #5 should not overconsume
+  ✔ ansiCompatible - [SKIP] #6 → Change this line to double-width single-height
+  ✔ ansiCompatible - [SKIP] #6 should not overconsume
+  ✔ ansiCompatible - [176;176;176;176;176;176;176m → Text Styles
+  ✔ ansiCompatible - [176;176;176;176;176;176;176m should not overconsume
+  ✔ ansiCompatible - [176;176;176;176;176;176;176q → Programmable LEDs
+  ✔ ansiCompatible - [176;176;176;176;176;176;176q should not overconsume
+  ✔ ansiCompatible - [K → Erase from cursor to end of line
+  ✔ ansiCompatible - [K should not overconsume
+  ✔ ansiCompatible - [0K → Same
+  ✔ ansiCompatible - [0K should not overconsume
+  ✔ ansiCompatible - [1K → Erase from beginning of line to cursor
+  ✔ ansiCompatible - [1K should not overconsume
+  ✔ ansiCompatible - [2K → Erase line containing cursor
+  ✔ ansiCompatible - [2K should not overconsume
+  ✔ ansiCompatible - [J → Erase from cursor to end of screen
+  ✔ ansiCompatible - [J should not overconsume
+  ✔ ansiCompatible - [0J → Same
+  ✔ ansiCompatible - [0J should not overconsume
+  ✔ ansiCompatible - [2J → Erase entire screen
+  ✔ ansiCompatible - [2J should not overconsume
+  ✔ ansiCompatible - [P → Delete character
+  ✔ ansiCompatible - [P should not overconsume
+  ✔ ansiCompatible - [0P → Delete character (0P)
+  ✔ ansiCompatible - [0P should not overconsume
+  ✔ ansiCompatible - [2P → Delete 2 characters
+  ✔ ansiCompatible - [2P should not overconsume
+  ✔ ansiCompatible - (A → United Kingdom (UK) (Character Set G0)
+  ✔ ansiCompatible - (A should not overconsume
+  ✔ ansiCompatible - )A → United Kingdom (UK) (Character Set G1)
+  ✔ ansiCompatible - )A should not overconsume
+  ✔ ansiCompatible - (B → United States (USASCII) (Character Set G0)
+  ✔ ansiCompatible - (B should not overconsume
+  ✔ ansiCompatible - )B → United States (USASCII) (Character Set G1)
+  ✔ ansiCompatible - )B should not overconsume
+  ✔ ansiCompatible - [SKIP] (0 → Special graphics/line drawing set (Character Set G0)
+  ✔ ansiCompatible - [SKIP] (0 should not overconsume
+  ✔ ansiCompatible - [SKIP] )0 → Special graphics/line drawing set (Character Set G1)
+  ✔ ansiCompatible - [SKIP] )0 should not overconsume
+  ✔ ansiCompatible - [SKIP] (1 → Alternative character ROM (Character Set G0)
+  ✔ ansiCompatible - [SKIP] (1 should not overconsume
+  ✔ ansiCompatible - [SKIP] )1 → Alternative character ROM (Character Set G1)
+  ✔ ansiCompatible - [SKIP] )1 should not overconsume
+  ✔ ansiCompatible - [SKIP] (2 → Alternative graphic ROM (Character Set G0)
+  ✔ ansiCompatible - [SKIP] (2 should not overconsume
+  ✔ ansiCompatible - [SKIP] )2 → Alternative graphic ROM (Character Set G1)
+  ✔ ansiCompatible - [SKIP] )2 should not overconsume
+  ✔ ansiCompatible - H → Set tab at current column
+  ✔ ansiCompatible - H should not overconsume
+  ✔ ansiCompatible - [g → Clear tab at current column
+  ✔ ansiCompatible - [g should not overconsume
+  ✔ ansiCompatible - [0g → Same
+  ✔ ansiCompatible - [0g should not overconsume
+  ✔ ansiCompatible - [3g → Clear all tabs
+  ✔ ansiCompatible - [3g should not overconsume
+  ✔ ansiCompatible - [6n → Cursor position report
+  ✔ ansiCompatible - [6n should not overconsume
+  ✔ ansiCompatible - [176;176R → (response; Pl=line#; Pc=column#)
+  ✔ ansiCompatible - [176;176R should not overconsume
+  ✔ ansiCompatible - [5n → Status report
+  ✔ ansiCompatible - [5n should not overconsume
+  ✔ ansiCompatible - [c → (response; terminal Ok)
+  ✔ ansiCompatible - [c should not overconsume
+  ✔ ansiCompatible - [0c → (response; teminal not Ok)
+  ✔ ansiCompatible - [0c should not overconsume
+  ✔ ansiCompatible - [?1;176c → response; where Ps is option present:
+  ✔ ansiCompatible - [?1;176c should not overconsume
+  ✔ ansiCompatible - c → Causes power-up reset routine to be executed
+  ✔ ansiCompatible - c should not overconsume
+  ✔ ansiCompatible - [SKIP] #8 → Fill screen with "E"
+  ✔ ansiCompatible - [SKIP] #8 should not overconsume
+  ✔ ansiCompatible - [2;176y → Invoke Test(s), where Ps is a decimal computed by adding the numbers of the desired tests to be executed
+  ✔ ansiCompatible - [2;176y should not overconsume
+  ✔ commonCodes - [176A → Move cursor up n lines
+  ✔ commonCodes - [176A should not overconsume
+  ✔ commonCodes - [176B → Move cursor down n lines
+  ✔ commonCodes - [176B should not overconsume
+  ✔ commonCodes - [176C → Move cursor right n lines
+  ✔ commonCodes - [176C should not overconsume
+  ✔ commonCodes - [176D → Move cursor left n lines
+  ✔ commonCodes - [176D should not overconsume
+  ✔ commonCodes - [176;176H → Move cursor to screen location v,h
+  ✔ commonCodes - [176;176H should not overconsume
+  ✔ commonCodes - [176;176f → Move cursor to screen location v,h
+  ✔ commonCodes - [176;176f should not overconsume
+  ✔ commonCodes - [176;176r → Set top and bottom lines of a window
+  ✔ commonCodes - [176;176r should not overconsume
+  ✔ commonCodes - [176;176R → Response: cursor is at v,h
+  ✔ commonCodes - [176;176R should not overconsume
+  ✔ commonCodes - [?1;1760c → Response: terminal type code n
+  ✔ commonCodes - [?1;1760c should not overconsume
+  ✔ commonCodes - [20h → Set new line mode
+  ✔ commonCodes - [20h should not overconsume
+  ✔ commonCodes - [?1h → Set cursor key to application
+  ✔ commonCodes - [?1h should not overconsume
+  ✔ commonCodes - [?3h → Set number of columns to 132
+  ✔ commonCodes - [?3h should not overconsume
+  ✔ commonCodes - [?4h → Set smooth scrolling
+  ✔ commonCodes - [?4h should not overconsume
+  ✔ commonCodes - [?5h → Set reverse video on screen
+  ✔ commonCodes - [?5h should not overconsume
+  ✔ commonCodes - [?6h → Set origin to relative
+  ✔ commonCodes - [?6h should not overconsume
+  ✔ commonCodes - [?7h → Set auto-wrap mode
+  ✔ commonCodes - [?7h should not overconsume
+  ✔ commonCodes - [?8h → Set auto-repeat mode
+  ✔ commonCodes - [?8h should not overconsume
+  ✔ commonCodes - [?9h → Set interlacing mode
+  ✔ commonCodes - [?9h should not overconsume
+  ✔ commonCodes - [20l → Set line feed mode
+  ✔ commonCodes - [20l should not overconsume
+  ✔ commonCodes - [?1l → Set cursor key to cursor
+  ✔ commonCodes - [?1l should not overconsume
+  ✔ commonCodes - [?2l → Set VT52 (versus ANSI)
+  ✔ commonCodes - [?2l should not overconsume
+  ✔ commonCodes - [?3l → Set number of columns to 80
+  ✔ commonCodes - [?3l should not overconsume
+  ✔ commonCodes - [?4l → Set jump scrolling
+  ✔ commonCodes - [?4l should not overconsume
+  ✔ commonCodes - [?5l → Set normal video on screen
+  ✔ commonCodes - [?5l should not overconsume
+  ✔ commonCodes - [?6l → Set origin to absolute
+  ✔ commonCodes - [?6l should not overconsume
+  ✔ commonCodes - [?7l → Reset auto-wrap mode
+  ✔ commonCodes - [?7l should not overconsume
+  ✔ commonCodes - [?8l → Reset auto-repeat mode
+  ✔ commonCodes - [?8l should not overconsume
+  ✔ commonCodes - [?9l → Reset interlacing mode
+  ✔ commonCodes - [?9l should not overconsume
+  ✔ commonCodes - N → Set single shift 2
+  ✔ commonCodes - N should not overconsume
+  ✔ commonCodes - O → Set single shift 3
+  ✔ commonCodes - O should not overconsume
+  ✔ commonCodes - [m → Turn off character attributes
+  ✔ commonCodes - [m should not overconsume
+  ✔ commonCodes - [0m → Turn off character attributes
+  ✔ commonCodes - [0m should not overconsume
+  ✔ commonCodes - [1m → Turn bold mode on
+  ✔ commonCodes - [1m should not overconsume
+  ✔ commonCodes - [2m → Turn low intensity mode on
+  ✔ commonCodes - [2m should not overconsume
+  ✔ commonCodes - [4m → Turn underline mode on
+  ✔ commonCodes - [4m should not overconsume
+  ✔ commonCodes - [5m → Turn blinking mode on
+  ✔ commonCodes - [5m should not overconsume
+  ✔ commonCodes - [7m → Turn reverse video on
+  ✔ commonCodes - [7m should not overconsume
+  ✔ commonCodes - [8m → Turn invisible text mode on
+  ✔ commonCodes - [8m should not overconsume
+  ✔ commonCodes - [9m → strikethrough on
+  ✔ commonCodes - [9m should not overconsume
+  ✔ commonCodes - [22m → bold off (see below)
+  ✔ commonCodes - [22m should not overconsume
+  ✔ commonCodes - [23m → italics off
+  ✔ commonCodes - [23m should not overconsume
+  ✔ commonCodes - [24m → underline off
+  ✔ commonCodes - [24m should not overconsume
+  ✔ commonCodes - [27m → inverse off
+  ✔ commonCodes - [27m should not overconsume
+  ✔ commonCodes - [29m → strikethrough off
+  ✔ commonCodes - [29m should not overconsume
+  ✔ commonCodes - [30m → set foreground color to black
+  ✔ commonCodes - [30m should not overconsume
+  ✔ commonCodes - [31m → set foreground color to red
+  ✔ commonCodes - [31m should not overconsume
+  ✔ commonCodes - [32m → set foreground color to green
+  ✔ commonCodes - [32m should not overconsume
+  ✔ commonCodes - [33m → set foreground color to yellow
+  ✔ commonCodes - [33m should not overconsume
+  ✔ commonCodes - [34m → set foreground color to blue
+  ✔ commonCodes - [34m should not overconsume
+  ✔ commonCodes - [35m → set foreground color to magenta (purple)
+  ✔ commonCodes - [35m should not overconsume
+  ✔ commonCodes - [36m → set foreground color to cyan
+  ✔ commonCodes - [36m should not overconsume
+  ✔ commonCodes - [37m → set foreground color to white
+  ✔ commonCodes - [37m should not overconsume
+  ✔ commonCodes - [39m → set foreground color to default (white)
+  ✔ commonCodes - [39m should not overconsume
+  ✔ commonCodes - [40m → set background color to black
+  ✔ commonCodes - [40m should not overconsume
+  ✔ commonCodes - [41m → set background color to red
+  ✔ commonCodes - [41m should not overconsume
+  ✔ commonCodes - [42m → set background color to green
+  ✔ commonCodes - [42m should not overconsume
+  ✔ commonCodes - [43m → set background color to yellow
+  ✔ commonCodes - [43m should not overconsume
+  ✔ commonCodes - [44m → set background color to blue
+  ✔ commonCodes - [44m should not overconsume
+  ✔ commonCodes - [45m → set background color to magenta (purple)
+  ✔ commonCodes - [45m should not overconsume
+  ✔ commonCodes - [46m → set background color to cyan
+  ✔ commonCodes - [46m should not overconsume
+  ✔ commonCodes - [47m → set background color to white
+  ✔ commonCodes - [47m should not overconsume
+  ✔ commonCodes - [49m → set background color to default (black)
+  ✔ commonCodes - [49m should not overconsume
+  ✔ commonCodes - [H → Move cursor to upper left corner
+  ✔ commonCodes - [H should not overconsume
+  ✔ commonCodes - [;H → Move cursor to upper left corner
+  ✔ commonCodes - [;H should not overconsume
+  ✔ commonCodes - [f → Move cursor to upper left corner
+  ✔ commonCodes - [f should not overconsume
+  ✔ commonCodes - [;f → Move cursor to upper left corner
+  ✔ commonCodes - [;f should not overconsume
+  ✔ commonCodes - M → Move/scroll window down one line
+  ✔ commonCodes - M should not overconsume
+  ✔ commonCodes - E → Move to next line
+  ✔ commonCodes - E should not overconsume
+  ✔ commonCodes - H → Set a tab at the current column
+  ✔ commonCodes - H should not overconsume
+  ✔ commonCodes - [g → Clear a tab at the current column
+  ✔ commonCodes - [g should not overconsume
+  ✔ commonCodes - [0g → Clear a tab at the current column
+  ✔ commonCodes - [0g should not overconsume
+  ✔ commonCodes - [3g → Clear all tabs
+  ✔ commonCodes - [3g should not overconsume
+  ✔ commonCodes - [K → Clear line from cursor right
+  ✔ commonCodes - [K should not overconsume
+  ✔ commonCodes - [0K → Clear line from cursor right
+  ✔ commonCodes - [0K should not overconsume
+  ✔ commonCodes - [1K → Clear line from cursor left
+  ✔ commonCodes - [1K should not overconsume
+  ✔ commonCodes - [2K → Clear entire line
+  ✔ commonCodes - [2K should not overconsume
+  ✔ commonCodes - [J → Clear screen from cursor down
+  ✔ commonCodes - [J should not overconsume
+  ✔ commonCodes - [0J → Clear screen from cursor down
+  ✔ commonCodes - [0J should not overconsume
+  ✔ commonCodes - [1J → Clear screen from cursor up
+  ✔ commonCodes - [1J should not overconsume
+  ✔ commonCodes - [2J → Clear entire screen
+  ✔ commonCodes - [2J should not overconsume
+  ✔ commonCodes - [c → Identify what terminal type
+  ✔ commonCodes - [c should not overconsume
+  ✔ commonCodes - [0c → Identify what terminal type (another)
+  ✔ commonCodes - [0c should not overconsume
+  ✔ commonCodes - c → Reset terminal to initial state
+  ✔ commonCodes - c should not overconsume
+  ✔ commonCodes - [2;1y → Confidence power up test
+  ✔ commonCodes - [2;1y should not overconsume
+  ✔ commonCodes - [2;2y → Confidence loopback test
+  ✔ commonCodes - [2;2y should not overconsume
+  ✔ commonCodes - [2;9y → Repeat power up test
+  ✔ commonCodes - [2;9y should not overconsume
+  ✔ commonCodes - [2;10y → Repeat loopback test
+  ✔ commonCodes - [2;10y should not overconsume
+  ✔ commonCodes - [0q → Turn off all four leds
+  ✔ commonCodes - [0q should not overconsume
+  ✔ commonCodes - [1q → Turn on LED #1
+  ✔ commonCodes - [1q should not overconsume
+  ✔ commonCodes - [2q → Turn on LED #2
+  ✔ commonCodes - [2q should not overconsume
+  ✔ commonCodes - [3q → Turn on LED #3
+  ✔ commonCodes - [3q should not overconsume
+  ✔ commonCodes - [4q → Turn on LED #4
+  ✔ commonCodes - [4q should not overconsume
+  ✔ otherCode - [SKIP] 7 → Save cursor position and attributes
+  ✔ otherCode - [SKIP] 7 should not overconsume
+  ✔ otherCode - [SKIP] 8 → Restore cursor position and attributes
+  ✔ otherCode - [SKIP] 8 should not overconsume
+  ✔ otherCode - = → Set alternate keypad mode
+  ✔ otherCode - = should not overconsume
+  ✔ otherCode - > → Set numeric keypad mode
+  ✔ otherCode - > should not overconsume
+  ✔ otherCode - (A → Set United Kingdom G0 character set
+  ✔ otherCode - (A should not overconsume
+  ✔ otherCode - )A → Set United Kingdom G1 character set
+  ✔ otherCode - )A should not overconsume
+  ✔ otherCode - (B → Set United States G0 character set
+  ✔ otherCode - (B should not overconsume
+  ✔ otherCode - )B → Set United States G1 character set
+  ✔ otherCode - )B should not overconsume
+  ✔ otherCode - [SKIP] (0 → Set G0 special chars. & line set
+  ✔ otherCode - [SKIP] (0 should not overconsume
+  ✔ otherCode - [SKIP] )0 → Set G1 special chars. & line set
+  ✔ otherCode - [SKIP] )0 should not overconsume
+  ✔ otherCode - [SKIP] (1 → Set G0 alternate character ROM
+  ✔ otherCode - [SKIP] (1 should not overconsume
+  ✔ otherCode - [SKIP] )1 → Set G1 alternate character ROM
+  ✔ otherCode - [SKIP] )1 should not overconsume
+  ✔ otherCode - [SKIP] (2 → Set G0 alt char ROM and spec. graphics
+  ✔ otherCode - [SKIP] (2 should not overconsume
+  ✔ otherCode - [SKIP] )2 → Set G1 alt char ROM and spec. graphics
+  ✔ otherCode - [SKIP] )2 should not overconsume
+  ✔ otherCode - [SKIP] #3 → Double-height letters, top half
+  ✔ otherCode - [SKIP] #3 should not overconsume
+  ✔ otherCode - [SKIP] #4 → Double-height letters, bottom half
+  ✔ otherCode - [SKIP] #4 should not overconsume
+  ✔ otherCode - [SKIP] #5 → Single width, single height letters
+  ✔ otherCode - [SKIP] #5 should not overconsume
+  ✔ otherCode - [SKIP] #6 → Double width, single height letters
+  ✔ otherCode - [SKIP] #6 should not overconsume
+  ✔ otherCode - [SKIP] #8 → Screen alignment display
+  ✔ otherCode - [SKIP] #8 should not overconsume
+  ✔ otherCode - 5n → Device status report
+  ✔ otherCode - 5n should not overconsume
+  ✔ otherCode - 0n → Response: terminal is OK
+  ✔ otherCode - 0n should not overconsume
+  ✔ otherCode - 3n → Response: terminal is not OK
+  ✔ otherCode - 3n should not overconsume
+  ✔ otherCode - 6n → Get cursor position
+  ✔ otherCode - 6n should not overconsume
+  ✔ urxvt - [5~ → URxvt.keysym.Prior
+  ✔ urxvt - [5~ should not overconsume
+  ✔ urxvt - [6~ → URxvt.keysym.Next
+  ✔ urxvt - [6~ should not overconsume
+  ✔ urxvt - [7~ → URxvt.keysym.Home
+  ✔ urxvt - [7~ should not overconsume
+  ✔ urxvt - [8~ → URxvt.keysym.End
+  ✔ urxvt - [8~ should not overconsume
+  ✔ urxvt - [A → URxvt.keysym.Up
+  ✔ urxvt - [A should not overconsume
+  ✔ urxvt - [B → URxvt.keysym.Down
+  ✔ urxvt - [B should not overconsume
+  ✔ urxvt - [C → URxvt.keysym.Right
+  ✔ urxvt - [C should not overconsume
+  ✔ urxvt - [D → URxvt.keysym.Left
+  ✔ urxvt - [D should not overconsume
+  ✔ urxvt - [3;5;5t → URxvt.keysym.C-M-q
+  ✔ urxvt - [3;5;5t should not overconsume
+  ✔ urxvt - [3;5;606t → URxvt.keysym.C-M-y
+  ✔ urxvt - [3;5;606t should not overconsume
+  ✔ urxvt - [3;1605;5t → URxvt.keysym.C-M-e
+  ✔ urxvt - [3;1605;5t should not overconsume
+  ✔ urxvt - [3;1605;606t → URxvt.keysym.C-M-c
+  ✔ urxvt - [3;1605;606t should not overconsume
+  ✔ urxvt - ]710;9x15bold → URxvt.keysym.font
+  ✔ urxvt - ]710;9x15bold should not overconsume
+  ✔ vt52Codes - A → Cursor up
+  ✔ vt52Codes - A should not overconsume
+  ✔ vt52Codes - B → Cursor down
+  ✔ vt52Codes - B should not overconsume
+  ✔ vt52Codes - C → Cursor right
+  ✔ vt52Codes - C should not overconsume
+  ✔ vt52Codes - D → Cursor left
+  ✔ vt52Codes - D should not overconsume
+  ✔ vt52Codes - H → Cursor to home
+  ✔ vt52Codes - H should not overconsume
+  ✔ vt52Codes - I → Reverse line feed
+  ✔ vt52Codes - I should not overconsume
+  ✔ vt52Codes - J → Erase to end of screen
+  ✔ vt52Codes - J should not overconsume
+  ✔ vt52Codes - K → Erase to end of line
+  ✔ vt52Codes - K should not overconsume
+  ✔ vt52Codes - S → Scroll up
+  ✔ vt52Codes - S should not overconsume
+  ✔ vt52Codes - T → Scroll down
+  ✔ vt52Codes - T should not overconsume
+  ✔ vt52Codes - Z → Identify
+  ✔ vt52Codes - Z should not overconsume
+  ✔ vt52Codes - = → Enter alternate keypad mode
+  ✔ vt52Codes - = should not overconsume
+  ✔ vt52Codes - > → Exit alternate keypad mode
+  ✔ vt52Codes - > should not overconsume
+  ✔ vt52Codes - [SKIP] 1 → Graphics processor on
+  ✔ vt52Codes - [SKIP] 1 should not overconsume
+  ✔ vt52Codes - [SKIP] 2 → Graphics processor off
+  ✔ vt52Codes - [SKIP] 2 should not overconsume
+  ✔ vt52Codes - < → Enter ANSI mode
+  ✔ vt52Codes - < should not overconsume
+  ✔ vt52Codes - s → Cursor save
+  ✔ vt52Codes - s should not overconsume
+  ✔ vt52Codes - u → Cursor restore
+  ✔ vt52Codes - u should not overconsume
+  ✔ ansi-escapes cursorTo
+  ✔ ansi-escapes cursorMove
+  ✔ ansi-escapes cursorUp
+  ✔ ansi-escapes cursorDown
+  ✔ ansi-escapes cursorForward
+  ✔ ansi-escapes cursorBackward
+  ✔ ansi-escapes cursorLeft
+  ✔ ansi-escapes cursorSavePosition
+  ✔ ansi-escapes cursorRestorePosition
+  ✔ ansi-escapes cursorGetPosition
+  ✔ ansi-escapes cursorNextLine
+  ✔ ansi-escapes cursorPrevLine
+  ✔ ansi-escapes cursorHide
+  ✔ ansi-escapes cursorShow
+  ✔ ansi-escapes eraseLines
+  ✔ ansi-escapes eraseEndLine
+  ✔ ansi-escapes eraseStartLine
+  ✔ ansi-escapes eraseLine
+  ✔ ansi-escapes eraseDown
+  ✔ ansi-escapes eraseUp
+  ✔ ansi-escapes eraseScreen
+  ✔ ansi-escapes scrollUp
+  ✔ ansi-escapes scrollDown
+  ✔ ansi-escapes clearScreen
+  ✔ ansi-escapes clearTerminal
+  ✔ ansi-escapes link
+  ✔ match terminal links terminated by "\u0007"
+  ✔ match terminal links terminated by "\u001b\\"
+  ✔ terminal link terminators do not consume adjacent ANSI codes or text
+  ─
+
+  424 tests passed
+
+EXIT 0
+
+[2026-09-17T10:32:10.095208+00:00] $ git switch -c solver-b/job-06-osc-terminator
+Switched to a new branch 'solver-b/job-06-osc-terminator'
+
+EXIT 0
+
+[2026-09-17T10:32:10.125815+00:00] $ git add index.js test.js
+
+EXIT 0
+
+[2026-09-17T10:32:10.187561+00:00] $ git -c user.name=solver_b -c user.email=solver_b@simulation.invalid commit -m Match terminal links ending in ESC backslash
+[solver-b/job-06-osc-terminator 2f046e2] Match terminal links ending in ESC backslash
+ 2 files changed, 20 insertions(+), 1 deletion(-)
+
+EXIT 0
+
+[2026-09-17T10:32:10.223533+00:00] $ git status --short
+
+EXIT 0

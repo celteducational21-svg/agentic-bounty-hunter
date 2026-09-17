@@ -1,0 +1,18 @@
+{
+  "id": "job-01",
+  "label": "SIMULATION / HISTORICAL REPLAY \u2014 NOT PAID WORK",
+  "repository": "theskumar/python-dotenv",
+  "issue": "https://github.com/theskumar/python-dotenv/issues/345",
+  "title": "CLI set method is not working as documented",
+  "issueBody": "Hi,\r\n\r\nThanks for creating such a useful library in Python.\r\n\r\nI was exploring the full potential of the library and that is when I came across its [CLI doc](https://github.com/theskumar/python-dotenv#command-line-interface). \r\n\r\nI am currently using version `0.18.0` and there is a `dotenv set` method that is not working as documented.\r\n\r\nWhen I run,\r\n```bash\r\ndotenv set USER=foo\r\n```\r\nI get the following error,\r\n```\r\nUsage: dotenv set [OPTIONS] KEY VALUE\r\nTry 'dotenv set --help' for help.\r\n\r\nError: Missing argument 'VALUE'.\r\n```\r\n\r\nHowever when I run the following,\r\n```bash\r\ndotenv set USER foo\r\n```\r\nthen it correctly updates the `.env`  file in current directory.\r\n\r\nIn other words, **NOT using \"=\" works**",
+  "preFixSha": "b8fdfba09957c6c4872f98c721b185a4ba1711ec",
+  "category": "documentation + executable CLI",
+  "difficulty": "easy",
+  "expectedDeliverable": "Resolve the original issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only this packet and the supplied pre-fix repository. No upstream lookup, remote git, accepted fixes, post-fix source or discussions. Ground truth is withheld until independent QA is frozen.",
+  "issueRedactions": [],
+  "repo": "theskumar/python-dotenv",
+  "issueUrl": "https://github.com/theskumar/python-dotenv/issues/345",
+  "issueNumber": 345,
+  "language": "Python"
+}

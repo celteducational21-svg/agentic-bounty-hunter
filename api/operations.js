@@ -13,6 +13,6 @@ export default async function handler(request, response) {
     const view = operatingView(scan,committed);
     return response.status(200).json({...view,dailyLogs:[...(scan?.dailyLog ? [scan.dailyLog] : []),...view.dailyLogs],runtime:{durable:true,lastScan:scan?.fetchedAt ?? null}});
   } catch(error) {
-    return response.status(200).json({...operatingView(null,committed),runtime:{durable:false,error:error.message}});
+    return response.status(200).json({...operatingView(null,committed),runtime:{durable:false,error:'Runtime persistence could not be verified; committed GitHub records remain available.'}});
   }
 }

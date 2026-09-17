@@ -1,0 +1,48 @@
+{
+  "reviewer": "independent_qa_lab",
+  "verdict": "PASS",
+  "firstPass": true,
+  "reviewedAt": "2026-09-17T10:25:31.841650+00:00",
+  "reviewedRevision": {
+    "src/core/operations.js": "sha256:034b0552b4cdacdce7c61ff71b120c5fd0121fd3f4c7722e725fc73bdb376dcb",
+    "scripts/benchmark-control-drills.mjs": "sha256:09d1cebbdc4853edeca158f0ba37a203b4ac00d66623d8caf7afcdfe4ca7f0e1"
+  },
+  "scope": "Control-plane implementation and simulated control assertions only; real historical solution drill pending",
+  "checks": {
+    "fullSuite": {
+      "command": "npm test",
+      "exitCode": 0,
+      "pass": 207,
+      "fail": 0
+    },
+    "targeted": {
+      "command": "node --test test/operations.test.js test/operations-review-cycle.test.js",
+      "exitCode": 0,
+      "pass": 13,
+      "fail": 0
+    },
+    "independentAssertions": {
+      "exitCode": 0,
+      "cases": [
+        "QA to SOLVING",
+        "READY_TO_SUBMIT to SOLVING",
+        "CHANGES_REQUESTED to SOLVING",
+        "input immutability",
+        "same-transition attestations stripped",
+        "changed revision invalidates QA and approval",
+        "stale advancement blocked"
+      ]
+    },
+    "drill": {
+      "command": "node scripts/benchmark-control-drills.mjs",
+      "location": "/workspace/scratch/abh-independent-control-qa",
+      "exitCode": 0,
+      "invalidTransitionsCaught": 7,
+      "realSolution": "PENDING_REAL_SOLUTION"
+    },
+    "build": "NOT_APPLICABLE: vanilla JavaScript project without build script",
+    "lint": "NOT_APPLICABLE: no lint script or configured lint gate",
+    "typecheck": "NOT_APPLICABLE: JavaScript project without typecheck script"
+  },
+  "findings": []
+}

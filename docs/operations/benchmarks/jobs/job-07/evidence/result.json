@@ -1,0 +1,24 @@
+{
+  "jobId": "job-07",
+  "worker": "solver_a",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "proofSeconds": 88.0,
+  "solveSeconds": 60.0,
+  "iterations": 1,
+  "revision": "54b96407a212d17425c574e4b871acc9c9ac1837",
+  "author": "solver_a",
+  "category": "Python filesystem API",
+  "difficulty": "medium",
+  "regressionFailures": 0,
+  "limitations": [
+    "Linux Python3.12 only; Windows native replacement not run.",
+    "Existing flake8 E704 and two W291 findings unchanged.",
+    "Typecheck N/A: unannotated module, no configured gate."
+  ],
+  "startedAt": "2026-09-17T10:34:22Z",
+  "proofCompletedAt": "2026-09-17T10:35:50Z",
+  "solutionFrozenAt": "2026-09-17T10:36:50Z"
+}

@@ -1,0 +1,32 @@
+{
+  "jobId": "job-07",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "reviewer": "control_drills_qa",
+  "revision": "54b96407a212d17425c574e4b871acc9c9ac1837",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": true,
+  "iterations": 1,
+  "completedAt": "2026-09-17T10:40:21Z",
+  "checks": {
+    "acceptanceCriteria": "PASS", "tests": "PASS", "regressions": "PASS",
+    "explainability": "PASS", "prReadiness": "PASS", "build": "PASS",
+    "lint": "FAIL_PRE_EXISTING", "typecheck": "NOT_APPLICABLE"
+  },
+  "notApplicableReasons": { "typecheck": "Historical project has no configured static typecheck command; module is unannotated. This is not a claim of type safety." },
+  "evidence": {
+    "focusedTests": "21 passed: 17 solver tests plus 4 independently selected edge cases",
+    "regressions": "614 passed including complete tests and module doctests with 4 independent additions",
+    "baseline": "All 4 independent tests failed on local historical parent source and passed on frozen solution",
+    "build": "sdist and wheel built after correcting QA-only flit_core version to historical >=3.2,<4 constraint",
+    "lint": "Targeted fatal-error flake8 checks pass; broad file lint reports same baseline E704 and two W291 findings",
+    "scope": "Two files changed: fileutils protocol normalization/documentation and focused tests; diff --check passes"
+  },
+  "findings": [],
+  "limitations": [
+    "Linux Python 3.12 only; Windows replacement code and Python version matrix not executed",
+    "Baseline broad lint findings retained; not a clean lint certification",
+    "First QA build attempt failed because QA installed flit_core 4.1; corrected environment pin, no Solver changes required",
+    "Local historical parent is a sanitized pre-fix snapshot; no accepted upstream fix or audit materials accessed"
+  ]
+}

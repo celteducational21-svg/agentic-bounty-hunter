@@ -1,0 +1,245 @@
+QA attempt2; original false-positive PASS retained in qa-attempt-1.
+$ /workspace/scratch/abh-independent-qa/job-02/venv/bin/python -m pytest -q
+........................................................................ [ 25%]
+....................................................s................... [ 51%]
+........................................................................ [ 76%]
+.................................................................        [100%]
+=============================== warnings summary ===============================
+tests/test_cli.py: 30 warnings
+  /workspace/scratch/abh-benchmark-jobs/job-02/repo/tests/conftest.py:8: DeprecationWarning: 'isolated_filesystem' is deprecated and will be removed in Click 9.0. Use 'tempfile.TemporaryDirectory' or pytest's 'tmp_path' fixture with absolute paths instead.
+    with runner.isolated_filesystem():
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+280 passed, 1 skipped, 30 warnings in 1.36s
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-independent-qa/job-02/venv/bin/python -m ruff check .
+All checks passed!
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-independent-qa/job-02/venv/bin/python -m ruff format --check .
+29 files already formatted
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-independent-qa/job-02/venv/bin/python -m mypy src tests
+Success: no issues found in 20 source files
+
+EXIT_CODE=0
+$ /workspace/scratch/abh-independent-qa/job-02/venv/bin/python -m build --no-isolation --outdir /workspace/scratch/abh-independent-qa/job-02-repair/dist
+running egg_info
+writing src/python_dotenv.egg-info/PKG-INFO
+writing dependency_links to src/python_dotenv.egg-info/dependency_links.txt
+writing entry points to src/python_dotenv.egg-info/entry_points.txt
+writing requirements to src/python_dotenv.egg-info/requires.txt
+writing top-level names to src/python_dotenv.egg-info/top_level.txt
+reading manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+running sdist
+running egg_info
+writing src/python_dotenv.egg-info/PKG-INFO
+writing dependency_links to src/python_dotenv.egg-info/dependency_links.txt
+writing entry points to src/python_dotenv.egg-info/entry_points.txt
+writing requirements to src/python_dotenv.egg-info/requires.txt
+writing top-level names to src/python_dotenv.egg-info/top_level.txt
+reading manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+running check
+creating python_dotenv-1.2.2
+creating python_dotenv-1.2.2/docs
+creating python_dotenv-1.2.2/src/dotenv
+creating python_dotenv-1.2.2/src/python_dotenv.egg-info
+creating python_dotenv-1.2.2/tests
+copying files to python_dotenv-1.2.2...
+copying .bumpversion.cfg -> python_dotenv-1.2.2
+copying .editorconfig -> python_dotenv-1.2.2
+copying .pre-commit-config.yaml -> python_dotenv-1.2.2
+copying CHANGELOG.md -> python_dotenv-1.2.2
+copying CONTRIBUTING.md -> python_dotenv-1.2.2
+copying LICENSE -> python_dotenv-1.2.2
+copying MANIFEST.in -> python_dotenv-1.2.2
+copying Makefile -> python_dotenv-1.2.2
+copying README.md -> python_dotenv-1.2.2
+copying mkdocs.yml -> python_dotenv-1.2.2
+copying pyproject.toml -> python_dotenv-1.2.2
+copying requirements-docs.txt -> python_dotenv-1.2.2
+copying requirements.txt -> python_dotenv-1.2.2
+copying ruff.toml -> python_dotenv-1.2.2
+copying tox.ini -> python_dotenv-1.2.2
+copying docs/changelog.md -> python_dotenv-1.2.2/docs
+copying docs/contributing.md -> python_dotenv-1.2.2/docs
+copying docs/index.md -> python_dotenv-1.2.2/docs
+copying docs/license.md -> python_dotenv-1.2.2/docs
+copying docs/reference.md -> python_dotenv-1.2.2/docs
+copying src/dotenv/__init__.py -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/__main__.py -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/cli.py -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/ipython.py -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/main.py -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/parser.py -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/py.typed -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/variables.py -> python_dotenv-1.2.2/src/dotenv
+copying src/dotenv/version.py -> python_dotenv-1.2.2/src/dotenv
+copying src/python_dotenv.egg-info/PKG-INFO -> python_dotenv-1.2.2/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/SOURCES.txt -> python_dotenv-1.2.2/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/dependency_links.txt -> python_dotenv-1.2.2/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/entry_points.txt -> python_dotenv-1.2.2/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/requires.txt -> python_dotenv-1.2.2/src/python_dotenv.egg-info
+copying src/python_dotenv.egg-info/top_level.txt -> python_dotenv-1.2.2/src/python_dotenv.egg-info
+copying tests/__init__.py -> python_dotenv-1.2.2/tests
+copying tests/conftest.py -> python_dotenv-1.2.2/tests
+copying tests/test_cli.py -> python_dotenv-1.2.2/tests
+copying tests/test_fifo_dotenv.py -> python_dotenv-1.2.2/tests
+copying tests/test_ipython.py -> python_dotenv-1.2.2/tests
+copying tests/test_is_interactive.py -> python_dotenv-1.2.2/tests
+copying tests/test_lib.py -> python_dotenv-1.2.2/tests
+copying tests/test_main.py -> python_dotenv-1.2.2/tests
+copying tests/test_parser.py -> python_dotenv-1.2.2/tests
+copying tests/test_utils.py -> python_dotenv-1.2.2/tests
+copying tests/test_variables.py -> python_dotenv-1.2.2/tests
+copying tests/test_zip_imports.py -> python_dotenv-1.2.2/tests
+Writing python_dotenv-1.2.2/setup.cfg
+Creating tar archive
+removing 'python_dotenv-1.2.2' (and everything under it)
+running egg_info
+writing src/python_dotenv.egg-info/PKG-INFO
+writing dependency_links to src/python_dotenv.egg-info/dependency_links.txt
+writing entry points to src/python_dotenv.egg-info/entry_points.txt
+writing requirements to src/python_dotenv.egg-info/requires.txt
+writing top-level names to src/python_dotenv.egg-info/top_level.txt
+reading manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+creating build/lib/dotenv
+copying src/dotenv/ipython.py -> build/lib/dotenv
+copying src/dotenv/cli.py -> build/lib/dotenv
+copying src/dotenv/main.py -> build/lib/dotenv
+copying src/dotenv/__main__.py -> build/lib/dotenv
+copying src/dotenv/parser.py -> build/lib/dotenv
+copying src/dotenv/__init__.py -> build/lib/dotenv
+copying src/dotenv/version.py -> build/lib/dotenv
+copying src/dotenv/variables.py -> build/lib/dotenv
+running egg_info
+writing src/python_dotenv.egg-info/PKG-INFO
+writing dependency_links to src/python_dotenv.egg-info/dependency_links.txt
+writing entry points to src/python_dotenv.egg-info/entry_points.txt
+writing requirements to src/python_dotenv.egg-info/requires.txt
+writing top-level names to src/python_dotenv.egg-info/top_level.txt
+reading manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+adding license file 'LICENSE'
+writing manifest file 'src/python_dotenv.egg-info/SOURCES.txt'
+copying src/dotenv/py.typed -> build/lib/dotenv
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/dotenv
+copying build/lib/dotenv/ipython.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/cli.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/main.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/__main__.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/parser.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/__init__.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/version.py -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/py.typed -> build/bdist.linux-x86_64/wheel/./dotenv
+copying build/lib/dotenv/variables.py -> build/bdist.linux-x86_64/wheel/./dotenv
+running install_egg_info
+Copying src/python_dotenv.egg-info to build/bdist.linux-x86_64/wheel/./python_dotenv-1.2.2-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/python_dotenv-1.2.2.dist-info/WHEEL
+creating '/workspace/scratch/abh-independent-qa/job-02-repair/dist/.tmp-4t3yiyls/python_dotenv-1.2.2-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'dotenv/__init__.py'
+adding 'dotenv/__main__.py'
+adding 'dotenv/cli.py'
+adding 'dotenv/ipython.py'
+adding 'dotenv/main.py'
+adding 'dotenv/parser.py'
+adding 'dotenv/py.typed'
+adding 'dotenv/variables.py'
+adding 'dotenv/version.py'
+adding 'python_dotenv-1.2.2.dist-info/licenses/LICENSE'
+adding 'python_dotenv-1.2.2.dist-info/METADATA'
+adding 'python_dotenv-1.2.2.dist-info/WHEEL'
+adding 'python_dotenv-1.2.2.dist-info/entry_points.txt'
+adding 'python_dotenv-1.2.2.dist-info/top_level.txt'
+adding 'python_dotenv-1.2.2.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built python_dotenv-1.2.2.tar.gz and python_dotenv-1.2.2-py3-none-any.whl
+* Getting build dependencies for sdist...
+warning: no files found matching '.coveragerc'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Building sdist...
+warning: no files found matching '.coveragerc'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Building wheel from sdist
+* Getting build dependencies for wheel...
+warning: no files found matching '.coveragerc'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Building wheel...
+warning: no files found matching '.coveragerc'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+
+EXIT_CODE=0
+
+$ python multibinding.py
+PASS 3110 multi-binding insert/update roundtrips plus4double/mixed-quote parser controls
+EXIT_CODE=0
+Baseline parser comparison using git show HEAD~2:src/dotenv/parser.py (supplied baseline)
+A="back\\" then B="sentinel": both baseline and repaired return one error binding key=None,value=None,error=True. Known unchanged double-quoted limitation, outside set_key single-quoted output.
+EXIT_CODE=0
