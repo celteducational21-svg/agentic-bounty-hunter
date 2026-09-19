@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-19T19:59:02Z",
+  "notifications": [],
+  "previouslyCommunicated": [
+    {
+      "key": "setup-incomplete:2026-09-19",
+      "reference": "Owner conversation: response to why its strucked",
+      "summary": "Runtime reachable; last saved scan September 17; #12 waiting; no secured work/solves/payment; onboarding and manager brief unfinished.",
+      "delivery": "CONFIRMED_IN_CONVERSATION"
+    }
+  ],
+  "note": "Do not invent historical delivery timestamps or backfill unverified event receipts. This journal excludes historical benchmark wins from real work."
+}

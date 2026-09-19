@@ -14,7 +14,7 @@ Goal: first accepted paid bounty. Work, learn, improve from observed outcomes. G
 
 ## Schedule
 
-`ABH Daily Operations` is enabled daily in Kuwait mornings (approximately 08:00); `ABH Human Gate` already checks hourly. The first daily execution ran on 2026-09-17: fresh discovery persisted, #12 replies checked, three supplemental candidates investigated; see `daily/2026-09-17.md`. Each cycle uses actual available tooling and records failures honestly. A scheduled prompt is not evidence that a solve/test/payment occurred.
+`Edward · ABH daily operations` is enabled daily in Kuwait mornings (approximately 08:00); `Edward · ABH updates` checks milestones hourly. The old `ABH Human Gate` is disabled to avoid duplicate reports. See `EDWARD.md` for worker responsibilities, owner handoff and `manager-notifications.json` for deduplication. The first daily execution ran on 2026-09-17; later execution evidence belongs in `daily/`. Each cycle uses actual available tooling and records failures honestly. A scheduled prompt is not evidence that a solve/test/payment occurred.
 
 ## Current work
 
