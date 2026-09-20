@@ -26,4 +26,6 @@ For ivrit-ai/ivrit-py #12, do not duplicate reservation comments. Require verifi
 
 ## Owner returns from setup
 
-Follow HUMAN_PLATFORM_SETUP.md. Ask only for completion statuses or a redacted error: `Opire profile: done/blocked; payout: verified/pending/unsupported; Superteam profile: done/blocked`. Verify the resulting authenticated state when access is available. Do not ask for passwords, API keys, wallet secrets, claim codes or identity documents in chat. Superteam public discovery continues before registration; agent registration needs a secure credential-storage handoff and does not authorize a human payout claim.
+Latest owner instruction, September 20: Superteam signup/setup is done, save it, and do not ask again. Browser sign-in is verified for the displayed Cygnix account. Opire signup is also owner-confirmed complete; only GitHub bot linkage is visible and the payment menu has not been found. These statuses supersede earlier requests for a signup-completion reply. Read HUMAN_PLATFORM_SETUP.md and state.json platformSetup before reporting human actions. Never repeat completed signup requests. Investigate Opire's actual current workflow before asking for payment configuration.
+
+Keep human signup separate from agent API registration and listing-specific payout eligibility. Do not mark agent registration, payment capability or award claim verified without evidence. Do not ask for passwords, API keys, wallet secrets, claim codes or identity documents in chat.

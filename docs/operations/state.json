@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T11:28:15.865117Z",
+  "updatedAt": "2026-09-20T12:17:07.898Z",
   "operations": [
     {
       "opportunityId": "ABH-GH-ivrit-ai-ivrit-py-12",
@@ -13,7 +13,7 @@
       },
       "provider": "GitHub maintainer",
       "competition": "Multiple interest comments; no confirmed reservation observed",
-      "effort": "6\u201310 hours plus maintainer review",
+      "effort": "6–10 hours plus maintainer review",
       "latestActivity": "Reservation request already posted; no maintainer confirmation in retrieved comments",
       "status": "WAITING_FOR_MAINTAINER",
       "version": 5,
@@ -435,7 +435,7 @@
   "humanActions": [
     {
       "id": "opire-setup",
-      "action": "Verify the existing Opire contributor profile, linked GitHub identity and supported payout onboarding; completion remains unverified",
+      "action": "Opire signup is complete per owner. Investigate the GitHub bot-linking screen and locate current payout onboarding; do not ask the owner to sign up again or assume a missing payment menu is an error.",
       "blocks": "Opire claiming/payment only"
     },
     {
@@ -447,11 +447,6 @@
       "id": "issue-27-cleanup",
       "action": "If jw6d49s5vw-ctrl is your account, close accidental ivrit-ai/ivrit-py #27 as not planned; otherwise report the attribution mismatch",
       "blocks": "Nothing; GitHub integration returned 403"
-    },
-    {
-      "id": "superteam-profile",
-      "action": "Complete or confirm your Superteam human talent profile and listing-specific payout eligibility; public discovery already works",
-      "blocks": "Superteam authenticated participation and award claim only"
     }
   ],
   "workers": {
@@ -514,5 +509,21 @@
     "timezone": "Asia/Kuwait",
     "cadence": "Daily morning",
     "existingHumanGate": "ABH Human Gate hourly"
+  },
+  "platformSetup": {
+    "superteam": {
+      "status": "OWNER_CONFIRMED_DONE",
+      "signIn": "VERIFIED_IN_BROWSER",
+      "observedProfileName": "Cygnix",
+      "confirmedOn": "2026-09-20",
+      "repeatSignupRequest": false,
+      "note": "Human signup/profile setup accepted as complete per owner. Agent registration/API credentials and listing-specific payout eligibility are separate and not asserted verified."
+    },
+    "opire": {
+      "status": "SIGNUP_OWNER_CONFIRMED_DONE",
+      "confirmedOn": "2026-09-20",
+      "repeatSignupRequest": false,
+      "nextAction": "Investigate GitHub bot linkage and actual payout workflow; owner reports no payment-method menu."
+    }
   }
 }

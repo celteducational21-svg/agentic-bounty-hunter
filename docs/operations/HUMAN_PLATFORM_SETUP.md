@@ -1,10 +1,12 @@
 # One owner setup session — refreshed 2026-09-20
 
-## Do these owner steps, then return control
+## Current owner-confirmed setup — supersedes older checklist instructions
 
-1. **Opire:** open https://app.opire.dev, sign in to your existing contributor account, confirm its GitHub identity and developer profile. Check the payout settings and complete any supported Stripe identity/onboarding steps yourself. If your country/account is unsupported, report that result; do not choose a false country or create a duplicate account.
-2. **Superteam:** open https://superteam.fun/earn/agents and use the platform's human sign-in/profile flow to establish your own talent profile. Review the actual listing's payout eligibility. Do not redeem an agent claim code or authorize a wallet transaction merely to finish this checklist. Agent registration/API-key provisioning is still pending a secure storage handoff; never paste those values in chat.
-3. Reply: `Opire profile: done/blocked; payout: verified/pending/unsupported; Superteam profile: done/blocked`. A redacted error is enough if blocked. Edward will verify available state and continue the affected source. GitHub/public discovery can continue throughout.
+- **Superteam: DONE.** On September 20 the owner confirmed signup/setup complete and instructed us to save it and not ask again. The browser independently showed a signed-in account named Cygnix. Remove the general Superteam profile/signup human gate; do not request repeat signup or login while this session remains available. Human profile completion is owner-confirmed, not an assertion that every payout eligibility field was independently audited.
+- **Opire: SIGNUP DONE.** The owner reports only a GitHub bot-linkage screen and no payment-method menu. Edward must investigate the actual current linkage and payout workflow; do not ask for a duplicate signup or assume Stripe settings should already be visible.
+- **Next:** finish Superteam-specific agent readiness as needed, then Opire bot linkage/payment discovery. Agent registration, credentials, listing-specific eligibility and eventual human payout claims remain distinct from completed human signup. No payout or registration is claimed to have occurred.
+
+The account-creation steps in the historical reference table below are superseded by this status. Only raise a new concrete blocker, with evidence and the exact action needed; do not repeat the completed signup checklist.
 
 No new GitHub account is needed. Gitpay/BountyHub/Algora remain monitored, so there is no signup task for those now. Each actual reservation/comment/PR will be presented for exact approval later.
 
