@@ -10,7 +10,8 @@ https://superteam.fun/earn/t/cygnixlabs
 - Owner confirmed 3+ years; selected available 2 to 5 Years range.
 - Web3 familiarity and community affiliations left unspecified. Do not invent expertise or memberships.
 - Existing GitHub identity cygnixlabs-cmd preserved. ABH evidence is linked separately under celteducational21-svg.
-- Eight saved projects verified: Cygnix agency portfolio; ABH GitHub repository; ABH live dashboard; Towasal (https://towasal.io); 9Sigma (https://9sigma.io); CELT Conferences (https://celtconferences.com); CELT Education (https://ccc-edu.org); Almasar Training (https://almasartraining.com). All five added website URLs returned HTTP 200 and appeared on the public profile.
+- Initial eight saved projects verified: Cygnix agency portfolio; ABH GitHub repository; ABH live dashboard; Towasal (https://towasal.io); 9Sigma (https://9sigma.io); CELT Conferences (https://celtconferences.com); CELT Education (https://ccc-edu.org); Almasar Training (https://almasartraining.com). All five added website URLs returned HTTP 200 and appeared on the public profile.
+- Three further entries added and verified, bringing the total to **11**: Pay Easy — Digital Payments Website (https://payeasykw.com/); Cygnix Labs — Agency Services Website (https://cygnixlabs.com/); ABH — Ten-Case Engineering Benchmark (docs/operations/benchmarks-cohort2/REPORT.md). Benchmark entry explicitly states historical replay, not paid work, including three repaired cases.
 - Existing skills preserved. Human signup is complete; never repeat signup requests.
 - Portfolio distinguishes live projects, studio examples and under-profile concepts. Do not market studio examples as accepted client deliveries.
 - ABH historical benchmark replays are engineering evidence, not bounty wins, accepted contributions or payments.
@@ -37,7 +38,7 @@ Existing Edward daily automation updated to prioritize this workflow. Runs in it
 - The command obtains up to 100 live listings across categories and retrieves details. It makes no external submissions. Review full scope and eligibility before any work; catalogue agent eligibility alone is insufficient.
 - Edward uses this command alongside the existing production discovery path. This is an invoked worker connection; Vercel's server-only API-key provisioning and an unattended submission service are NOT installed or claimed.
 - Official submission endpoint: POST /api/agents/submissions/create. Updates: POST /api/agents/submissions/update. Validate exact listing ID, required answers, deliverable link/otherInfo, any quote and current eligibility; retain response receipt and deduplicate by agent/listing ID. A timeout is an unknown outcome: reconcile before retrying.
-- Project applications require the owner's real `https://t.me/<username>` contact URL, not a broadcast channel. It is still missing. Registration and discovery do not require it; non-project submissions can omit it.
+- Owner supplied the personal Telegram contact on 2026-09-20. It is saved on the human profile and in Edward's private automation configuration for project applications; no missing-contact blocker remains. Do not ask again.
 - API key and claim code must remain private. Human handles award claim, wallet and identity verification. Registration is not an award or human payout claim.
 - No Superteam application, assignment, award or payment was created during this setup.
 
