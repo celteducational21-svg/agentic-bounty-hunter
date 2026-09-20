@@ -1,0 +1,118 @@
+{
+  "fetchedAt": "2026-09-20T22:59:27.311Z",
+  "engineRevision": "operations-v1-delivery-certified-sources",
+  "rawCount": 90,
+  "githubRaw": 60,
+  "opireRaw": 30,
+  "uniqueGitHubOpire": 80,
+  "distinctAcrossIntegratedSources": 82,
+  "deepAttempts": 5,
+  "fullyEnriched": 1,
+  "phase3Eligible": 0,
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 7,
+    "productionReadbackLastScan": "2026-09-20T22:59:27.311Z"
+  },
+  "runtimeCounts": {
+    "INVESTIGATING": 331,
+    "REJECTED": 15,
+    "WAITING_FOR_MAINTAINER": 1,
+    "DO_NOT_HUNT": 1,
+    "PRIVATE_PROOF": 0,
+    "LOCKED": 0,
+    "SOLVING": 0,
+    "QA": 0,
+    "READY_TO_SUBMIT": 0,
+    "SUBMITTED": 0,
+    "CHANGES_REQUESTED": 0,
+    "MERGED": 0,
+    "PAID": 0
+  },
+  "sources": {
+    "github": {
+      "checkedAt": "2026-09-20T22:59:27.311Z",
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "Three bounded public GitHub issue searches; all returned complete result pages"
+    },
+    "opire": {
+      "checkedAt": "2026-09-20T22:59:28.037Z",
+      "status": "SUCCESS",
+      "rawCount": 30,
+      "coverage": "Bounded current public available-reward catalogue; exact task evidence reconciled against canonical GitHub records"
+    },
+    "superteam": {
+      "checkedAt": "2026-09-20T22:59:07.935Z",
+      "status": "SUCCESS",
+      "authenticatedRawCount": 2,
+      "detailReads": 2,
+      "coverage": "Official authenticated agent feed with successful detail reads; public Development catalogue contributed one overlapping Vietnam record"
+    },
+    "gitpay": {
+      "checkedAt": "2026-09-20T23:06:48Z",
+      "status": "SUCCESS",
+      "filters": [
+        "Issues with bounties",
+        "Open"
+      ],
+      "resultCount": 0,
+      "coverage": "Signed-in Explore UI; the selected view displayed No records for this table yet"
+    }
+  },
+  "deepCandidates": [
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15288",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false,
+      "note": "The $25 reward is proposed by a contributor; another contributor claimed the issue and the proposing contributor already opened solution PR #15289"
+    },
+    {
+      "url": "https://github.com/dot-Justin/BonziAssist/issues/7",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    }
+  ],
+  "activeRecords": {
+    "ivritPy12": {
+      "url": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+      "state": "open",
+      "assignees": 0,
+      "comments": 16,
+      "revision": "2026-09-19T22:18:13Z",
+      "reservationConfirmed": false
+    },
+    "buildersReflectShare": {
+      "url": "https://superteam.fun/earn/listing/road-to-colosseum-builders-reflect-and-share/",
+      "submissions": 35,
+      "comments": 6,
+      "sponsorReplyToCygnix": false,
+      "submissionMade": false
+    }
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "rawSnapshot": {
+    "localFile": "2026-09-20T22-59-08.094Z.json",
+    "committed": false,
+    "note": "The complete discovery response was durably persisted by the runtime; the large local copy was omitted from GitHub."
+  }
+}
