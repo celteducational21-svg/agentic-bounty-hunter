@@ -7,6 +7,12 @@
       "reference": "docs/operations/daily/2026-09-20-edward.md",
       "summary": "Fresh scan persisted: 77 listings, five deep attempts; no new proofs or secured work. #12 still waiting. Reward discrepancy and competitor reviews recorded.",
       "delivery": "CONFIRMED_IN_CONVERSATION"
+    },
+    {
+      "key": "platform-setup:2026-09-20:superteam-opire-verified",
+      "reference": "docs/operations/daily/2026-09-20-platform-setup.md",
+      "summary": "Superteam signup saved complete; Opire signup and GitHub identity verified. No Opire payout-setup control was visible, so the general setup reminder was removed. This is platform readiness, not secured work or payout verification.",
+      "delivery": "PREPARED_PENDING_DELIVERY"
     }
   ],
   "previouslyCommunicated": [
