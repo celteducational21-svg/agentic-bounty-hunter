@@ -16,8 +16,8 @@ https://superteam.fun/earn/t/cygnixlabs
 - Portfolio distinguishes live projects, studio examples and under-profile concepts. Do not market studio examples as accepted client deliveries.
 - ABH historical benchmark replays are engineering evidence, not bounty wins, accepted contributions or payments.
 
-## Daily operating cycle
-Existing Edward daily automation updated to prioritize this workflow. Runs in its existing Kuwait morning window; this is scheduled execution, not continuous presence.
+## Hourly operating cycle
+Edward's existing discovery automation is now scheduled hourly, all days, starting 2026-09-20 at 18:00 Asia/Kuwait. It covers GitHub, Opire and authenticated Superteam. Future owner-onboarded platforms join after their permitted discovery integration is verified. Keep the Kuwait-morning consolidated briefing and alert on newly actionable work; the separate hourly reporting watch does not launch duplicate scans. This is scheduled execution, not continuous presence.
 1. Discover fresh agent-eligible listings. Existing src/providers/superteam.js uses public Development catalogue with context=agents.
 2. Prefer authenticated official agent discovery once securely configured. Only AGENT_ALLOWED / AGENT_ONLY; never bypass human-only restrictions.
 3. Deduplicate listing IDs; verify deadline, full brief, geography/team restrictions, sponsor, reward denomination, scope, required answers and realistic delivery cost.
@@ -34,7 +34,7 @@ Existing Edward daily automation updated to prioritize this workflow. Runs in it
 - Registered 2026-09-20 as **ABH Cygnix Labs**, username **abh-lime-27**, agent ID `a2b88d88-8ccf-4361-b74b-82dc678a4e9e`.
 - Registration response and credentials retained privately in the owner's persistent workspace. The private credential reference is in Edward's automation instructions, never this public repository.
 - Authenticated GET /api/agents/listings/live and details both returned HTTP 200.
-- Use `node scripts/superteam-agent-scan.mjs PRIVATE_CREDENTIAL_FILE NEW_OUTPUT_JSON` during invoked daily operations. Materialize credentials privately with restrictive permissions; never print their contents, commit them, or include them in reports. Reuse this identity; never register a duplicate as recovery.
+- Use `node scripts/superteam-agent-scan.mjs PRIVATE_CREDENTIAL_FILE NEW_OUTPUT_JSON` during invoked hourly operations. Materialize credentials privately with restrictive permissions; never print their contents, commit them, or include them in reports. Reuse this identity; never register a duplicate as recovery.
 - The command obtains up to 100 live listings across categories and retrieves details. It makes no external submissions. Review full scope and eligibility before any work; catalogue agent eligibility alone is insufficient.
 - Edward uses this command alongside the existing production discovery path. This is an invoked worker connection; Vercel's server-only API-key provisioning and an unattended submission service are NOT installed or claimed.
 - Official submission endpoint: POST /api/agents/submissions/create. Updates: POST /api/agents/submissions/update. Validate exact listing ID, required answers, deliverable link/otherInfo, any quote and current eligibility; retain response receipt and deduplicate by agent/listing ID. A timeout is an unknown outcome: reconcile before retrying.
@@ -54,4 +54,7 @@ Official listing pages:
 - https://superteam.fun/earn/listing/road-to-colosseum-builders-reflect-and-share/
 - https://superteam.fun/earn/listing/colosseum-crypto-worlds-fair-hackathon-superteam-vietnam-track/
 
-Next: discover fresh agent listings on each daily run, investigate matching remote technical tasks and maintain portfolio after verified shareable deliveries. Do not repeatedly request completed signup or registration. Lack of a suitable Superteam task must not stop the already authorized GitHub pipeline.
+Next: discover fresh agent listings on each hourly run, investigate matching remote technical tasks and maintain portfolio after verified shareable deliveries. Do not repeatedly request completed signup or registration. Lack of a suitable Superteam task must not stop the already authorized GitHub pipeline.
+
+## Qualification clarification
+Unknown does not mean rejected. Record READY, INVESTIGATE, NEEDS_OWNER_ACTION or explicit HARD_BLOCK with source evidence. Builders Reflect & Share is NEEDS_OWNER_ACTION/INVESTIGATE: online workshop participation could make it feasible; no actual attendance or owned X-post evidence has been supplied. Vietnam track is blocked for the current Kuwait-based remote setup by detailed Vietnam-base and in-person pitch requirements, despite its Global label; sponsor clarification or genuine eligibility changes can reopen it. Do not reject solely because a task is unfamiliar, competitive or needs learning. Record each source's scan time and success/failure; deduplicate unchanged listings and active solves.
