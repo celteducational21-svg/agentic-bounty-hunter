@@ -1,0 +1,67 @@
+{
+  "fetchedAt": "2026-09-20T21:04:54.075Z",
+  "engineRevision": "operations-v1-delivery-certified-sources",
+  "source": "GitHub Search API + Opire public catalogue",
+  "mode": "LIVE",
+  "rawCount": 90,
+  "uniqueCount": 85,
+  "counts": {
+    "HUNT": 0,
+    "WATCH": 0,
+    "SKIP": 1,
+    "REJECT": 15,
+    "INCOMPLETE": 69
+  },
+  "deepAdmissionAttempts": 5,
+  "deepCheckedCount": 1,
+  "phase3EligibleCount": 0,
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 85,
+    "basicScreened": 85,
+    "canonicalResolved": 19,
+    "providerVerified": 16,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 16,
+    "runtimeInvestigatingCount": 320,
+    "priorRuntimeInvestigatingCount": 310
+  },
+  "dailyLog": {
+    "date": "2026-09-20",
+    "checkedAt": "2026-09-20T21:04:54.075Z",
+    "newOpportunitiesDiscovered": 86,
+    "candidatesInvestigated": 85,
+    "waitingMaintainer": 1,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "changesRequested": 0,
+    "merged": 0,
+    "paid": 0,
+    "execution": "Invoked agent workflow; no always-on solver process",
+    "sourceCommit": "de4e1bdf38d898251354401c79eb03c475badce6"
+  },
+  "publicSuperteam": {
+    "checkedAt": "2026-09-20T21:04:54.078Z",
+    "mode": "OFFICIAL_PUBLIC_AGENT_DEVELOPMENT_CATALOGUE",
+    "status": "AVAILABLE",
+    "rawCount": 1,
+    "additionalUniqueCount": 1,
+    "deduplicatedCount": 86,
+    "privateProofPromotions": 0
+  },
+  "rawSnapshot": {
+    "runtimePersisted": true,
+    "localFilename": "2026-09-20T21-04-37.329Z.json",
+    "sha256": "0e1325c123855d5a7a987ef2ed47b9befc88c26fdc965141631655d1ecbb752f",
+    "githubCommitOmittedReason": "Full runtime response is already durably persisted; this compact non-secret evidence summary is committed for hourly auditability."
+  }
+}
