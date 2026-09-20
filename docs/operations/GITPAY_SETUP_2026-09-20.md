@@ -6,7 +6,7 @@ Public profile: https://gitpay.me/#/users/8940
 
 Cygnix Labs signed-in session verified. Existing contributor, maintainer and service-provider roles preserved. Skills saved and success alert verified: Node.js, Python, CSS, Design, Documentation, React, Wordpress, Testing, Git, Continuous Integration. Linux selected. Notifications and Open for jobs enabled and saved. Inspected account editor offers no biography or portfolio-URL fields.
 
-GitHub account connection is incomplete: Link accounts → Github reaches GitHub sign-in. Do not infer connection from the Gitpay session. Preserve existing browser login; never export cookies or credentials. Session expiry remains possible.
+GitHub account connection is COMPLETE. After the owner linked the account, fresh Gitpay settings displayed `You are already connected on github`, a disabled Github button, and username `cygnixlabs-cmd`. Edward's hourly instructions were updated to stop requesting this completed step. Preserve existing browser login; never export cookies or credentials. Session expiry remains possible.
 
 Whop payout account is connected but PENDING and not enabled for payouts. Payout destination not set. Identity verification and payout destination require owner action; owner plans KYC tomorrow. Inspect exact account details privately with the owner rather than copying financial identifiers into logs. Stripe and PayPal shown as deprecated in this account.
 
