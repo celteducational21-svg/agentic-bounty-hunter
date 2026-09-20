@@ -1,0 +1,86 @@
+{
+  "fetchedAt": "2026-09-20T22:06:31.672Z",
+  "engineRevision": "operations-v1-delivery-certified-sources",
+  "source": "GitHub Search API + Opire public catalogue",
+  "mode": "LIVE",
+  "rawCount": 90,
+  "uniqueCount": 83,
+  "counts": {
+    "HUNT": 0,
+    "WATCH": 0,
+    "SKIP": 1,
+    "REJECT": 14,
+    "INCOMPLETE": 68
+  },
+  "deepAdmissionAttempts": 5,
+  "deepCheckedCount": 1,
+  "phase3EligibleCount": 0,
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 83,
+    "basicScreened": 83,
+    "canonicalResolved": 18,
+    "providerVerified": 16,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 7,
+    "runtimeInvestigatingCount": 326,
+    "priorRuntimeInvestigatingCount": 320
+  },
+  "dailyLog": {
+    "date": "2026-09-20",
+    "checkedAt": "2026-09-20T22:06:31.672Z",
+    "newOpportunitiesDiscovered": 84,
+    "candidatesInvestigated": 83,
+    "waitingMaintainer": 1,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "changesRequested": 0,
+    "merged": 0,
+    "paid": 0,
+    "execution": "Invoked agent workflow; no always-on solver process",
+    "sourceCommit": "40f81c9ebbc63f44263f905fb799f3b06fba56a4"
+  },
+  "publicSuperteam": {
+    "checkedAt": "2026-09-20T22:06:31.674Z",
+    "mode": "OFFICIAL_PUBLIC_AGENT_DEVELOPMENT_CATALOGUE",
+    "status": "AVAILABLE",
+    "rawCount": 1,
+    "additionalUniqueCount": 1,
+    "deduplicatedCount": 84,
+    "privateProofPromotions": 0
+  },
+  "authenticatedSuperteam": {
+    "checkedAt": "2026-09-20T22:06:13.610Z",
+    "status": "SUCCESS",
+    "rawCount": 2,
+    "detailCount": 2,
+    "additionalUniqueCount": 1,
+    "deduplicatedCountAcrossIntegratedSources": 85,
+    "submitted": 0,
+    "workSecured": 0
+  },
+  "gitpay": {
+    "checkedAt": "2026-09-20T22:09:55Z",
+    "status": "SUCCESS",
+    "filters": [
+      "Issues with bounties",
+      "Open"
+    ],
+    "resultCount": 0,
+    "evidence": "Signed-in Explore page displayed 'No records for this table yet'"
+  },
+  "rawSnapshot": {
+    "runtimePersisted": true,
+    "localFilename": "2026-09-20T22-06-13.730Z.json",
+    "githubCommitOmittedReason": "Full runtime response is already durably persisted; this compact non-secret evidence summary is committed for hourly auditability."
+  }
+}
