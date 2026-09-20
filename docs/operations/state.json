@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T12:17:07.898Z",
+  "updatedAt": "2026-09-20T12:20:54.980Z",
   "operations": [
     {
       "opportunityId": "ABH-GH-ivrit-ai-ivrit-py-12",
@@ -434,11 +434,6 @@
   ],
   "humanActions": [
     {
-      "id": "opire-setup",
-      "action": "Opire signup is complete per owner. Investigate the GitHub bot-linking screen and locate current payout onboarding; do not ask the owner to sign up again or assume a missing payment menu is an error.",
-      "blocks": "Opire claiming/payment only"
-    },
-    {
       "id": "vercel-scope",
       "action": "Connect Vercel account with access to celteducational21-3805 for deployment administration",
       "blocks": "Vercel connector administration only"
@@ -520,10 +515,14 @@
       "note": "Human signup/profile setup accepted as complete per owner. Agent registration/API credentials and listing-specific payout eligibility are separate and not asserted verified."
     },
     "opire": {
-      "status": "SIGNUP_OWNER_CONFIRMED_DONE",
+      "status": "SIGNUP_AND_GITHUB_IDENTITY_VERIFIED",
       "confirmedOn": "2026-09-20",
+      "githubIdentity": "celteducational21-svg",
       "repeatSignupRequest": false,
-      "nextAction": "Investigate GitHub bot linkage and actual payout workflow; owner reports no payment-method menu."
+      "botInstallation": "OPTIONAL_REPOSITORY_OWNER_INTEGRATION_NOT_SOLVER_SIGNUP",
+      "payoutStatus": "UNVERIFIED_NO_SETUP_CONTROL_VISIBLE",
+      "nextAction": "Agent checks concrete payout requirements when a qualified task reaches engagement/claim; do not ask owner to find a nonexistent settings control.",
+      "evidence": "docs/operations/daily/2026-09-20-platform-setup.md"
     }
   }
 }
