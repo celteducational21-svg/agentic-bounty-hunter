@@ -12,6 +12,12 @@
       "key": "platform-setup:2026-09-20:superteam-opire-verified",
       "reference": "docs/operations/daily/2026-09-20-platform-setup.md",
       "summary": "Superteam signup saved complete; Opire signup and GitHub identity verified. No Opire payout-setup control was visible, so the general setup reminder was removed. This is platform readiness, not secured work or payout verification.",
+      "delivery": "CONFIRMED_IN_CONVERSATION"
+    },
+    {
+      "key": "platform-setup:2026-09-20:superteam-agent-connected",
+      "reference": "docs/operations/SUPERTEAM_WORKFLOW.md",
+      "summary": "Registered Superteam agent connection verified through authenticated API reads; eleven profile entries and the owner's Telegram contact are saved. Initial two listings are unsuitable. No application, assignment, award or payment occurred.",
       "delivery": "PREPARED_PENDING_DELIVERY"
     }
   ],
