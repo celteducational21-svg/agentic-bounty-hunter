@@ -1,0 +1,52 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+Reviewer: independent_qa_5
+
+$ git clone --no-local <local-solver-repository> qa-job09-escape-string-regexp
+$ git checkout 5085b257c801507460270b747f645276fbc1d937
+$ git apply jobs/job-09/solution.patch
+$ git add index.js test.js
+
+$ git rev-parse HEAD
+5085b257c801507460270b747f645276fbc1d937
+$ git write-tree
+af91008cb843eeaa36831e7a67eb7cf8814caaf5
+$ git rev-parse 08745712ad624121cdb9bf4b5343f97fca825a42^{tree}
+af91008cb843eeaa36831e7a67eb7cf8814caaf5
+$ git diff --cached --check
+PASS (no output)
+
+$ node <baseline reproduction at exact pre-fix checkout>
+{"escaped":"\\-"}
+SyntaxError: Invalid regular expression: /\-/u: Invalid escape
+
+$ npm install --no-package-lock --ignore-scripts
+added 753 packages
+$ npm install --no-save --no-package-lock --ignore-scripts @types/node@12
+completed successfully
+
+$ npx --yes -p node@12 -c 'node --version'
+v12.22.12
+
+The first attempt to invoke the current global npm under Node 12 failed because that npm requires node:path. QA then invoked each installed tool directly with the Node 12 binary; no source or patch changed.
+
+$ <node12> node_modules/xo/cli.js
+PASS (no output)
+$ <node12> node_modules/ava/cli.js
+✔ main
+✔ escapes `-`
+✔ throws on non-string input
+3 tests passed
+$ <node12> node_modules/tsd/dist/cli.js
+PASS (no output)
+
+$ node <independent Unicode/literal/surrounding-syntax probe>
+{"literals":5,"escapedHyphen":"\\x2d","escapedOperators":"\\|\\\\\\{\\}\\(\\)\\[\\]\\^\\$\\+\\*\\?\\.\\x2d"}
+
+$ node --check index.js
+PASS (no output)
+$ node --check test.js
+PASS (no output)
+$ npm pack --dry-run --json
+PASS: escape-string-regexp@2.0.0, 5 package files
+
+No patch modifications and no public actions.

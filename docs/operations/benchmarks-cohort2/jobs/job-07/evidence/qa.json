@@ -1,0 +1,63 @@
+{
+  "jobId": "job-07",
+  "reviewer": "independent_qa_2",
+  "revision": "9e5a766c093c6e7b9de8096409825672fa3404e9",
+  "revisionMatchesResult": true,
+  "verdict": "PASS",
+  "firstPass": true,
+  "provenance": {
+    "repository": "https://github.com/yargs/yargs-parser.git",
+    "expectedPreFixSha": "a0305515248ed493b82b52489c28e554dc783a8e",
+    "observedPreFixSha": "a0305515248ed493b82b52489c28e554dc783a8e",
+    "preFixShaMatches": true,
+    "resultRevision": "9e5a766c093c6e7b9de8096409825672fa3404e9",
+    "artifactRevisionReferencesMatch": true,
+    "solutionPatchSha256": "b22e173510fd0e7e51b61212cd9e0701cd99e61a14401ac497717e4577de6721",
+    "stablePatchId": "d3364c4b526eaa1973fd5c94e37ae218eb01b6c1",
+    "reconstructedTree": "6332cb8618e080c551649e8f50453651406ea6f6",
+    "changedBlobIds": {
+      "lib/yargs-parser.ts": "5f776705e5d75475cc204d275ce012d0b9148b3d",
+      "test/yargs-parser.cjs": "bbf6b380713b2e9d4bc5edaa9c4bd07b8736da64"
+    },
+    "notes": "QA independently fetched only the depth-one pre-fix commit, removed the remote, and applied the supplied format patch. Recreating the commit with the patch-declared parent, tree, author, date, identity, and message produced the exact result revision. No accepted fix, upstream PR, current branch, later history, or audit data was inspected."
+  },
+  "checks": {
+    "acceptanceCriteria": {
+      "status": "PASS",
+      "details": "Long options ending in three or four hyphens parse as named options, including an assigned value. Bare -, end-of-options --, ordinary dashed names, and empty invalid option spellings retain their specified behavior."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Focused regression: 2 passed. CommonJS suite: 357 passed. ESM suite: 17 passed. TypeScript suite: 20 passed. No failures."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Independent assertions covered empty assigned values, internal triple-hyphen sequences, bare - and --, three-or-more-hyphen empty names, ordinary dashed options, and unknown-options-as-args mode. The configured unknown option remains positional as intended."
+    },
+    "explainability": {
+      "status": "PASS",
+      "details": "The one-character implementation change directly addresses the defect: anchoring the empty-option regular expression prevents a trailing --- sequence in a valid name from matching while retaining the normalized leading-empty-name guard."
+    },
+    "prReadiness": {
+      "status": "PASS",
+      "details": "The patch is narrowly scoped, has focused neighboring-case coverage, applies cleanly, reconstructs the exact frozen revision, passes all requested suites and lint, and documents historical installation constraints."
+    },
+    "build": {
+      "status": "PASS",
+      "details": "npm run pretest completed TypeScript compilation and the Rollup CommonJS build. Rollup emitted only its existing built-in-module externalization notices."
+    },
+    "lint": {
+      "status": "PASS",
+      "details": "npm run check passed StandardX over TypeScript, JavaScript, and CommonJS files. git diff --check passed."
+    },
+    "typecheck": {
+      "status": "PASS",
+      "details": "The pretest TypeScript compile passed and the repository's TypeScript behavioral suite passed 20 tests with the documented installation-only TypeScript 4.5.5 and @types/node 16.11.4 pins."
+    }
+  },
+  "limitations": [
+    "Node.js 24.19.0 on Linux only; the historical Node matrix was not run.",
+    "Historical unconstrained dependency ranges required installation-only TypeScript 4.5.5 and @types/node 16.11.4 pins; tracked manifests remained unchanged.",
+    "Puppeteer's browser download and npm run test:browser were not run; browser behavior is unrelated to the parser branch changed here."
+  ]
+}

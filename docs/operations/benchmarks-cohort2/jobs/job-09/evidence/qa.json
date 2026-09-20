@@ -1,0 +1,41 @@
+{
+  "jobId": "job-09",
+  "reviewer": "independent_qa_5",
+  "revision": "08745712ad624121cdb9bf4b5343f97fca825a42",
+  "reviewedRevision": "08745712ad624121cdb9bf4b5343f97fca825a42",
+  "preFixRevision": "5085b257c801507460270b747f645276fbc1d937",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": true,
+  "iterations": 1,
+  "completedAt": "2026-09-17T20:52:53Z",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "NOT_APPLICABLE",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  },
+  "notApplicableReasons": {
+    "build": "Source-only CommonJS package with no compile step; Node syntax checks and npm pack --dry-run both pass."
+  },
+  "findings": [],
+  "evidence": {
+    "provenance": "Fresh checkout of the exact pre-fix SHA plus solution.patch produced tree af91008cb843eeaa36831e7a67eb7cf8814caaf5, identical to frozen revision 08745712ad624121cdb9bf4b5343f97fca825a42.",
+    "baseline": "At the pre-fix SHA, escapeStringRegexp('-') returned '\\-' and new RegExp(output, 'u') raised SyntaxError: Invalid escape.",
+    "tests": "Complete AVA suite passed: 3 tests.",
+    "independentTests": "Five literal strings passed anchored Unicode round-trips, including Greek, emoji, all regex operators, ASCII hyphen and Unicode dash/minus characters. Hyphen also passed inside a Unicode character class and grouped surrounding syntax. Six non-string categories preserved the exact TypeError contract.",
+    "lint": "XO passed under Node 12.22.12.",
+    "typecheck": "TSD passed under Node 12.22.12 with transient @types/node@12.",
+    "packaging": "Node syntax checks, git diff --check and npm pack --dry-run passed."
+  },
+  "limitations": [
+    "Linux only.",
+    "The historical unpinned development toolchain required Node 12.22.12 and a transient @types/node@12 installation; production behavior probes also passed on Node 24.19.0.",
+    "No accepted fix, post-fix source, current main, issue timeline, comments or audit data was inspected."
+  ],
+  "scope": "Independent frozen-revision review; no patch changes and no public actions."
+}

@@ -1,0 +1,60 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+Reviewer: independent_qa_5
+
+$ git clone --no-local <local-solver-repository> qa-job10-indent-string
+$ git checkout 6b64e3744c81074e85361743498648850db5e2dc
+$ git apply jobs/job-10/solution.patch
+$ git add index.js test.js
+
+$ git rev-parse HEAD
+6b64e3744c81074e85361743498648850db5e2dc
+$ git write-tree
+2eb745f5d02e9cf6503a00d677512d16b5a95133
+$ git rev-parse 4587cf6eefd198e343569a1a79cfacb6a3681f28^{tree}
+2eb745f5d02e9cf6503a00d677512d16b5a95133
+$ git diff --cached --check
+PASS (no output)
+
+$ node <baseline reproduction at exact pre-fix checkout>
+RangeError: Invalid count value: -1
+
+$ npm install --no-package-lock --ignore-scripts
+added 753 packages
+$ npm install --no-save --no-package-lock --ignore-scripts @types/node@12
+completed successfully
+
+$ npx --yes -p node@12 -c 'node --version'
+v12.22.12
+
+The first attempt to invoke the current global npm under Node 12 failed because that npm requires node:path. QA then invoked each installed tool directly with the Node 12 binary; no source or patch changed.
+
+$ <node12> node_modules/xo/cli.js
+PASS (no output)
+$ <node12> node_modules/ava/cli.js
+✔ throw if input is not a string
+✔ throw if count is not a number
+✔ throw if count is negative
+✔ throw if indent is not a string
+✔ indent each line in a string
+✔ not indent whitespace only lines
+✔ indent every line if options.blank is true
+✔ indent with leading whitespace
+✔ indent with custom string
+✔ not indent when count is 0
+10 tests passed
+$ <node12> node_modules/tsd/dist/cli.js
+PASS (no output)
+
+$ node <independent count boundary/type/order probe>
+indent edge probes passed
+
+The first draft of the inline edge probe had a JavaScript quoting error in the test harness. It was corrected and rerun successfully; no package source or submitted patch changed.
+
+$ node --check index.js
+PASS (no output)
+$ node --check test.js
+PASS (no output)
+$ npm pack --dry-run --json
+PASS: indent-string@4.0.0, 5 package files
+
+No patch modifications and no public actions.

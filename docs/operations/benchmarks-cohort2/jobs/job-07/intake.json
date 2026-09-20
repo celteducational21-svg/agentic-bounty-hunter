@@ -1,0 +1,21 @@
+{
+  "id": "job-07",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "yargs/yargs-parser",
+  "issue": "https://github.com/yargs/yargs-parser/issues/433",
+  "issueNumber": 433,
+  "title": "Options ending with three or more hyphens are parsed as positional arguments",
+  "issueBody": "Option names ending with three or more hyphens are incorrectly placed in the positional array instead of being parsed as options.",
+  "preFixSha": "a0305515248ed493b82b52489c28e554dc783a8e",
+  "language": "TypeScript / JavaScript",
+  "category": "CLI option parsing edge case",
+  "difficulty": "easy-medium",
+  "acceptance": [
+    "Parse option names ending with three or more hyphens as options.",
+    "Preserve bare hyphen, end-of-options, empty invalid option, and ordinary hyphenated option behavior.",
+    "Add focused regression coverage.",
+    "Pass npm test, npm run test:esm, and npm run test:typescript where available."
+  ],
+  "expectedDeliverable": "Resolve the parser defect with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only the supplied facts and exact pre-fix source. Do not inspect accepted fixes, post-fix source, current main, or issue timelines and comments."
+}

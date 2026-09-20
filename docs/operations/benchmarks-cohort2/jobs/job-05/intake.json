@@ -1,0 +1,21 @@
+{
+  "id": "job-05",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "pallets/click",
+  "issue": "https://github.com/pallets/click/issues/2819",
+  "issueNumber": 2819,
+  "title": "Auto-added help option collides with user parameter named help",
+  "issueBody": "The automatically added --help option internally uses the name help and collides with a user argument, option, or callback parameter named help.",
+  "preFixSha": "8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab",
+  "language": "Python",
+  "category": "CLI parsing and callback binding",
+  "difficulty": "medium",
+  "acceptance": [
+    "A user parameter named help receives ordinary argument or option values.",
+    "The built-in --help option prints help and exits with status 0.",
+    "Avoid the internal name collision without breaking callback binding.",
+    "Add focused CliRunner regression tests and run a practical suite."
+  ],
+  "expectedDeliverable": "Resolve the issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only the supplied facts and the exact pre-fix source. Do not inspect accepted fixes, post-fix source, current main, or issue timelines and comments."
+}

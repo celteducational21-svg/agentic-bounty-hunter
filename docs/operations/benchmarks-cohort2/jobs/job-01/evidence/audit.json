@@ -1,0 +1,56 @@
+{
+  "jobId": "job-01",
+  "auditor": "benchmark_auditor_7",
+  "comparedRevision": "67c4ff5933573f6c6eba2c6f08c4adad926be5e3",
+  "acceptedPr": "https://github.com/pallets/click/pull/3021",
+  "acceptedFixSha": "8533c966b84783718e74286aa7b098f3ff1e9221",
+  "acceptedFixLineageSha": "812b8000f79c1fbb747a2de5114fc74515558857",
+  "verdict": "PASS",
+  "repaired": true,
+  "firstPass": false,
+  "iteration": 2,
+  "repairHistory": {
+    "attempt1Revision": "4c62da5db4c849a1cbbc60ced0c55c9460be45e3",
+    "attempt1AuditVerdict": "FAIL",
+    "attempt1QaFalsePositive": true,
+    "attempt1RequiresRepair": true,
+    "preservedAt": "evidence/attempt-1"
+  },
+  "comparisons": {
+    "rootCause": {
+      "status": "PASS",
+      "details": "The repaired solver now matches the accepted root-cause model: the unconditional input-function space must be replaced by the final character of the fully built prompt. Both implementations echo text[:-1] and delegate text[-1:] for prompt, and apply the same invariant to the built confirmation prompt. This preserves the readline safeguard while appending no unrequested character."
+    },
+    "behavior": {
+      "status": "PASS",
+      "details": "Public output and input-function call shape matched the accepted tree for prompt and confirm across empty, custom '>', default ': ', multi-character '>> ', Unicode, tab, newline, and completely empty prompt-text cases. The prior counterexample is repaired: custom '>' now renders 'test>foo\\n' and 'test>y\\n'. With an empty suffix on text 'test', both trees echo 'tes' and delegate 't', reconstructing the exact prompt while retaining final-character readline handling."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "The repaired six-case regression now expects exact custom-suffix rendering and passed 6 tests with 168 deselected. Independent QA passed the complete practical suite and directly covered the delegated-character invariant, hidden input, password confirmation, retries, defaults, unusual suffixes, and empty prompt text. The accepted regression is organized around file-descriptor capture instead, but the repaired tests plus QA probes cover the same behavioral contract."
+    },
+    "scope": {
+      "status": "PASS",
+      "details": "The production change is confined to the same two Click input sites as the accepted fix and is executable-code equivalent there. The solver adds symmetric focused tests in test_termui.py. It omits the accepted versionchanged documentation and changelog entry, which is a PR-polish difference rather than a behavioral repair requirement."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "The repair uses the same branch-free slicing invariant as the accepted fix. Only comment wording and test placement differ materially; the implementation is small, symmetric, and directly explains the behavior."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "No direct counterexample remained. Solver and accepted probe transcripts were byte-for-byte identical across 56 prompt/confirm, text, and suffix combinations. Default spacing, exact non-space suffixes, Unicode and control-character suffixes, parsing, and the final-character call boundary all behaved equivalently; the full practical suite also passed."
+    }
+  },
+  "qaFalsePositive": false,
+  "originalQaFalsePositive": true,
+  "requiresRepair": false,
+  "readiness": "READY",
+  "limitations": [
+    "Attempt 1 remains a recorded QA false positive: revision 4c62da5db4c849a1cbbc60ced0c55c9460be45e3 retained an extra custom-suffix space and bypassed final-character delegation for an empty suffix. Its audit and artifacts are preserved under evidence/attempt-1.",
+    "The readline backspace effect was verified at the input-function call boundary, not through a real interactive readline terminal.",
+    "Audit probes and independent QA ran on Python 3.12/Linux; the complete supported interpreter and Windows matrices were not rerun.",
+    "The repaired solver omits the accepted documentation and changelog additions; this does not alter the issue behavior."
+  ],
+  "auditedAt": "2026-09-17T21:29:54Z"
+}

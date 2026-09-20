@@ -1,0 +1,35 @@
+diff --git a/index.js b/index.js
+index e1ab804..ac50f6f 100644
+--- a/index.js
++++ b/index.js
+@@ -19,6 +19,10 @@ module.exports = (string, count = 1, options) => {
+ 		);
+ 	}
+ 
++	if (count < 0) {
++		throw new RangeError(`Expected \`count\` to be at least 0, got \`${count}\``);
++	}
++
+ 	if (typeof options.indent !== 'string') {
+ 		throw new TypeError(
+ 			`Expected \`options.indent\` to be a \`string\`, got \`${typeof options.indent}\``
+diff --git a/test.js b/test.js
+index ad84004..c7ffd7a 100644
+--- a/test.js
++++ b/test.js
+@@ -17,6 +17,15 @@ test('throw if count is not a number', t => {
+ 	}, 'Expected `count` to be a `number`, got `string`');
+ });
+ 
++test('throw if count is negative', t => {
++	const error = t.throws(() => {
++		indentString('foo', -1);
++	});
++
++	t.true(error instanceof RangeError);
++	t.is(error.message, 'Expected `count` to be at least 0, got `-1`');
++});
++
+ test('throw if indent is not a string', t => {
+ 	t.throws(() => {
+ 		indentString('foo', 1, {indent: 1});

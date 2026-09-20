@@ -1,0 +1,37 @@
+{
+  "jobId": "job-08",
+  "auditor": "benchmark_auditor_3",
+  "verdict": "PASS",
+  "comparedRevision": "fcc212f56644672596770b23174b5eb6df9f93bf",
+  "acceptedPR": "https://github.com/sindresorhus/globby/pull/178",
+  "acceptedFixSha": "a08264f2ff5ad99e89368c3c95f1294a6a71acf6",
+  "preFixSha": "c1a3b3244ae992ba7e7e76f501a510ea0d9306df",
+  "auditedAt": "2026-09-17T20:56:46Z",
+  "freezeAuthorization": "Root authorized historical reveal after the Solver revision and independent QA were frozen.",
+  "comparisons": {
+    "rootCause": "MATCH: runtime objectMode behavior is delegated correctly to fast-glob, but the public async and sync declarations expose only string-array returns and lack a literal-true overload.",
+    "behavior": "MATCH: both revisions export fast-glob's Entry type and place literal objectMode:true overloads before the broad string-returning signatures. Default and false modes remain string arrays. Replay additionally records unchanged stream compatibility and verifies existing runtime entry behavior.",
+    "tests": "REPLAY STRONGER: accepted adds two TSD assertions for async and sync literal-true calls. Replay adds those plus explicit false-mode and stream assertions, two runtime tests, and independent QA for inline and reusable const options, async/sync/stream entry shapes, and default/false strings.",
+    "scope": "FUNCTIONALLY EQUIVALENT, SLIGHTLY BROADER: accepted changes index.d.ts and index.test-d.ts only (15 insertions, 3 deletions). Replay changes those files plus test.js (39 insertions, 5 deletions) to satisfy runtime-evidence acceptance. Runtime implementation is untouched in both.",
+    "simplicity": "Both use overloads and an Entry alias. Accepted expresses the sync overload as an intersection and narrows options inline with GlobbyOptions & {objectMode:true}; replay uses a named ObjectModeOptions interface and callable overload object. The replay is more verbose but readable and semantically equivalent under TSD/QA.",
+    "regressions": "No observed regression. Runtime AVA, repository and independent TSD, XO under a compatible Node runtime, whitespace, default/false behavior, literal-true const options and stream compatibility pass. No build artifact exists at this snapshot."
+  },
+  "acceptedComparison": {
+    "declarationImplementationIdentical": false,
+    "semanticRelationship": "Equivalent overload behavior with a named public ObjectModeOptions interface in replay versus accepted inline intersection types.",
+    "acceptedDiff": "2 files changed, 15 insertions, 3 deletions",
+    "solverDiff": "3 files changed, 39 insertions, 5 deletions",
+    "runtimeImplementationChangedByAccepted": false,
+    "runtimeImplementationChangedBySolver": false
+  },
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "limitations": [
+    "The replay exposes an additional public ObjectModeOptions interface not present in the accepted patch; this is harmless in tested use but is a larger declaration surface.",
+    "The historical self-referential development dependency and old Node tooling required documented installation/runtime accommodations.",
+    "Node 24.19.0 and compatible Node 16.20.2 on Linux were exercised, not the full historical Node matrix.",
+    "The snapshot has no build script; build is correctly NOT_APPLICABLE rather than PASS."
+  ],
+  "paidWork": false
+}

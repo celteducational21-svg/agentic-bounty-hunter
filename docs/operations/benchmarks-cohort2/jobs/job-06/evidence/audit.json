@@ -1,0 +1,43 @@
+{
+  "jobId": "job-06",
+  "auditor": "benchmark_auditor_1",
+  "comparedRevision": "d0777b0bef24ec0f16d729b4fe837c3af67571fc",
+  "acceptedPr": "https://github.com/jaraco/inflect/pull/137",
+  "acceptedFixSha": "02dce6aa4207da024b76431156e03485694bd431",
+  "verdict": "PASS",
+  "comparisons": {
+    "rootCause": {
+      "status": "PASS",
+      "details": "Both fixes recognize that a suffix-only ordinal is stripped to an empty numeric payload, which later reaches an empty chunk/result path and raises IndexError."
+    },
+    "behavior": {
+      "status": "PASS",
+      "details": "Both return zero for st, nd, rd, and th and preserve normal cardinal and ordinal conversion. Both honor a custom zero word. The accepted fix assigns the configured zero token before suffix detection; the solver assigns numeric string 0 and explicitly disables ordinal post-processing. Direct comparison produced identical outputs for the four suffixes, custom zero, 1st, and 42."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Both focused regressions iterate over all four suffixes and assert zero. The solver uses an explicit tuple; the accepted test iterates the newly factored nth_suff set. Independent QA additionally covered representative cardinals, teen and compound ordinals, wantlist, grouping, and custom zero behavior."
+    },
+    "scope": {
+      "status": "PASS",
+      "details": "Both are tightly scoped to inflect.py and tests/test_numwords.py. The accepted patch additionally extracts nth_suff from the existing nth mapping; the solver leaves the existing tuple and adds a localized empty-payload guard."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "The accepted implementation is slightly more compact and removes suffix duplication. The solver's explicit normalization and myord reset are still clear, local, and easy to maintain."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "No regression was found. The solver passed all 69 practical tests, focused and adversarial cases, compilation, and package build. The known threshold option processes nonnumeric input before both the accepted and solver suffix blocks, so that limitation is not a divergence from the accepted fix."
+    }
+  },
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY",
+  "limitations": [
+    "The historical optional lint and type-check pytest plugins were unavailable during independent QA.",
+    "Both implementations leave threshold processing ahead of suffix normalization, so suffix-only input with threshold set can raise ValueError; this is outside the accepted fix and frozen default-call acceptance.",
+    "QA covered Python 3.12.14 on Linux, not the complete supported interpreter matrix."
+  ],
+  "auditedAt": "2026-09-17T20:47:29Z"
+}

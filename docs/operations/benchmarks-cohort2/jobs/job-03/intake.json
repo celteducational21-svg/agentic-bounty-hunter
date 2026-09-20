@@ -1,0 +1,20 @@
+{
+  "id": "job-03",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "sindresorhus/ora",
+  "issue": "https://github.com/sindresorhus/ora/issues/123",
+  "issueNumber": 123,
+  "title": "Changing the spinner does not update its interval",
+  "issueBody": "The constructor honors an explicitly supplied interval, but assigning a new spinner object with its own interval leaves the Ora instance's interval unchanged.",
+  "preFixSha": "38c2be947f39d2fadd74d676096863943f472b01",
+  "language": "JavaScript",
+  "category": "state synchronization",
+  "difficulty": "easy",
+  "acceptance": [
+    "Assigning a spinner object with its own interval updates ora.interval.",
+    "An explicit constructor interval continues to override the initial spinner interval.",
+    "Add a focused regression test and preserve the existing suite."
+  ],
+  "expectedDeliverable": "Resolve the issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only the supplied issue facts and exact pre-fix source. Do not inspect merged pull requests, accepted commits, current main, issue timelines, comments, or post-fix source."
+}

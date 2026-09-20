@@ -1,0 +1,66 @@
+{
+  "jobId": "job-06",
+  "reviewer": "independent_qa_1",
+  "revision": "d0777b0bef24ec0f16d729b4fe837c3af67571fc",
+  "revisionMatchesResult": true,
+  "verdict": "PASS",
+  "firstPass": true,
+  "provenance": {
+    "repository": "https://github.com/jaraco/inflect.git",
+    "expectedPreFixSha": "98e19e3eb3ad28f9fa882baaad01674c44b59952",
+    "observedPreFixSha": "98e19e3eb3ad28f9fa882baaad01674c44b59952",
+    "preFixShaMatches": true,
+    "resultRevision": "d0777b0bef24ec0f16d729b4fe837c3af67571fc",
+    "artifactRevisionReferencesMatch": true,
+    "solutionPatchSha256": "a60ea21b94a2c5f75f759e9ade55c5f27668701424bc0e1770dbb936d95db7d7",
+    "stablePatchId": "d549f8c393f1d1814dd67884b5f943bfe95203f3",
+    "reconstructedTree": "75da5291a78b5a6ec946cf957b24d495f268d673",
+    "changedBlobIds": {
+      "inflect.py": "c00a0a2f2dcd36f33a82b877bf0b071975717a91",
+      "tests/test_numwords.py": "fae96325471fadf18e1f40e6873845a8599825d8"
+    },
+    "notes": "The repository was independently initialized and fetched only at the frozen pre-fix SHA. The supplied patch applied cleanly and its resulting blob prefixes match the patch headers. The solver commit object was not fetched; revision identity is verified by agreement among result.json, solution.md, and submission.md, plus immutable patch and reconstructed tree evidence."
+  },
+  "checks": {
+    "acceptanceCriteria": {
+      "status": "PASS",
+      "details": "Default calls for st, nd, rd, and th each return zero. Representative ordinary cardinals and ordinals retain their expected output."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Focused regression: 1 passed, 3 deselected, covering all four suffixes. Full practical suite: 69 passed, 0 failed, with 386 pre-existing ast deprecation warnings."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Independent probes covered zero, ordinary cardinals, single-digit ordinals, teen ordinals, compound ordinals, 100th, wantlist, grouping, and a custom zero word. A threshold-option probe still raises ValueError before suffix normalization; this ordering predates and is outside the stated default-call acceptance."
+    },
+    "explainability": {
+      "status": "PASS",
+      "details": "The patch matches the diagnosed empty-payload path: after a recognized suffix is removed, an empty payload is normalized to 0 and ordinal post-processing is disabled so the result is zero rather than zeroth."
+    },
+    "prReadiness": {
+      "status": "PASS",
+      "details": "The change is five localized implementation lines plus a focused four-input regression. Functional suite, build, compilation, and whitespace evidence pass; optional historical plugin limitations are disclosed."
+    },
+    "build": {
+      "status": "PASS",
+      "details": "uv build successfully produced both an sdist and wheel. compileall passed for inflect.py and tests/test_numwords.py."
+    },
+    "lint": {
+      "status": "NOT_APPLICABLE",
+      "details": "The historical repository runs lint through optional pytest-flake8/pytest-black plugins. They were not present in the reproducible functional environment, and an attempted optional testing-extra installation did not complete. git diff --check passed.",
+      "notApplicableReason": "Historical optional lint plugin stack unavailable; no standalone frozen lint command or lockfile is supplied at this revision."
+    },
+    "typecheck": {
+      "status": "NOT_APPLICABLE",
+      "details": "The historical repository delegates typing to optional pytest-mypy. That plugin was not present and could not be installed during QA. Functional tests and bytecode compilation passed.",
+      "notApplicableReason": "Historical optional type-check plugin stack unavailable; no standalone frozen type-check environment is supplied at this revision."
+    }
+  },
+  "limitations": [
+    "Python 3.12.14 on Linux only; no full interpreter matrix.",
+    "The suite emits 386 unrelated deprecation warnings for legacy ast APIs.",
+    "With threshold set, suffix-only strings still reach float conversion before suffix handling and raise ValueError; the issue acceptance describes default calls only.",
+    "The solver commit object was not fetched because independent QA was restricted to the exact pre-fix source and supplied artifacts."
+  ]
+}

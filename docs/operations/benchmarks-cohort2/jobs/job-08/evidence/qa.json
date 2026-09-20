@@ -1,0 +1,66 @@
+{
+  "jobId": "job-08",
+  "reviewer": "independent_qa_2",
+  "revision": "fcc212f56644672596770b23174b5eb6df9f93bf",
+  "revisionMatchesResult": true,
+  "verdict": "PASS",
+  "firstPass": true,
+  "provenance": {
+    "repository": "https://github.com/sindresorhus/globby.git",
+    "expectedPreFixSha": "c1a3b3244ae992ba7e7e76f501a510ea0d9306df",
+    "observedPreFixSha": "c1a3b3244ae992ba7e7e76f501a510ea0d9306df",
+    "preFixShaMatches": true,
+    "resultRevision": "fcc212f56644672596770b23174b5eb6df9f93bf",
+    "artifactRevisionReferencesMatch": true,
+    "solutionPatchSha256": "af531c9c68305edeff082c0fe9e7e68d805091d754c0d96e84870750d7e0429a",
+    "stablePatchId": "6901a805e5beb060492bca797273f15f74d81b77",
+    "reconstructedTree": "9c0d3554e0220555b31cdfa5c5b0df2fc0a33dc1",
+    "changedBlobIds": {
+      "index.d.ts": "fdab0379936d9c23794eb6d880130acc56aa7d98",
+      "index.test-d.ts": "3ab04355a4bc46a6774f65960ec679dd2824f0ff",
+      "test.js": "f1d56d261838e50026df33c432642843c36e085f"
+    },
+    "notes": "QA independently fetched only the depth-one pre-fix commit, removed the remote, and applied the supplied format patch. Recreating the commit with the patch-declared parent, tree, author, date, identity, and message produced the exact result revision. No accepted fix, upstream PR, current branch, later history, or audit data was inspected."
+  },
+  "checks": {
+    "acceptanceCriteria": {
+      "status": "PASS",
+      "details": "Literal objectMode true calls infer Entry arrays for async and sync APIs; omitted and literal-false calls infer string arrays; object-mode streams remain assignable to NodeJS.ReadableStream. Runtime async, sync, and stream calls return entry objects."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "AVA runtime suite: 119 passed, 2 known failures, 0 unexpected failures. Repository TSD suite passed after the documented historical @types/node pin. An independent TSD counterexample file also passed."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Independent type probes covered inline literal true, const-literal options, omitted options, literal false, async, sync, and stream calls. Runtime probes verified entry shape for async/sync/stream object mode and strings for default/false modes."
+    },
+    "explainability": {
+      "status": "PASS",
+      "details": "The leading overloads select a narrow options subtype requiring objectMode: true and return the fast-glob Entry shape. The existing broader overloads remain later fallbacks for omitted, false, and non-literal options."
+    },
+    "prReadiness": {
+      "status": "PASS",
+      "details": "The public type change is localized, exports the underlying entry shape, preserves existing broad and stream contracts, includes runtime and compile-time regressions, reconstructs exactly, and passes runtime, type, lint, and whitespace validation with disclosed historical tooling constraints."
+    },
+    "build": {
+      "status": "NOT_APPLICABLE",
+      "details": "This snapshot is a CommonJS JavaScript package with checked-in declaration files and defines no build script. Runtime loading, AVA, TSD, and lint are the applicable validation paths.",
+      "notApplicableReason": "No build script or generated product artifact exists at this revision."
+    },
+    "lint": {
+      "status": "PASS",
+      "details": "XO passed under repository-compatible Node 16.20.2. The combined npm test command on default Node 24 fails before tests because the historical ESLint plugin calls removed util.isDate; git diff --check passed."
+    },
+    "typecheck": {
+      "status": "PASS",
+      "details": "The repository TSD suite passed with installation-only @types/node 14.14.10. A separate QA TSD file verified Entry[] inference for inline and const-literal object mode, string[] for default/false mode, and stream compatibility."
+    }
+  },
+  "limitations": [
+    "The snapshot's self-referential globby#main development dependency was temporarily omitted during installation to prevent fetching out-of-bounds current source, then restored unchanged.",
+    "The default Node 24 combined npm test command is blocked by a historical lint dependency; XO, AVA, and TSD were run independently with compatible tooling.",
+    "TSD required the documented installation-only @types/node 14.14.10 pin; tracked manifests remained unchanged.",
+    "Node 24.19.0 and Node 16.20.2 on Linux were exercised; the full historical Node matrix was not run."
+  ]
+}

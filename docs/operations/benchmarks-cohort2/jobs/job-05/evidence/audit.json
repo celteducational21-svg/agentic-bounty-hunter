@@ -1,0 +1,43 @@
+{
+  "jobId": "job-05",
+  "auditor": "benchmark_auditor_1",
+  "comparedRevision": "b4083da1e535cd6878b486321dca78970f04f6fd",
+  "acceptedPr": "https://github.com/pallets/click/pull/3678",
+  "acceptedFixSha": "b67832c2167e5b0ff6764a8c04a0a9087e697b5a",
+  "verdict": "PASS",
+  "comparisons": {
+    "rootCause": {
+      "status": "PASS",
+      "details": "Both implementations identify the same defect: the automatic help option derived the storage name help, and parser values keyed by parameter name collided with a user parameter using that name."
+    },
+    "behavior": {
+      "status": "PASS",
+      "details": "Both preserve the public help flag, restore ordinary values for arguments and options bound to help, support custom help flags, and keep eager help behavior. The accepted fix always uses _click_default_help; the solver dynamically selects help, _help, and further underscore-prefixed names until unused. The internal-name difference is observable through introspection but does not violate the frozen acceptance."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "The solver's focused test covers the two reported binding forms plus built-in help. Independent QA added collision-chain, custom ownership, and compatibility probes. The accepted suite is broader, covering custom help flag names, the fixed internal name, introspection, reserved-name squatting warnings, and general duplicate-name warnings."
+    },
+    "scope": {
+      "status": "PASS",
+      "details": "The solver changes only help-option construction and adds a focused regression. The accepted fix also adds a module-level reserved name, documentation/changelog updates, introspection expectations, and duplicate-parameter warning behavior. The solver is narrower but complete for the issue acceptance."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "The solver's small name-selection loop is straightforward and avoids every existing user parameter name. The accepted fixed constant is more predictable for introspection but requires additional warning machinery for a user who claims that reserved name. Neither design is unreasonably complex."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "No behavioral regression was found. The solver passed the full practical suite, static checks, build, and adversarial name-chain tests. Direct comparison confirmed identical accepted behavior for a custom --man help flag and a user parameter stored as man."
+    }
+  },
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY",
+  "limitations": [
+    "The solver does not implement the accepted patch's broader duplicate-parameter warnings or documentation/changelog changes; those are outside the frozen issue acceptance.",
+    "The solver's hidden help storage name is command-dependent, while the accepted fix exposes a stable _click_default_help name through to_info_dict.",
+    "QA covered Python 3.12.14 on Linux, not the complete supported interpreter matrix."
+  ],
+  "auditedAt": "2026-09-17T20:47:29Z"
+}

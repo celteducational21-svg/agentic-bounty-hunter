@@ -1,0 +1,127 @@
+From fcc212f56644672596770b23174b5eb6df9f93bf Mon Sep 17 00:00:00 2001
+From: ABH Solver C <solver-c@local.invalid>
+Date: Thu, 17 Sep 2026 13:39:08 -0700
+Subject: [PATCH] fix objectMode return types
+
+---
+ index.d.ts      | 26 +++++++++++++++++++++-----
+ index.test-d.ts |  6 ++++++
+ test.js         | 12 ++++++++++++
+ 3 files changed, 39 insertions(+), 5 deletions(-)
+
+diff --git a/index.d.ts b/index.d.ts
+index 1e2448b..fdab037 100644
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -1,4 +1,4 @@
+-import {Options as FastGlobOptions} from 'fast-glob';
++import {Entry as FastGlobEntry, Options as FastGlobOptions} from 'fast-glob';
+ 
+ declare namespace globby {
+ 	type ExpandDirectoriesOption =
+@@ -41,6 +41,12 @@ declare namespace globby {
+ 		readonly gitignore?: boolean;
+ 	}
+ 
++	interface ObjectModeOptions extends GlobbyOptions {
++		readonly objectMode: true;
++	}
++
++	type Entry = FastGlobEntry;
++
+ 	interface GlobTask {
+ 		readonly pattern: string;
+ 		readonly options: GlobbyOptions;
+@@ -88,10 +94,16 @@ declare const globby: {
+ 	@param options - See the [`fast-glob` options](https://github.com/mrmlnc/fast-glob#options-3) in addition to the ones in this package.
+ 	@returns The matching paths.
+ 	*/
+-	sync: (
+-		patterns: string | readonly string[],
+-		options?: globby.GlobbyOptions
+-	) => string[];
++	sync: {
++		(
++			patterns: string | readonly string[],
++			options: globby.ObjectModeOptions
++		): globby.Entry[];
++		(
++			patterns: string | readonly string[],
++			options?: globby.GlobbyOptions
++		): string[];
++	};
+ 
+ 	/**
+ 	Find files and directories using glob patterns.
+@@ -167,6 +179,10 @@ declare const globby: {
+ 	})();
+ 	```
+ 	*/
++	(
++		patterns: string | readonly string[],
++		options: globby.ObjectModeOptions
++	): Promise<globby.Entry[]>;
+ 	(
+ 		patterns: string | readonly string[],
+ 		options?: globby.GlobbyOptions
+diff --git a/index.test-d.ts b/index.test-d.ts
+index 2c0dd03..3ab0435 100644
+--- a/index.test-d.ts
++++ b/index.test-d.ts
+@@ -2,6 +2,7 @@ import {expectType} from 'tsd';
+ import globby = require('.');
+ import {
+ 	GlobTask,
++	Entry,
+ 	FilterFunction,
+ 	sync as globbySync,
+ 	stream as globbyStream,
+@@ -28,6 +29,8 @@ expectType<Promise<string[]>>(
+ );
+ expectType<Promise<string[]>>(globby('*.tmp', {gitignore: true}));
+ expectType<Promise<string[]>>(globby('*.tmp', {ignore: ['**/b.tmp']}));
++expectType<Promise<Entry[]>>(globby('*.tmp', {objectMode: true}));
++expectType<Promise<string[]>>(globby('*.tmp', {objectMode: false}));
+ 
+ // Globby (sync)
+ expectType<string[]>(globbySync('*.tmp'));
+@@ -45,6 +48,8 @@ expectType<string[]>(
+ );
+ expectType<string[]>(globbySync('*.tmp', {gitignore: true}));
+ expectType<string[]>(globbySync('*.tmp', {ignore: ['**/b.tmp']}));
++expectType<Entry[]>(globbySync('*.tmp', {objectMode: true}));
++expectType<string[]>(globbySync('*.tmp', {objectMode: false}));
+ 
+ // Globby (stream)
+ expectType<NodeJS.ReadableStream>(globbyStream('*.tmp'));
+@@ -62,6 +67,7 @@ expectType<NodeJS.ReadableStream>(
+ );
+ expectType<NodeJS.ReadableStream>(globbyStream('*.tmp', {gitignore: true}));
+ expectType<NodeJS.ReadableStream>(globbyStream('*.tmp', {ignore: ['**/b.tmp']}));
++expectType<NodeJS.ReadableStream>(globbyStream('*.tmp', {objectMode: true}));
+ 
+ (async () => {
+ 	const streamResult = [];
+diff --git a/test.js b/test.js
+index c73fbdb..f1d56d2 100644
+--- a/test.js
++++ b/test.js
+@@ -62,6 +62,18 @@ test('glob - sync', t => {
+ 	t.deepEqual(globby.sync(['!*.tmp', 'a.tmp']), ['a.tmp']);
+ });
+ 
++test('glob - async - object mode', async t => {
++	const [entry] = await globby('fixtures/**/*.js', {objectMode: true});
++	t.is(typeof entry, 'object');
++	t.is(typeof entry.path, 'string');
++});
++
++test('glob - sync - object mode', t => {
++	const [entry] = globby.sync('fixtures/**/*.js', {objectMode: true});
++	t.is(typeof entry, 'object');
++	t.is(typeof entry.path, 'string');
++});
++
+ test('glob - sync - multiple file paths', t => {
+ 	t.deepEqual(globby.sync(['a.tmp', 'b.tmp']), ['a.tmp', 'b.tmp']);
+ });

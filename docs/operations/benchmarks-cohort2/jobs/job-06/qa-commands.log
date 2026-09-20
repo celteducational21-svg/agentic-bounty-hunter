@@ -1,0 +1,63 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA
+Reviewer: independent_qa_1
+
+$ git init; git remote add origin https://github.com/jaraco/inflect.git; git fetch --depth 1 origin 98e19e3eb3ad28f9fa882baaad01674c44b59952; git checkout --detach FETCH_HEAD
+Observed HEAD: 98e19e3eb3ad28f9fa882baaad01674c44b59952
+Observed remote: https://github.com/jaraco/inflect.git
+Initial status: clean
+EXIT 0
+
+$ sha256sum solution.patch
+a60ea21b94a2c5f75f759e9ade55c5f27668701424bc0e1770dbb936d95db7d7
+EXIT 0
+
+$ python3 <independent baseline suffix-only reproduction>
+st IndexError list index out of range
+nd IndexError list index out of range
+rd IndexError list index out of range
+th IndexError list index out of range
+EXIT 0 (exceptions captured as reproduction data)
+
+$ git apply --check solution.patch && git apply solution.patch && git diff --check
+Applied cleanly; 2 files changed, 12 insertions.
+Stable patch ID: d549f8c393f1d1814dd67884b5f943bfe95203f3
+Reconstructed tree: 75da5291a78b5a6ec946cf957b24d495f268d673
+EXIT 0
+
+$ uv venv .venv && uv pip install --python .venv/bin/python -e . pytest
+Installed inflect and pytest functional environment.
+EXIT 0
+
+$ .venv/bin/pytest -q tests/test_numwords.py -k ordinal_suffix_without_number
+1 passed, 3 deselected in 0.05s
+EXIT 0
+
+$ .venv/bin/python <independent cardinal, ordinal, option, and counterexample probes>
+Default st, nd, rd, th: zero.
+Representative cardinal and ordinal cases: PASS.
+wantlist, group=1, custom zero word: PASS.
+threshold=1 probe: ValueError before suffix handling (recorded limitation outside default-call acceptance).
+EXIT 0
+
+$ .venv/bin/pytest -q
+69 passed, 386 warnings in 0.34s
+EXIT 0
+
+$ .venv/bin/python -m compileall -q inflect.py tests/test_numwords.py
+EXIT 0
+
+$ .venv/bin/python setup.py check
+ModuleNotFoundError: No module named 'setuptools'
+EXIT nonzero (editable functional environment omits build backend; superseded by isolated uv build)
+
+$ uv build
+Successfully built dist/inflect-0.1.dev1+g98e19e3eb.d20260917.tar.gz
+Successfully built dist/inflect-0.1.dev1+g98e19e3eb.d20260917-py3-none-any.whl
+EXIT 0
+
+$ uv pip install --python .venv/bin/python -e '.[testing]'
+Did not complete in the available execution window; pytest-black, pytest-flake8, and pytest-mypy remained unavailable.
+STATUS unavailable
+
+$ git diff --check
+EXIT 0

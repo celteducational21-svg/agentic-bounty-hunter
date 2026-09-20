@@ -1,0 +1,44 @@
+{
+  "jobId": "job-04",
+  "reviewer": "independent_qa_6",
+  "revision": "8c949104b87b91f09a96687b1a46f8e71f835538",
+  "reviewedRevision": "8c949104b87b91f09a96687b1a46f8e71f835538",
+  "preFixRevision": "c905aaf2a826c4581a604ee6bbb1ae41b062a598",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": false,
+  "iteration": 2,
+  "iterations": 2,
+  "completedAt": "2026-09-17T21:14:22Z",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "PASS",
+    "lint": "PASS_WITH_WARNING",
+    "typecheck": "PASS"
+  },
+  "provenance": {
+    "reconstructedTree": "ccc753104946fda43e66f810e76d976cf428619e",
+    "solutionPatchSha256": "78a8e9b38bf768362a2475a994e94da9af71518e577b046a6bdd18aed35bedc5",
+    "exactRevisionReconstructed": true,
+    "notes": "Rebuilding the commit from the exact parent, staged tree, patch-declared author/date/message and frozen committer timestamp reproduced 8c949104b87b91f09a96687b1a46f8e71f835538 exactly."
+  },
+  "evidence": {
+    "tests": "Native focused AVA: 1 passed. Native complete AVA: 45 passed, 2 known failures, 0 unexpected failures.",
+    "independentTests": "Never-settling callbacks ignore signals; both same-turn abort orders, queued-first abort, pre-aborted queue entry, synchronous in-task abort, listener removal on success/abort/error, size/pending drain, onIdle, following work, non-abort identity and late underlying rejection handling all pass.",
+    "build": "npm run build passed and npm pack --dry-run rebuilt and packaged dist successfully.",
+    "lint": "XO exited 0 under Node 16.20.2 with two pre-existing TODO warnings.",
+    "typecheck": "TypeScript production compilation passed.",
+    "repairHistory": "Attempt 1 remains preserved and records its false-positive QA plus audit hang with size 1/pending 1."
+  },
+  "findings": [],
+  "limitations": [
+    "Linux only; the historical Node matrix was not run.",
+    "XO uses Node 16.20.2 and reports two existing TODO warnings.",
+    "No accepted upstream fix, post-fix source, current main, timeline or comments were inspected."
+  ],
+  "scope": "Fresh iteration-2 QA; current patch unchanged and no public actions."
+}

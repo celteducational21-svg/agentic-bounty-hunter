@@ -1,0 +1,66 @@
+{
+  "jobId": "job-03",
+  "reviewer": "independent_qa_3",
+  "revision": "b651274572730d6cca0d785452768c7e69def017",
+  "revisionMatchesResult": true,
+  "verdict": "PASS",
+  "firstPass": true,
+  "provenance": {
+    "repository": "https://github.com/sindresorhus/ora.git",
+    "expectedPreFixSha": "38c2be947f39d2fadd74d676096863943f472b01",
+    "observedPreFixSha": "38c2be947f39d2fadd74d676096863943f472b01",
+    "preFixShaMatches": true,
+    "resultRevision": "b651274572730d6cca0d785452768c7e69def017",
+    "artifactRevisionReferencesMatch": true,
+    "claimedCommitParent": "38c2be947f39d2fadd74d676096863943f472b01",
+    "claimedCommitTree": "94bc1cbd16176ba01d9aa9bf78b8763c94b5e2c3",
+    "reconstructedTree": "94bc1cbd16176ba01d9aa9bf78b8763c94b5e2c3",
+    "exactTreeMatch": true,
+    "solutionPatchSha256": "ca15887cc36c5380369e0127e8d088bf818b8dc69338ca7d041992a90533f5f6",
+    "stablePatchId": "93f0eddf5aaa4b822156da8e1b744c00ca3c7386",
+    "changedBlobIds": {
+      "index.js": "dca54821866343cbc7312653a30c9eb7084e0900",
+      "test.js": "78c555c5694139a734d310633290942e9cdbe689"
+    },
+    "notes": "A new repository fetched only the supplied pre-fix SHA. The patch applied cleanly with --index. Its reconstructed tree exactly matches the locally frozen claimed revision, whose sole parent is the supplied pre-fix SHA. Only claimed commit metadata/tree identity was read for this comparison; no later or accepted source was inspected."
+  },
+  "checks": {
+    "acceptanceCriteria": {
+      "status": "PASS",
+      "details": "Assigning a custom or named spinner with an interval updates ora.interval. A positive explicit constructor interval overrides the initial spinner interval. The focused submitted regression passes."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "AVA completed with 26 tests passed and 0 failed. TSD completed successfully."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Independent probes verified the default spinner interval (80), initial custom-spinner defaulting, constructor precedence (45 over 120), reassignment (210), preservation when a replacement spinner omits interval, and named-spinner default synchronization."
+    },
+    "explainability": {
+      "status": "PASS",
+      "details": "The setter resolves custom, default, platform, and named spinners into _spinner; synchronizing interval after resolution covers every replacement route. Constructor ordering then reapplies an explicit initial interval, explaining precedence preservation."
+    },
+    "prReadiness": {
+      "status": "PASS",
+      "details": "The two-file patch is localized, includes a focused behavioral regression, preserves adjacent defaults, passes runtime/type-definition tests and lint, and has exact provenance evidence."
+    },
+    "build": {
+      "status": "NOT_APPLICABLE",
+      "details": "This historical package publishes its plain CommonJS index.js and declaration file directly and defines no build script or compilation stage. Runtime loading and TSD cover the shipped artifacts."
+    },
+    "lint": {
+      "status": "PASS",
+      "details": "XO exited 0 under a Node 24 compatibility shim for removed util predicates, reporting only one pre-existing TODO warning. git diff --cached --check passed."
+    },
+    "typecheck": {
+      "status": "PASS",
+      "details": "The repository's TSD declaration suite exited 0. There is no separate TypeScript source compilation step."
+    }
+  },
+  "limitations": [
+    "Node.js 24.19.0 on Linux only; the historical Node matrix was not run.",
+    "The old XO dependency needs a compatibility shim on Node 24 because util.isDate and util.isRegExp were removed.",
+    "Spinner timing was validated as state/default behavior; no wall-clock animation timing benchmark was needed for the state synchronization acceptance."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "jobId": "job-07",
+  "worker": "solver_c",
+  "repository": "yargs/yargs-parser",
+  "issueNumber": 433,
+  "preFixSha": "a0305515248ed493b82b52489c28e554dc783a8e",
+  "revision": "9e5a766c093c6e7b9de8096409825672fa3404e9",
+  "author": "solver_c",
+  "category": "CLI option parsing edge case",
+  "difficulty": "easy-medium",
+  "setup": "PASS_WITH_COMPATIBILITY_PINS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "commonJsSuite": {"status": "PASS", "passed": 357, "failed": 0},
+  "esmSuite": {"status": "PASS", "passed": 17, "failed": 0},
+  "typescriptSuite": {"status": "PASS", "passed": 20, "failed": 0},
+  "diffCheck": "PASS",
+  "iterations": 2,
+  "regressionFailures": 1,
+  "environment": {"os": "Linux", "node": "24.19.0", "npm": "11.9.0"},
+  "limitations": [
+    "Historical unconstrained ranges required local TypeScript 4.5.5 and @types/node 16.11.4 compatibility pins; no dependency files are included in the solution.",
+    "Puppeteer's download and the browser suite were skipped.",
+    "Only Node.js 24.19.0 on Linux was exercised; the historical Node matrix was not run.",
+    "Independent QA is pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:39:31Z"
+}

@@ -1,0 +1,26 @@
+{
+  "jobId": "job-01",
+  "worker": "solver_d",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "revision": "4c62da5db4c849a1cbbc60ced0c55c9460be45e3",
+  "preFixRevision": "5f86603a84e12bdec1584c15c9f982740e613c45",
+  "author": "solver_d",
+  "category": "Python terminal prompt formatting",
+  "difficulty": "easy-medium",
+  "iterations": 1,
+  "focusedTests": "6 passed",
+  "practicalSuite": "1308 passed, 21 skipped, 1 xfailed",
+  "regressionFailures": 0,
+  "lint": "PASS",
+  "format": "PASS",
+  "typecheck": "NOT_RUN",
+  "limitations": [
+    "Python 3.12 only; the upstream multi-version and Windows matrices were not run.",
+    "Static type checking was not run because the change does not alter signatures and the optional type-check toolchain was not installed.",
+    "The first full-suite collection with pytest 9 hit a baseline deprecation promoted to an error; pytest 8 completed the full suite successfully."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:44:29Z"
+}

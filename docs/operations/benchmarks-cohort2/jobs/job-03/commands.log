@@ -1,0 +1,41 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK — REPAIR ITERATION 2
+
+The complete iteration-one command log is preserved at evidence/attempt-1/commands.log.
+
+$ git rev-parse HEAD
+b651274572730d6cca0d785452768c7e69def017
+EXIT 0
+
+$ [apply repair: restrict synchronization to custom objects, use interval !== undefined, add zero/named regressions]
+EXIT 0
+
+$ npx ava test.js --match='update interval when setting new spinner'
+1 test passed
+EXIT 0
+
+$ node-v16 node_modules/xo/cli.js && node-v16 node_modules/ava/cli.js && node-v16 node_modules/tsd/dist/cli.js
+XO: exit 0 with 1 pre-existing TODO warning
+AVA: 26 tests passed
+TSD: passed
+EXIT 0
+
+$ node [constructor, positive custom, zero custom, named spinner, omitted interval assertions]
+job-03 interval assignment counterexamples: PASS
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git reset --soft 38c2be947f39d2fadd74d676096863943f472b01
+$ git commit -m 'Fix custom spinner interval synchronization'
+$ git add index.js test.js
+$ git commit --amend --no-edit
+[detached HEAD f13b0fb] Fix custom spinner interval synchronization
+ 2 files changed, 26 insertions(+)
+EXIT 0
+
+$ git rev-parse HEAD
+f13b0fbc85a3cffebd5e88ba5d6d42fd80356589
+EXIT 0
+
+Limitations: the first soft-reset commit captured the staged iteration-one tree; the unstaged repair was immediately added and the commit amended before freeze. The final revision is a clean single commit over the pre-fix SHA. Node 24 cannot run the legacy XO stack; Node 16.20.2 was used. Fresh independent QA/audit pending.

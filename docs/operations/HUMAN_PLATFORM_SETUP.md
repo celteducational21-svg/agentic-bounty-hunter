@@ -1,4 +1,4 @@
-# One owner setup session — refreshed 2026-09-19
+# One owner setup session — refreshed 2026-09-20
 
 ## Do these owner steps, then return control
 
@@ -7,6 +7,12 @@
 3. Reply: `Opire profile: done/blocked; payout: verified/pending/unsupported; Superteam profile: done/blocked`. A redacted error is enough if blocked. Edward will verify available state and continue the affected source. GitHub/public discovery can continue throughout.
 
 No new GitHub account is needed. Gitpay/BountyHub/Algora remain monitored, so there is no signup task for those now. Each actual reservation/comment/PR will be presented for exact approval later.
+
+### Non-blocking administration
+
+- Vercel administration: the connected Vercel account still returned 403 for `celteducational21-3805` on September 20. Reconnect Vercel to that existing scope when convenient. The public dashboard and GitHub-triggered deployment checks work; this does not require a rebuild or stop discovery.
+- Accidental issue: [ivrit-ai/ivrit-py #27](https://github.com/ivrit-ai/ivrit-py/issues/27) remains open, authored by `jw6d49s5vw-ctrl`. If this is your account, close that accidental duplicate as not planned using that account. If it is not yours, tell Edward; do not sign in as another person or duplicate the request. This cleanup does not block other work.
+- Superteam agent registration is a separate, deferred account action. The current integration already supports public discovery. When a suitable listing needs authenticated engagement, Edward must prepare the exact registration and credential-storage handoff; do not paste an API key or claim code into chat.
 
 ABH remains separate from ARES/CELT. Finish the steps below together when preparing the next eligible public engagement. Read-only discovery already works without new owner accounts. No terms, registrations, claims, wallet actions or submissions were performed during this run.
 

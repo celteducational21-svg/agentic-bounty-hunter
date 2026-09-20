@@ -1,0 +1,51 @@
+{
+  "jobId": "job-04",
+  "worker": "solver_a",
+  "repository": "sindresorhus/p-queue",
+  "issueNumber": 168,
+  "preFixSha": "c905aaf2a826c4581a604ee6bbb1ae41b062a598",
+  "revision": "9c75913a771fc773c00b2bac053d06a2464beb1d",
+  "author": "solver_a",
+  "category": "TypeScript async lifecycle and queue accounting",
+  "difficulty": "medium",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "focusedBehavior": "PASS",
+  "focusedTests": {
+    "status": "PASS_WITH_TRANSPILATION_HARNESS",
+    "passed": 1,
+    "failed": 0
+  },
+  "practicalSuite": {
+    "status": "PASS_WITH_TRANSPILATION_HARNESS",
+    "passed": 45,
+    "knownFailures": 2,
+    "unexpectedFailures": 0
+  },
+  "build": "PASS",
+  "typecheck": "PASS",
+  "lint": "PASS_WITH_WARNING",
+  "nativeTypeScriptTestLoader": "BLOCKED_BY_TOOLCHAIN",
+  "diffCheck": "PASS",
+  "iterations": 1,
+  "regressionFailures": 0,
+  "environment": {
+    "os": "Linux",
+    "defaultNode": "24.19.0",
+    "compatibleLintNode": "16.20.2",
+    "npm": "11.9.0",
+    "typescript": "4.5.5",
+    "ava": "4.0.1",
+    "tsNode": "10.4.0"
+  },
+  "limitations": [
+    "The historical AVA/ts-node ESM loader could not discover TypeScript tests directly on available Node runtimes.",
+    "The complete test source was transpiled without semantic edits to a temporary JavaScript harness and run against the compiled distribution; generated files were removed afterward.",
+    "XO reports two pre-existing TODO warnings while exiting successfully under Node 16.20.2.",
+    "Only Linux was exercised.",
+    "Independent QA is pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:38:11Z"
+}

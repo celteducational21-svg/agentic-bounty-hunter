@@ -1,0 +1,39 @@
+diff --git a/index.js b/index.js
+index d5a169f..dca5482 100644
+--- a/index.js
++++ b/index.js
+@@ -75,6 +75,10 @@ class Ora {
+ 		} else {
+ 			throw new Error(`There is no built-in spinner named '${spinner}'. See https://github.com/sindresorhus/cli-spinners/blob/master/spinners.json for a full list.`);
+ 		}
++
++		if (this._spinner.interval) {
++			this.interval = this._spinner.interval;
++		}
+ 	}
+ 
+ 	get text() {
+diff --git a/test.js b/test.js
+index 9428595..78c555c 100644
+--- a/test.js
++++ b/test.js
+@@ -269,6 +269,19 @@ test('reset frameIndex when setting new spinner', async t => {
+ 	t.regex(stripAnsi(await output), /foo baz/);
+ });
+ 
++test('update interval when setting new spinner', t => {
++	const spinner = new Ora({
++		interval: 50,
++		spinner: {frames: ['foo'], interval: 100}
++	});
++
++	t.is(spinner.interval, 50);
++
++	spinner.spinner = {frames: ['bar'], interval: 200};
++
++	t.is(spinner.interval, 200);
++});
++
+ test('throw when incorrect spinner', t => {
+ 	const ora = new Ora();
+ 

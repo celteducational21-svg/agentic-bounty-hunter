@@ -1,0 +1,48 @@
+{
+  "jobId": "job-06",
+  "worker": "solver_b",
+  "repository": "jaraco/inflect",
+  "issueNumber": 131,
+  "preFixSha": "98e19e3eb3ad28f9fa882baaad01674c44b59952",
+  "revision": "d0777b0bef24ec0f16d729b4fe837c3af67571fc",
+  "author": "solver_b",
+  "category": "Python number parser edge case",
+  "difficulty": "easy",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "focusedTests": {
+    "status": "PASS",
+    "passed": 1,
+    "coveredInputs": 4,
+    "failed": 0
+  },
+  "numberWordTests": {
+    "status": "PASS",
+    "passed": 4,
+    "failed": 0
+  },
+  "practicalSuite": {
+    "status": "PASS",
+    "passed": 69,
+    "failed": 0,
+    "warnings": 386
+  },
+  "compile": "PASS",
+  "diffCheck": "PASS",
+  "iterations": 1,
+  "regressionFailures": 0,
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "uv": "0.12.15"
+  },
+  "limitations": [
+    "The historical optional lint/type pytest plugin stack was not installed.",
+    "The suite emits 386 unrelated deprecation warnings for old ast APIs on Python 3.12.",
+    "Only Python 3.12.14 on Linux was exercised; the complete interpreter matrix was not run.",
+    "Independent QA is pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:32:26Z"
+}

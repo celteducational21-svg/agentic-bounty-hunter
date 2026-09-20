@@ -1,0 +1,50 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git clone https://github.com/python-attrs/cattrs.git /workspace/scratch/6cefdfffb246/job-02-cattrs
+$ git checkout acd3d1052776e9f815fdadf49cff02aa6c5a7a91
+HEAD is now at acd3d10 Fix typeddict tests on systems with 32-bit time_t (#415)
+
+$ python -m venv .venv
+$ .venv/bin/python -m pip install attrs typing-extensions exceptiongroup pytest hypothesis pytest-benchmark immutables
+
+$ PYTHONPATH=src .venv/bin/python - <<'PY'
+... attrs class with Annotated[str | None, "required"] and json make_converter ...
+PY
+FAIL {'value': 'x'} ClassValidationError ClassValidationError('While structuring C', [IndexError('tuple index out of range')], <class '__main__.C'>)
+ SUB IndexError IndexError('tuple index out of range') cause= None
+OK {'value': None} C(value=None) {'value': None}
+
+$ PYTHONPATH=src .venv/bin/python -m pytest -q tests/test_converter.py -k 'annotated' --benchmark-disable
+4 passed, 23 deselected in 0.13s
+
+$ PYTHONPATH=src .venv/bin/python -m pytest -q --benchmark-disable
+ERROR collecting tests/test_preconf.py
+ModuleNotFoundError: No module named 'bson'
+
+$ PYTHONPATH=src .venv/bin/python -m pytest tests/test_converter.py --benchmark-disable -q
+2 failed, 25 passed in 79.94s
+The two failures arose in historical Hypothesis helpers because current attrs supplied incomparable kw_only None/bool values.
+
+$ .venv/bin/python -m pip install 'attrs==23.1.0' 'hypothesis==6.79.4'
+
+$ PYTHONPATH=src .venv/bin/python -m pytest -q --benchmark-disable --ignore=tests/test_preconf.py
+447 passed, 1 skipped, 15 xfailed in 224.04s (0:03:44)
+
+$ git diff --check
+PASS (no output)
+
+$ PYTHONPATH=src .venv/bin/python -m compileall -q src tests
+PASS (no output)
+
+$ .venv/bin/python -m black --check src/cattrs/converters.py tests/test_converter.py
+All done! 2 files would be left unchanged.
+
+$ .venv/bin/python -m ruff check src/cattrs/converters.py tests/test_converter.py
+PASS (no output)
+
+$ git commit -m 'Fix Annotated union structuring dispatch'
+[abh/job-02-solution ffe99a7] Fix Annotated union structuring dispatch
+2 files changed, 47 insertions(+), 1 deletion(-)
+
+$ git rev-parse HEAD
+ffe99a75429ad4038cf2922863300c74d53dd2b3

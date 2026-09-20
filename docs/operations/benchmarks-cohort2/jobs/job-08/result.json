@@ -1,0 +1,30 @@
+{
+  "jobId": "job-08",
+  "worker": "solver_c",
+  "repository": "sindresorhus/globby",
+  "issueNumber": 177,
+  "preFixSha": "c1a3b3244ae992ba7e7e76f501a510ea0d9306df",
+  "revision": "fcc212f56644672596770b23174b5eb6df9f93bf",
+  "author": "solver_c",
+  "category": "TypeScript public API type accuracy",
+  "difficulty": "medium",
+  "setup": "PASS_WITH_HISTORICAL_DEPENDENCY_ADJUSTMENT",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "runtimeSuite": {"status": "PASS", "passed": 119, "knownFailures": 2, "unexpectedFailed": 0},
+  "typeSuite": {"status": "PASS", "errors": 0},
+  "lint": {"status": "PASS_WITH_NODE24_SHIM"},
+  "combinedNpmTest": {"status": "ENVIRONMENT_BLOCKED", "reason": "Historical XO dependency calls removed Node 24 util.isDate API before AVA and TSD run."},
+  "diffCheck": "PASS",
+  "iterations": 1,
+  "regressionFailures": 0,
+  "environment": {"os": "Linux", "node": "24.19.0", "npm": "11.9.0"},
+  "limitations": [
+    "The snapshot's self-referential globby#main development dependency was omitted only during installation to honor anti-leakage, then restored unchanged.",
+    "Combined npm test is blocked by an old lint dependency on Node 24; XO passed with a compatibility shim and AVA/TSD passed independently.",
+    "Only Node.js 24.19.0 on Linux was exercised; the historical Node matrix was not run.",
+    "Independent QA is pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:39:31Z"
+}

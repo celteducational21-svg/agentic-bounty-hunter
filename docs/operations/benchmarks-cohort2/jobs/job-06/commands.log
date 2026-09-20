@@ -1,0 +1,82 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init
+$ git remote add origin https://github.com/jaraco/inflect.git
+$ git fetch --depth 1 origin 98e19e3eb3ad28f9fa882baaad01674c44b59952
+$ git checkout --detach FETCH_HEAD
+$ git rev-parse HEAD
+98e19e3eb3ad28f9fa882baaad01674c44b59952
+EXIT 0
+
+$ python - <<'PY'
+import inflect
+p = inflect.engine()
+for value in ('st','nd','rd','th'):
+    try:
+        print(value, p.number_to_words(value))
+    except Exception as error:
+        print(value, type(error).__name__, str(error))
+PY
+st IndexError list index out of range
+nd IndexError list index out of range
+rd IndexError list index out of range
+th IndexError list index out of range
+EXIT 0 (the script records each reproduced exception as data)
+
+$ uv venv .venv
+Using CPython 3.12.14
+Creating virtual environment at: .venv
+EXIT 0
+
+$ uv pip install --python .venv/bin/python -e . pytest
+Built and installed inflect plus pytest and its dependencies.
+EXIT 0
+
+$ .venv/bin/pytest -q tests/test_numwords.py -k ordinal_suffix_without_number
+.                                                                        [100%]
+1 passed, 3 deselected in 0.07s
+EXIT 0
+
+$ .venv/bin/pytest -q tests/test_numwords.py
+....                                                                     [100%]
+4 passed in 0.03s
+EXIT 0
+
+$ .venv/bin/pytest -q
+.....................................................................    [100%]
+69 passed, 386 warnings in 0.31s
+EXIT 0
+
+$ .venv/bin/python - <<'PY'
+import inflect
+p = inflect.engine()
+for value in ('st', 'nd', 'rd', 'th', '1st', '2nd', '3rd', '4th', 42):
+    print(repr(value), '->', p.number_to_words(value))
+PY
+'st' -> zero
+'nd' -> zero
+'rd' -> zero
+'th' -> zero
+'1st' -> first
+'2nd' -> second
+'3rd' -> third
+'4th' -> fourth
+42 -> forty-two
+EXIT 0
+
+$ .venv/bin/python -m compileall -q inflect.py tests/test_numwords.py
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'Handle ordinal suffixes without a number'
+[detached HEAD d0777b0] Handle ordinal suffixes without a number
+ 2 files changed, 12 insertions(+)
+EXIT 0
+
+$ git rev-parse HEAD
+d0777b0bef24ec0f16d729b4fe837c3af67571fc
+EXIT 0
+
+Limitations: Python 3.12.14/Linux only; historical optional lint/type plugins and full tox interpreter matrix not run; 386 unrelated ast deprecation warnings; independent QA pending.

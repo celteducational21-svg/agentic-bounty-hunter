@@ -1,0 +1,71 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA — NOT PAID WORK
+
+Reviewer: independent_qa_2
+
+$ git init -q /tmp/abh-qa2-job08
+$ git remote add origin https://github.com/sindresorhus/globby.git
+$ git fetch --depth=1 origin c1a3b3244ae992ba7e7e76f501a510ea0d9306df
+$ git checkout FETCH_HEAD
+$ git remote remove origin
+$ git am --committer-date-is-author-date solution.patch
+Applying: fix objectMode return types
+EXIT 0
+
+$ git commit-tree [reconstructed tree and patch-declared metadata]
+fcc212f56644672596770b23174b5eb6df9f93bf
+EXIT 0
+
+$ git rev-parse HEAD
+fcc212f56644672596770b23174b5eb6df9f93bf
+EXIT 0
+
+Setup note: package.json's self-referential globby#main dev dependency was temporarily removed with a local patch before installation and restored byte-for-byte afterward. It was never installed or inspected.
+
+$ npm install --ignore-scripts --no-audit --no-fund
+added 931 packages
+EXIT 0
+
+$ ./node_modules/.bin/ava
+119 tests passed
+2 known failures
+EXIT 0
+
+$ npm test
+TypeError: util.isDate is not a function
+Occurred while linting stream-utils.js
+EXIT 1 (default Node 24 historical-XO incompatibility; command stopped before AVA and TSD)
+
+$ node-v16 node_modules/xo/cli.js && node-v16 node_modules/ava/cli.js && node-v16 node_modules/tsd/dist/cli.js
+XO passed; AVA reported 119 passed and 2 known failures; TSD then failed with syntax/type errors from the newly resolved incompatible @types/node declarations.
+EXIT 1 (runtime and lint passed; historical declaration compatibility pin still required)
+
+$ npm install --ignore-scripts --no-save --no-audit --no-fund @types/node@14.14.10
+changed 1 package; tracked package manifest restored unchanged
+EXIT 0
+
+$ ./node_modules/.bin/tsd
+EXIT 0
+
+$ ./node_modules/.bin/tsd --files qa.test-d.ts
+EXIT 0
+
+$ node [independent async/sync/stream runtime assertions]
+job-08 runtime acceptance and counterexamples: PASS
+EXIT 0
+
+$ git diff --check HEAD^ HEAD
+EXIT 0
+
+$ git status --short
+[no output]
+EXIT 0
+
+$ sha256sum solution.patch
+af531c9c68305edeff082c0fe9e7e68d805091d754c0d96e84870750d7e0429a
+
+$ git patch-id --stable < solution.patch
+6901a805e5beb060492bca797273f15f74d81b77 fcc212f56644672596770b23174b5eb6df9f93bf
+
+Temporary QA type-test file was removed after validation.
+
+Limitations: combined npm test is blocked by historical XO on Node 24; components pass independently using compatible Node/type declarations. Linux only; no historical Node matrix.

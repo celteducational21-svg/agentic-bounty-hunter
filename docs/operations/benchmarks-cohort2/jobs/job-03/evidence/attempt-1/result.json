@@ -1,0 +1,43 @@
+{
+  "jobId": "job-03",
+  "worker": "solver_a",
+  "repository": "sindresorhus/ora",
+  "issueNumber": 123,
+  "preFixSha": "38c2be947f39d2fadd74d676096863943f472b01",
+  "revision": "b651274572730d6cca0d785452768c7e69def017",
+  "author": "solver_a",
+  "category": "JavaScript state synchronization",
+  "difficulty": "easy",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "focusedTests": {
+    "status": "PASS",
+    "passed": 1,
+    "failed": 0
+  },
+  "fullSuite": {
+    "status": "PASS",
+    "passed": 26,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "lint": "PASS_WITH_WARNING",
+  "diffCheck": "PASS",
+  "iterations": 1,
+  "regressionFailures": 0,
+  "environment": {
+    "os": "Linux",
+    "defaultNode": "24.19.0",
+    "compatibleNode": "16.20.2",
+    "npm": "11.9.0"
+  },
+  "limitations": [
+    "The legacy XO dependency crashes on Node 24 because it calls removed util.isDate; the full chain was rerun successfully with Node 16.20.2.",
+    "XO reports one pre-existing TODO warning while exiting successfully.",
+    "Only Linux and one repository-compatible Node version were exercised.",
+    "Independent QA is pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:38:11Z"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "job-01",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "pallets/click",
+  "issue": "https://github.com/pallets/click/issues/3019",
+  "title": "Empty prompt suffix still inserts a space",
+  "issueBody": "click.prompt and click.confirm with prompt_suffix='' still insert a space. A prompt of 'test' with input 'foo' renders 'test foo' instead of 'testfoo'.",
+  "preFixSha": "5f86603a84e12bdec1584c15c9f982740e613c45",
+  "category": "Python terminal prompt formatting",
+  "difficulty": "easy-medium",
+  "expectedDeliverable": "Make an explicitly empty suffix add no character for prompt and confirm, preserve default and ordinary suffix behavior, and add focused tests.",
+  "antiLeakage": "Use only the supplied issue facts and exact pre-fix source. Do not inspect accepted fixes, merged PRs, post-fix source, timelines, or solution discussion.",
+  "issueRedactions": [],
+  "repo": "pallets/click",
+  "issueUrl": "https://github.com/pallets/click/issues/3019",
+  "issueNumber": 3019,
+  "language": "Python"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "job-10",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "sindresorhus/indent-string",
+  "issue": "historical pull-request problem statement",
+  "issueNumber": null,
+  "title": "Validate negative indentation counts explicitly",
+  "issueBody": "A negative count reaches String.repeat and exposes its opaque native RangeError instead of a package-specific validation message.",
+  "preFixSha": "6b64e3744c81074e85361743498648850db5e2dc",
+  "language": "JavaScript",
+  "category": "argument validation",
+  "difficulty": "easy",
+  "acceptance": [
+    "A count of -1 throws RangeError.",
+    "The exact message is Expected `count` to be at least 0, got `-1`.",
+    "Nonnegative indentation behavior remains unchanged.",
+    "Existing input, count type, and indent type validation remains unchanged."
+  ],
+  "expectedDeliverable": "Resolve the historical problem statement with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only the supplied facts and exact pre-fix source. Do not inspect accepted pull requests, fix commits, post-fix source, current main, or timelines and comments."
+}

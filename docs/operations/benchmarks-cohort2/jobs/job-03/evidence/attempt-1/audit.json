@@ -1,0 +1,43 @@
+{
+  "jobId": "job-03",
+  "auditor": "benchmark_auditor_2",
+  "comparedRevision": "b651274572730d6cca0d785452768c7e69def017",
+  "acceptedPr": "https://github.com/sindresorhus/ora/pull/125",
+  "acceptedFixSha": "ad324dcc0b6f8843d38a2bd9ee37497f03207762",
+  "verdict": "FAIL",
+  "comparisons": {
+    "rootCause": {
+      "status": "PARTIAL",
+      "details": "Both fixes recognize that replacing a custom spinner must synchronize interval state. The solver places synchronization after every spinner resolution branch and uses truthiness; the accepted fix updates only the custom-object branch and distinguishes an explicitly supplied interval from undefined."
+    },
+    "behavior": {
+      "status": "FAIL",
+      "details": "For a positive custom interval, both implementations update ora.interval and preserve a positive constructor override. They diverge on two observable cases: assigning a custom spinner with interval 0 yields 333 under the solver but 0 under the accepted fix; assigning named spinner dots after setting interval 333 yields 80 under the solver but preserves 333 under the accepted fix."
+    },
+    "tests": {
+      "status": "FAIL",
+      "details": "The solver regression covers only positive interval values. It does not cover the accepted patch's undefined-versus-present distinction and therefore misses interval 0. Independent QA added named-spinner synchronization as an expectation, but that behavior is a solver scope expansion and is explicitly not performed by the accepted fix."
+    },
+    "scope": {
+      "status": "FAIL",
+      "details": "The accepted fix updates interval only when the assigned spinner is a custom object carrying an interval. By synchronizing after all resolution branches, the solver also changes runtime assignment of built-in spinner names, which previously preserved the instance interval."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "Both patches are small and readable. The accepted condition `spinner.interval !== undefined` is more precise than the solver's truthiness check and remains confined to the intended custom-spinner branch."
+    },
+    "regressions": {
+      "status": "FAIL",
+      "details": "The solver changes named-spinner assignment semantics and fails the accepted zero-interval behavior. These are direct behavior probes, not hypothetical differences, even though the submitted and existing suites passed."
+    }
+  },
+  "qaFalsePositive": true,
+  "requiresRepair": true,
+  "readiness": "BLOCKED",
+  "limitations": [
+    "The accepted patch does not add an explicit interval-0 test, but its `!== undefined` condition and direct runtime comparison establish the behavior.",
+    "The historical Node matrix was not rerun during audit; this verdict is based on source comparison and direct deterministic state probes.",
+    "Repair should preserve constructor precedence while updating only an assigned custom spinner whose interval is not undefined."
+  ],
+  "auditedAt": "2026-09-17T20:54:06Z"
+}

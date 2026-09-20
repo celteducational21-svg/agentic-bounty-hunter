@@ -1,0 +1,71 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA — NOT PAID WORK
+
+Reviewer: independent_qa_2
+
+$ git init -q /tmp/abh-qa2-job07
+$ git remote add origin https://github.com/yargs/yargs-parser.git
+$ git fetch --depth=1 origin a0305515248ed493b82b52489c28e554dc783a8e
+$ git checkout FETCH_HEAD
+$ git remote remove origin
+$ git am --committer-date-is-author-date solution.patch
+Applying: fix parsing options ending in hyphens
+EXIT 0
+
+$ git commit-tree [reconstructed tree and patch-declared metadata]
+9e5a766c093c6e7b9de8096409825672fa3404e9
+EXIT 0
+
+$ git rev-parse HEAD
+9e5a766c093c6e7b9de8096409825672fa3404e9
+EXIT 0
+
+$ PUPPETEER_SKIP_DOWNLOAD=1 npm install --ignore-scripts --no-audit --no-fund
+added 675 packages
+EXIT 0
+
+$ npm install --ignore-scripts --no-save --no-audit --no-fund typescript@4.5.5 @types/node@16.11.4
+changed 2 packages
+EXIT 0
+
+$ npm run pretest
+TypeScript compile completed; Rollup created build/index.cjs.
+EXIT 0
+
+$ mocha test/yargs-parser.cjs --grep='names end with three or more hyphens|preserve special and ordinary hyphen handling'
+2 passing
+EXIT 0
+
+$ node [independent acceptance and counterexample assertions]
+job-07 acceptance and counterexamples: PASS
+EXIT 0
+
+$ npm test
+357 passing
+EXIT 0
+
+$ npm run test:esm
+17 passing
+EXIT 0
+
+$ npm run test:typescript
+20 passing
+EXIT 0
+
+$ npm run check
+StandardX completed without diagnostics.
+EXIT 0
+
+$ git diff --check HEAD^ HEAD
+EXIT 0
+
+$ git status --short
+[no output]
+EXIT 0
+
+$ sha256sum solution.patch
+b22e173510fd0e7e51b61212cd9e0701cd99e61a14401ac497717e4577de6721
+
+$ git patch-id --stable < solution.patch
+d3364c4b526eaa1973fd5c94e37ae218eb01b6c1 9e5a766c093c6e7b9de8096409825672fa3404e9
+
+Limitations: Node 24.19.0/Linux only; installation-only historical TypeScript pins used; browser and historical Node matrices not run.

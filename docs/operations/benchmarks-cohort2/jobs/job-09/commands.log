@@ -1,0 +1,73 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init
+$ git remote add origin https://github.com/sindresorhus/escape-string-regexp.git
+$ git fetch --depth 1 origin 5085b257c801507460270b747f645276fbc1d937
+$ git checkout --detach FETCH_HEAD
+$ git rev-parse HEAD
+5085b257c801507460270b747f645276fbc1d937
+EXIT 0
+
+$ node - <<'JS'
+const escapeStringRegexp = require('./');
+const escaped = escapeStringRegexp('-');
+console.log(JSON.stringify(escaped));
+try {
+  const regexp = new RegExp(`^${escaped}$`, 'u');
+  console.log(regexp.test('-'));
+} catch (error) {
+  console.log(error.name, error.message);
+  process.exitCode = 1;
+}
+JS
+"\\-"
+SyntaxError Invalid regular expression: /^\-$/u: Invalid escape
+EXIT 1
+
+$ npm install --ignore-scripts --package-lock=false
+added 753 packages
+EXIT 0
+
+$ npx ava test.js --match='escapes `-`'
+✔ escapes `-`
+1 test passed
+EXIT 0
+
+$ npm test
+> escape-string-regexp@2.0.0 test
+> xo && ava && tsd
+TypeError: util.isDate is not a function
+Occurred while linting index.js
+EXIT 1
+
+$ npx -y node@12 --version
+v12.22.12
+EXIT 0
+
+$ npm install --no-save --ignore-scripts --package-lock=false @types/node@12
+removed 1 package, and changed 1 package
+EXIT 0
+
+$ npx -y -p node@12 -c 'node node_modules/xo/cli.js && node node_modules/ava/cli.js && node node_modules/tsd/dist/cli.js'
+✔ main
+✔ escapes `-`
+✔ throws on non-string input
+3 tests passed
+EXIT 0
+
+$ node --check index.js
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'Use Unicode-safe escape for hyphens'
+[detached HEAD 0874571] Use Unicode-safe escape for hyphens
+ 2 files changed, 12 insertions(+), 6 deletions(-)
+EXIT 0
+
+$ git rev-parse HEAD
+08745712ad624121cdb9bf4b5343f97fca825a42
+EXIT 0
+
+Limitations: Node 24 cannot run the old XO dependency because util.isDate was removed. The unpinned install also resolved types too new for the bundled TypeScript, so suite components ran on Node 12.22.12 after a transient @types/node@12 pin. Only Linux was tested; independent QA is pending.

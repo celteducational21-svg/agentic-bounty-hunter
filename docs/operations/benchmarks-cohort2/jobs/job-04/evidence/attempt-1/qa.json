@@ -1,0 +1,67 @@
+{
+  "jobId": "job-04",
+  "reviewer": "independent_qa_3",
+  "revision": "9c75913a771fc773c00b2bac053d06a2464beb1d",
+  "revisionMatchesResult": true,
+  "verdict": "PASS",
+  "firstPass": true,
+  "provenance": {
+    "repository": "https://github.com/sindresorhus/p-queue.git",
+    "expectedPreFixSha": "c905aaf2a826c4581a604ee6bbb1ae41b062a598",
+    "observedPreFixSha": "c905aaf2a826c4581a604ee6bbb1ae41b062a598",
+    "preFixShaMatches": true,
+    "resultRevision": "9c75913a771fc773c00b2bac053d06a2464beb1d",
+    "artifactRevisionReferencesMatch": true,
+    "claimedCommitParent": "c905aaf2a826c4581a604ee6bbb1ae41b062a598",
+    "claimedCommitTree": "6fe8cf8f57fd4acf57f385d7da591432ba4f2438",
+    "reconstructedTree": "6fe8cf8f57fd4acf57f385d7da591432ba4f2438",
+    "exactTreeMatch": true,
+    "solutionPatchSha256": "d417a1048c2e1ef29b7802a9c4a8038dd589a9719eca2ec62b9beda36f0a1c9c",
+    "stablePatchId": "85e5e8f6409844ae29da0719eae77742bfce6fd5",
+    "changedBlobIds": {
+      "source/index.ts": "bde3ec5e6e4103857e1998a4ef2b40f12abe3c4f",
+      "test/test.ts": "3a60710f108a9f5aa16f45fd7908052da14922ce"
+    },
+    "notes": "A fresh repository fetched only the supplied pre-fix SHA. The patch applied cleanly with --index. Its reconstructed tree exactly matches the locally frozen claimed revision, whose sole parent is the supplied pre-fix SHA. Only claimed commit metadata/tree identity was read; no later or accepted source was inspected."
+  },
+  "checks": {
+    "acceptanceCriteria": {
+      "status": "PASS",
+      "details": "Both same-turn add promises reject with AbortError, queue size and pending reach zero, and onIdle resolves. The submitted deterministic regression passes through the transpilation harness."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Focused generated test: 1 passed. Full practical generated suite: 45 passed, 2 known failures, 0 unexpected failures. Native AVA TypeScript discovery remains blocked by the historical ts-node loader on Node 24."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Independent probes passed for both abort call orders, an already-aborted queued job, onIdle deadlines, queue size/pending cleanup, preservation of a non-abort error object and error event, and continued execution of a following task returning 42."
+    },
+    "explainability": {
+      "status": "PASS",
+      "details": "Throwing an already-observed abort into the existing catch path preserves rejection and error emission, then reaches shared #next cleanup. The removed early return was the only route bypassing that cleanup."
+    },
+    "prReadiness": {
+      "status": "PASS",
+      "details": "The one-line lifecycle correction is paired with deterministic coverage, exact provenance, successful build/typecheck, practical full regression evidence, lint, and independent race/error probes. The native loader limitation is environmental and documented."
+    },
+    "build": {
+      "status": "PASS",
+      "details": "npm run build completed successfully, recreating dist through TypeScript compilation."
+    },
+    "lint": {
+      "status": "PASS",
+      "details": "XO exited 0 under a Node 24 compatibility shim for removed util predicates, reporting only two pre-existing TODO warnings. git diff --cached --check passed."
+    },
+    "typecheck": {
+      "status": "PASS",
+      "details": "The repository build runs tsc over source and completed without errors. The separate test transpilation emitted one pre-existing unused @ts-expect-error diagnostic caused by tool-version drift, but emitted the unchanged test semantics and the full practical suite passed."
+    }
+  },
+  "limitations": [
+    "The historical AVA/ts-node ESM loader cannot discover the TypeScript test file on Node 24; tests were independently transpiled without semantic edits and run with AVA.",
+    "Node.js 24.19.0 on Linux only; the historical Node matrix was not run.",
+    "The old XO dependency requires a Node 24 compatibility shim for removed util predicates.",
+    "The practical test transpilation reports one unused @ts-expect-error diagnostic under resolved TypeScript 4.9.5; production source typechecking is clean."
+  ]
+}

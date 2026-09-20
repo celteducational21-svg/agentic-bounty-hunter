@@ -1,0 +1,91 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA
+Reviewer: independent_qa_4
+
+$ git init; git remote add origin https://github.com/python-attrs/cattrs.git; git fetch --depth 1 origin acd3d1052776e9f815fdadf49cff02aa6c5a7a91; git checkout --detach FETCH_HEAD
+Observed HEAD: acd3d1052776e9f815fdadf49cff02aa6c5a7a91
+EXIT 0
+
+$ PYTHONPATH=src .venv/bin/python <independent pristine Annotated optional reproduction>
+ClassValidationError While structuring Example (1 sub-exception)
+['IndexError']
+EXIT 0 (reported failure captured as reproduction data)
+
+$ sha256sum evidence/solution.patch
+f27a3c5bc55d011adbd2f39a6e8a57ca6a6dd0281d6b547122eb6cdb555cc176
+EXIT 0
+
+$ git patch-id --stable < evidence/solution.patch
+850170b2566ce9d693157ac4d4f49e8a88613149
+EXIT 0
+
+$ git apply --check evidence/solution.patch && git apply evidence/solution.patch && git diff --check
+Applied cleanly: src/cattrs/converters.py and tests/test_converter.py.
+EXIT 0
+
+$ git stash create; git show -s --format=%T <reconstructed>; git show -s --format=%T ffe99a75429ad4038cf2922863300c74d53dd2b3
+Reconstructed tree: 05ecdf5dbb3a6ba62bbdd5480f4365aa7b26e7b5
+Frozen revision tree: 05ecdf5dbb3a6ba62bbdd5480f4365aa7b26e7b5
+EXIT 0
+
+$ uv venv .venv
+Created Python 3.12.14 virtual environment.
+EXIT 0
+
+$ uv pip install --python .venv/bin/python -e . attrs==23.1.0 hypothesis==6.79.4 pytest==7.4.4 pytest-benchmark immutables black==23.3.0 ruff==0.0.277 typing-extensions
+Installed editable cattrs and repository-era test/lint dependencies.
+EXIT 0
+
+$ uv pip install --python .venv/bin/python pymongo cbor2 msgpack PyYAML tomlkit ujson orjson
+Installed all optional preconfigured-backend dependencies.
+EXIT 0
+
+$ .venv/bin/pytest -q tests/test_converter.py -k annotated
+4 passed, 23 deselected in 0.04s
+EXIT 0
+
+$ .venv/bin/python <independent optional/union/scalar/list matrix>
+independent annotated optional/union/scalar/list matrix: PASS
+EXIT 0
+
+$ .venv/bin/python <registered structure/unstructure and nested optional probes>
+registered structure/unstructure and nested optional counterexamples: PASS
+EXIT 0
+
+$ .venv/bin/pytest -q tests
+1 failed, 441 passed, 1 skipped, 15 xfailed in 296.64s
+Failure: tests/test_converter.py::test_simple_roundtrip_with_extra_keys_forbidden generated {'Hyp': 0} and asserted 'Hyp' was absent.
+EXIT 1
+
+$ <repeat failing property test in untouched pre-fix worktree>
+1 failed in 0.70s with the identical {'Hyp': 0} counterexample and assertion.
+EXIT 1 (confirmed pristine baseline failure)
+
+$ .venv/bin/pytest -q tests -k 'not test_simple_roundtrip_with_extra_keys_forbidden'
+441 passed, 1 skipped, 1 deselected, 15 xfailed in 257.80s
+EXIT 0
+
+$ .venv/bin/ruff src tests
+Printed historical parser diagnostic for PEP 593 Annotation; process exit 0.
+
+$ .venv/bin/black --check src tests docs/conf.py
+76 files would be left unchanged.
+EXIT 0
+
+$ <current Ruff on changed files, patched and pristine>
+Four identical baseline diagnostics in each tree: RUF023 twice, RUF015, and E721. No diagnostic is on a changed line.
+EXIT nonzero (baseline current-tool drift; no new patch diagnostic)
+
+$ uv build
+Successfully built dist/cattrs-23.2.0.dev0.tar.gz
+Successfully built dist/cattrs-23.2.0.dev0-py3-none-any.whl
+EXIT 0
+
+$ .venv/bin/python -m compileall -q src tests
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+Typecheck: NOT_APPLICABLE. This revision defines no type-check command in Makefile or tox and no type-checker in its development dependency groups.
+
+Limitations: Python 3.12.14/Linux only; repository-era dependency pins used; one unrelated baseline Hypothesis test excluded from the passing expanded suite; no supported type-check target.

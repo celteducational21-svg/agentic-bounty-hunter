@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-17T05:38:39.620Z",
+  "updatedAt": "2026-09-20T11:28:15.865117Z",
   "operations": [
     {
       "opportunityId": "ABH-GH-ivrit-ai-ivrit-py-12",
@@ -13,7 +13,7 @@
       },
       "provider": "GitHub maintainer",
       "competition": "Multiple interest comments; no confirmed reservation observed",
-      "effort": "6–10 hours plus maintainer review",
+      "effort": "6\u201310 hours plus maintainer review",
       "latestActivity": "Reservation request already posted; no maintainer confirmation in retrieved comments",
       "status": "WAITING_FOR_MAINTAINER",
       "version": 5,
@@ -435,7 +435,7 @@
   "humanActions": [
     {
       "id": "opire-setup",
-      "action": "Confirm Opire payout onboarding before first claim/payment; signed in as celteducational21-svg, payout status not yet verified",
+      "action": "Verify the existing Opire contributor profile, linked GitHub identity and supported payout onboarding; completion remains unverified",
       "blocks": "Opire claiming/payment only"
     },
     {
@@ -445,8 +445,13 @@
     },
     {
       "id": "issue-27-cleanup",
-      "action": "Close accidental ivrit-ai/ivrit-py #27 as not planned using the account that created it",
+      "action": "If jw6d49s5vw-ctrl is your account, close accidental ivrit-ai/ivrit-py #27 as not planned; otherwise report the attribution mismatch",
       "blocks": "Nothing; GitHub integration returned 403"
+    },
+    {
+      "id": "superteam-profile",
+      "action": "Complete or confirm your Superteam human talent profile and listing-specific payout eligibility; public discovery already works",
+      "blocks": "Superteam authenticated participation and award claim only"
     }
   ],
   "workers": {

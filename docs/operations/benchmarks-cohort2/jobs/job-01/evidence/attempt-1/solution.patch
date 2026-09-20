@@ -1,0 +1,70 @@
+diff --git a/src/click/termui.py b/src/click/termui.py
+index dcbb222..6dccb5a 100644
+--- a/src/click/termui.py
++++ b/src/click/termui.py
+@@ -140,8 +140,9 @@ def prompt(
+             # coloring through colorama on Windows
+             echo(text.rstrip(" "), nl=False, err=err)
+             # Echo a space to stdout to work around an issue where
+-            # readline causes backspace to clear the whole line.
+-            return f(" ")
++            # readline causes backspace to clear the whole line. Skip this
++            # when the caller explicitly requests an empty suffix.
++            return f("" if prompt_suffix == "" else " ")
+         except (KeyboardInterrupt, EOFError):
+             # getpass doesn't print a newline if the user aborts input with ^C.
+             # Allegedly this behavior is inherited from getpass(3).
+@@ -233,8 +234,10 @@ def confirm(
+             # coloring through colorama on Windows
+             echo(prompt.rstrip(" "), nl=False, err=err)
+             # Echo a space to stdout to work around an issue where
+-            # readline causes backspace to clear the whole line.
+-            value = visible_prompt_func(" ").lower().strip()
++            # readline causes backspace to clear the whole line. Skip this
++            # when the caller explicitly requests an empty suffix.
++            value = visible_prompt_func("" if prompt_suffix == "" else " ")
++            value = value.lower().strip()
+         except (KeyboardInterrupt, EOFError):
+             raise Abort() from None
+         if value in ("y", "yes"):
+diff --git a/tests/test_termui.py b/tests/test_termui.py
+index 0b2ef80..96e8de7 100644
+--- a/tests/test_termui.py
++++ b/tests/test_termui.py
+@@ -477,6 +477,36 @@ def test_confirmation_prompt(runner, prompt, input, default, expect):
+         assert "Confirm Password: " in result.output
+ 
+ 
++@pytest.mark.parametrize(
++    ("prompt_suffix", "expected"),
++    [("", "testfoo\n"), (": ", "test: foo\n"), (">", "test> foo\n")],
++)
++def test_prompt_suffix_spacing(runner, prompt_suffix, expected):
++    @click.command()
++    def cli():
++        click.prompt("test", prompt_suffix=prompt_suffix)
++
++    result = runner.invoke(cli, input="foo\n")
++
++    assert result.exception is None
++    assert result.output == expected
++
++
++@pytest.mark.parametrize(
++    ("prompt_suffix", "expected"),
++    [("", "testy\n"), (": ", "test: y\n"), (">", "test> y\n")],
++)
++def test_confirm_prompt_suffix_spacing(runner, prompt_suffix, expected):
++    @click.command()
++    def cli():
++        click.confirm("test", prompt_suffix=prompt_suffix, show_default=False)
++
++    result = runner.invoke(cli, input="y\n")
++
++    assert result.exception is None
++    assert result.output == expected
++
++
+ def test_false_show_default_cause_no_default_display_in_prompt(runner):
+     @click.command()
+     @click.option("--arg1", show_default=False, prompt=True, default="my-default-value")

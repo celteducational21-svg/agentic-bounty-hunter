@@ -1,0 +1,66 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA
+Reviewer: independent_qa_3
+
+$ git init; git remote add origin https://github.com/sindresorhus/p-queue.git; git fetch --depth=1 origin c905aaf2a826c4581a604ee6bbb1ae41b062a598; git checkout --detach FETCH_HEAD
+Observed HEAD: c905aaf2a826c4581a604ee6bbb1ae41b062a598
+EXIT 0
+
+$ sha256sum solution.patch
+d417a1048c2e1ef29b7802a9c4a8038dd589a9719eca2ec62b9beda36f0a1c9c
+EXIT 0
+
+$ git patch-id --stable < solution.patch
+85e5e8f6409844ae29da0719eae77742bfce6fd5
+EXIT 0
+
+$ git apply --check solution.patch && git apply --index solution.patch
+EXIT 0
+
+$ git write-tree
+6fe8cf8f57fd4acf57f385d7da591432ba4f2438
+$ git show -s --format='%P %T' 9c75913a771fc773c00b2bac053d06a2464beb1d [local frozen object; metadata only]
+c905aaf2a826c4581a604ee6bbb1ae41b062a598 6fe8cf8f57fd4acf57f385d7da591432ba4f2438
+EXIT 0 (exact parent and reconstructed-tree match)
+
+$ npm install --ignore-scripts --no-audit --no-fund
+added 765 packages
+EXIT 0
+
+$ npm run build
+> del dist && tsc
+EXIT 0
+
+$ node --input-type=module <independent abort-order, pre-abort, idle, and non-abort-error probes>
+{"normal":["AbortError","AbortError"],"reverse":["AbortError","AbortError"],"preAborted":"AbortError","nonAbortedErrorPreserved":true,"continuedValue":42,"final":{"size":0,"pending":0}}
+EXIT 0
+
+$ ./node_modules/.bin/ava test/test.ts --match='should drain when multiple jobs are aborted in the same turn'
+Historical ts-node ESM loader raised an uncaught exception and found no tests.
+EXIT 1 (documented toolchain limitation)
+
+$ tsc test/test.ts --outDir .qa3-generated [ES2020/moduleResolution node; no semantic edits]
+Emitted source and test JavaScript. Resolved TypeScript 4.9.5 also reported one unused historical @ts-expect-error directive.
+EXIT 1 with emit (test-only tool-version diagnostic; production npm run build is clean)
+
+$ ./node_modules/.bin/ava .qa3-generated/test/test.js --match='should drain when multiple jobs are aborted in the same turn' --verbose
+1 test passed
+EXIT 0
+
+$ ./node_modules/.bin/ava .qa3-generated/test/test.js
+45 tests passed
+2 known failures
+EXIT 0
+
+$ npm test
+TypeError: util.isDate is not a function during XO startup on Node 24.
+EXIT 1 before build/tests (historical lint dependency incompatibility)
+
+$ node -e "shim removed util predicates; invoke xo"
+2 pre-existing TODO warnings
+EXIT 0
+
+$ git diff --cached --check
+EXIT 0
+
+Generated .qa3-generated files were removed after validation.
+Environment: Node.js 24.19.0, npm 11.9.0, TypeScript 4.9.5, Linux. No public action was taken.

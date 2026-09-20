@@ -1,0 +1,43 @@
+{
+  "jobId": "job-09",
+  "auditor": "benchmark_auditor_4",
+  "comparedRevision": "08745712ad624121cdb9bf4b5343f97fca825a42",
+  "acceptedPr": "https://github.com/sindresorhus/escape-string-regexp/pull/21",
+  "acceptedFixSha": "732905da074f0220487ad6a27590f89bd0819374",
+  "verdict": "PASS",
+  "comparisons": {
+    "rootCause": {
+      "status": "PASS",
+      "details": "Both solutions identify the Unicode-regexp grammar issue: backslash-hyphen is an invalid identity escape outside a character class under the u flag, so hyphen must be removed from the ordinary backslash-escaped operator class and encoded separately."
+    },
+    "behavior": {
+      "status": "PASS",
+      "details": "The accepted fix emits `\\u002d`; the solver emits `\\x2d`. Both are fixed-width escapes for the same U+002D code point, compile in Unicode and non-Unicode JavaScript patterns, work inside character classes, and match literal hyphens without consuming adjacent hexadecimal-looking characters."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Both add focused Unicode compilation and literal-match coverage. The solver additionally asserts its exact escaped phrase and preserves the non-string TypeError contract. Independent probes covered repeated and adjacent hyphens, Unicode text, every existing metacharacter, both regexp modes, grouping, and character-class placement."
+    },
+    "scope": {
+      "status": "PASS",
+      "details": "Both patches change only index.js and test.js, leave all other operator escaping intact, and add no runtime dependency or API surface."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "The accepted patch inlines both regular expressions and documents the Unicode grammar; the solver names the operator and hyphen expressions separately. Both implementations are clear and comparably small."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "No semantic divergence was found between `\\x2d` and `\\u002d` across direct probes. The frozen solver also passed the package suite, lint, declarations, syntax, packaging, and independent round-trip cases."
+    }
+  },
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY",
+  "limitations": [
+    "The emitted escaped string differs textually from the accepted fix (`\\x2d` versus `\\u002d`), so consumers asserting a specific serialization would observe a difference; no exact serialization was part of the issue acceptance.",
+    "The historical package suite required Node 12 and a transient @types/node@12 pin, while direct behavior probes ran on Node 24.",
+    "Only JavaScript RegExp semantics were audited; cross-engine regular-expression dialect compatibility was not part of the frozen acceptance."
+  ],
+  "auditedAt": "2026-09-17T20:57:08Z"
+}

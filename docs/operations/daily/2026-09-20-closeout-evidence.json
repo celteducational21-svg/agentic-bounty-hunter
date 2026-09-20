@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-09-20T11:29:41.024824+00:00",
+  "scope": "development handover verification; no new discovery or bounty solving",
+  "productionAtAudit": {
+    "deploymentCommit": "f54c6e1b39bcf1c1081c66202c406a03965ebade",
+    "runtime": {
+      "durable": true,
+      "lastScan": "2026-09-20T05:44:41.955Z"
+    },
+    "counts": {
+      "DISCOVERED": 0,
+      "INVESTIGATING": 219,
+      "PHASE3_ELIGIBLE": 0,
+      "PRIVATE_PROOF": 0,
+      "WAITING_FOR_MAINTAINER": 1,
+      "LOCKED": 0,
+      "CLAIMED": 0,
+      "SOLVING": 0,
+      "QA": 0,
+      "READY_TO_SUBMIT": 0,
+      "SUBMITTED": 0,
+      "CHANGES_REQUESTED": 0,
+      "MERGED": 0,
+      "PAID": 0,
+      "REJECTED": 15,
+      "ABANDONED": 0,
+      "DO_NOT_HUNT": 1,
+      "NEEDS_HUMAN_INPUT": 0
+    },
+    "lastScan": "2026-09-20T05:44:41.955Z"
+  },
+  "githubAuth": {
+    "checkedAt": "2026-09-20T11:27:34.255Z",
+    "credentialSource": "ABH_GITHUB_TOKEN",
+    "authorizationSent": true,
+    "authenticated": true,
+    "githubStatus": 200,
+    "rateLimit": 5000,
+    "remaining": 4987,
+    "resetAt": "2026-09-20T12:16:24.000Z",
+    "failure": null
+  },
+  "tests": {
+    "passed": 227,
+    "failed": 0,
+    "skipped": 0,
+    "log": "2026-09-20-closeout-tests.log"
+  },
+  "cohort2": {
+    "jobs": 10,
+    "attempted": 10,
+    "setupSuccess": 10,
+    "reproductionSuccess": 10,
+    "rootCauseCorrect": 10,
+    "solutionStatusSuccess": 10,
+    "solutionCorrect": 10,
+    "validatedFirstPassQaSuccess": 7,
+    "repairSuccess": 3,
+    "auditQaFalsePositives": 3,
+    "strictReady": 10,
+    "correctDrafts": 10,
+    "failures": 0,
+    "proofEffort": {
+      "measuredJobs": 0,
+      "totalSeconds": 0,
+      "averageSeconds": null
+    },
+    "solveEffort": {
+      "measuredJobs": 0,
+      "totalSeconds": 0,
+      "averageSeconds": null
+    },
+    "regressionFailuresObserved": 3,
+    "jobsWithoutRegressionFailureMeasurement": 0
+  }
+}

@@ -1,0 +1,29 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA ITERATION 2
+Reviewer: independent_qa_6
+
+$ git checkout 38c2be947f39d2fadd74d676096863943f472b01
+$ git apply solution.patch && git add index.js test.js
+$ git write-tree
+2a10808c2f92ec6ad3292a502d91f584f65afa65
+$ reconstruct commit from exact parent/tree/author/message and frozen committer timestamp
+f13b0fbc85a3cffebd5e88ba5d6d42fd80356589 (exact match)
+$ sha256sum solution.patch
+7d694b102daa047fc6e2ef2f1969a42201988a2a46595b11d297d6d534ceb15f
+
+$ npm install --no-package-lock --ignore-scripts; install transient @types/node@12
+PASS
+$ <node16> xo; <node16> ava; <node16> tsd
+XO: exit 0, one pre-existing TODO warning
+AVA: 26 tests passed
+TSD: PASS
+
+$ node <positive/zero/undefined custom interval and explicit/default named-spinner probe>
+{"custom":0,"explicit":37,"defaultInterval":80,"namedInitial":130}
+$ node --check index.js
+PASS
+$ git diff --cached --check
+PASS
+$ npm pack --dry-run --json
+PASS: ora@3.4.0, 5 files
+
+Attempt-1 failure records remain under evidence/attempt-1. Patch unchanged; no public actions.

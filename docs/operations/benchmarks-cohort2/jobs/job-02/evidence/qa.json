@@ -1,0 +1,68 @@
+{
+  "jobId": "job-02",
+  "reviewer": "independent_qa_4",
+  "revision": "ffe99a75429ad4038cf2922863300c74d53dd2b3",
+  "revisionMatchesResult": true,
+  "verdict": "PASS",
+  "firstPass": true,
+  "provenance": {
+    "repository": "https://github.com/python-attrs/cattrs.git",
+    "expectedPreFixSha": "acd3d1052776e9f815fdadf49cff02aa6c5a7a91",
+    "observedPreFixSha": "acd3d1052776e9f815fdadf49cff02aa6c5a7a91",
+    "preFixShaMatches": true,
+    "resultRevision": "ffe99a75429ad4038cf2922863300c74d53dd2b3",
+    "artifactRevisionReferencesMatch": true,
+    "solutionPatchSha256": "f27a3c5bc55d011adbd2f39a6e8a57ca6a6dd0281d6b547122eb6cdb555cc176",
+    "stablePatchId": "850170b2566ce9d693157ac4d4f49e8a88613149",
+    "reconstructedTree": "05ecdf5dbb3a6ba62bbdd5480f4365aa7b26e7b5",
+    "frozenRevisionTree": "05ecdf5dbb3a6ba62bbdd5480f4365aa7b26e7b5",
+    "exactTreeMatch": true,
+    "changedBlobIds": {
+      "src/cattrs/converters.py": "cad39230c84af25401bbc7660c11b67f83a2e5ba",
+      "tests/test_converter.py": "24c6d45264c69564171d22a1cb873b2f74f65a7e"
+    },
+    "notes": "A new repository was initialized and only the recorded pre-fix SHA was fetched. The supplied patch applied cleanly. A non-mutating comparison against the local frozen Solver commit object confirmed that the independently reconstructed tree exactly equals the tree for the revision recorded in result.json. No accepted fix, post-fix upstream source, issue timeline, or audit data was inspected."
+  },
+  "checks": {
+    "acceptanceCriteria": {
+      "status": "PASS",
+      "details": "Annotated optional values structure and unstructure for both str and None. Registered structure and unstructure hooks for an underlying union are honored and the structure hook receives the underlying union type. Scalar, list, and nested optional Annotated cases remain correct."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Focused Annotated selection: 4 passed, 23 deselected. Expanded suite with all optional preconfigured backends: 441 passed, 1 skipped, 15 xfailed, 1 known-baseline property test deselected, 0 patch-related failures. The deselected test failed identically on the pristine tree."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Independent probes covered JSON optional round trips, direct registered union structure and unstructure hooks, exact underlying-type delivery, scalar Annotated, list Annotated, and a nested optional inside an Annotated list. The only broad-suite failure was reproduced unchanged on pristine pre-fix source."
+    },
+    "explainability": {
+      "status": "PASS",
+      "details": "Annotated dispatch selects a handler using the underlying origin, but the unadapted handler was later invoked with the outer Annotated alias. The adapter consistently supplies the same origin used for dispatch, preventing the optional-union handler from indexing the wrong type arguments."
+    },
+    "prReadiness": {
+      "status": "PASS",
+      "details": "The implementation is a localized dispatch adapter with focused optional, round-trip, and registered-hook tests. It applies cleanly, exactly matches the frozen tree, and passes acceptance, practical regression, build, formatting, compilation, and changed-line lint checks."
+    },
+    "build": {
+      "status": "PASS",
+      "details": "Editable installation succeeded. uv build produced cattrs-23.2.0.dev0 source and wheel distributions. Python compileall passed for src and tests."
+    },
+    "lint": {
+      "status": "PASS",
+      "details": "Repository-era Ruff exited 0 and Black passed. Current Ruff reports four diagnostics identically on pristine and patched files, none on changed lines. git diff --check passed.",
+      "baselineNotes": "The old Ruff parser prints a PEP 593 parser diagnostic while returning success; current Ruff was therefore also used to compare pristine and patched files. Its four findings are unchanged baseline findings."
+    },
+    "typecheck": {
+      "status": "NOT_APPLICABLE",
+      "details": "This revision defines no type-check command in Makefile or tox and does not include a type-checker in its development dependency groups. Functional Annotated dispatch tests and bytecode compilation pass.",
+      "notApplicableReason": "No repository-supported or locked type-check environment exists at this revision."
+    }
+  },
+  "limitations": [
+    "Python 3.12.14 on Linux only; the full interpreter matrix was not run.",
+    "The practical suite pinned repository-era attrs 23.1.0 and Hypothesis 6.79.4.",
+    "One unrelated Hypothesis test has a deterministic stored counterexample and fails identically on pristine and patched trees; the passing expanded run deselected only that test.",
+    "No repository-supported type-check target exists at this revision."
+  ]
+}

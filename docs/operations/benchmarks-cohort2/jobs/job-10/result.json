@@ -1,0 +1,35 @@
+{
+  "jobId": "job-10",
+  "worker": "solver_b",
+  "repository": "sindresorhus/indent-string",
+  "issueNumber": null,
+  "preFixSha": "6b64e3744c81074e85361743498648850db5e2dc",
+  "revision": "4587cf6eefd198e343569a1a79cfacb6a3681f28",
+  "author": "solver_b",
+  "category": "JavaScript argument validation",
+  "difficulty": "easy",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "focusedTests": {"status": "PASS", "passed": 1, "failed": 0},
+  "practicalSuite": {"status": "PASS", "passed": 10, "failed": 0},
+  "lint": "PASS",
+  "typecheck": "PASS",
+  "syntax": "PASS",
+  "diffCheck": "PASS",
+  "iterations": 1,
+  "regressionFailures": 0,
+  "environment": {
+    "os": "Linux",
+    "runtimeNode": "24.19.0",
+    "suiteNode": "12.22.12"
+  },
+  "limitations": [
+    "The historical unpinned dependency graph required a transient @types/node@12 installation for the bundled TypeScript/TSD version.",
+    "XO's old dependency graph is incompatible with Node 24 because util.isDate was removed, so the declared suite components ran under Node 12.22.12.",
+    "Only Linux was exercised.",
+    "Independent QA is pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:41:37Z"
+}

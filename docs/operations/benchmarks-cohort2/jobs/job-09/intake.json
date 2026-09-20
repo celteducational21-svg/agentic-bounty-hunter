@@ -1,0 +1,21 @@
+{
+  "id": "job-09",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "sindresorhus/escape-string-regexp",
+  "issue": "https://github.com/sindresorhus/escape-string-regexp/issues/20",
+  "issueNumber": 20,
+  "title": "Escaped hyphen is invalid in Unicode regular expressions",
+  "issueBody": "Escaping a hyphen produces \\-; passing that output to new RegExp(escaped, 'u') throws a SyntaxError.",
+  "preFixSha": "5085b257c801507460270b747f645276fbc1d937",
+  "language": "JavaScript",
+  "category": "regular-expression escaping",
+  "difficulty": "easy-medium",
+  "acceptance": [
+    "Escaped output remains safe for a literal hyphen.",
+    "The output is valid when compiled with the Unicode regular-expression flag.",
+    "The resulting expression matches a literal hyphen.",
+    "Other metacharacter escaping and input type validation are preserved."
+  ],
+  "expectedDeliverable": "Resolve the issue with focused regression evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only the supplied facts and exact pre-fix source. Do not inspect accepted fixes, fix commits, post-fix source, current main, or issue timelines and comments."
+}

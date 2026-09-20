@@ -2,6 +2,12 @@
 
 Goal: first accepted paid bounty. Work, learn, improve from observed outcomes. Global historical Phase 2 certification is not an operating gate. ABH remains separate from ARES and CELT.
 
+## Development closeout — 2026-09-20
+
+See [CLOSEOUT-2026-09-20.md](CLOSEOUT-2026-09-20.md) for the verified release, outstanding owner setup, and continuing operations. Development/handover completion does not mean a bounty has been secured or paid. Scheduled operations remain enabled.
+
+The additional ten-case replay is now preserved in [benchmarks-cohort2/REPORT.md](benchmarks-cohort2/REPORT.md), alongside the original twelve-case report. Its final artifact summary is 10 passing solutions, 7 first-pass audited successes, and 3 repaired audit failures. These are historical exercises. The old cohort lesson proposing a further benchmark before live submission is an archived recommendation, not an active gate; the owner's current operations policy controls. Apply the concrete QA lessons to real work without reopening development certification.
+
 ## Recover and run
 
 1. Pull GitHub main; read `state.json`, `WORKER_RUNBOOK.md`, and latest daily/candidate evidence.

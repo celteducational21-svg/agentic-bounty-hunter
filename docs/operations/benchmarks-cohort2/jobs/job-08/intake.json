@@ -1,0 +1,22 @@
+{
+  "id": "job-08",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "sindresorhus/globby",
+  "issue": "https://github.com/sindresorhus/globby/issues/177",
+  "issueNumber": 177,
+  "title": "TypeScript return type does not reflect objectMode",
+  "issueBody": "The async and sync APIs return entry objects at runtime when objectMode is true, but their declarations continue to infer string arrays.",
+  "preFixSha": "c1a3b3244ae992ba7e7e76f501a510ea0d9306df",
+  "language": "JavaScript / TypeScript declarations",
+  "category": "public API type accuracy",
+  "difficulty": "medium",
+  "acceptance": [
+    "Async objectMode true calls infer a promise of entry objects.",
+    "Sync objectMode true calls infer entry objects.",
+    "Default and objectMode false calls remain string arrays.",
+    "Stream declarations remain compatible with object mode.",
+    "Add runtime and type regressions and run the practical runtime, type, and lint checks."
+  ],
+  "expectedDeliverable": "Correct the public declarations with runtime and type evidence and a professional unpublished PR draft.",
+  "antiLeakage": "Use only the supplied facts and exact pre-fix source. Do not inspect accepted fixes, post-fix source, current main, or issue timelines and comments."
+}

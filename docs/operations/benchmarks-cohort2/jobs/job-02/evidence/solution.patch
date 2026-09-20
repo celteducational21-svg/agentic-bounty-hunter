@@ -1,0 +1,67 @@
+diff --git a/src/cattrs/converters.py b/src/cattrs/converters.py
+index 253355f..cad3923 100644
+--- a/src/cattrs/converters.py
++++ b/src/cattrs/converters.py
+@@ -919,7 +919,8 @@ class Converter(BaseConverter):
+ 
+     def gen_structure_annotated(self, type):
+         origin = type.__origin__
+-        return self._structure_func.dispatch(origin)
++        handler = self._structure_func.dispatch(origin)
++        return lambda value, _: handler(value, origin)
+ 
+     def gen_unstructure_typeddict(self, cl: Any) -> Callable[[Dict], Dict]:
+         """Generate a TypedDict unstructure function.
+diff --git a/tests/test_converter.py b/tests/test_converter.py
+index ffbec1c..24c6d45 100644
+--- a/tests/test_converter.py
++++ b/tests/test_converter.py
+@@ -689,3 +689,48 @@ def test_annotated_with_typing_extensions_attrs():
+ 
+     structured = converter.structure(raw, Outer)
+     assert structured == Outer(Inner(2), [Inner(2)])
++
++
++@pytest.mark.skipif(not is_py310_plus, reason="3.10+ only")
++def test_annotated_optional():
++    """Annotated optionals dispatch using their underlying union type."""
++    from typing import Annotated
++
++    from cattrs.preconf.json import make_converter
++
++    converter = make_converter()
++
++    @define
++    class Example:
++        value: Annotated[str | None, "required"]
++
++    for value in ("test", None):
++        instance = converter.structure({"value": value}, Example)
++
++        assert instance == Example(value)
++        assert converter.unstructure(instance) == {"value": value}
++
++
++@pytest.mark.skipif(not is_py310_plus, reason="3.10+ only")
++def test_annotated_union_hook():
++    """Annotated unions pass the underlying type to registered hooks."""
++    from typing import Annotated
++
++    converter = Converter()
++    union = str | int
++
++    def structure_union(value, type_):
++        assert type_ == union
++        return int(value)
++
++    converter.register_structure_hook(union, structure_union)
++    converter.register_unstructure_hook(union, lambda value: str(value))
++
++    @define
++    class Example:
++        value: Annotated[str | int, "required"]
++
++    instance = converter.structure({"value": "1"}, Example)
++
++    assert instance == Example(1)
++    assert converter.unstructure(instance) == {"value": "1"}

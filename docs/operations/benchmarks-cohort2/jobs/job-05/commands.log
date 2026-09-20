@@ -1,0 +1,81 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init
+$ git remote add origin https://github.com/pallets/click.git
+$ git fetch --depth 1 origin 8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab
+$ git checkout --detach FETCH_HEAD
+$ git rev-parse HEAD
+8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab
+EXIT 0
+
+$ PYTHONPATH=src python - <<'PY'
+import click
+from click.testing import CliRunner
+
+for kind in ('argument','option'):
+    if kind == 'argument':
+        @click.command()
+        @click.argument('help')
+        def cli(help): click.echo(f'value={help}')
+        argv=['hello']
+    else:
+        @click.command()
+        @click.option('--help', 'help')
+        def cli(help): click.echo(f'value={help}')
+        argv=['--help','hello']
+    r=CliRunner().invoke(cli, argv)
+    print(kind, r.exit_code, repr(r.output), repr(r.exception))
+PY
+argument 2 "Usage: cli [OPTIONS] HELP\nTry 'cli --help' for help.\n\nError: Invalid value for '--help': 'hello' is not a valid boolean. Recognized values: , 0, 1, f, false, n, no, off, on, t, true, y, yes\n" SystemExit(2)
+option 0 'value=hello\n' None
+EXIT 0 (the script records the reproduced command failure as data)
+
+$ PYTHONPATH=src python - <<'PY'
+import click
+from click.testing import CliRunner
+
+@click.command()
+@click.option('--value', 'help')
+def cli(help): click.echo(f'value={help}')
+for argv in (['--value','hello'], ['--help']):
+ r=CliRunner().invoke(cli, argv)
+ print(argv, r.exit_code, repr(r.output), repr(r.exception), repr(r.return_value))
+PY
+['--value', 'hello'] 2 "Usage: cli [OPTIONS]\nTry 'cli --help' for help.\n\nError: Invalid value for '--help': 'hello' is not a valid boolean. Recognized values: , 0, 1, f, false, n, no, off, on, t, true, y, yes\n" SystemExit(2) None
+['--help'] 0 'Usage: cli [OPTIONS]\n\nOptions:\n  --value TEXT\n  --help        Show this message and exit.\n' None None
+EXIT 0 (the script records the reproduced ordinary-value failure as data)
+
+$ uv sync --frozen --group tests
+Built and installed Click plus 31 locked development/test packages.
+EXIT 0
+
+$ .venv/bin/pytest -q tests/test_commands.py -k help_option_does_not_conflict_with_user_parameter
+..                                                                       [100%]
+2 passed, 90 deselected in 0.06s
+EXIT 0
+
+$ .venv/bin/pytest -q
+1896 passed, 24 skipped, 31000 deselected, 1 xfailed in 4.07s
+EXIT 0
+
+$ .venv/bin/ruff check src/click/core.py tests/test_commands.py
+All checks passed!
+EXIT 0
+
+$ .venv/bin/ruff format --check src/click/core.py tests/test_commands.py
+2 files already formatted
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'Avoid help option parameter name collisions'
+[detached HEAD b4083da] Avoid help option parameter name collisions
+ 2 files changed, 32 insertions(+), 1 deletion(-)
+EXIT 0
+
+$ git rev-parse HEAD
+b4083da1e535cd6878b486321dca78970f04f6fd
+EXIT 0
+
+Limitations: Python 3.12.14/Linux only; stress-marked tests were excluded by repository configuration; full multi-version tox matrix and independent QA were not run.

@@ -1,0 +1,34 @@
+diff --git a/inflect.py b/inflect.py
+index 3bb946b..c00a0a2 100644
+--- a/inflect.py
++++ b/inflect.py
+@@ -3709,6 +3709,11 @@ class engine:
+         myord = num[-2:] in ("st", "nd", "rd", "th")
+         if myord:
+             num = num[:-2]
++            if not num:
++                # A suffix without an ordinal value represents zero rather
++                # than an empty number to convert.
++                num = "0"
++                myord = False
+         finalpoint = False
+         if decimal:
+             if group != 0:
+diff --git a/tests/test_numwords.py b/tests/test_numwords.py
+index 1707400..fae9632 100644
+--- a/tests/test_numwords.py
++++ b/tests/test_numwords.py
+@@ -45,6 +45,13 @@ def test_lines():
+     assert p.number_to_words(1000000.3, threshold=500, comma=0) == "1000000.3"
+ 
+ 
++def test_ordinal_suffix_without_number():
++    p = inflect.engine()
++
++    for suffix in ("st", "nd", "rd", "th"):
++        assert p.number_to_words(suffix) == "zero"
++
++
+ def test_array():
+     nw = [
+         ["0", "zero", "zero", "zero", "zero", "zeroth"],

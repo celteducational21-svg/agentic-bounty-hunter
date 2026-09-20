@@ -1,0 +1,54 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK — REPAIR ITERATION 2
+
+The complete iteration-one command log is preserved at evidence/attempt-1/commands.log.
+
+$ git rev-parse HEAD
+9c75913a771fc773c00b2bac053d06a2464beb1d
+EXIT 0
+
+$ [apply repair: queue-owned abort race, finally cleanup, listener-free regression]
+EXIT 0
+
+$ npm run build
+> del dist && tsc
+EXIT 0
+
+$ node-v16 node_modules/xo/cli.js
+2 pre-existing TODO warnings
+EXIT 0
+
+$ node [transpile unchanged test/test.ts semantics to temporary JavaScript harness targeting freshly built dist]
+$ npx ava --config=ava.generated.config.cjs --match='should drain when multiple jobs are aborted in the same turn' --verbose
+1 test passed
+EXIT 0
+
+$ npx ava --config=ava.generated.config.cjs
+45 tests passed
+2 known failures
+EXIT 0
+
+$ node --input-type=module [queue-owned abort probes with listener-free callbacks]
+job-04 queue-owned abort and counterexamples: PASS
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ rm test/test.generated.js
+$ [delete temporary ava.generated.config.cjs]
+Temporary generated validation files removed.
+EXIT 0
+
+$ git reset --soft c905aaf2a826c4581a604ee6bbb1ae41b062a598
+$ git commit -m 'Handle task aborts in queue lifecycle'
+$ git add source/index.ts test/test.ts
+$ git commit --amend --no-edit
+[detached HEAD 8c94910] Handle task aborts in queue lifecycle
+ 2 files changed, 51 insertions(+), 5 deletions(-)
+EXIT 0
+
+$ git rev-parse HEAD
+8c949104b87b91f09a96687b1a46f8e71f835538
+EXIT 0
+
+Limitations: the first soft-reset commit captured the staged iteration-one tree; the unstaged repair was immediately added and the commit amended before freeze. The final revision is a clean single commit over the pre-fix SHA. Native TypeScript AVA discovery remains blocked by the historical loader, so the practical suite used the documented semantics-preserving transpilation harness. Fresh independent QA/audit pending.

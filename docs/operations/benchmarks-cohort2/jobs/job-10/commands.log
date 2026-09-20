@@ -1,0 +1,93 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init
+$ git remote add origin https://github.com/sindresorhus/indent-string.git
+$ git fetch --depth 1 origin 6b64e3744c81074e85361743498648850db5e2dc
+$ git checkout --detach FETCH_HEAD
+$ git rev-parse HEAD
+6b64e3744c81074e85361743498648850db5e2dc
+EXIT 0
+
+$ node - <<'JS'
+const indentString = require('./');
+try {
+  indentString('value', -1);
+} catch (error) {
+  console.log(error.name, error.message);
+  process.exitCode = error instanceof RangeError ? 1 : 2;
+}
+JS
+RangeError Invalid count value: -1
+EXIT 1
+
+$ npm install --ignore-scripts --package-lock=false
+added 753 packages
+EXIT 0
+
+$ npx ava test.js --match='throw if count is negative'
+✔ throw if count is negative
+1 test passed
+EXIT 0
+
+$ npm test
+> indent-string@4.0.0 test
+> xo && ava && tsd
+TypeError: util.isDate is not a function
+Occurred while linting index.js
+EXIT 1
+
+$ npx -y node@12 --version
+v12.22.12
+EXIT 0
+
+$ npm install --no-save --ignore-scripts --package-lock=false @types/node@12
+removed 1 package, and changed 1 package
+EXIT 0
+
+$ node - <<'JS'
+const indentString = require('./');
+for (const count of [0, 1, 3]) {
+  console.log(count, JSON.stringify(indentString('a\nb', count)));
+}
+try {
+  indentString('value', -1);
+} catch (error) {
+  console.log(error.name, error.message);
+}
+JS
+0 "a\nb"
+1 " a\n b"
+3 "   a\n   b"
+RangeError Expected `count` to be at least 0, got `-1`
+EXIT 0
+
+$ npx -y -p node@12 -c 'node node_modules/xo/cli.js && node node_modules/ava/cli.js && node node_modules/tsd/dist/cli.js'
+✔ throw if input is not a string
+✔ throw if count is not a number
+✔ throw if count is negative
+✔ throw if indent is not a string
+✔ indent each line in a string
+✔ not indent whitespace only lines
+✔ indent every line if options.blank is true
+✔ indent with leading whitespace
+✔ indent with custom string
+✔ not indent when count is 0
+10 tests passed
+EXIT 0
+
+$ node --check index.js
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'Validate negative indentation counts'
+[detached HEAD 4587cf6] Validate negative indentation counts
+ 2 files changed, 13 insertions(+)
+EXIT 0
+
+$ git rev-parse HEAD
+4587cf6eefd198e343569a1a79cfacb6a3681f28
+EXIT 0
+
+Limitations: Node 24 cannot run the old XO dependency because util.isDate was removed. The unpinned install also resolved types too new for the bundled TypeScript, so suite components ran on Node 12.22.12 after a transient @types/node@12 pin. Only Linux was tested; independent QA is pending.

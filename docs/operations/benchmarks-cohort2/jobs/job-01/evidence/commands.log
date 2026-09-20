@@ -1,0 +1,57 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+Solver: solver_d
+Iteration: 2
+
+$ cp <active solver, QA, audit, patch, and logs> evidence/attempt-1/
+Preserved attempt-1 revision 4c62da5db4c849a1cbbc60ced0c55c9460be45e3 and all active evidence before repair.
+EXIT 0
+
+$ git branch abh/job-01-attempt-1 4c62da5db4c849a1cbbc60ced0c55c9460be45e3
+$ git switch -c abh/job-01-iteration2 5f86603a84e12bdec1584c15c9f982740e613c45
+Switched to a new branch 'abh/job-01-iteration2'
+EXIT 0
+
+$ .venv/bin/python -m pytest -q tests/test_termui.py -k prompt_suffix_spacing
+6 passed, 168 deselected in 0.05s
+EXIT 0
+
+$ .venv/bin/python <exact suffix and final-character call-shape probes>
+exact suffix and final-character call-shape probes: PASS
+Verified prompt and confirm with empty, custom '>', and default ': ' suffixes. For every case, the echoed prefix plus input-function argument reconstructed the exact built prompt, and the input argument was its final character.
+EXIT 0
+
+$ .venv/bin/python -m pytest -q
+1308 passed, 21 skipped, 1 xfailed in 1.26s
+EXIT 0
+
+$ .venv/bin/python -m ruff check src/click/termui.py tests/test_termui.py
+All checks passed!
+EXIT 0
+
+$ .venv/bin/python -m ruff format --check src/click/termui.py tests/test_termui.py
+2 files already formatted
+EXIT 0
+
+$ uv run --frozen mypy
+Success: no issues found in 26 source files
+EXIT 0
+
+$ uv build
+Successfully built dist/click-8.3.dev0.tar.gz
+Successfully built dist/click-8.3.dev0-py3-none-any.whl
+EXIT 0
+
+$ .venv/bin/python -m compileall -q src tests
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'Preserve exact prompt suffix formatting'
+[abh/job-01-iteration2 67c4ff5] Preserve exact prompt suffix formatting
+2 files changed, 38 insertions(+), 8 deletions(-)
+
+$ git rev-parse HEAD
+67c4ff5933573f6c6eba2c6f08c4adad926be5e3
+
+Limitations: Python 3.12/Linux only; full interpreter, interactive-terminal, and Windows matrices not run. Readline safety was verified at the input-function call boundary.

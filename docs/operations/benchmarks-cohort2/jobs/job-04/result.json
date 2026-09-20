@@ -1,0 +1,77 @@
+{
+  "jobId": "job-04",
+  "worker": "solver_a",
+  "repository": "sindresorhus/p-queue",
+  "issueNumber": 168,
+  "preFixSha": "c905aaf2a826c4581a604ee6bbb1ae41b062a598",
+  "revision": "8c949104b87b91f09a96687b1a46f8e71f835538",
+  "author": "solver_a",
+  "category": "TypeScript async lifecycle and queue accounting",
+  "difficulty": "medium",
+  "firstPass": false,
+  "initialSolution": "FAIL",
+  "iteration": 2,
+  "iterations": 2,
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS_AFTER_REPAIR",
+  "solution": "PASS_PENDING_FRESH_QA",
+  "focusedBehavior": "PASS",
+  "focusedTests": {
+    "status": "PASS_WITH_TRANSPILATION_HARNESS",
+    "passed": 1,
+    "failed": 0,
+    "coveredBehaviors": [
+      "queue-owned abort of a running never-settling callback",
+      "same-turn abort of a queued never-settling callback",
+      "size and pending drain",
+      "onIdle resolution",
+      "following task execution",
+      "non-abort error identity"
+    ]
+  },
+  "practicalSuite": {
+    "status": "PASS_WITH_TRANSPILATION_HARNESS",
+    "passed": 45,
+    "knownFailures": 2,
+    "unexpectedFailures": 0
+  },
+  "build": "PASS",
+  "typecheck": "PASS",
+  "lint": "PASS_WITH_WARNING",
+  "nativeTypeScriptTestLoader": "BLOCKED_BY_TOOLCHAIN",
+  "diffCheck": "PASS",
+  "regressionFailures": 1,
+  "repairHistory": [
+    {
+      "iteration": 1,
+      "revision": "9c75913a771fc773c00b2bac053d06a2464beb1d",
+      "outcome": "FAIL",
+      "reason": "Only cleaned an already-aborted queued job; running cancellation depended on the task callback listening to its own signal."
+    },
+    {
+      "iteration": 2,
+      "revision": "8c949104b87b91f09a96687b1a46f8e71f835538",
+      "outcome": "SOLVER_PASS_PENDING_REVIEW",
+      "reason": "PQueue races running work against its own abort promise and guarantees accounting cleanup in finally."
+    }
+  ],
+  "environment": {
+    "os": "Linux",
+    "defaultNode": "24.19.0",
+    "compatibleLintNode": "16.20.2",
+    "npm": "11.9.0",
+    "typescript": "4.5.5",
+    "ava": "4.0.1",
+    "tsNode": "10.4.0"
+  },
+  "limitations": [
+    "Iteration one passed its submitted tests and QA but failed historical audit; the full superseded attempt is preserved under evidence/attempt-1.",
+    "The historical AVA/ts-node ESM loader cannot discover the TypeScript test file on available Node runtimes.",
+    "The complete suite was transpiled without semantic edits to a temporary JavaScript harness and run against freshly built dist; generated files were removed.",
+    "XO reports two pre-existing TODO warnings while exiting successfully under Node 16.20.2.",
+    "Only Linux was exercised.",
+    "Fresh independent QA and audit for the repaired revision are pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T21:02:29Z"
+}

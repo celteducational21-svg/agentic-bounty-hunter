@@ -1,0 +1,60 @@
+From f13b0fbc85a3cffebd5e88ba5d6d42fd80356589 Mon Sep 17 00:00:00 2001
+From: ABH Solver A <solver-a@local.invalid>
+Date: Thu, 17 Sep 2026 14:01:02 -0700
+Subject: [PATCH] Fix custom spinner interval synchronization
+
+---
+ index.js |  4 ++++
+ test.js  | 22 ++++++++++++++++++++++
+ 2 files changed, 26 insertions(+)
+
+diff --git a/index.js b/index.js
+index d5a169f..664e5a6 100644
+--- a/index.js
++++ b/index.js
+@@ -65,6 +65,10 @@ class Ora {
+ 			}
+ 
+ 			this._spinner = spinner;
++
++			if (spinner.interval !== undefined) {
++				this.interval = spinner.interval;
++			}
+ 		} else if (process.platform === 'win32') {
+ 			this._spinner = cliSpinners.line;
+ 		} else if (spinner === undefined) {
+diff --git a/test.js b/test.js
+index 9428595..44b436b 100644
+--- a/test.js
++++ b/test.js
+@@ -269,6 +269,28 @@ test('reset frameIndex when setting new spinner', async t => {
+ 	t.regex(stripAnsi(await output), /foo baz/);
+ });
+ 
++test('update interval when setting new spinner', t => {
++	const spinner = new Ora({
++		interval: 50,
++		spinner: {frames: ['foo'], interval: 100}
++	});
++
++	t.is(spinner.interval, 50);
++
++	spinner.spinner = {frames: ['bar'], interval: 200};
++
++	t.is(spinner.interval, 200);
++
++	spinner.spinner = {frames: ['baz'], interval: 0};
++
++	t.is(spinner.interval, 0);
++
++	spinner.interval = 333;
++	spinner.spinner = 'dots';
++
++	t.is(spinner.interval, 333);
++});
++
+ test('throw when incorrect spinner', t => {
+ 	const ora = new Ora();
+ 
+-- 
+2.51.1

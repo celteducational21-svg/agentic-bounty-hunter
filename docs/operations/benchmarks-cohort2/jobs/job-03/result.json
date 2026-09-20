@@ -1,0 +1,67 @@
+{
+  "jobId": "job-03",
+  "worker": "solver_a",
+  "repository": "sindresorhus/ora",
+  "issueNumber": 123,
+  "preFixSha": "38c2be947f39d2fadd74d676096863943f472b01",
+  "revision": "f13b0fbc85a3cffebd5e88ba5d6d42fd80356589",
+  "author": "solver_a",
+  "category": "JavaScript state synchronization",
+  "difficulty": "easy",
+  "firstPass": false,
+  "initialSolution": "FAIL",
+  "iteration": 2,
+  "iterations": 2,
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS_AFTER_REPAIR",
+  "solution": "PASS_PENDING_FRESH_QA",
+  "focusedTests": {
+    "status": "PASS",
+    "passed": 1,
+    "failed": 0,
+    "coveredBehaviors": [
+      "explicit constructor interval precedence",
+      "positive custom interval assignment",
+      "zero custom interval assignment",
+      "named spinner interval preservation"
+    ]
+  },
+  "fullSuite": {
+    "status": "PASS",
+    "passed": 26,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "lint": "PASS_WITH_WARNING",
+  "diffCheck": "PASS",
+  "regressionFailures": 1,
+  "repairHistory": [
+    {
+      "iteration": 1,
+      "revision": "b651274572730d6cca0d785452768c7e69def017",
+      "outcome": "FAIL",
+      "reason": "Truthy interval synchronization rejected zero and applied to named spinner assignments, changing established interval state."
+    },
+    {
+      "iteration": 2,
+      "revision": "f13b0fbc85a3cffebd5e88ba5d6d42fd80356589",
+      "outcome": "SOLVER_PASS_PENDING_REVIEW",
+      "reason": "Synchronization is restricted to custom objects and distinguishes interval zero from an omitted interval."
+    }
+  ],
+  "environment": {
+    "os": "Linux",
+    "defaultNode": "24.19.0",
+    "compatibleNode": "16.20.2",
+    "npm": "11.9.0"
+  },
+  "limitations": [
+    "Iteration one passed its submitted tests and QA but failed historical audit; the full superseded attempt is preserved under evidence/attempt-1.",
+    "The legacy XO dependency crashes on Node 24 because it calls removed util.isDate; the full chain passed with Node 16.20.2.",
+    "XO reports one pre-existing TODO warning while exiting successfully.",
+    "Only Linux and one repository-compatible Node version were exercised.",
+    "Fresh independent QA and audit for the repaired revision are pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T21:02:29Z"
+}

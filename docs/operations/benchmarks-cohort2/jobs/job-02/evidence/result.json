@@ -1,0 +1,27 @@
+{
+  "jobId": "job-02",
+  "worker": "solver_d",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS_WITH_LIMITATION",
+  "revision": "ffe99a75429ad4038cf2922863300c74d53dd2b3",
+  "preFixRevision": "acd3d1052776e9f815fdadf49cff02aa6c5a7a91",
+  "author": "solver_d",
+  "category": "Python serialization dispatch",
+  "difficulty": "medium",
+  "iterations": 1,
+  "focusedTests": "4 passed",
+  "practicalSuite": "447 passed, 1 skipped, 15 xfailed",
+  "regressionFailures": 0,
+  "lint": "PASS",
+  "format": "PASS",
+  "typecheck": "NOT_RUN",
+  "limitations": [
+    "Python 3.12 only; the upstream multi-version matrix was not run.",
+    "tests/test_preconf.py was excluded because optional BSON and codec dependencies were not installed; the regression directly exercised preconf.json.make_converter.",
+    "The practical suite used attrs 23.1.0 and Hypothesis 6.79.4 after current versions exposed unrelated incompatibilities in historical property-test helpers.",
+    "Static type checking was not run because no type signatures changed and the optional type-check toolchain was not installed."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:44:29Z"
+}

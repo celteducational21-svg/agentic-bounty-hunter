@@ -1,0 +1,56 @@
+From 9e5a766c093c6e7b9de8096409825672fa3404e9 Mon Sep 17 00:00:00 2001
+From: ABH Solver C <solver-c@local.invalid>
+Date: Thu, 17 Sep 2026 13:34:20 -0700
+Subject: [PATCH] fix parsing options ending in hyphens
+
+---
+ lib/yargs-parser.ts   |  2 +-
+ test/yargs-parser.cjs | 22 ++++++++++++++++++++++
+ 2 files changed, 23 insertions(+), 1 deletion(-)
+
+diff --git a/lib/yargs-parser.ts b/lib/yargs-parser.ts
+index 571a0cb..5f77670 100644
+--- a/lib/yargs-parser.ts
++++ b/lib/yargs-parser.ts
+@@ -225,7 +225,7 @@ export class YargsParser {
+       if (arg !== '--' && isUnknownOptionAsArg(arg)) {
+         pushPositional(arg)
+       // ---, ---=, ----, etc,
+-      } else if (truncatedArg.match(/---+(=|$)/)) {
++      } else if (truncatedArg.match(/^---+(=|$)/)) {
+         // options without key name are invalid.
+         pushPositional(arg)
+         continue
+diff --git a/test/yargs-parser.cjs b/test/yargs-parser.cjs
+index aa6bf6b..bbf6b38 100644
+--- a/test/yargs-parser.cjs
++++ b/test/yargs-parser.cjs
+@@ -1487,6 +1487,28 @@ describe('yargs-parser', function () {
+   })
+ 
+   describe('-', function () {
++    it('should parse options whose names end with three or more hyphens', function () {
++      const threeHyphens = parser(['--foo---'])
++      threeHyphens.should.have.property('_').and.deep.equal([])
++      threeHyphens.should.have.property('foo---', true)
++
++      const fourHyphens = parser(['--foo----=value'])
++      fourHyphens.should.have.property('_').and.deep.equal([])
++      fourHyphens.should.have.property('foo----', 'value')
++    })
++
++    it('should preserve special and ordinary hyphen handling', function () {
++      parser(['-']).should.deep.equal({ _: ['-'] })
++      parser(['--']).should.deep.equal({ _: [] })
++      parser(['--foo-bar']).should.deep.equal({
++        _: [],
++        'foo-bar': true,
++        fooBar: true
++      })
++      parser(['---']).should.deep.equal({ _: ['---'] })
++      parser(['----=test']).should.deep.equal({ _: ['----=test'] })
++    })
++
+     it('should set - as value of n', function () {
+       const argv = parser(['-n', '-'])
+       argv.should.have.property('n', '-')

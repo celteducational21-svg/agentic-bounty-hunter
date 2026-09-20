@@ -1,0 +1,43 @@
+{
+  "jobId": "job-02",
+  "auditor": "benchmark_auditor_5",
+  "comparedRevision": "ffe99a75429ad4038cf2922863300c74d53dd2b3",
+  "acceptedPr": "https://github.com/python-attrs/cattrs/pull/419",
+  "acceptedFixSha": "acf92d2b790b57273a1c5a835bf164e873554adc",
+  "verdict": "PASS",
+  "comparisons": {
+    "rootCause": {
+      "status": "PASS",
+      "details": "Both implementations identify the same dispatch inconsistency: the Annotated hook factory selects a structure handler using the underlying origin but previously returns that handler directly, causing later invocation with the outer Annotated alias. Both capture the origin and return an adapter that invokes the selected handler with that origin."
+    },
+    "behavior": {
+      "status": "PASS",
+      "details": "The executable implementation is semantically identical to the accepted fix apart from local variable names and annotations. Direct probes on both trees produced the same results for Annotated[str | None] with a string and None, a registered str | int structure/unstructure hook with exact underlying-type delivery, and Annotated[Union[attrs class, None]] with both a class value and None."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "The accepted patch extends an existing typing_extensions Annotated attrs test with an optional attrs union. The solver instead adds focused JSON optional round-trip and registered-union-hook tests; independent QA additionally exercised scalar, list, nested optional, and exact hook-type cases. The accepted optional attrs-union shape was also run directly against both implementations during audit with identical results."
+    },
+    "scope": {
+      "status": "PASS",
+      "details": "Both production changes are confined to gen_structure_annotated. The solver adds more standalone regression coverage but omits the accepted return annotation, docstring, and history entry. Those differences affect documentation and test organization, not the issue behavior or public API."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "Both fixes are the same minimal adapter: capture the dispatched handler and invoke it with the underlying origin. The solver's lambda uses descriptive local names; the accepted patch additionally supplies a Callable annotation and short docstring."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "No semantic counterexample was found. Direct comparison covered optional primitives, optional attrs classes, registered structure and unstructure hooks, and None handling. The frozen QA run also passed the practical suite and reproduced its one excluded property-test failure unchanged on pristine source."
+    }
+  },
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY",
+  "limitations": [
+    "The audit environment lacked Hypothesis, so the historical pytest test module was not rerun during this comparison; independent QA's frozen full/focused results and direct dependency-light behavior probes were used.",
+    "Direct audit probes ran on Python 3.12/Linux, not the full supported interpreter matrix.",
+    "The solver omits the accepted history entry, return annotation, and hook-factory docstring; these are PR-polish differences rather than behavioral repair requirements."
+  ],
+  "auditedAt": "2026-09-17T21:12:16Z"
+}

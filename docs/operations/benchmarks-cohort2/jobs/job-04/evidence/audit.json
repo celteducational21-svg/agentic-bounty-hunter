@@ -1,0 +1,88 @@
+{
+  "jobId": "job-04",
+  "auditor": "benchmark_auditor_6",
+  "comparedRevision": "8c949104b87b91f09a96687b1a46f8e71f835538",
+  "acceptedPr": null,
+  "acceptedFixSha": "81846550274256011a2d55b06aeb36b23877eb43",
+  "acceptedReference": "https://github.com/sindresorhus/p-queue/commit/81846550274256011a2d55b06aeb36b23877eb43",
+  "verdict": "PASS",
+  "repaired": true,
+  "iteration": 2,
+  "initialAuditVerdict": "FAIL",
+  "initialComparedRevision": "9c75913a771fc773c00b2bac053d06a2464beb1d",
+  "initialFailureEvidenceRetained": true,
+  "comparisons": {
+    "rootCause": {
+      "status": "MATCH",
+      "details": "The repaired revision implements queue-owned cancellation for running work by racing the operation with an abort rejection and guarantees pending-accounting cleanup through finally, matching the accepted fix's material lifecycle correction."
+    },
+    "behavior": {
+      "status": "PASS",
+      "details": "Direct probes against both revisions show two never-settling callbacks reject with the package AbortError after same-turn abort, in either add order; size and pending reach zero, onIdle resolves, a follow-up task returns 42, queued-first abort drains, and ordinary error identity is preserved."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "The repaired focused test uses callbacks that ignore the signal and never settle, so it exercises queue-owned cancellation rather than task cooperation. Independent QA reported the focused test passing, 45 practical tests passing with two documented baseline/environment failures, and build/typecheck passing."
+    },
+    "scope": {
+      "status": "PASS",
+      "details": "The repair addresses the issue lifecycle without adopting unrelated add/addAll typing, package, timeout, and tsconfig changes from the broad accepted commit. That narrower scope preserves the required behavior."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "Installing one abort listener, racing it with the task operation, removing it in finally, and calling #next from the same finally makes ownership and cleanup explicit."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "The first attempt's never-settling-task deadlock is eliminated. The repaired revision additionally removes its abort listener after a successful task and handles a task that aborts synchronously before returning; these probes are stronger than the accepted implementation without changing ordinary error identity."
+    }
+  },
+  "counterexamples": {
+    "neverSettlingTasksIgnoreSignal": {
+      "attempt1": {
+        "outcome": "deadline",
+        "size": 1,
+        "pending": 1
+      },
+      "repaired": {
+        "abortErrors": 2,
+        "size": 0,
+        "pending": 0,
+        "followup": 42
+      },
+      "accepted": {
+        "abortErrors": 2,
+        "size": 0,
+        "pending": 0,
+        "followup": 42
+      }
+    },
+    "synchronousAbortBeforeTaskReturns": {
+      "repaired": "abort-error-with-drained-queue",
+      "accepted": "deadline-with-pending-1"
+    },
+    "listenerCleanupAfterSuccess": {
+      "repaired": {
+        "adds": 1,
+        "removes": 1
+      },
+      "accepted": {
+        "adds": 1,
+        "removes": 0
+      }
+    }
+  },
+  "qaFalsePositive": true,
+  "qaFalsePositiveCount": 1,
+  "currentQaVerdict": "PASS",
+  "requiresRepair": false,
+  "repairVerified": true,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "limitations": [
+    "The accepted SHA is a broad closing commit; unrelated typing, timeout, package, and tsconfig changes were excluded from benchmark requirements.",
+    "Two practical-suite failures were documented by independent QA as baseline/runtime incompatibilities; the focused acceptance test and 45 practical tests passed.",
+    "The direct comparison used deterministic built-artifact probes rather than reproducing the accepted revision's complete historical CI matrix.",
+    "The initial failed audit and QA false positive remain unchanged under evidence/attempt-1 and are retained in the historical count."
+  ],
+  "auditedAt": "2026-09-17T21:28:06Z"
+}

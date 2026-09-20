@@ -1,0 +1,68 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init -q /tmp/abh-cohort2-job04-pqueue
+$ git remote add origin https://github.com/sindresorhus/p-queue.git
+$ git fetch --depth=1 origin c905aaf2a826c4581a604ee6bbb1ae41b062a598
+$ git checkout FETCH_HEAD
+$ git remote remove origin
+$ git rev-parse HEAD
+c905aaf2a826c4581a604ee6bbb1ae41b062a598
+EXIT 0
+
+$ npm install --ignore-scripts
+added 765 packages
+EXIT 0
+
+$ npm run build
+> del dist && tsc
+EXIT 0
+
+$ node --input-type=module [inline baseline reproduction]
+{"results":[true,true],"size":0,"pending":1,"idle":false}
+EXIT 0 (the script records the defect as data)
+
+$ npm run build
+> del dist && tsc
+EXIT 0
+
+$ node --input-type=module [inline fixed reproduction]
+{"results":[true,true],"size":0,"pending":0,"idle":true}
+EXIT 0
+
+$ npx ava test/test.ts --match='should drain when multiple jobs are aborted in the same turn'
+Uncaught exception in test/test.ts; historical ts-node ESM loader failed under Node 24
+EXIT 1
+
+$ node-v16 node_modules/ava/entrypoints/cli.mjs --match='should drain*'
+Timed out while running tests during TypeScript loader discovery
+EXIT 1
+
+$ node [transpile test/test.ts with installed TypeScript 4.5.5 to temporary test/test.generated.js; redirect source import to freshly built dist]
+$ npx ava --config=ava.generated.config.cjs --match='should drain*' --verbose
+1 test passed
+EXIT 0
+
+$ npx ava --config=ava.generated.config.cjs
+45 tests passed
+2 known failures
+EXIT 0
+
+$ node-v16 node_modules/xo/cli.js
+2 pre-existing TODO warnings
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'Drain queue after skipped aborted job'
+[detached HEAD 9c75913] Drain queue after skipped aborted job
+ 2 files changed, 28 insertions(+), 2 deletions(-)
+EXIT 0
+
+$ git rev-parse HEAD
+9c75913a771fc773c00b2bac053d06a2464beb1d
+EXIT 0
+
+Temporary generated test and AVA config files were removed after validation.
+
+Limitations: native TypeScript test discovery is blocked by the historical AVA 4/ts-node 10 ESM loader on available Node runtimes. The full suite was run through a semantics-preserving TypeScript transpilation harness against the freshly built distribution. Linux only. Independent QA was not run.

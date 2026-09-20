@@ -1,0 +1,33 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA ITERATION 2
+Reviewer: independent_qa_6
+
+$ git checkout c905aaf2a826c4581a604ee6bbb1ae41b062a598
+$ git apply solution.patch && git add source/index.ts test/test.ts
+$ git write-tree
+ccc753104946fda43e66f810e76d976cf428619e
+$ reconstruct commit from exact parent/tree/author/message and frozen committer timestamp
+8c949104b87b91f09a96687b1a46f8e71f835538 (exact match)
+$ sha256sum solution.patch
+78a8e9b38bf768362a2475a994e94da9af71518e577b046a6bdd18aed35bedc5
+
+$ npm install --no-package-lock --ignore-scripts --no-audit --no-fund
+added 765 packages
+$ npm run build
+PASS
+$ ava test/test.ts --match='should drain when multiple jobs are aborted in the same turn'
+1 test passed
+$ ava test/test.ts --verbose
+45 tests passed; 2 known failures
+$ <node16> xo
+PASS with two pre-existing TODO warnings
+
+$ node <never-settling callback, both abort orders, queued/running/pre-aborted, cleanup/onIdle/following/error probe>
+all abort lifecycle probes passed
+$ node <signal error cleanup and late underlying rejection probe>
+signal error cleanup and late rejection probes passed
+$ node --check dist/index.js; git diff --cached --check
+PASS
+$ npm pack --dry-run --json
+prepare/build PASS; p-queue@7.3.0 packaged 13 files
+
+Attempt-1 failure records remain under evidence/attempt-1. Patch unchanged; no public actions.

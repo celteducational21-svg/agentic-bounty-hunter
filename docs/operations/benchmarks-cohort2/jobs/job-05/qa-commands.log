@@ -1,0 +1,67 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA
+Reviewer: independent_qa_1
+
+$ git init; git remote add origin https://github.com/pallets/click.git; git fetch --depth 1 origin 8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab; git checkout --detach FETCH_HEAD
+Observed HEAD: 8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab
+Observed remote: https://github.com/pallets/click.git
+Initial status: clean
+EXIT 0
+
+$ sha256sum solution.patch
+464dd2881d185dac5cac4017787c62657b027c4e3c1a997264eef2409ceabb76
+EXIT 0
+
+$ PYTHONPATH=src python3 <independent baseline CliRunner reproduction>
+Positional ordinary value: exit 2; Invalid value for '--help': 'ordinary' is not a valid boolean.
+Renamed option ordinary value: exit 2; same collision.
+EXIT 0 (failures captured as reproduction data)
+
+$ git apply --check solution.patch && git apply solution.patch && git diff --check
+Applied cleanly; 2 files changed, 32 insertions, 1 deletion.
+Stable patch ID: cd2f4d76b013fd6bbf535511430bd11c02b569d6
+Reconstructed tree: 9d57fd4cddd2543a11865d2050917ca43e409016
+EXIT 0
+
+$ uv sync --frozen --group tests
+Installed Click and 31 locked development/test packages.
+EXIT 0
+
+$ .venv/bin/pytest -q tests/test_commands.py -k help_option_does_not_conflict_with_user_parameter
+2 passed, 90 deselected in 0.05s
+EXIT 0
+
+$ PYTHONPATH=src .venv/bin/python <independent collision-chain and option-ownership probes>
+Validated positional and option binding, eager help, help/_help/__help fallback to ___help, no-collision compatibility, expose_value=False, and user-owned --help.
+job05-adversarial: PASS
+EXIT 0
+
+$ .venv/bin/pytest -q
+1896 passed, 24 skipped, 31000 deselected, 1 xfailed in 4.09s
+EXIT 0
+
+$ .venv/bin/ruff check src/click/core.py tests/test_commands.py
+All checks passed.
+EXIT 0
+
+$ .venv/bin/ruff format --check src/click/core.py tests/test_commands.py
+2 files already formatted.
+EXIT 0
+
+$ .venv/bin/mypy
+Success: no issues found in 26 source files.
+EXIT 0
+
+$ .venv/bin/pyright
+6 errors, 1 warning. Comparison against a second pristine worktree produced the same diagnostics; only paths and the core.py line offset differ.
+EXIT nonzero (baseline tool-version drift, no new patch diagnostic)
+
+$ python3 -m compileall -q src/click tests/test_commands.py
+EXIT 0
+
+$ uv build
+Successfully built dist/click-8.5.0.dev0.tar.gz
+Successfully built dist/click-8.5.0.dev0-py3-none-any.whl
+EXIT 0
+
+$ git diff --check
+EXIT 0

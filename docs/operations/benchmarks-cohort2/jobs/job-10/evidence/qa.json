@@ -1,0 +1,41 @@
+{
+  "jobId": "job-10",
+  "reviewer": "independent_qa_5",
+  "revision": "4587cf6eefd198e343569a1a79cfacb6a3681f28",
+  "reviewedRevision": "4587cf6eefd198e343569a1a79cfacb6a3681f28",
+  "preFixRevision": "6b64e3744c81074e85361743498648850db5e2dc",
+  "verdict": "PASS",
+  "result": "PASS",
+  "firstPass": true,
+  "iterations": 1,
+  "completedAt": "2026-09-17T20:52:53Z",
+  "checks": {
+    "acceptanceCriteria": "PASS",
+    "tests": "PASS",
+    "regressions": "PASS",
+    "explainability": "PASS",
+    "prReadiness": "PASS",
+    "build": "NOT_APPLICABLE",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  },
+  "notApplicableReasons": {
+    "build": "Source-only CommonJS package with no compile step; Node syntax checks and npm pack --dry-run both pass."
+  },
+  "findings": [],
+  "evidence": {
+    "provenance": "Fresh checkout of the exact pre-fix SHA plus solution.patch produced tree 2eb745f5d02e9cf6503a00d677512d16b5a95133, identical to frozen revision 4587cf6eefd198e343569a1a79cfacb6a3681f28.",
+    "baseline": "At the pre-fix SHA, count -1 raised the native RangeError: Invalid count value: -1.",
+    "tests": "Complete AVA suite passed: 10 tests.",
+    "independentTests": "Counts 0, negative zero, 1, 3, positive fractional 1.9 and NaN preserve behavior. Counts -1, -0.5 and -Infinity raise RangeError with the package-specific exact message. String, bigint and boxed-number counts preserve exact type errors; invalid indent and invalid input ordering also pass.",
+    "lint": "XO passed under Node 12.22.12.",
+    "typecheck": "TSD passed under Node 12.22.12 with transient @types/node@12.",
+    "packaging": "Node syntax checks, git diff --check and npm pack --dry-run passed."
+  },
+  "limitations": [
+    "Linux only.",
+    "The historical unpinned development toolchain required Node 12.22.12 and a transient @types/node@12 installation; production behavior probes also passed on Node 24.19.0.",
+    "No accepted fix, post-fix source, current main, timeline, comments or audit data was inspected."
+  ],
+  "scope": "Independent frozen-revision review; no patch changes and no public actions."
+}

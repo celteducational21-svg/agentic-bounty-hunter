@@ -1,0 +1,50 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init
+$ git remote add origin https://github.com/sindresorhus/globby.git
+$ git fetch --depth=1 origin c1a3b3244ae992ba7e7e76f501a510ea0d9306df
+$ git checkout --detach FETCH_HEAD
+$ git rev-parse HEAD
+c1a3b3244ae992ba7e7e76f501a510ea0d9306df
+EXIT 0
+
+Dependency setup note: package.json's self-referential `globby#main` dev dependency was temporarily omitted to prevent fetching out-of-bounds current source. It was restored unchanged after installation. A temporary direct `@types/node` 14.14.10 install constraint made the historical TSD toolchain compatible; repository manifests were restored before solving.
+
+$ npm install --ignore-scripts --no-audit --no-fund
+added 931 packages
+EXIT 0
+
+$ node <inline baseline runtime reproduction>
+object dirent,name,path
+object dirent,name,path
+EXIT 0
+
+$ npm test
+TypeError: util.isDate is not a function
+Occurred while linting test.js:1
+EXIT 1 (historical XO plugin incompatibility with Node 24; AVA and TSD did not run in this combined command)
+
+$ ./node_modules/.bin/ava
+119 tests passed
+2 known failures
+EXIT 0
+
+$ ./node_modules/.bin/tsd
+EXIT 0
+
+$ node -e "const u=require('util');u.isDate=v=>v instanceof Date;u.isRegExp=v=>v instanceof RegExp;process.argv=['node','xo'];require('./node_modules/xo/cli.js')"
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'fix objectMode return types'
+[detached HEAD fcc212f] fix objectMode return types
+ 3 files changed, 39 insertions(+), 5 deletions(-)
+EXIT 0
+
+$ git rev-parse HEAD
+fcc212f56644672596770b23174b5eb6df9f93bf
+EXIT 0
+
+Limitations: Node.js 24.19.0/Linux only; combined command blocked by historical XO/Node incompatibility; current-main self-dependency deliberately not installed; historical Node matrix not run; independent QA pending.

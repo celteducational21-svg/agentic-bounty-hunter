@@ -1,0 +1,35 @@
+{
+  "jobId": "job-07",
+  "auditor": "benchmark_auditor_3",
+  "verdict": "PASS",
+  "comparedRevision": "9e5a766c093c6e7b9de8096409825672fa3404e9",
+  "acceptedPR": "https://github.com/yargs/yargs-parser/pull/434",
+  "acceptedFixSha": "4f1060b50759fadbac3315c5117b0c3d65b0a7d8",
+  "preFixSha": "a0305515248ed493b82b52489c28e554dc783a8e",
+  "auditedAt": "2026-09-17T20:56:46Z",
+  "freezeAuthorization": "Root authorized historical reveal after the Solver revision and independent QA were frozen.",
+  "comparisons": {
+    "rootCause": "MATCH: an unanchored /---+(=|$)/ guard can match a run of three or more hyphens anywhere in the normalized token, misclassifying otherwise valid content as an empty option name.",
+    "behavior": "MATCH: both revisions add the same start anchor, restricting the invalid-empty-name guard to leading hyphen-only spellings while allowing trailing hyphens in valid option names and values.",
+    "tests": "COMPLEMENTARY: the accepted patch adds one string-input test for quoted and equals-assigned values ending in three hyphens. The replay adds two tests covering option names ending in three/four hyphens plus bare -, --, ordinary dashed names and invalid empty names. Independent QA further covers empty assigned values, internal triple-hyphen sequences and unknown-options-as-args. The replay production blob is identical to accepted, so accepted value scenarios follow the same corrected path.",
+    "scope": "PRODUCTION MATCH: both change the same single character in lib/yargs-parser.ts. Replay test scope is broader (22 added lines versus accepted 7) but remains confined to the parser regression and neighboring hyphen behavior.",
+    "simplicity": "MATCH: the implementation is exactly the accepted one-character regex anchor; no new abstraction, dependency or API surface.",
+    "regressions": "No observed regression. CommonJS, ESM, TypeScript compilation/build, behavioral TypeScript tests, StandardX and independent boundary probes pass. Browser tests and the historical Node matrix remain unexecuted but are not implicated by the parser-only change."
+  },
+  "acceptedComparison": {
+    "productionBlobIdentical": true,
+    "acceptedProductionBlob": "5f776705e5d75475cc204d275ce012d0b9148b3d",
+    "solverProductionBlob": "5f776705e5d75475cc204d275ce012d0b9148b3d",
+    "acceptedDiff": "2 files changed, 8 insertions, 1 deletion",
+    "solverDiff": "2 files changed, 23 insertions, 1 deletion"
+  },
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY_TO_SUBMIT_SIMULATED_APPROVAL_REQUIRED",
+  "limitations": [
+    "The replay does not persist the accepted patch's exact quoted-value examples, although the production change is byte-identical and the full parser suites plus broader QA pass.",
+    "Node.js 24.19.0 on Linux only; the historical Node matrix was not run.",
+    "Historical dependency ranges required installation-only compatibility pins, and the Puppeteer browser suite was not run."
+  ],
+  "paidWork": false
+}

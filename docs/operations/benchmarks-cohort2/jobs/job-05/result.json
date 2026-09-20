@@ -1,0 +1,44 @@
+{
+  "jobId": "job-05",
+  "worker": "solver_b",
+  "repository": "pallets/click",
+  "issueNumber": 2819,
+  "preFixSha": "8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab",
+  "revision": "b4083da1e535cd6878b486321dca78970f04f6fd",
+  "author": "solver_b",
+  "category": "Python CLI parsing and callback binding",
+  "difficulty": "medium",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "focusedTests": {
+    "status": "PASS",
+    "passed": 2,
+    "failed": 0
+  },
+  "practicalSuite": {
+    "status": "PASS",
+    "passed": 1896,
+    "skipped": 24,
+    "xfailed": 1,
+    "failed": 0,
+    "deselected": 31000
+  },
+  "lint": "PASS",
+  "format": "PASS",
+  "diffCheck": "PASS",
+  "iterations": 1,
+  "regressionFailures": 0,
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "uv": "0.12.15"
+  },
+  "limitations": [
+    "The configured practical suite excludes stress-marked tests, accounting for 31,000 deselections.",
+    "Only Python 3.12.14 on Linux was exercised; the complete interpreter matrix was not run.",
+    "Independent QA is pending."
+  ],
+  "solutionFrozenAt": "2026-09-17T20:32:26Z"
+}

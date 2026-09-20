@@ -1,0 +1,18 @@
+{
+  "id": "job-02",
+  "label": "SIMULATION / HISTORICAL REPLAY — NOT PAID WORK",
+  "repository": "python-attrs/cattrs",
+  "issue": "https://github.com/python-attrs/cattrs/issues/418",
+  "title": "Annotated optional union fails during structuring",
+  "issueBody": "make_converter().structure fails with ClassValidationError wrapping IndexError for Annotated[str | None, 'required'], while non-union Annotated values work.",
+  "preFixSha": "acd3d1052776e9f815fdadf49cff02aa6c5a7a91",
+  "category": "Python serialization dispatch",
+  "difficulty": "medium",
+  "expectedDeliverable": "Structure and unstructure Annotated optional and union fields correctly, including registered hooks, while preserving scalar and collection Annotated behavior.",
+  "antiLeakage": "Use only the supplied issue facts and exact pre-fix source. Do not inspect accepted fixes, merged PRs, post-fix source, timelines, or solution discussion.",
+  "issueRedactions": [],
+  "repo": "python-attrs/cattrs",
+  "issueUrl": "https://github.com/python-attrs/cattrs/issues/418",
+  "issueNumber": 418,
+  "language": "Python"
+}

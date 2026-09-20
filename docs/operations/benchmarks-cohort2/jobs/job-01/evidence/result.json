@@ -1,0 +1,36 @@
+{
+  "jobId": "job-01",
+  "worker": "solver_d",
+  "setup": "PASS",
+  "reproduction": "PASS",
+  "rootCause": "PASS",
+  "solution": "PASS",
+  "revision": "67c4ff5933573f6c6eba2c6f08c4adad926be5e3",
+  "preFixRevision": "5f86603a84e12bdec1584c15c9f982740e613c45",
+  "author": "solver_d",
+  "category": "Python terminal prompt formatting",
+  "difficulty": "easy-medium",
+  "firstPass": false,
+  "initialSolution": "FAIL",
+  "iteration": 2,
+  "iterations": 2,
+  "focusedTests": "6 passed",
+  "independentProbes": "PASS: exact output and final-character input call shape for prompt/confirm with empty, custom, and default suffixes",
+  "practicalSuite": "1308 passed, 21 skipped, 1 xfailed",
+  "regressionFailures": 0,
+  "lint": "PASS",
+  "format": "PASS",
+  "typecheck": "PASS: MyPy, 26 source files",
+  "build": "PASS: sdist and wheel",
+  "repairHistory": {
+    "attempt1Revision": "4c62da5db4c849a1cbbc60ced0c55c9460be45e3",
+    "attempt1Verdict": "FAIL",
+    "reason": "Custom suffixes retained an implicit space and the empty-suffix path bypassed the final-character readline safeguard.",
+    "preservedAt": "evidence/attempt-1"
+  },
+  "limitations": [
+    "Python 3.12/Linux only; the upstream multi-version, interactive-terminal, and Windows matrices were not run.",
+    "The readline backspace behavior was verified at the input-function call boundary, not through a real interactive readline terminal."
+  ],
+  "solutionFrozenAt": "2026-09-17T21:19:04Z"
+}

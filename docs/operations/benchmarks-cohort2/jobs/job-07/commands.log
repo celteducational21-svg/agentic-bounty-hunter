@@ -1,0 +1,59 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init
+$ git remote add origin https://github.com/yargs/yargs-parser.git
+$ git fetch --depth=1 origin a0305515248ed493b82b52489c28e554dc783a8e
+$ git checkout --detach FETCH_HEAD
+$ git rev-parse HEAD
+a0305515248ed493b82b52489c28e554dc783a8e
+EXIT 0
+
+$ PUPPETEER_SKIP_DOWNLOAD=1 npm install --ignore-scripts --no-audit --no-fund
+added 675 packages
+EXIT 0
+
+$ npm run pretest
+Initial historical-toolchain attempt failed: rollup-plugin-ts hit `Debug Failure. Unhandled SyntaxKind: Unknown` with the newly resolved TypeScript 4.9.5.
+EXIT 1
+
+$ npm install --ignore-scripts --no-save --no-audit --no-fund typescript@4.5.5 @types/node@16.11.4
+Compatibility-only installation pins; repository manifests unchanged.
+EXIT 0
+
+$ npm run pretest
+created ./build/index.cjs
+EXIT 0
+
+$ node <inline baseline reproduction>
+--foo--- {"_":["--foo---"]}
+--foo---- {"_":["--foo----"]}
+--foo-bar {"_":[],"foo-bar":true,"fooBar":true}
+- {"_":["-"]}
+-- {"_":[]}
+EXIT 0
+
+$ npm test
+357 passing
+EXIT 0
+
+$ npm run test:esm
+17 passing
+EXIT 0
+
+$ npm run test:typescript
+20 passing
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'fix parsing options ending in hyphens'
+[detached HEAD 9e5a766] fix parsing options ending in hyphens
+ 2 files changed, 23 insertions(+), 1 deletion(-)
+EXIT 0
+
+$ git rev-parse HEAD
+9e5a766c093c6e7b9de8096409825672fa3404e9
+EXIT 0
+
+Limitations: Node.js 24.19.0/Linux only; historical dependency compatibility pins were needed; browser suite and Node matrix not run; independent QA pending.

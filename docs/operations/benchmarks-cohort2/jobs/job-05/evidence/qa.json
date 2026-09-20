@@ -1,0 +1,63 @@
+{
+  "jobId": "job-05",
+  "reviewer": "independent_qa_1",
+  "revision": "b4083da1e535cd6878b486321dca78970f04f6fd",
+  "revisionMatchesResult": true,
+  "verdict": "PASS",
+  "firstPass": true,
+  "provenance": {
+    "repository": "https://github.com/pallets/click.git",
+    "expectedPreFixSha": "8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab",
+    "observedPreFixSha": "8c1a0a7abbc1c36f70d1f65f3604acc46c5ce6ab",
+    "preFixShaMatches": true,
+    "resultRevision": "b4083da1e535cd6878b486321dca78970f04f6fd",
+    "artifactRevisionReferencesMatch": true,
+    "solutionPatchSha256": "464dd2881d185dac5cac4017787c62657b027c4e3c1a997264eef2409ceabb76",
+    "stablePatchId": "cd2f4d76b013fd6bbf535511430bd11c02b569d6",
+    "reconstructedTree": "9d57fd4cddd2543a11865d2050917ca43e409016",
+    "changedBlobIds": {
+      "src/click/core.py": "8668a569588ca7f9648c2b868bcf4560aa70e085",
+      "tests/test_commands.py": "644a0a6d928d1a700d3522111248fcd6cfe3808e"
+    },
+    "notes": "The repository was independently initialized and fetched only at the frozen pre-fix SHA. The supplied patch applied cleanly and its resulting blob prefixes match the patch headers. The solver commit object was not fetched; revision identity is verified by agreement among result.json, solution.md, and submission.md, plus the immutable patch and reconstructed tree evidence."
+  },
+  "checks": {
+    "acceptanceCriteria": {
+      "status": "PASS",
+      "details": "Both a positional parameter named help and an option bound to callback parameter help receive ordinary values. The synthetic --help option still prints help and exits 0."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Focused regression: 2 passed, 90 deselected. Full practical suite: 1,896 passed, 24 skipped, 31,000 deselected, 1 xfailed, 0 failed."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Adversarial probes passed for repeated internal-name collisions (help, _help, __help), no-collision legacy naming, eager built-in help, and a user-owned public --help option. Full suite passed."
+    },
+    "explainability": {
+      "status": "PASS",
+      "details": "The patch is localized and the stated mechanism is consistent with the code: parser values use parameter names as keys, and the synthetic help option is assigned the first unused underscore-prefixed name."
+    },
+    "prReadiness": {
+      "status": "PASS",
+      "details": "Focused regression coverage, concise implementation comments, clean patch application, unchanged public help spelling, full tests, lint, formatting, and MyPy evidence are present."
+    },
+    "build": {
+      "status": "PASS",
+      "details": "uv sync --frozen --group tests succeeded, compileall succeeded for src/click and tests/test_commands.py, and uv build produced both an sdist and wheel."
+    },
+    "lint": {
+      "status": "PASS",
+      "details": "Ruff check and Ruff format --check passed on both changed files; git diff --check passed."
+    },
+    "typecheck": {
+      "status": "PASS",
+      "details": "Configured strict MyPy check passed with no issues in 26 source files. Current Pyright produced six errors and one warning on both pristine and patched trees, with no new diagnostic; this is recorded as baseline/tool-version drift, not a patch regression."
+    }
+  },
+  "limitations": [
+    "Python 3.12.14 on Linux only; no full interpreter matrix.",
+    "Stress-marked tests remain excluded by repository pytest configuration (31,000 deselections).",
+    "The solver commit object was not fetched because independent QA was restricted to the exact pre-fix source and supplied artifacts."
+  ]
+}

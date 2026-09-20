@@ -1,0 +1,52 @@
+diff --git a/source/index.ts b/source/index.ts
+index b91c61e..bde3ec5 100644
+--- a/source/index.ts
++++ b/source/index.ts
+@@ -242,8 +242,7 @@ export default class PQueue<QueueType extends Queue<RunFunction, EnqueueOptionsT
+ 				try {
+ 					if (options.signal?.aborted) {
+ 						// TODO: Use ABORT_ERR code when targeting Node.js 16 (https://nodejs.org/docs/latest-v16.x/api/errors.html#abort_err)
+-						reject(new AbortError('The task was aborted.'));
+-						return;
++						throw new AbortError('The task was aborted.');
+ 					}
+ 
+ 					const operation = (this.timeout === undefined && options.timeout === undefined) ? fn({signal: options.signal}) : pTimeout(
+diff --git a/test/test.ts b/test/test.ts
+index c8ce4be..3a60710 100644
+--- a/test/test.ts
++++ b/test/test.ts
+@@ -1107,6 +1107,33 @@ test('should skip an aborted job', async t => {
+ 	});
+ });
+ 
++test('should drain when multiple jobs are aborted in the same turn', async t => {
++	const queue = new PQueue({concurrency: 1});
++	const firstController = new AbortController();
++	const secondController = new AbortController();
++	const abortableJob = async ({signal}: {signal?: AbortSignal}) => new Promise<void>((resolve, reject) => {
++		signal?.addEventListener('abort', () => {
++			reject(new AbortError('The task was aborted.'));
++		}, {once: true});
++	});
++	const firstJob = queue.add(abortableJob, {signal: firstController.signal});
++	const secondJob = queue.add(abortableJob, {signal: secondController.signal});
++
++	setTimeout(() => {
++		firstController.abort();
++		secondController.abort();
++	}, 0);
++
++	await Promise.all([
++		t.throwsAsync(firstJob, {instanceOf: AbortError}),
++		t.throwsAsync(secondJob, {instanceOf: AbortError}),
++	]);
++
++	t.is(queue.size, 0);
++	t.is(queue.pending, 0);
++	await queue.onIdle();
++});
++
+ test('should pass AbortSignal instance to job', async t => {
+ 	const queue = new PQueue();
+ 	const controller = new AbortController();

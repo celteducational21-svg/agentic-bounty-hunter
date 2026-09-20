@@ -1,0 +1,81 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA
+Reviewer: independent_qa_7
+Iteration: 2
+
+$ git init; git remote add origin https://github.com/pallets/click.git; git fetch --depth 1 origin 5f86603a84e12bdec1584c15c9f982740e613c45; git checkout --detach FETCH_HEAD
+Observed HEAD: 5f86603a84e12bdec1584c15c9f982740e613c45
+Observed remote: https://github.com/pallets/click.git
+Initial status: clean
+EXIT 0
+
+$ PYTHONPATH=src python3 <baseline prompt/confirm suffix matrix>
+prompt '' -> 'test foo\n'
+prompt '>' -> 'test> foo\n'
+prompt ': ' -> 'test: foo\n'
+confirm '' -> 'test y\n'
+confirm '>' -> 'test> y\n'
+confirm ': ' -> 'test: y\n'
+EXIT 0 (defects captured as reproduction data)
+
+$ sha256sum evidence/solution.patch
+2793610a3dac2fd91489eef6410de81c15f6703374fdab02aa2ca96a5c031f7f
+EXIT 0
+
+$ git apply --check evidence/solution.patch && git apply evidence/solution.patch && git diff --check
+Applied cleanly; 2 files changed, 38 insertions, 8 deletions.
+Stable patch ID: 87b5b680ca02d978bc7e1363c1692beb92e0bdef
+Reconstructed tree: 14b25feaef44950d2a08cfd94e17a4a1266a3b8b
+Changed blobs: termui.py b11c5d58d4c9e28a6cc8b6aacc79cdf841ebaf90; test_termui.py 629b115089f05e83283b4399ea4f8152ae96b6cc
+EXIT 0
+
+$ git show -s --format=<commit,parent,tree> 67c4ff5933573f6c6eba2c6f08c4adad926be5e3
+Parent: 5f86603a84e12bdec1584c15c9f982740e613c45
+Tree: 14b25feaef44950d2a08cfd94e17a4a1266a3b8b
+Subject: Preserve exact prompt suffix formatting
+EXIT 0
+
+$ uv sync --frozen --group tests
+Built Click and installed 29 locked development/test packages.
+EXIT 0
+
+$ .venv/bin/pytest -q tests/test_termui.py -k prompt_suffix_spacing
+6 passed, 168 deselected in 0.05s
+EXIT 0
+
+$ PYTHONPATH=src .venv/bin/python <first independent suffix script>
+Assertion failed because the QA harness incorrectly reused the prompt expected string for confirm. No repository file changed.
+EXIT nonzero (QA harness error corrected below)
+
+$ PYTHONPATH=src .venv/bin/python <corrected exact-output, input-boundary, hidden-input, confirmation, defaults, and custom-suffix probes>
+job01-independent-probes: PASS
+Covered '', '>', ': ', '>> ', Unicode, tab, newline, hidden input, password confirmation, yes/no, invalid retry, True/False/None defaults, and completely empty prompt text.
+EXIT 0
+
+$ .venv/bin/pytest -q
+1308 passed, 21 skipped, 1 xfailed in 1.65s
+EXIT 0
+
+$ .venv/bin/ruff check src/click/termui.py tests/test_termui.py
+All checks passed.
+EXIT 0
+
+$ .venv/bin/ruff format --check src/click/termui.py tests/test_termui.py
+2 files already formatted.
+EXIT 0
+
+$ .venv/bin/mypy
+Success: no issues found in 26 source files.
+EXIT 0
+
+$ python3 -m compileall -q src tests
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ uv build
+Successfully built dist/click-8.3.dev0.tar.gz
+Successfully built dist/click-8.3.dev0-py3-none-any.whl
+EXIT 0
+
+Limitations: Python 3.12.14/Linux only; no full interpreter, interactive readline, or Windows matrix.

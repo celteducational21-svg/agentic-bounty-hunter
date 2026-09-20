@@ -1,0 +1,43 @@
+{
+  "jobId": "job-10",
+  "auditor": "benchmark_auditor_4",
+  "comparedRevision": "4587cf6eefd198e343569a1a79cfacb6a3681f28",
+  "acceptedPr": "https://github.com/sindresorhus/indent-string/pull/18",
+  "acceptedFixSha": "0c0be825d2c95deecb940046e38beb162aec4f42",
+  "verdict": "PASS",
+  "comparisons": {
+    "rootCause": {
+      "status": "PASS",
+      "details": "Both identify that type validation alone allows a negative numeric count to reach String.prototype.repeat, leaking the engine's opaque RangeError instead of a package-owned diagnostic."
+    },
+    "behavior": {
+      "status": "PASS",
+      "details": "The production condition, RangeError class, and interpolated message are identical. Both reject negative integers, fractions, and negative infinity; preserve negative zero, zero, positive and fractional count behavior; and retain existing type-validation ordering."
+    },
+    "tests": {
+      "status": "PASS",
+      "details": "Both add a focused -1 regression with the exact message. The solver test is stronger by separately asserting `instanceof RangeError` and error.message rather than relying only on AVA's message argument. Independent QA and audit probes covered additional numeric and invalid-type edges."
+    },
+    "scope": {
+      "status": "PASS",
+      "details": "Both patches modify only index.js and test.js, insert validation immediately after count type checking, and leave indentation logic, options, declarations, and dependencies unchanged."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "The implementations are semantically identical. The accepted fix formats the throw over multiple lines; the solver uses one line. Neither introduces unnecessary abstraction."
+    },
+    "regressions": {
+      "status": "PASS",
+      "details": "Direct solver-versus-accepted output comparison was identical for -Infinity, negative integers and fractions, negative zero, zero, positive fractions and integers, NaN, Infinity, strings, bigint, and boxed numbers. The package suite and quality checks also passed."
+    }
+  },
+  "qaFalsePositive": false,
+  "requiresRepair": false,
+  "readiness": "READY",
+  "limitations": [
+    "Both implementations leave historical String.repeat coercion behavior for positive fractions, NaN, and Infinity unchanged; this is outside the negative-count validation request.",
+    "The historical package suite required Node 12 and a transient @types/node@12 pin, while direct behavior probes ran on Node 24.",
+    "Only Linux was exercised during frozen QA."
+  ],
+  "auditedAt": "2026-09-17T20:57:08Z"
+}

@@ -1,0 +1,56 @@
+diff --git a/src/click/core.py b/src/click/core.py
+index 6de4216..8668a56 100644
+--- a/src/click/core.py
++++ b/src/click/core.py
+@@ -1169,8 +1169,17 @@ class Command:
+             # Avoid circular import.
+             from .decorators import help_option
+ 
++            # The parser uses parameter names as keys. Give the synthetic help
++            # option a distinct name so that it cannot consume a user parameter
++            # named ``help``.
++            parameter_names = {param.name for param in self.params}
++            help_option_name = "help"
++
++            while help_option_name in parameter_names:
++                help_option_name = f"_{help_option_name}"
++
+             # Apply help_option decorator and pop resulting option
+-            help_option(*help_option_names)(self)
++            help_option(*help_option_names, help_option_name)(self)
+             self._help_option = self.params.pop()  # type: ignore[assignment]
+ 
+         return self._help_option
+diff --git a/tests/test_commands.py b/tests/test_commands.py
+index 35ba65c..644a0a6 100644
+--- a/tests/test_commands.py
++++ b/tests/test_commands.py
+@@ -504,6 +504,28 @@ def test_unprocessed_options(runner):
+     ]
+ 
+ 
++@pytest.mark.parametrize(
++    ("parameter", "args"),
++    [
++        (click.argument("help"), ["value"]),
++        (click.option("--value", "help"), ["--value", "value"]),
++    ],
++)
++def test_help_option_does_not_conflict_with_user_parameter(runner, parameter, args):
++    @click.command()
++    @parameter
++    def cli(help):
++        click.echo(help)
++
++    result = runner.invoke(cli, args)
++    assert result.output == "value\n"
++    assert result.exit_code == 0
++
++    result = runner.invoke(cli, ["--help"])
++    assert "Show this message and exit." in result.output
++    assert result.exit_code == 0
++
++
+ @pytest.mark.parametrize("doc", ["CLI HELP", None])
+ @pytest.mark.parametrize("deprecated", [True, "USE OTHER COMMAND INSTEAD"])
+ def test_deprecated_in_help_messages(runner, doc, deprecated):

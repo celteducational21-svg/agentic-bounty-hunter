@@ -1,0 +1,51 @@
+SIMULATION / HISTORICAL REPLAY — NOT PAID WORK
+
+$ git init -q /tmp/abh-cohort2-job03-ora
+$ git remote add origin https://github.com/sindresorhus/ora.git
+$ git fetch --depth=1 origin 38c2be947f39d2fadd74d676096863943f472b01
+$ git checkout FETCH_HEAD
+$ git remote remove origin
+$ git rev-parse HEAD
+38c2be947f39d2fadd74d676096863943f472b01
+EXIT 0
+
+$ npm install --ignore-scripts
+added 758 packages
+EXIT 0
+
+$ node [inline baseline reproduction]
+{"expected":75,"actual":25}
+EXIT 0 (the script records the defect as data)
+
+$ npx ava test.js --match='update interval when setting new spinner'
+1 test passed
+EXIT 0
+
+$ npm test
+TypeError: util.isDate is not a function
+Occurred while linting index.js
+EXIT 1 (legacy XO is incompatible with default Node 24.19.0)
+
+$ npx ava && npx tsd
+26 tests passed
+EXIT 0
+
+$ node-v16 node_modules/xo/cli.js && node-v16 node_modules/ava/cli.js && node-v16 node_modules/tsd/dist/cli.js
+XO: 1 pre-existing TODO warning
+AVA: 26 tests passed
+TSD: passed
+EXIT 0
+
+$ git diff --check
+EXIT 0
+
+$ git commit -m 'Fix spinner interval synchronization'
+[detached HEAD b651274] Fix spinner interval synchronization
+ 2 files changed, 17 insertions(+)
+EXIT 0
+
+$ git rev-parse HEAD
+b651274572730d6cca0d785452768c7e69def017
+EXIT 0
+
+Limitations: the default Node 24 runtime is incompatible with the historical XO stack; Node 16.20.2 was used for the successful full chain. Linux only. Independent QA was not run.

@@ -1,0 +1,44 @@
+{
+  "jobId": "job-04",
+  "auditor": "benchmark_auditor_2",
+  "comparedRevision": "9c75913a771fc773c00b2bac053d06a2464beb1d",
+  "acceptedPr": null,
+  "acceptedFixSha": "81846550274256011a2d55b06aeb36b23877eb43",
+  "acceptedReference": "https://github.com/sindresorhus/p-queue/commit/81846550274256011a2d55b06aeb36b23877eb43",
+  "verdict": "FAIL",
+  "comparisons": {
+    "rootCause": {
+      "status": "PARTIAL",
+      "details": "The solver correctly finds one cleanup bug: an already-aborted queued job rejects and returns before #next, leaking pending accounting. The accepted fix also establishes queue-owned cancellation for a currently running task by racing the task operation against an abort promise, then guarantees #next in finally. The solver does not identify or implement that running-task lifecycle."
+    },
+    "behavior": {
+      "status": "FAIL",
+      "details": "The accepted regression uses never-settling tasks that do not install signal listeners; PQueue itself rejects both add promises and drains. Under the solver, the same deterministic probe reaches a 150 ms deadline with queue.size 1 and queue.pending 1. The solver succeeds only when its test task listens for abort and rejects itself."
+    },
+    "tests": {
+      "status": "FAIL",
+      "details": "The solver test substitutes an abort-aware task callback that constructs and rejects its own AbortError. The accepted test passes signals to queue.add but uses `async () => new Promise(() => {})`, exercising the queue's cancellation contract. This test-shape difference hides the missing running-task abort handling."
+    },
+    "scope": {
+      "status": "PARTIAL",
+      "details": "The solver's one-line throw is narrowly scoped and improves the already-aborted queued path, but it does not cover the complete issue lifecycle. The accepted closing fix is broader because it repairs add/addAll typing, timeout handling, queue-owned abort racing, and finally-based accounting together."
+    },
+    "simplicity": {
+      "status": "PASS",
+      "details": "The solver change is simpler than the accepted rewrite, but simplicity does not compensate for missing required behavior. Its use of the existing catch and #next path is appropriate for the already-aborted subcase."
+    },
+    "regressions": {
+      "status": "FAIL",
+      "details": "Existing suites and the solver's task-aware race probes pass, but the accepted deterministic reproduction still hangs. The unresolved state was observed directly: deadline, size 1, pending 1."
+    }
+  },
+  "qaFalsePositive": true,
+  "requiresRepair": true,
+  "readiness": "BLOCKED",
+  "limitations": [
+    "The accepted SHA is a broad closing fix rather than a small isolated patch, so unrelated add/addAll, timeout, package, and tsconfig changes are not independently required by this benchmark.",
+    "The decisive divergence is limited to queue-owned abort handling for the running never-settling task and finally-based cleanup.",
+    "The historical native TypeScript test loader limitation remains environmental and does not explain the behavioral failure reproduced against the built solver artifact."
+  ],
+  "auditedAt": "2026-09-17T20:54:06Z"
+}

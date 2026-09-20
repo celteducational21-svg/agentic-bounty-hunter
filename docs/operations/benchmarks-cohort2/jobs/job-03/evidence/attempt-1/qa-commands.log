@@ -1,0 +1,49 @@
+SIMULATION / HISTORICAL REPLAY — INDEPENDENT QA
+Reviewer: independent_qa_3
+
+$ git init; git remote add origin https://github.com/sindresorhus/ora.git; git fetch --depth=1 origin 38c2be947f39d2fadd74d676096863943f472b01; git checkout --detach FETCH_HEAD
+Observed HEAD: 38c2be947f39d2fadd74d676096863943f472b01
+EXIT 0
+
+$ sha256sum solution.patch
+ca15887cc36c5380369e0127e8d088bf818b8dc69338ca7d041992a90533f5f6
+EXIT 0
+
+$ git patch-id --stable < solution.patch
+93f0eddf5aaa4b822156da8e1b744c00ca3c7386
+EXIT 0
+
+$ git apply --check solution.patch && git apply --index solution.patch
+EXIT 0
+
+$ git write-tree
+94bc1cbd16176ba01d9aa9bf78b8763c94b5e2c3
+$ git show -s --format='%P %T' b651274572730d6cca0d785452768c7e69def017 [local frozen object; metadata only]
+38c2be947f39d2fadd74d676096863943f472b01 94bc1cbd16176ba01d9aa9bf78b8763c94b5e2c3
+EXIT 0 (exact parent and reconstructed-tree match)
+
+$ npm install --ignore-scripts --no-audit --no-fund
+added 758 packages
+EXIT 0
+
+$ node <independent constructor/default/reassignment assertions>
+{"defaultInterval":80,"explicitWins":45,"assignedInterval":210,"missingIntervalPreserved":210,"namedSpinnerInterval":80}
+EXIT 0
+
+$ ./node_modules/.bin/ava
+26 tests passed
+EXIT 0
+
+$ ./node_modules/.bin/tsd
+EXIT 0
+
+$ node -e "shim removed util predicates; invoke xo"
+1 pre-existing TODO warning
+EXIT 0
+
+$ git diff --cached --check
+EXIT 0
+
+Build: NOT_APPLICABLE — package.json defines no build script; the published files are plain index.js and index.d.ts.
+
+Environment: Node.js 24.19.0, npm 11.9.0, Linux. No public action was taken.
