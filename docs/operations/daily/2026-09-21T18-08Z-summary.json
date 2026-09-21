@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T18:01:56.674Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "three bounded live open-issue queries"
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 30,
+      "coverage": "bounded current public catalogue page"
+    },
+    "superteamAuthenticated": {
+      "status": "TRANSIENT_NETWORK_FAILURE",
+      "checkedAt": "2026-09-21T18:04:00Z",
+      "attempts": 2,
+      "rawCount": null,
+      "submitted": 0,
+      "reason": "Both authenticated read attempts returned SUPERTEAM_NETWORK_FAILED; no empty-inventory claim is made"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "bounded public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T18:06:00Z",
+      "filters": "Issues with bounties + Open not reachable",
+      "reason": "The preserved browser session remains at Gitpay sign-in; authenticated filters were not applied and no result count is claimed"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 75,
+    "basicScreened": 75,
+    "canonicalResolved": 18,
+    "providerVerified": 16,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "firstAttemptChanges": 15,
+    "retryChanges": 1,
+    "readbackVerified": true,
+    "note": "The first standard discovery attempt persisted fifteen records before a bounded network timeout prevented local archive completion. A non-overlapping retry completed, persisted one additional record, and wrote the archive."
+  },
+  "scanProjection": {
+    "total": 513,
+    "counts": {
+      "INVESTIGATING": 496,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newRecords": {
+    "count": 16,
+    "groups": [
+      {
+        "count": 1,
+        "repository": "ivrit-ai/ivrit-py",
+        "issue": 14,
+        "decision": "INVESTIGATE_NO_PROOF",
+        "reason": "Genuine 500 NIS task, but four contributors have asked unanswered reservation, benchmark, dataset, accuracy and payout questions. Training and integration cannot be bounded or verified without maintainer acceptance criteria and reservation."
+      },
+      {
+        "count": 6,
+        "repository": "BasedHardware/omi",
+        "issues": [15518, 15521, 15523, 15525, 15527, 15529],
+        "decision": "HARD_BLOCK",
+        "reason": "Each is a contributor-authored post-fix funding proposal with an existing solution PR; $50 is proposed rather than approved, and no maintainer reply or assignment exists."
+      },
+      {
+        "count": 1,
+        "repository": "NSPG13/agent-bounties",
+        "issue": 1340,
+        "decision": "HARD_BLOCK",
+        "reason": "Canonical state says in progress and exclusive claim; reward is 15.068098 USDC below target and entry requires a 2 USDC bond."
+      },
+      {
+        "count": 1,
+        "repository": "relayhop/sn-monetization-runtime",
+        "issue": 1124,
+        "decision": "HARD_BLOCK",
+        "reason": "Radar record aggregating an external Stacker News opportunity, not an original payable GitHub task."
+      },
+      {
+        "count": 3,
+        "repository": "Ikalus1988/MisakaNet",
+        "issues": [1724, 1835, 1844],
+        "decision": "HARD_BLOCK",
+        "reason": "One is a question describing a completed solution, one explicitly says the defects are already fixed, and one is user feedback rather than a funded task."
+      },
+      {
+        "count": 1,
+        "repository": "Scottcjn/rustchain-bounties",
+        "issue": 509,
+        "decision": "HARD_BLOCK",
+        "reason": "Payout FAQ, not an implementation task or assignment."
+      },
+      {
+        "count": 2,
+        "repository": "zhangjiayang6835-cyber/bounty-plaza",
+        "issues": [1593, 1602],
+        "decision": "HARD_BLOCK",
+        "reason": "Parodic/fake rewards with expressly valueless or undecided currency and impossible advertised amounts."
+      },
+      {
+        "count": 1,
+        "repository": "PirateKingInc/test-m4",
+        "issue": 5,
+        "decision": "INVESTIGATE_NO_PROOF",
+        "reason": "Clear JavaScript acceptance criteria, but no reward, provider funding, assignment or bounty rules are present."
+      }
+    ]
+  },
+  "tracking": {
+    "ivrit12": "Open, unassigned and unreserved with 18 comments; PRs #30, #31 and #32 have no maintainer discussion or reservation evidence",
+    "buildersReflect": "Public listing remains at 35 submissions and six comments; Cygnix Labs still has one previously reported sponsor reply and no submission receipt",
+    "workSecured": 0
+  },
+  "verification": {
+    "tests": {
+      "passed": 229,
+      "failed": 0
+    },
+    "productionReadback": {
+      "status": "SUCCESS",
+      "total": 513,
+      "matchesScanProjection": true
+    }
+  }
+}
