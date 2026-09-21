@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T09:02:19.505Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 30
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-21T09:01:37.485Z",
+      "rawCount": 0,
+      "details": 0,
+      "submitted": 0
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "bounded public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T09:04:00Z",
+      "filters": "Issues with bounties + Open not reachable",
+      "reason": "Preserved browser session remains at the sign-in page; no authenticated result count can be claimed"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 70,
+    "basicScreened": 70,
+    "canonicalResolved": 16,
+    "providerVerified": 12,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 14
+  },
+  "runtime": {
+    "total": 420,
+    "counts": {
+      "INVESTIGATING": 403,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newRecords": [
+    {
+      "url": "https://github.com/jackjin1997/zeroeye/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "The $30 Python scope already has open implementation PR #14; reward notation is $30 (LT), not independently verified USD funding"
+    },
+    {
+      "url": "https://github.com/xevrion-v2/agent-playground/issues/2207",
+      "decision": "HARD_BLOCK",
+      "reason": "At least ten linked competing PRs already exist and the program tells contributors to choose their own bounty amount, so sponsor funding is not verified"
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15361",
+      "decision": "HARD_BLOCK",
+      "reason": "The $35 amount is explicitly proposed rather than awarded and the proposer already submitted fix PR #15360"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/254",
+      "decision": "HARD_BLOCK",
+      "reason": "Reward is 1 RTC for a public issue/comment, outside the preferred $25-$300 technical work and requiring a public post plus wallet claim"
+    },
+    {
+      "url": "https://github.com/Bitcoindefi/OpenAO/issues/25",
+      "decision": "HARD_BLOCK",
+      "reason": "Advertises $100 through unintegrated GrantFox mechanics and already has a complete competing implementation in PR #368"
+    },
+    {
+      "url": "https://github.com/kostasuser01gr/VoiceAI-Support-Dashboard/issues/82",
+      "decision": "HARD_BLOCK",
+      "reason": "Automated hardening status report with no funded reward; Opire instructions only explain how someone could add one"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/2006",
+      "decision": "INVESTIGATE",
+      "reason": "Clear CI defect but no funded reward or assignment path is shown"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/2003",
+      "decision": "INVESTIGATE",
+      "reason": "Clear documentation defect but no funded reward or assignment path is shown"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/2001",
+      "decision": "INVESTIGATE",
+      "reason": "Clear macOS CI defect but no funded reward or assignment path is shown"
+    }
+  ],
+  "deepChecks": [
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "$200 task remains saturated with at least ten open solution PRs"
+    },
+    {
+      "url": "https://github.com/jackjin1997/zeroeye/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Open solution PR #14 already covers the acceptance criteria"
+    },
+    {
+      "url": "https://github.com/venkatesh4059/Do-Or-Die/issues/6",
+      "decision": "HARD_BLOCK",
+      "reason": "$5 is below the preferred range and payment credibility remains unverified"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "$50 task remains saturated with at least ten open solution PRs"
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "HARD_BLOCK",
+      "reason": "At least ten open solution PRs remain and the provider/title reward discrepancy is unresolved"
+    }
+  ],
+  "tracking": {
+    "ivrit12": {
+      "status": "WAITING_FOR_MAINTAINER",
+      "workSecured": false,
+      "change": false,
+      "detail": "Issue remains open and unassigned; competing PRs #30, #31 and #32 remain open with no maintainer reservation for ABH"
+    },
+    "buildersReflect": {
+      "change": false,
+      "comments": 6,
+      "cygnixReplyCount": 1,
+      "submitted": false
+    }
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionReadbackTotal": 420,
+    "productionLastScan": "2026-09-21T09:02:19.505Z"
+  }
+}
