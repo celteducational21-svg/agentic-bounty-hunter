@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T14:58:55.351Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {"status": "SUCCESS", "rawCount": 60, "coverage": "three bounded live open-issue queries"},
+    "opire": {"status": "SUCCESS", "rawCount": 30, "coverage": "bounded current public catalogue page"},
+    "superteamAuthenticated": {"status": "SUCCESS", "checkedAt": "2026-09-21T14:58:13.176Z", "rawCount": 0, "coverage": "RETURNED_LIVE_FEED", "submitted": 0},
+    "superteamPublic": {"status": "SUCCESS", "rawCount": 0, "coverage": "bounded public agent Development view"},
+    "gitpay": {"status": "BLOCKED_NOT_RUN", "checkedAt": "2026-09-21T15:00:00Z", "filters": "Issues with bounties + Open not reachable", "reason": "The preserved browser session remains at Gitpay sign-in; authenticated filters were not applied and no result count is claimed"}
+  },
+  "funnel": {"raw": 90, "githubRaw": 60, "providerDiscovered": 30, "unique": 77, "basicScreened": 77, "canonicalResolved": 18, "providerVerified": 16, "fullyEnriched": 1, "selectedRepositories": 5},
+  "persistence": {"durable": true, "backend": "supabase-postgres", "changes": 9, "readbackVerified": true},
+  "scanProjection": {
+    "total": 466,
+    "counts": {"INVESTIGATING": 449, "REJECTED": 15, "WAITING_FOR_MAINTAINER": 1, "DO_NOT_HUNT": 1},
+    "privateProof": 0, "activeSolves": 0, "qa": 0, "readyToSubmit": 0, "submitted": 0, "merged": 0, "paid": 0
+  },
+  "newRecords": {
+    "count": 5,
+    "groups": [
+      {"count": 3, "repository": "BasedHardware/omi", "issues": [15477, 15485, 15490], "decision": "HARD_BLOCK", "reason": "Each $50 amount is explicitly only a contributor proposal and each matching implementation PR (#15476, #15484, #15489) was already open before discovery; no funded unclaimed assignment exists"},
+      {"count": 1, "repository": "Ikalus1988/MisakaNet", "issue": 2022, "decision": "HARD_BLOCK", "reason": "MCP intake/lesson candidate with no active funded reward; generic Opire instructions do not establish a task-specific reward"},
+      {"count": 1, "repository": "gw2efficiency/issues", "issue": 2138, "decision": "HARD_BLOCK", "reason": "The title uses bounty as an in-game mechanic; the issue is already assigned to its author and has no payable software bounty"}
+    ]
+  },
+  "changes": [
+    {"opportunityId": "ABH-GH-BasedHardware-omi-15471", "change": "competition increased from 1 to 3", "decision": "Remain HARD_BLOCK; implementation PR already exists and reward remains only proposed"}
+  ],
+  "tracking": {
+    "ivrit12": "Open, unassigned and unreserved with 18 comments; no maintainer confirmation appeared",
+    "buildersReflect": "Public listing remains at 35 submissions and six comments; Cygnix Labs still has one previously reported sponsor reply and no submission receipt",
+    "workSecured": 0
+  },
+  "verification": {"tests": {"passed": 229, "failed": 0}, "productionReadback": {"status": "SUCCESS", "total": 466, "matchesScanProjection": true}}
+}
