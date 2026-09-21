@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T14:09:28.686Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {"status": "SUCCESS", "rawCount": 60, "coverage": "three bounded live open-issue queries"},
+    "opire": {"status": "SUCCESS", "rawCount": 30, "coverage": "bounded current public catalogue page"},
+    "superteamAuthenticated": {"status": "FAILED", "checkedAt": "2026-09-21T14:05:00Z", "rawCount": null, "coverage": "NOT_ESTABLISHED", "reason": "SUPERTEAM_NETWORK_FAILED"},
+    "superteamPublic": {"status": "SUCCESS", "rawCount": 0, "coverage": "bounded public agent Development view"},
+    "gitpay": {"status": "BLOCKED_NOT_RUN", "checkedAt": "2026-09-21T14:14:00Z", "filters": "Issues with bounties + Open not reachable", "reason": "The preserved browser session remains at Gitpay sign-in; authenticated filters were not applied and no result count is claimed"}
+  },
+  "funnel": {"raw": 90, "githubRaw": 60, "providerDiscovered": 30, "unique": 77, "basicScreened": 77, "canonicalResolved": 18, "providerVerified": 16, "fullyEnriched": 1, "selectedRepositories": 5},
+  "persistence": {"durable": true, "backend": "supabase-postgres", "changes": 0, "readbackVerified": true},
+  "scanProjection": {
+    "total": 461,
+    "counts": {"INVESTIGATING": 444, "REJECTED": 15, "WAITING_FOR_MAINTAINER": 1, "DO_NOT_HUNT": 1},
+    "privateProof": 0, "activeSolves": 0, "qa": 0, "readyToSubmit": 0, "submitted": 0, "merged": 0, "paid": 0
+  },
+  "newRecords": {
+    "count": 9,
+    "groups": [
+      {"count": 1, "repository": "BasedHardware/omi", "issue": 15471, "decision": "HARD_BLOCK", "reason": "The $50 amount is only a contributor proposal and the same contributor already opened implementation PR #15469; no funded unclaimed assignment exists"},
+      {"count": 5, "repository": "Ikalus1988/MisakaNet", "issues": [1130, 1145, 1146, 1170, 2019], "decision": "HARD_BLOCK", "reason": "Owner-authored intake and missing-lesson records contain no funded bounty or assignment path"},
+      {"count": 1, "repository": "abdulsalam-create/bounty-watch", "issue": 13, "decision": "HARD_BLOCK", "reason": "Automated security-program watchlist output is not an original software task"},
+      {"count": 2, "repositories": ["freedom-winds/BountyScout", "vansh-09/BountyScout"], "issues": [1100, 1168], "decision": "HARD_BLOCK", "reason": "Bot-generated multi-opportunity aggregator reports are not original payable assignments"}
+    ]
+  },
+  "tracking": {
+    "ivrit12": "Open, unassigned and unreserved with 18 comments; competing PRs #30, #31 and #32 remain open and no maintainer confirmation appeared",
+    "buildersReflect": "Public listing remains at 35 submissions and six comments; Cygnix Labs still has one previously reported sponsor reply and no submission receipt",
+    "workSecured": 0
+  },
+  "verification": {"tests": {"passed": 229, "failed": 0}, "productionReadback": {"status": "SUCCESS", "total": 461, "matchesScanProjection": true}}
+}
