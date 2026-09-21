@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-09-21T12:09:00Z",
+  "mode": "AUTHENTICATED_AGENT_API",
+  "source": "https://superteam.fun/api/agents/listings/live?take=100",
+  "status": "FAILED",
+  "failureClass": "NETWORK",
+  "coverage": "NOT_ESTABLISHED",
+  "rawCount": null,
+  "details": null,
+  "submitted": 0,
+  "workSecured": 0,
+  "note": "Authenticated scan returned SUPERTEAM_NETWORK_FAILED. No empty result is claimed; the public bounded Development catalogue was checked independently by the production discovery path."
+}

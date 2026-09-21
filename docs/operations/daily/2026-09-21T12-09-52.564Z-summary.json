@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T12:10:13.860Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 30
+    },
+    "superteamAuthenticated": {
+      "status": "FAILED",
+      "checkedAt": "2026-09-21T12:09:00Z",
+      "rawCount": null,
+      "coverage": "NOT_ESTABLISHED",
+      "reason": "SUPERTEAM_NETWORK_FAILED"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "bounded public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T12:13:00Z",
+      "filters": "Issues with bounties + Open not reachable",
+      "reason": "The preserved browser tab remains at Gitpay sign-in; required authenticated filters were not applied and no result count is claimed"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 75,
+    "basicScreened": 75,
+    "canonicalResolved": 18,
+    "providerVerified": 16,
+    "fullyEnriched": 0,
+    "selectedRepositories": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 20
+  },
+  "runtime": {
+    "total": 442,
+    "counts": {
+      "INVESTIGATING": 425,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newRecords": {
+    "count": 17,
+    "groups": [
+      {
+        "count": 11,
+        "repository": "BasedHardware/omi",
+        "decision": "HARD_BLOCK",
+        "reason": "Each record is a contributor-authored $25 proposal submitted after its matching translation PR already exists; none is a sponsor-funded open task"
+      },
+      {
+        "count": 3,
+        "repository": "lb1192176991-lab/zeroeye",
+        "issues": [3, 4, 5],
+        "decision": "HARD_BLOCK",
+        "reason": "All three are explicitly unfunded and already have multiple completed competing implementations"
+      },
+      {
+        "count": 2,
+        "repository": "Ikalus1988/MisakaNet",
+        "issues": [2010, 2011],
+        "decision": "INVESTIGATE",
+        "reason": "Technical intake/lesson records with no bounty reward or assignment path"
+      },
+      {
+        "count": 1,
+        "repository": "rudrasatani13/cot-redteam-agent",
+        "issue": 33,
+        "decision": "HARD_BLOCK",
+        "reason": "Promotional invitation with no software task or funded bounty"
+      }
+    ]
+  },
+  "deepChecks": [
+    {
+      "url": "https://github.com/dot-Justin/BonziAssist/issues/7",
+      "decision": "HARD_BLOCK",
+      "reason": "Although Opire lists $270 pay-on-acceptance, the issue has 23 trying solvers, 20 claimers, many submitted PRs, and no remaining acceptance criteria from the maintainer"
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "HARD_BLOCK",
+      "reason": "Heavy solution competition and unresolved provider/title reward discrepancy"
+    },
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Saturated by existing solution attempts"
+    },
+    {
+      "url": "https://github.com/jackjin1997/zeroeye/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Existing submitted implementation already covers the task"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Saturated by existing solution attempts"
+    }
+  ],
+  "tracking": {
+    "ivrit12": {
+      "status": "WAITING_FOR_MAINTAINER",
+      "workSecured": false,
+      "change": false,
+      "detail": "Issue remains open and unassigned; no maintainer reservation or review. A new non-maintainer inquiry does not change ABH status."
+    },
+    "buildersReflect": {
+      "change": false,
+      "commentCount": 6,
+      "cygnixReplyCount": 1,
+      "submitted": false,
+      "detail": "No new sponsor reply or submission receipt; attendance and owned X-post evidence remain unverified"
+    }
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionReadbackTotal": 442,
+    "productionLastScan": "2026-09-21T12:10:13.860Z"
+  }
+}
