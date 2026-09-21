@@ -1,0 +1,128 @@
+{
+  "fetchedAt": "2026-09-21T03:07:37.956Z",
+  "engineRevision": "operations-v1-delivery-certified-sources",
+  "rawCount": 90,
+  "githubRaw": 60,
+  "opireRaw": 30,
+  "uniqueGitHubOpire": 75,
+  "distinctAcrossIntegratedSources": 75,
+  "newRuntimeRecordsSincePriorCycle": 7,
+  "deepAttempts": 5,
+  "supplementalNewRecordReviews": 5,
+  "fullyEnriched": 1,
+  "phase3Eligible": 0,
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changesOnVerificationScan": 0,
+    "productionReadbackLastScan": "2026-09-21T03:07:37.956Z",
+    "note": "The first client request exceeded its 90-second wait but completed server-side and persisted seven new records. A non-overlapping verification request returned successfully in 69.6 seconds and made no additional changes."
+  },
+  "runtimeCounts": {
+    "INVESTIGATING": 359,
+    "REJECTED": 15,
+    "WAITING_FOR_MAINTAINER": 1,
+    "DO_NOT_HUNT": 1,
+    "PRIVATE_PROOF": 0,
+    "LOCKED": 0,
+    "SOLVING": 0,
+    "QA": 0,
+    "READY_TO_SUBMIT": 0,
+    "SUBMITTED": 0,
+    "CHANGES_REQUESTED": 0,
+    "MERGED": 0,
+    "PAID": 0
+  },
+  "sources": {
+    "github": {
+      "checkedAt": "2026-09-21T03:07:37.956Z",
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "Three bounded public GitHub issue searches; canonical evidence checked for five newly plausible technical records.",
+      "newOrChanged": "Seven records were newly deduplicated in the first persisted scan. Five were technical candidates; two were settlement or payout requests for already merged work rather than available tasks."
+    },
+    "opire": {
+      "checkedAt": "2026-09-21T03:07:37.956Z",
+      "status": "SUCCESS",
+      "rawCount": 30,
+      "coverage": "Bounded current public available-reward catalogue with canonical GitHub reconciliation.",
+      "newOrChanged": "No newly qualified $25-$300 Python, JavaScript or TypeScript task."
+    },
+    "superteam": {
+      "checkedAt": "2026-09-21T03:04:29.088Z",
+      "status": "SUCCESS_EMPTY",
+      "authenticatedRawCount": 0,
+      "detailReads": 0,
+      "coverage": "Official authenticated agent live feed, take=100; public agent Development catalogue independently returned zero.",
+      "newOrChanged": "The two previously returned records were absent from both feeds. Builders Reflect remains publicly open on its listing page, so this is an inventory/API change, not evidence that the bounty closed or that eligibility was revoked."
+    },
+    "gitpay": {
+      "checkedAt": "2026-09-21T03:08:00Z",
+      "status": "BLOCKED",
+      "filters": [
+        "Issues with bounties",
+        "Open"
+      ],
+      "resultCount": null,
+      "coverage": "NOT_RUN: the preserved browser remained on the Gitpay sign-in page, so the filtered Open-bounty result set was not observable.",
+      "recoveryAction": "Previously reported owner action remains unchanged: restore the existing Cygnix Labs session. Do not create another account or relink GitHub."
+    }
+  },
+  "supplementalReviews": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15320",
+      "qualification": "INVESTIGATE",
+      "proofStarted": false,
+      "reason": "The $25 reward is proposed rather than confirmed, and the reporter already opened fix PR #15321."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15318",
+      "qualification": "INVESTIGATE",
+      "proofStarted": false,
+      "reason": "The $25 reward is proposed rather than confirmed, and the reporter already opened fix PR #15319."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15316",
+      "qualification": "INVESTIGATE",
+      "proofStarted": false,
+      "reason": "The $25 reward is proposed rather than confirmed, and the reporter already opened fix PR #15317."
+    },
+    {
+      "url": "https://github.com/cocohub-mobileapp/cocohub-main/issues/45",
+      "qualification": "HARD_BLOCK",
+      "proofStarted": false,
+      "reason": "Six claims and at least six issue-linked solution PRs already exist; no ABH assignment is present."
+    },
+    {
+      "url": "https://github.com/Tarsnap/spiped/issues/438",
+      "qualification": "HARD_BLOCK",
+      "proofStarted": false,
+      "reason": "A first reporter and canonical open fix PR #457 already carry the bug-bounty work."
+    }
+  ],
+  "activeRecords": {
+    "ivritPy12": {
+      "url": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+      "state": "open",
+      "assignees": 0,
+      "comments": 16,
+      "revision": "2026-09-19T22:18:13Z",
+      "reservationConfirmed": false
+    },
+    "buildersReflectShare": {
+      "url": "https://superteam.fun/earn/listing/road-to-colosseum-builders-reflect-and-share/#comments",
+      "publicListingOpen": true,
+      "onlineParticipationConfirmed": true,
+      "attendanceVerified": false,
+      "submissionMade": false
+    }
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "rawSnapshot": {
+    "committed": false,
+    "note": "The complete response is durably stored by the ABH runtime. This compact non-secret summary is the GitHub evidence artifact."
+  }
+}
