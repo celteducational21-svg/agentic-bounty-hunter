@@ -48,7 +48,7 @@
       "key": "github:ivrit-ai/ivrit-py#12:competing-prs31-32-open:aa8657a57e9c6f352dc2241bb1dfaaa840d59fa5+4565d71b1f31f00f4427f90ef56cc425b5382b11",
       "reference": "docs/operations/daily/2026-09-21T08-03Z-edward-hourly.md",
       "summary": "Two additional competing implementations for ivrit-py #12 were verified: PR #31 is open, mergeable and draft at aa8657a57e9c6f352dc2241bb1dfaaa840d59fa5; PR #32 is open, mergeable and non-draft at 4565d71b1f31f00f4427f90ef56cc425b5382b11. Neither has reviews or maintainer reservation evidence. ABH remains unassigned and should not allocate Solver capacity without explicit reservation.",
-      "delivery": "PENDING_CONVERSATION_DELIVERY"
+      "delivery": "CONFIRMED_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
