@@ -1,0 +1,2317 @@
+Warning: truncated output (original token count: 54683)
+Total output lines: 4000
+
+{
+  "mode": "LIVE",
+  "phase": "2.2",
+  "source": "GitHub Search API + Opire public catalogue",
+  "fetchedAt": "2026-09-21T04:56:41.691Z",
+  "rawCount": 90,
+  "uniqueCount": 76,
+  "apparentBountyCount": 76,
+  "legitimacyPassedCount": 0,
+  "deepCheckedCount": 1,
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 76,
+    "basicScreened": 76,
+    "canonicalResolved": 18,
+    "providerVerified": 16,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5
+  },
+  "counts": {
+    "HUNT": 0,
+    "WATCH": 0,
+    "SKIP": 1,
+    "REJECT": 14,
+    "INCOMPLETE": 61
+  },
+  "candidates": [
+    {
+      "id": "4708250889",
+      "number": 2,
+      "source": "github",
+      "title": "[BOUNTY] Kickama #304 - deterministic data seed ($50)",
+      "body": "Bounty: Upstream PR #304\n\nUpstream: https://github.com/lobster-trap/Kickama/pull/304\n\nDiagnostics received, awaiting review.\n<br/>\n<hr/>\n\n<details><summary>This repo is using Opire - what does it mean? 👇</summary><br/>💵 Everyone can add rewards for this issue commenting <code>/reward 100</code> (replace <code>100</code> with the amount).<br/>🕵️‍♂️ If someone starts working on this issue to earn the rewards, they can comment <code>/try</code> to let everyone know!<br/>🙌 And when they open the PR, they can comment <code>/claim #2</code> either in the PR description or in a PR's comment.<br/><br/>🪙 Also, everyone can tip any user commenting <code>/tip 20 @lb1192176991-lab</code> (replace <code>20</code> with the amount, and <code>@lb1192176991-lab</code> with the user to tip).<br/><br/>📖 If you want to learn more, check out our <a href=\"https://docs.opire.dev\">documentation</a>.</details>",
+      "labels": [
+        "💰 reward"
+      ],
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "apiUrl": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+      "repository": "lb1192176991-lab/zeroeye",
+      "repositoryUrl": "https://github.com/lb1192176991-lab/zeroeye",
+      "commentsUrl": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2/comments",
+      "createdAt": "2026-06-20T20:20:37Z",
+      "updatedAt": "2026-09-20T06:48:25Z",
+      "closedAt": null,
+      "state": "open",
+      "comments": 40,
+      "assignees": [],
+      "issuer": "lb1192176991-lab",
+      "authorAssociation": "OWNER",
+      "isPullRequest": false,
+      "providerDiscovery": {
+        "provider": "Opire",
+        "listingUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "repository": "lb1192176991-lab/zeroeye",
+        "title": "[BOUNTY] Kickama #304 - deterministic data seed ($50)",
+        "advertisedRewardUsd": 250861,
+        "tryingSolvers": 17,
+        "claimingSolvers": 13,
+        "programmingLanguages": [
+          "TypeScript",
+          "Rust",
+          "Python"
+        ],
+        "botInstalled": true,
+        "sourceUrl": "https://app.opire.dev/home",
+        "checkedAt": "2026-09-21T04:56:42.457Z",
+        "listingVerified": false,
+        "providerActivityEvidence": {
+          "url": "https://app.opire.dev/home",
+          "checkedAt": "2026-09-21T04:56:42.457Z",
+          "detail": "Present in current public available-reward catalogue; exact task listing still requires verification"
+        }
+      },
+      "providerSeed": false,
+      "sourceAdvertisedReward": {
+        "amount": 50,
+        "currency": "USD",
+        "usdEstimate": 50,
+        "rewardType": "fixed",
+        "evidenceText": "[BOUNTY] Kickama #304 - deterministic data seed ($50)",
+        "evidenceSourceUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "evidenceLocation": "title",
+        "confidence": 90,
+        "isDirectTaskReward": true,
+        "conflicts": []
+      },
+      "opportunityId": "ABH-GH-lb1192176991-lab-zeroeye-2",
+      "retrievalTimestamp": "2026-09-21T04:57:05.828Z",
+      "originalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "bountyProviderUrl": null,
+      "evidenceUrls": [
+        "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "https://github.com/lb1192176991-lab/zeroeye"
+      ],
+      "analysisDepth": "partial",
+      "reward": {
+        "amount": 250861,
+        "currency": "USD",
+        "usdEstimate": 250861,
+        "rewardType": "fixed",
+        "evidenceText": "$250,861.00 bounty for [BOUNTY] Kickama #304 - deterministic data seed ($50) Earn up to $250,861.00 by solving [BOUNTY] Kickama #304 - deterministic data seed ($50) for lb1192176991-lab/zeroeye. Project: lb1192176991-lab / zeroeye on GitHub . Trade risk monitor, paid bounties for diagnostics, testing, and security hardening. Issue URL: https://github.com/lb1192176991-lab/zeroeye/issues/2 Status: Open . 12 available rewards and 0 paid rewards. 17 solvers are trying this issue and 13 solvers have claimed it. Available reward USD: 250861; paid rows are excluded. AVAILABLE: $50; AVAILABLE: $50; AVAILABLE: $100000; AVAILABLE: $20; AVAILABLE: $200; AVAILABLE: $360; AVAILABLE: $100; AVAILABLE: $21; AVAILABLE: $20; AVAILABLE: $150000; AVAILABLE: $20; AVAILABLE: $20",
+        "evidenceSourceUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "evidenceLocation": "provider listing",
+        "confidence": 95,
+        "isDirectTaskReward": true
+      },
+      "rewardAmount": 250861,
+      "rewardCurrency": "USD",
+      "rewardUsdEstimate": 250861,
+      "rewardRange": null,
+      "rewardConfidence": 95,
+      "isDirectTaskReward": true,
+      "credibleMarketValue": true,
+      "paymentMethod": "UNKNOWN",
+      "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+      "paymentRisk": "MEDIUM",
+      "tokenEvidence": {
+        "symbol": "USD",
+        "category": "STABLE_VALUE",
+        "priceSourceUrl": null,
+        "priceTimestamp": null,
+        "liquidityConfidence": "ASSUMED_PEG",
+        "exchangeable": null,
+        "uncertainty": "Nominal USD peg; redemption and depeg risks remain"
+      },
+      "evidence": [
+        {
+          "type": "reward",
+          "detail": "title: [BOUNTY] Kickama #304 - deterministic data seed ($50)",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2"
+        },
+        {
+          "type": "legitimacy",
+          "detail": "Explicit numeric reward",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4873599483",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881970328",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4882891731",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4883131642",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/13",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881703624",
+          "detail": "rovidev95: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4883054749",
+          "detail": "luccas12348486: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4893357376",
+          "detail": "mdsanzidhasnat: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5031175753",
+          "detail": "br413: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5045438977",
+          "detail": "zhaog100: INTEREST_ONLY"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5087435182",
+          "detail": "jdjioe5-cpu: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/23",
+          "detail": "jdjioe5-cpu: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5150085502",
+          "detail": "praveenchand-2005: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/25",
+          "detail": "praveenchand-2005: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5324272676",
+          "detail": "xkong2017: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/31",
+          "detail": "xkong2017: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5370767998",
+          "detail": "silvaadrian: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5411927399",
+          "detail": "davixxx001: INTEREST_ONLY"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5459072203",
+          "detail": "ylcharan: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/35",
+          "detail": "ylcharan: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5502453090",
+          "detail": "mobiusbbbot-lab: CLAIMED"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5714289476",
+          "detail": "vavyukkt-beep: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/38",
+          "detail": "vavyukkt-beep: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/29",
+          "detail": "zacharywomack8-source: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/41",
+          "detail": "itxayazmalik: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/34",
+          "detail": "Legend999999: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/18",
+          "detail": "soongyintong: SUBMITTED_PR"
+        },
+        {
+          "type": "solvability",
+          "detail": "No root test directory detected",
+          "url": "https://github.com/lb1192176991-lab/zeroeye"
+        },
+        {
+          "type": "solvability",
+          "detail": "Scope clarity 15/100",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2"
+        }
+      ],
+      "legitimacyConfidence": 85,
+      "rejectionReason": null,
+      "completionEvidence": [],
+      "contributorStates": [
+        {
+          "actor": "reckoning89",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-07-08T19:52:25Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4873599483",
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881970328",
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4882891731",
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4883131642",
+            "https://github.com/lb1192176991-lab/zeroeye/pull/13"
+          ]
+        },
+        {
+          "actor": "rovidev95",
+          "state": "UNKNOWN",
+          "lastActivity": "2026-07-04T10:59:08Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881703624"
+          ]
+        },
+        {
+          "actor": "luccas12348486",
+          "state": "UNKNOWN",
+          "lastActivity": "2026-07-04T16:28:34Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4883054749"
+          ]
+        },
+        {
+          "actor": "mdsanzidhasnat",
+          "state": "UNKNOWN",
+          "lastActivity": "2026-07-06T13:28:55Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4893357376"
+          ]
+        },
+        {
+          "actor": "br413",
+          "state": "UNKNOWN",
+          "lastActivity": "2026-07-21T07:15:08Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5031175753"
+          ]
+        },
+        {
+          "actor": "zhaog100",
+          "state": "INTEREST_ONLY",
+          "lastActivity": "2026-07-22T11:52:20Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5045438977"
+          ]
+        },
+        {
+          "actor": "jdjioe5-cpu",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-07-27T05:02:39Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5087435182",
+            "https://github.com/lb1192176991-lab/zeroeye/pull/23"
+          ]
+        },
+        {
+          "actor": "praveenchand-2005",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-08-01T06:04:49Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5150085502",
+            "https://github.com/lb1192176991-lab/zeroeye/pull/25"
+          ]
+        },
+        {
+          "actor": "xkong2017",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-08-18T06:04:01Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5324272676",
+            "https://github.com/lb1192176991-lab/zeroeye/pull/31"
+          ]
+        },
+        {
+          "actor": "silvaadrian",
+          "state": "UNKNOWN",
+          "lastActivity": "2026-08-21T13:58:25Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5370767998"
+          ]
+        },
+        {
+          "actor": "davixxx001",
+          "state": "INTEREST_ONLY",
+          "lastActivity": "2026-08-25T14:29:35Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5411927399"
+          ]
+        },
+        {
+          "actor": "ylcharan",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-09-12T20:09:20Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5459072203",
+            "https://github.com/lb1192176991-lab/zeroeye/pull/35"
+          ]
+        },
+        {
+          "actor": "mobiusbbbot-lab",
+          "state": "CLAIMED",
+          "lastActivity": "2026-09-02T00:23:50Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5502453090"
+          ]
+        },
+        {
+          "actor": "vavyukkt-beep",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-09-17T12:30:07Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5714289476",
+            "https://github.com/lb1192176991-lab/zeroeye/pull/38"
+          ]
+        },
+        {
+          "actor": "zacharywomack8-source",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-08-15T09:43:42Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/pull/29"
+          ]
+        },
+        {
+          "actor": "itxayazmalik",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-09-20T06:48:29Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/pull/41"
+          ]
+        },
+        {
+          "actor": "Legend999999",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-08-25T12:36:07Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/pull/34"
+          ]
+        },
+        {
+          "actor": "soongyintong",
+          "state": "SUBMITTED_PR",
+          "lastActivity": "2026-07-05T21:15:32Z",
+          "evidenceUrls": [
+            "https://github.com/lb1192176991-lab/zeroeye/pull/18"
+          ]
+        }
+      ],
+      "activeCompetitorCount": null,
+      "activeCompetitors": null,
+      "observedActiveCompetitors": 11,
+      "interestedContributorCount": 2,
+      "submittedSolutionCount": null,
+      "competitionConfidence": "UNKNOWN",
+      "solutionSearchCompleteness": "PARTIAL",
+      "claimStatus": "UNKNOWN",
+      "competitionScore": 25,
+      "existingSolutionPRs": [
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/38",
+          "title": "fix: deterministic data generator seed support (resolves #2)",
+          "author": "vavyukkt-beep",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": true,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/25",
+          "title": "Bounty 2 deterministic seed",
+          "author": "praveenchand-2005",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": false,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/35",
+          "title": "fix: make generated test data deterministic",
+          "author": "ylcharan",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": true,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/29",
+          "title": "Fix: [BOUNTY] Kickama #304 - deterministic data seed ($50)",
+          "author": "zacharywomack8-source",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": true,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/23",
+          "title": "fix: make generated test data fully deterministic",
+          "author": "jdjioe5-cpu",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": true,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/41",
+          "title": "fix: deterministic data generator seed support",
+          "author": "itxayazmalik",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": false,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/13",
+          "title": "fix: make generated test data deterministic",
+          "author": "reckoning89",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": false,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/34",
+          "title": "fix: make data generation deterministic",
+          "author": "Legend999999",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": true,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/31",
+          "title": "fix: make test data generation fully deterministic",
+          "author": "xkong2017",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": false,
+          "relation": "OPEN_SUBMISSION"
+        },
+        {
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/18",
+          "title": "fix: make data generator seed deterministic",
+          "author": "soongyintong",
+          "state": "open",
+          "mergedAt": null,
+          "closesIssue": false,
+          "relation": "OPEN_SUBMISSION"
+        }
+      ],
+      "competitionEvidence": [
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4873599483",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881970328",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4882891731",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4883131642",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/13",
+          "detail": "reckoning89: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881703624",
+          "detail": "rovidev95: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4883054749",
+          "detail": "luccas12348486: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4893357376",
+          "detail": "mdsanzidhasnat: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5031175753",
+          "detail": "br413: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5045438977",
+          "detail": "zhaog100: INTEREST_ONLY"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5087435182",
+          "detail": "jdjioe5-cpu: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/23",
+          "detail": "jdjioe5-cpu: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5150085502",
+          "detail": "praveenchand-2005: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/25",
+          "detail": "praveenchand-2005: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5324272676",
+          "detail": "xkong2017: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/31",
+          "detail": "xkong2017: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5370767998",
+          "detail": "silvaadrian: UNKNOWN"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5411927399",
+          "detail": "davixxx001: INTEREST_ONLY"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5459072203",
+          "detail": "ylcharan: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/35",
+          "detail": "ylcharan: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5502453090",
+          "detail": "mobiusbbbot-lab: CLAIMED"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5714289476",
+          "detail": "vavyukkt-beep: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/38",
+          "detail": "vavyukkt-beep: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/29",
+          "detail": "zacharywomack8-source: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/41",
+          "detail": "itxayazmalik: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/34",
+          "detail": "Legend999999: SUBMITTED_PR"
+        },
+        {
+          "type": "competition",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/pull/18",
+          "detail": "soongyintong: SUBMITTED_PR"
+        }
+      ],
+      "primaryLanguage": "TypeScript",
+      "frameworks": [],
+      "packageBuildSystem": [],
+      "approximateRepoSizeKb": 728002,
+      "recentCommitActivity": "RECENT",
+      "hasReadme": true,
+      "hasContributing": false,
+      "hasTests": false,
+      "hasCI": true,
+      "hasLint": false,
+      "hasTypeChecking": false,
+      "buildCommands": [],
+      "testCommands": [],
+      "openPRVolume": null,
+      "archived": false,
+      "repoHealthScore": 60,
+      "maintainerActivityScore": 60,
+      "testabilityScore": 15,
+      "developerSetupScore": 45,
+      "stack": "TypeScript",
+      "framework": [
+        "UNKNOWN"
+      ],
+      "setupCommand": "UNKNOWN",
+      "testCommand": "UNKNOWN",
+      "buildCommand": "UNKNOWN",
+      "lintCommand": "UNKNOWN",
+      "typecheckCommand": "UNKNOWN",
+      "executionReadinessScore": 45,
+      "setupDifficulty": "UNKNOWN",
+      "maintainerResponsivenessScore": null,
+      "executionVerified": false,
+      "buildStatus": "NOT_RUN",
+      "readinessEvidence": [
+        {
+          "type": "readiness",
+          "url": "https://github.com/lb1192176991-lab/zeroeye",
+          "detail": "Manifest scripts and documentation inspected; build/test execution NOT RUN. Setup: UNKNOWN; tests: UNKNOWN"
+        }
+      ],
+      "acceptanceCriteria": {
+        "criteria": [],
+        "filesMentioned": [],
+        "reproductionSteps": [],
+        "testingRequirements": [],
+        "documentationRequirements": [],
+        "externalRequirements": [],
+        "scopeClarityScore": 15,
+        "explicitCommands": [],
+        "codeChanges": [],
+        "requiredTests": [],
+        "requiredDocumentation": [],
+        "acceptanceCriteriaList": [],
+        "externalDependencies": [],
+        "dependencyEvidence": [],
+        "verificationRequirements": [],
+        "inaccessibleDependencies": [],
+        "hiddenBlockerRisk": "UNKNOWN"
+      },
+      "scopeClarityScore": 15,
+      "aiSolvabilityScore": 50,
+      "effortEstimate": "UNKNOWN",
+      "effortAttractivenessScore": 20,
+      "expectedFilesChanged": "1–3",
+      "implementationComplexity": "LOW",
+      "verificationComplexity": "UNKNOWN",
+      "blockerProbability": "UNKNOWN",
+      "payer": null,
+      "payerRole": "UNKNOWN",
+      "issuerAuthorityScore": 0,
+      "fundingConfidence": 30,
+      "paymentConfidence": "PARTIAL",
+      "paymentLegitimacyScore": 40,
+      "paymentProvider": "Stripe",
+      "paymentEvidence": [
+        {
+          "type": "issuer",
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+          "detail": "Issue author lb1192176991-lab; GitHub association OWNER"
+        },
+        {
+          "url": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+          "checkedAt": "2026-09-21T04:57:05.828Z",
+          "detail": "$250,861.00 bounty for [BOUNTY] Kickama #304 - deterministic data seed ($50) Earn up to $250,861.00 by solving [BOUNTY] Kickama #304 - deterministic data seed ($50) for lb1192176991-lab/zeroeye. Project: lb1192176991-lab / zeroeye on GitHub . Trade risk monitor, paid bounties for diagnostics, testing, and security hardening. Issue URL: https://github.com/lb1192176991-lab/zeroeye/issues/2 Status: Open . 12 available rewards and 0 paid rewards. 17 solvers are trying this issue and 13 solvers have claimed it. Available reward USD: 250861; paid rows are excluded. AVAILABLE: $50; AVAILABLE: $50; AVAILABLE: $100000; AVAILABLE: $20; AVAILABLE: $200; AVAILABLE: $360; AVAILABLE: $100; AVAILABLE: $21; AVAILABLE: $20; AVAILABLE: $150000; AVAILABLE: $20; AVAILABLE: $20"
+        }
+      ],
+      "paymentEvidenceVerified": false,
+      "externalDependencies": [],
+      "verificationRequirements": [],
+      "hiddenBlockerRisk": "UNKNOWN",
+      "effortBucket": "UNKNOWN",
+      "verificationEffort": "UNKNOWN",
+      "rewardAttractivenessScore": 55,
+      "winScore": null,
+      "opportunityScore": 34,
+      "scoreMeaning": "Heuristic opportunity quality score; not a calibrated probability",
+      "huntGates": {
+        "open": true,
+        "activeRepository": true,
+        "unassigned": true,
+        "noCompletedSolution": true,
+        "directReward": true,
+        "payment": false,
+        "credibleValue": true,
+        "scope": false,
+        "solvability": false,
+        "readiness": false,
+        "competition": false,
+        "accessible": true,
+        "completeEvidence": false,
+        "noHardRejection": true
+      },
+      "decision": "INCOMPLETE",
+      "reason": "Evidence collection incomplete; see failed or deferred enrichment steps",
+      "rejectionReasons": [],
+      "coverage": {
+        "complete": false,
+        "missing": [
+          "COMPETITION_CHECKED"
+        ]
+      },
+      "promptInjection": {
+        "detected": false,
+        "matches": [],
+        "policy": "UNTRUSTED_DATA_ONLY"
+      },
+      "scoreBreakdown": {
+        "legitimacy": 40,
+        "aiSolvability": 50,
+        "scopeClarity": 15,
+        "competition": 25,
+        "effort": 20,
+        "repositoryHealth": 45,
+        "maintainerActivity": 20,
+        "rewardAttractiveness": 55
+      },
+      "ok": true,
+      "discoveryUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "canonicalRepositoryUrl": "https://github.com/lb1192176991-lab/zeroeye",
+      "sourceResolutionConfidence": 100,
+      "sourceResolutionEvidence": [
+        {
+          "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+          "detail": "Original GitHub API issue retrieved"
+        }
+      ],
+      "advertisedReward": {
+        "amount": 250861,
+        "currency": "USD",
+        "sourceUrl": "https://app.opire.dev/home",
+        "status": "ADVERTISED_ONLY"
+      },
+      "canonicalIssueReward": {
+        "amount": 50,
+        "currency": "USD",
+        "sourceUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "status": "ISSUE_STATED"
+      },
+      "providerVerifiedReward": {
+        "amount": 250861,
+        "currency": "USD",
+        "sourceUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "status": "PROVIDER_VERIFIED"
+      },
+      "currentlyAvailableReward": {
+        "amount": 250861,
+        "currency": "USD",
+        "sourceUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "status": "CONDITIONAL_ON_ACCEPTANCE"
+      },
+      "payableRewardEstimate": {
+        "amount": 250861,
+        "currency": "USD",
+        "sourceUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "status": "CONDITIONAL_ON_ACCEPTANCE",
+        "feesKnown": false,
+        "netAmount": null,
+        "guaranteed": false
+      },
+      "paymentTrust": {
+        "provider": "Opire",
+        "platformVerified": true,
+        "listingVerified": true,
+        "checkedAt": "2026-09-21T04:57:05.828Z",
+        "url": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+        "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+        "rewardAmount": 250861,
+        "rewardCurrency": "USD",
+        "headlineTotalUsd": 250861,
+        "paidRewardUsd": 0,
+        "rewardRows": [
+          {
+            "amount": 50,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 50,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 100000,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 20,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 200,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 360,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 100,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 21,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 20,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 150000,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 20,
+            "status": "AVAILABLE"
+          },
+          {
+            "amount": 20,
+            "status": "AVAILABLE"
+          }
+        ],
+        "rewardValueVerified": true,
+        "availability": "OPEN",
+        "availableRewards": 12,
+        "paidRewards": 0,
+        "tryingSolvers": 17,
+        "claimingSolvers": 13,
+        "programmingLanguages": [
+          "TypeScript",
+          "Rust",
+          "Python"
+        ],
+        "rewardAvailable": true,
+        "issuerAuthority": "UNKNOWN",
+        "issuerIdentified": false,
+        "rewardCreator": null,
+        "paymentConfidence": "PARTIAL",
+        "paymentProvider": "Stripe",
+        "fundingStatus": "PAY_ON_ACCEPTANCE",
+        "fundsReserved": false,
+        "paymentTrigger": "AFTER_CLAIM_AND_CREATOR_ACCEPTANCE",
+        "mechanicsSources": [
+          "https://docs.opire.dev/faq",
+          "https://docs.opire.dev/rewards/lifecycle",
+          "https://docs.opire.dev/overview/commands"
+        ],
+        "evidence": [
+          {
+            "url": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+            "checkedAt": "2026-09-21T04:57:05.828Z",
+            "detail": "$250,861.00 bounty for [BOUNTY] Kickama #304 - deterministic data seed ($50) Earn up to $250,861.00 by solving [BOUNTY] Kickama #304 - deterministic data seed ($50) for lb1192176991-lab/zeroeye. Project: lb1192176991-lab / zeroeye on GitHub . Trade risk monitor, paid bounties for diagnostics, testing, and security hardening. Issue URL: https://github.com/lb1192176991-lab/zeroeye/issues/2 Status: Open . 12 available rewards and 0 paid rewards. 17 solvers are trying this issue and 13 solvers have claimed it. Available reward USD: 250861; paid rows are excluded. AVAILABLE: $50; AVAILABLE: $50; AVAILABLE: $100000; AVAILABLE: $20; AVAILABLE: $200; AVAILABLE: $360; AVAILABLE: $100; AVAILABLE: $21; AVAILABLE: $20; AVAILABLE: $150000; AVAILABLE: $20; AVAILABLE: $20"
+          }
+        ],
+        "limitations": [
+          "Creator identity and issuer payout history are not exposed by this summary",
+          "Trying and claiming counts may overlap; do not add them",
+          "Listing is not proof of secured funds"
+        ],
+        "knownRewardContributors": []
+      },
+      "providerUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+      "blockers": [],
+      "dependencyEvidence": [],
+      "observedSolvers": 17,
+      "providerClaimedCount": 13,
+      "githubObservedCompetitors": 11,
+      "submittedSolutions": null,
+      "searchCompleteness": "PARTIAL",
+      "preliminaryPriority": 105,
+      "finalOpportunityScore": null,
+      "enrichmentState": "INCOMPLETE",
+      "enrichment": {
+        "steps": [
+          {
+            "step": "BASIC_SCREENED",
+            "status": "COMPLETE",
+            "checkedAt": "2026-09-21T04:57:05.827Z",
+            "retryable": false,
+            "failureReason": "",
+            "evidenceUrls": []
+          },
+          {
+            "step": "SOURCE_RESOLVED",
+            "status": "COMPLETE",
+            "checkedAt": "2026-09-21T04:57:05.827Z",
+            "retryable": false,
+            "failureReason": "",
+            "evidenceUrls": [
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2"
+            ]
+          },
+          {
+            "step": "PAYMENT_CHECKED",
+            "status": "COMPLETE",
+            "checkedAt": "2026-09-21T04:57:05.828Z",
+            "retryable": false,
+            "failureReason": "",
+            "evidenceUrls": [
+              "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z"
+            ]
+          },
+          {
+            "step": "COMPETITION_CHECKED",
+            "status": "INCOMPLETE",
+            "checkedAt": "2026-09-21T04:57:10.309Z",
+            "retryable": false,
+            "failureReason": "Comments, PR search, timeline, provider or PR details incomplete",
+            "evidenceUrls": [
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2/comments?per_page=100&page=1",
+              "https://api.github.com/search/issues?q=repo%3Alb1192176991-lab%2Fzeroeye%20is%3Apr%20%22%232%22&per_page=100",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/38",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/25",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/35",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/29",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/23",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/41",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/13",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/34",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/31",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/18"
+            ]
+          },
+          {
+            "step": "REPO_CHECKED",
+            "status": "COMPLETE",
+            "checkedAt": "2026-09-21T04:57:10.633Z",
+            "retryable": false,
+            "failureReason": "",
+            "evidenceUrls": [
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/git/trees/main?recursive=1",
+              "https://raw.githubusercontent.com/lb1192176991-lab/zeroeye/main/.github/workflows/diagnostic-build-log.yml",
+              "https://raw.githubusercontent.com/lb1192176991-lab/zeroeye/main/README.md",
+              "https://raw.githubusercontent.com/lb1192176991-lab/zeroeye/main/.github/workflows/automatic-approve.yml"
+            ]
+          },
+          {
+            "step": "SCOPE_CHECKED",
+            "status": "COMPLETE",
+            "checkedAt": "2026-09-21T04:57:10.633Z",
+            "retryable": false,
+            "failureReason": "",
+            "evidenceUrls": [
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2"
+            ]
+          },
+          {
+            "step": "DEPENDENCY_CHECKED",
+            "status": "COMPLETE",
+            "checkedAt": "2026-09-21T04:57:10.633Z",
+            "retryable": false,
+            "failureReason": "",
+            "evidenceUrls": [
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye",
+              "https://api.github.com/repos/lb1192176991-lab/zeroeye/git/trees/main?recursive=1",
+              "https://raw.githubusercontent.com/lb1192176991-lab/zeroeye/main/.github/workflows/diagnostic-build-log.yml",
+              "https://raw.githubusercontent.com/lb1192176991-lab/zeroeye/main/README.md",
+              "https://raw.githubusercontent.com/lb1192176991-lab/zeroeye/main/.github/workflows/automatic-approve.yml"
+            ]
+          }
+        ],
+        "completed": 6,
+        "total": 7,
+        "complete": false,
+        "checkedAt": "2026-09-21T04:57:10.633Z"
+      },
+      "competitionState": "UNKNOWN",
+      "phase3Admission": {
+        "state": "INVESTIGATE",
+        "gates": {
+          "canonicalReachable": true,
+          "issueOpen": true,
+          "repositoryAccessible": true,
+          "repositoryActive": true,
+          "exactReward": true,
+          "paymentUnderstood": true,
+          "noCompletedSolution": false,
+          "competitionNotHopeless": false,
+          "softwareScope": false,
+          "repositoryInvestigated": true,
+          "noHardBlocker": true,
+          "noRejection": true
+        },
+        "missingEvidence": [
+          "noCompletedSolution",
+          "competitionNotHopeless",
+          "softwareScope"
+        ],
+        "publicActionAuthorized": false,
+        "operationalSetup": {
+          "status": "HUMAN_SETUP_REQUIRED",
+          "verified": false,
+          "requiredBefore": "CLAIM_OR_PAYMENT",
+          "detail": "Confirm owner Opire login/profile and Stripe payout setup before claiming or payment; does not block private proof."
+        }
+      },
+      "candidatePhase3Status": "INVESTIGATE",
+      "phase2MarketCertification": "INCOMPLETE",
+      "discoverySources": [
+        "Opire"
+      ],
+      "auditInput": {
+        "issue": {
+          "id": "4708250889",
+          "number": 2,
+          "source": "github",
+          "title": "[BOUNTY] Kickama #304 - deterministic data seed ($50)",
+          "body": "Bounty: Upstream PR #304\n\nUpstream: https://github.com/lobster-trap/Kickama/pull/304\n\nDiagnostics received, awaiting review.\n<br/>\n<hr/>\n\n<details><summary>This repo is using Opire - what does it mean? 👇</summary><br/>💵 Everyone can add rewards for this issue commenting <code>/reward 100</code> (replace <code>100</code> with the amount).<br/>🕵️‍♂️ If someone starts working on this issue to earn the rewards, they can comment <code>/try</code> to let everyone know!<br/>🙌 And when they open the PR, they can comment <code>/claim #2</code> either in the PR description or in a PR's comment.<br/><br/>🪙 Also, everyone can tip any user commenting <code>/tip 20 @lb1192176991-lab</code> (replace <code>20</code> with the amount, and <code>@lb1192176991-lab</code> with the user to tip).<br/><br/>📖 If you want to learn more, check out our <a href=\"https://docs.opire.dev\">documentation</a>.</details>",
+          "labels": [
+            "💰 reward"
+          ],
+          "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+          "apiUrl": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+          "repository": "lb1192176991-lab/zeroeye",
+          "repositoryUrl": "https://github.com/lb1192176991-lab/zeroeye",
+          "commentsUrl": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2/comments",
+          "createdAt": "2026-06-20T20:20:37Z",
+          "updatedAt": "2026-09-20T06:48:25Z",
+          "closedAt": null,
+          "state": "open",
+          "comments": 40,
+          "assignees": [],
+          "issuer": "lb1192176991-lab",
+          "authorAssociation": "OWNER",
+          "isPullRequest": false,
+          "providerDiscovery": {
+            "provider": "Opire",
+            "listingUrl": "https://app.opire.dev/issues/01KWQ0VT1N2TKGCY1CK9T61C1Z",
+            "canonicalIssueUrl": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+            "repository": "lb1192176991-lab/zeroeye",
+            "title": "[BOUNTY] Kickama #304 - deterministic data seed ($50)",
+            "advertisedRewardUsd": 250861,
+            "tryingSolvers": 17,
+            "claimingSolvers": 13,
+            "programmingLanguages": [
+              "TypeScript",
+              "Rust",
+              "Python"
+            ],
+            "botInstalled": true,
+            "sourceUrl": "https://app.opire.dev/home",
+            "checkedAt": "2026-09-21T04:56:42.457Z",
+            "listingVerified": false,
+            "providerActivityEvidence": {
+              "url": "https://app.opire.dev/home",
+              "checkedAt": "2026-09-21T04:56:42.457Z",
+              "detail": "Present in current public available-reward catalogue; exact task listing still requires verification"
+            }
+          },
+          "providerSeed": false
+        },
+        "context": {
+          "retrievalTimestamp": "2026-09-21T04:57:05.828Z",
+          "comments": [
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4873599483",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4873599483",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 4873599483,
+              "node_id": "IC_kwDOS9p-6s8AAAABIn05-w",
+              "user": {
+                "login": "reckoning89",
+                "id": 216601217,
+                "node_id": "U_kgDODOkSgQ",
+                "avatar_url": "https://avatars.githubusercontent.com/u/216601217?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/reckoning89",
+                "html_url": "https://github.com/reckoning89",
+                "followers_url": "https://api.github.com/users/reckoning89/followers",
+                "following_url": "https://api.github.com/users/reckoning89/following{/other_user}",
+                "gists_url": "https://api.github.com/users/reckoning89/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/reckoning89/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/reckoning89/subscriptions",
+                "organizations_url": "https://api.github.com/users/reckoning89/orgs",
+                "repos_url": "https://api.github.com/users/reckoning89/repos",
+                "events_url": "https://api.github.com/users/reckoning89/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/reckoning89/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-07-03T07:07:03Z",
+              "updated_at": "2026-07-03T07:07:03Z",
+              "body": "[reckoning89] Interested — starting work on this bounty.\n\nPlan: implement deterministic data seed per acceptance criteria, add tests, open PR within 48h.\nPayment: USDC to `0x028a964901762571022C5f2C9b66717a1c25886F` on Base if applicable.\n\n/attempt",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4873599483/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4878768529",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4878768529",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 4878768529,
+              "node_id": "IC_kwDOS9p-6s8AAAABIswZkQ",
+              "user": {
+                "login": "reckoning89",
+                "id": 216601217,
+                "node_id": "U_kgDODOkSgQ",
+                "avatar_url": "https://avatars.githubusercontent.com/u/216601217?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/reckoning89",
+                "html_url": "https://github.com/reckoning89",
+                "followers_url": "https://api.github.com/users/reckoning89/followers",
+                "following_url": "https://api.github.com/users/reckoning89/following{/other_user}",
+                "gists_url": "https://api.github.com/users/reckoning89/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/reckoning89/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/reckoning89/subscriptions",
+                "organizations_url": "https://api.github.com/users/reckoning89/orgs",
+                "repos_url": "https://api.github.com/users/reckoning89/repos",
+                "events_url": "https://api.github.com/users/reckoning89/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/reckoning89/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-07-03T18:55:14Z",
+              "updated_at": "2026-07-03T18:55:14Z",
+              "body": "**[reckoning89] Work complete — awaiting `/reward 50` to unlock payout**\n\nPR [#13](https://github.com/lb1192176991-lab/zeroeye/pull/13) is **MERGEABLE** with acceptance tests green.\n- Proof: 4 determinism tests — bash run_tests.sh\n- Stack guide: [VERIFY.md](https://github.com/reckoning89/zeroeye/blob/bounty-2-deterministic-seed/VERIFY.md)\n- One-command verify: `bash run_tests.sh`\n\nopirebot blocks `/claim #2` until someone funds the issue. Maintainer: please comment **`/reward 50`** so the bounty can pay out.\n\nPayment: USDC Base `0x028a964901762571022C5f2C9b66717a1c25886F`",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4878768529/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4881656699",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881656699",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 4881656699,
+              "node_id": "IC_kwDOS9p-6s8AAAABIvgrew",
+              "user": {
+                "login": "reckoning89",
+                "id": 216601217,
+                "node_id": "U_kgDODOkSgQ",
+                "avatar_url": "https://avatars.githubusercontent.com/u/216601217?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/reckoning89",
+                "html_url": "https://github.com/reckoning89",
+                "followers_url": "https://api.github.com/users/reckoning89/followers",
+                "following_url": "https://api.github.com/users/reckoning89/following{/other_user}",
+                "gists_url": "https://api.github.com/users/reckoning89/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/reckoning89/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/reckoning89/subscriptions",
+                "organizations_url": "https://api.github.com/users/reckoning89/orgs",
+                "repos_url": "https://api.github.com/users/reckoning89/repos",
+                "events_url": "https://api.github.com/users/reckoning89/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/reckoning89/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-07-04T10:43:12Z",
+              "updated_at": "2026-07-04T10:43:12Z",
+              "body": "**[reckoning89] Work complete — awaiting `/reward 50` to unlock payout**\n\nPR [#13](https://github.com/lb1192176991-lab/zeroeye/pull/13) is **MERGEABLE** with acceptance tests green.\n- Proof: 4 determinism tests — bash run_tests.sh\n- Stack guide: [VERIFY.md](https://github.com/reckoning89/zeroeye/blob/bounty-2-deterministic-seed/VERIFY.md)\n- One-command verify: `bash run_tests.sh`\n\nopirebot blocks `/claim #2` until someone funds the issue. Maintainer: please comment **`/reward 50`** so the bounty can pay out.\n\nPayment: USDC Base `0x028a964901762571022C5f2C9b66717a1c25886F`",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4881656699/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4881703624",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881703624",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 4881703624,
+              "node_id": "IC_kwDOS9p-6s8AAAABIvjiyA",
+              "user": {
+                "login": "rovidev95",
+                "id": 225027948,
+                "node_id": "U_kgDODWmnbA",
+                "avatar_url": "https://avatars.githubusercontent.com/u/225027948?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/rovidev95",
+                "html_url": "https://github.com/rovidev95",
+                "followers_url": "https://api.github.com/users/rovidev95/followers",
+                "following_url": "https://api.github.com/users/rovidev95/following{/other_user}",
+                "gists_url": "https://api.github.com/users/rovidev95/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/rovidev95/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/rovidev95/subscriptions",
+                "organizations_url": "https://api.github.com/users/rovidev95/orgs",
+                "repos_url": "https://api.github.com/users/rovidev95/repos",
+                "events_url": "https://api.github.com/users/rovidev95/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/rovidev95/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-07-04T10:59:08Z",
+              "updated_at": "2026-07-04T10:59:08Z",
+              "body": "/attempt #2\n\n**Plan (RoviDev):**\nSniper detectado - implementacion en curso.",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4881703624/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4881970328",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-4881970328",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 4881970328,
+              "node_id": "IC_kwDOS9p-6s8AAAABIvz0mA",
+              "user": {
+                "login": "reckoning89",
+                "id": 216601217,
+                "node_id": "U_kgDODOkSgQ",
+                "avatar_url": "https://avatars.githubusercontent.com/u/216601217?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/reckoning89",
+                "html_url": "https://github.com/reckoning89",
+                "followers_url": "https://api.github.com/users/reckoning89/followers",
+                "following_url": "https://api.github.com/users/reckoning89/following{/other_user}",
+                "gists_url": "https://api.github.com/users/reckoning89/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/reckoning89/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/reckoning89/subscriptions",
+                "organizations_url": "https://api.github.com/users/reckoning89/orgs",
+                "repos_url": "https://api.github.com/users/reckoning89/repos",
+                "events_url": "https://api.github.com/users/reckoning89/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/reckoning89/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-07-04T12:19:29Z",
+              "updated_at": "2026-07-04T12:19:29Z",
+              "body": "**Cycle 225 — delivery status for maintainer review**\n\nPR [#13](https://github.com/lb1192176991-lab/zeroeye/pull/13) remains **OPEN + MERGEABLE** (head 8a8c249).\n\nFresh verify (2026-07-04): **4/4 determinism tests pass** on Python 3.13 (pytest tests/test_data_generator_determinism.py, 0.79s).\n\n- One-command path: \bash run_tests.sh (see [VERIFY.md](https://github.com/reckoning89/zeroeye/blob/bounty-2-deterministic-seed/VERIFY.md))\n- Stack #13–#16 all MERGEABLE if you want batch review\n\nNote: another contributor posted /attempt — this PR is already deliverable. When ready, maintainer **/reward 50** unlocks Opire /claim → USDC Base `0x028a964901762571022C5f2C9b66717a1c25886F`.",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/4881970328/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "la…24683 tokens truncated…92176991-lab/zeroeye/issues/2#issuecomment-5459075131",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5459075131,
+              "node_id": "IC_kwDOS9p-6s8AAAABRWLgOw",
+              "user": {
+                "login": "opirebot[bot]",
+                "id": 144125177,
+                "node_id": "BOT_kgDOCJcs-Q",
+                "avatar_url": "https://avatars.githubusercontent.com/in/385742?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/opirebot%5Bbot%5D",
+                "html_url": "https://github.com/apps/opirebot",
+                "followers_url": "https://api.github.com/users/opirebot%5Bbot%5D/followers",
+                "following_url": "https://api.github.com/users/opirebot%5Bbot%5D/following{/other_user}",
+                "gists_url": "https://api.github.com/users/opirebot%5Bbot%5D/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/opirebot%5Bbot%5D/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/opirebot%5Bbot%5D/subscriptions",
+                "organizations_url": "https://api.github.com/users/opirebot%5Bbot%5D/orgs",
+                "repos_url": "https://api.github.com/users/opirebot%5Bbot%5D/repos",
+                "events_url": "https://api.github.com/users/opirebot%5Bbot%5D/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/opirebot%5Bbot%5D/received_events",
+                "type": "Bot",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-08-29T00:12:13Z",
+              "updated_at": "2026-08-29T00:12:13Z",
+              "body": "🎉 The user @ylcharan has claimed all rewards for this issue.\n🔍 You can see the PR [here](https://github.com/lb1192176991-lab/zeroeye/pull/35).\n💸 @reckoning89, @gaikwadpraksh065-debug you can pay the related rewards [here](https://app.opire.dev/dashboard/creator/rewards?platform=GitHub&platformId=4708250889).",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5459075131/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": {
+                "id": 385742,
+                "client_id": "Iv1.d40fe98dbd79f97e",
+                "slug": "opirebot",
+                "node_id": "A_kwHOCVQlSs4ABeLO",
+                "owner": {
+                  "login": "Opire",
+                  "id": 156509514,
+                  "node_id": "O_kgDOCVQlSg",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/156509514?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/Opire",
+                  "html_url": "https://github.com/Opire",
+                  "followers_url": "https://api.github.com/users/Opire/followers",
+                  "following_url": "https://api.github.com/users/Opire/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/Opire/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/Opire/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/Opire/subscriptions",
+                  "organizations_url": "https://api.github.com/users/Opire/orgs",
+                  "repos_url": "https://api.github.com/users/Opire/repos",
+                  "events_url": "https://api.github.com/users/Opire/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/Opire/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "name": "OpireBot",
+                "description": "OpireBot allow you to use the Opire commands on your projects",
+                "external_url": "https://opire.dev",
+                "html_url": "https://github.com/apps/opirebot",
+                "created_at": "2023-09-05T11:44:39Z",
+                "updated_at": "2026-09-09T11:30:58Z",
+                "permissions": {
+                  "issues": "write",
+                  "members": "read",
+                  "metadata": "read",
+                  "pull_requests": "write"
+                },
+                "events": [
+                  "issues",
+                  "issue_comment",
+                  "organization",
+                  "pull_request",
+                  "repository"
+                ]
+              },
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5499686263",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5499686263",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5499686263,
+              "node_id": "IC_kwDOS9p-6s8AAAABR86Ndw",
+              "user": {
+                "login": "ThaiDuong1996",
+                "id": 183896599,
+                "node_id": "U_kgDOCvYKFw",
+                "avatar_url": "https://avatars.githubusercontent.com/u/183896599?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/ThaiDuong1996",
+                "html_url": "https://github.com/ThaiDuong1996",
+                "followers_url": "https://api.github.com/users/ThaiDuong1996/followers",
+                "following_url": "https://api.github.com/users/ThaiDuong1996/following{/other_user}",
+                "gists_url": "https://api.github.com/users/ThaiDuong1996/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/ThaiDuong1996/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/ThaiDuong1996/subscriptions",
+                "organizations_url": "https://api.github.com/users/ThaiDuong1996/orgs",
+                "repos_url": "https://api.github.com/users/ThaiDuong1996/repos",
+                "events_url": "https://api.github.com/users/ThaiDuong1996/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/ThaiDuong1996/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-09-01T20:02:45Z",
+              "updated_at": "2026-09-01T20:02:45Z",
+              "body": "Hello @reckoning89 @gaikwadprakash065-debug,\n\nI have submitted the fix for this issue (PR #30). OpireBot marked my claim, but the bounty status is still unpaid on the Opire dashboard. Could you please review and approve the payout when you have time?\n\nThank you!",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5499686263/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5502453090",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5502453090",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5502453090,
+              "node_id": "IC_kwDOS9p-6s8AAAABR_jFYg",
+              "user": {
+                "login": "mobiusbbbot-lab",
+                "id": 323818225,
+                "node_id": "U_kgDOE00S8Q",
+                "avatar_url": "https://avatars.githubusercontent.com/u/323818225?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/mobiusbbbot-lab",
+                "html_url": "https://github.com/mobiusbbbot-lab",
+                "followers_url": "https://api.github.com/users/mobiusbbbot-lab/followers",
+                "following_url": "https://api.github.com/users/mobiusbbbot-lab/following{/other_user}",
+                "gists_url": "https://api.github.com/users/mobiusbbbot-lab/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/mobiusbbbot-lab/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/mobiusbbbot-lab/subscriptions",
+                "organizations_url": "https://api.github.com/users/mobiusbbbot-lab/orgs",
+                "repos_url": "https://api.github.com/users/mobiusbbbot-lab/repos",
+                "events_url": "https://api.github.com/users/mobiusbbbot-lab/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/mobiusbbbot-lab/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-09-02T00:23:50Z",
+              "updated_at": "2026-09-02T00:23:57Z",
+              "body": "/try\n\nStarting an independent pass on deterministic data seed (TypeScript path) as mobiusbbbot-lab. Will open a PR if we can beat existing open claims cleanly.<details><summary>Check if you're the only one trying 👇</summary><br/>There are already people trying to solve this issue. You're welcome to tackle it independently, but we encourage you to reach out to the contributors that are trying to solve the issue if you'd like to collaborate with them.\n\nThe other contributors are: @mitchellecm7 @jdjioe5-cpu @reckoning89 @mdsanzidhasnat @soongyintong @Perfex-3437 @br413 @praveenchand-2005 @dobleaa989 @ThaiDuong1996 @xkong2017 @silvaadrian @Legend999999 @ylcharan.</details>",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5502453090/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5714289476",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5714289476",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5714289476,
+              "node_id": "IC_kwDOS9p-6s8AAAABVJkjRA",
+              "user": {
+                "login": "vavyukkt-beep",
+                "id": 222923721,
+                "node_id": "U_kgDODUmLyQ",
+                "avatar_url": "https://avatars.githubusercontent.com/u/222923721?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/vavyukkt-beep",
+                "html_url": "https://github.com/vavyukkt-beep",
+                "followers_url": "https://api.github.com/users/vavyukkt-beep/followers",
+                "following_url": "https://api.github.com/users/vavyukkt-beep/following{/other_user}",
+                "gists_url": "https://api.github.com/users/vavyukkt-beep/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/vavyukkt-beep/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/vavyukkt-beep/subscriptions",
+                "organizations_url": "https://api.github.com/users/vavyukkt-beep/orgs",
+                "repos_url": "https://api.github.com/users/vavyukkt-beep/repos",
+                "events_url": "https://api.github.com/users/vavyukkt-beep/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/vavyukkt-beep/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-09-17T12:23:36Z",
+              "updated_at": "2026-09-17T12:23:48Z",
+              "body": "/try\n\nStarting work on deterministic data generator seed fix for `tools/data_generator.py`.<details><summary>Check if you're the only one trying 👇</summary><br/>There are already people trying to solve this issue. You're welcome to tackle it independently, but we encourage you to reach out to the contributors that are trying to solve the issue if you'd like to collaborate with them.\n\nThe other contributors are: @mitchellecm7 @jdjioe5-cpu @reckoning89 @mdsanzidhasnat @soongyintong @Perfex-3437 @br413 @praveenchand-2005 @dobleaa989 @ThaiDuong1996 @xkong2017 @silvaadrian @Legend999999 @ylcharan @mobiusbbbot-lab.</details>",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5714289476/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5714374146",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5714374146",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5714374146,
+              "node_id": "IC_kwDOS9p-6s8AAAABVJpuAg",
+              "user": {
+                "login": "opirebot[bot]",
+                "id": 144125177,
+                "node_id": "BOT_kgDOCJcs-Q",
+                "avatar_url": "https://avatars.githubusercontent.com/in/385742?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/opirebot%5Bbot%5D",
+                "html_url": "https://github.com/apps/opirebot",
+                "followers_url": "https://api.github.com/users/opirebot%5Bbot%5D/followers",
+                "following_url": "https://api.github.com/users/opirebot%5Bbot%5D/following{/other_user}",
+                "gists_url": "https://api.github.com/users/opirebot%5Bbot%5D/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/opirebot%5Bbot%5D/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/opirebot%5Bbot%5D/subscriptions",
+                "organizations_url": "https://api.github.com/users/opirebot%5Bbot%5D/orgs",
+                "repos_url": "https://api.github.com/users/opirebot%5Bbot%5D/repos",
+                "events_url": "https://api.github.com/users/opirebot%5Bbot%5D/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/opirebot%5Bbot%5D/received_events",
+                "type": "Bot",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-09-17T12:30:01Z",
+              "updated_at": "2026-09-17T12:30:01Z",
+              "body": "🎉 The user @vavyukkt-beep has claimed all rewards for this issue.\n🔍 You can see the PR [here](https://github.com/lb1192176991-lab/zeroeye/pull/38).\n💸 @reckoning89, @gaikwadpraksh065-debug, @pacreautheo-droid, @Nitish-1303, @Kru5hna, @Mohit-1307, @MasherAdriano, @botdpro001, @dalecannegie-commits, @Shank312",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5714374146/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": {
+                "id": 385742,
+                "client_id": "Iv1.d40fe98dbd79f97e",
+                "slug": "opirebot",
+                "node_id": "A_kwHOCVQlSs4ABeLO",
+                "owner": {
+                  "login": "Opire",
+                  "id": 156509514,
+                  "node_id": "O_kgDOCVQlSg",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/156509514?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/Opire",
+                  "html_url": "https://github.com/Opire",
+                  "followers_url": "https://api.github.com/users/Opire/followers",
+                  "following_url": "https://api.github.com/users/Opire/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/Opire/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/Opire/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/Opire/subscriptions",
+                  "organizations_url": "https://api.github.com/users/Opire/orgs",
+                  "repos_url": "https://api.github.com/users/Opire/repos",
+                  "events_url": "https://api.github.com/users/Opire/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/Opire/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "name": "OpireBot",
+                "description": "OpireBot allow you to use the Opire commands on your projects",
+                "external_url": "https://opire.dev",
+                "html_url": "https://github.com/apps/opirebot",
+                "created_at": "2023-09-05T11:44:39Z",
+                "updated_at": "2026-09-09T11:30:58Z",
+                "permissions": {
+                  "issues": "write",
+                  "members": "read",
+                  "metadata": "read",
+                  "pull_requests": "write"
+                },
+                "events": [
+                  "issues",
+                  "issue_comment",
+                  "organization",
+                  "pull_request",
+                  "repository"
+                ]
+              },
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5722007682",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5722007682",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5722007682,
+              "node_id": "IC_kwDOS9p-6s8AAAABVQ7ogg",
+              "user": {
+                "login": "dalecannegie-commits",
+                "id": 315485515,
+                "node_id": "U_kgDOEs3tSw",
+                "avatar_url": "https://avatars.githubusercontent.com/u/315485515?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/dalecannegie-commits",
+                "html_url": "https://github.com/dalecannegie-commits",
+                "followers_url": "https://api.github.com/users/dalecannegie-commits/followers",
+                "following_url": "https://api.github.com/users/dalecannegie-commits/following{/other_user}",
+                "gists_url": "https://api.github.com/users/dalecannegie-commits/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/dalecannegie-commits/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/dalecannegie-commits/subscriptions",
+                "organizations_url": "https://api.github.com/users/dalecannegie-commits/orgs",
+                "repos_url": "https://api.github.com/users/dalecannegie-commits/repos",
+                "events_url": "https://api.github.com/users/dalecannegie-commits/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/dalecannegie-commits/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-09-17T22:21:12Z",
+              "updated_at": "2026-09-17T22:21:12Z",
+              "body": "what does the owner pay as reward for closing ths issue, it's  a vague issue I must say.\nForgive my lack of knowledge.",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5722007682/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5722019480",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5722019480",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5722019480,
+              "node_id": "IC_kwDOS9p-6s8AAAABVQ8WmA",
+              "user": {
+                "login": "dalecannegie-commits",
+                "id": 315485515,
+                "node_id": "U_kgDOEs3tSw",
+                "avatar_url": "https://avatars.githubusercontent.com/u/315485515?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/dalecannegie-commits",
+                "html_url": "https://github.com/dalecannegie-commits",
+                "followers_url": "https://api.github.com/users/dalecannegie-commits/followers",
+                "following_url": "https://api.github.com/users/dalecannegie-commits/following{/other_user}",
+                "gists_url": "https://api.github.com/users/dalecannegie-commits/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/dalecannegie-commits/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/dalecannegie-commits/subscriptions",
+                "organizations_url": "https://api.github.com/users/dalecannegie-commits/orgs",
+                "repos_url": "https://api.github.com/users/dalecannegie-commits/repos",
+                "events_url": "https://api.github.com/users/dalecannegie-commits/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/dalecannegie-commits/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-09-17T22:22:31Z",
+              "updated_at": "2026-09-17T22:22:31Z",
+              "body": "Does it reflect in my masteraccount?  the bounty that is?",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5722019480/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": null,
+              "minimized": null
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5748218704",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/issues/2#issuecomment-5748218704",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/2",
+              "id": 5748218704,
+              "node_id": "IC_kwDOS9p-6s8AAAABVp7bUA",
+              "user": {
+                "login": "opirebot[bot]",
+                "id": 144125177,
+                "node_id": "BOT_kgDOCJcs-Q",
+                "avatar_url": "https://avatars.githubusercontent.com/in/385742?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/opirebot%5Bbot%5D",
+                "html_url": "https://github.com/apps/opirebot",
+                "followers_url": "https://api.github.com/users/opirebot%5Bbot%5D/followers",
+                "following_url": "https://api.github.com/users/opirebot%5Bbot%5D/following{/other_user}",
+                "gists_url": "https://api.github.com/users/opirebot%5Bbot%5D/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/opirebot%5Bbot%5D/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/opirebot%5Bbot%5D/subscriptions",
+                "organizations_url": "https://api.github.com/users/opirebot%5Bbot%5D/orgs",
+                "repos_url": "https://api.github.com/users/opirebot%5Bbot%5D/repos",
+                "events_url": "https://api.github.com/users/opirebot%5Bbot%5D/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/opirebot%5Bbot%5D/received_events",
+                "type": "Bot",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "created_at": "2026-09-20T06:48:25Z",
+              "updated_at": "2026-09-20T06:48:25Z",
+              "body": "🎉 The user @itxayazmalik has claimed all rewards for this issue.\n🔍 You can see the PR [here](https://github.com/lb1192176991-lab/zeroeye/pull/41).\n💸 @reckoning89, @gaikwadpraksh065-debug, @pacreautheo-droid, @Nitish-1303, @Kru5hna, @Mohit-1307, @MasherAdriano, @botdpro001, @dalecannegie-commits, @Shank312",
+              "author_association": "NONE",
+              "pin": null,
+              "reactions": {
+                "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments/5748218704/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "performed_via_github_app": {
+                "id": 385742,
+                "client_id": "Iv1.d40fe98dbd79f97e",
+                "slug": "opirebot",
+                "node_id": "A_kwHOCVQlSs4ABeLO",
+                "owner": {
+                  "login": "Opire",
+                  "id": 156509514,
+                  "node_id": "O_kgDOCVQlSg",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/156509514?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/Opire",
+                  "html_url": "https://github.com/Opire",
+                  "followers_url": "https://api.github.com/users/Opire/followers",
+                  "following_url": "https://api.github.com/users/Opire/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/Opire/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/Opire/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/Opire/subscriptions",
+                  "organizations_url": "https://api.github.com/users/Opire/orgs",
+                  "repos_url": "https://api.github.com/users/Opire/repos",
+                  "events_url": "https://api.github.com/users/Opire/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/Opire/received_events",
+                  "type": "Organization",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "name": "OpireBot",
+                "description": "OpireBot allow you to use the Opire commands on your projects",
+                "external_url": "https://opire.dev",
+                "html_url": "https://github.com/apps/opirebot",
+                "created_at": "2023-09-05T11:44:39Z",
+                "updated_at": "2026-09-09T11:30:58Z",
+                "permissions": {
+                  "issues": "write",
+                  "members": "read",
+                  "metadata": "read",
+                  "pull_requests": "write"
+                },
+                "events": [
+                  "issues",
+                  "issue_comment",
+                  "organization",
+                  "pull_request",
+                  "repository"
+                ]
+              },
+              "minimized": null
+            }
+          ],
+          "solutionPRs": [
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/38",
+              "id": 4558419799,
+              "node_id": "PR_kwDOS9p-6s8AAAABD7P3Vw",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/pull/38",
+              "diff_url": "https://github.com/lb1192176991-lab/zeroeye/pull/38.diff",
+              "patch_url": "https://github.com/lb1192176991-lab/zeroeye/pull/38.patch",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/38",
+              "number": 38,
+              "state": "open",
+              "locked": false,
+              "title": "fix: deterministic data generator seed support (resolves #2)",
+              "user": {
+                "login": "vavyukkt-beep",
+                "id": 222923721,
+                "node_id": "U_kgDODUmLyQ",
+                "avatar_url": "https://avatars.githubusercontent.com/u/222923721?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/vavyukkt-beep",
+                "html_url": "https://github.com/vavyukkt-beep",
+                "followers_url": "https://api.github.com/users/vavyukkt-beep/followers",
+                "following_url": "https://api.github.com/users/vavyukkt-beep/following{/other_user}",
+                "gists_url": "https://api.github.com/users/vavyukkt-beep/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/vavyukkt-beep/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/vavyukkt-beep/subscriptions",
+                "organizations_url": "https://api.github.com/users/vavyukkt-beep/orgs",
+                "repos_url": "https://api.github.com/users/vavyukkt-beep/repos",
+                "events_url": "https://api.github.com/users/vavyukkt-beep/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/vavyukkt-beep/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "body": "## Summary of Changes\nResolves #2\n\n### Solution Overview\nImplemented deterministic seeded data generation for `tools/data_generator.py`:\n- **Instance-Seeded Randomness**: All random data generation helpers (`random_phone`, `random_email`, `random_datetime`, `gaussian_random`) now route their entropy through the instance-specific `self.random` PRNG instance.\n- **Fixed Reference Base Time**: Replaced non-deterministic `int(time.time() * 1000)` calls with deterministic `base_time_ms` for tick and candle time series, ensuring reproducible timestamps across runs with the same seed.\n- **Configurable Seed CLI**: Added `--seed` resolution and `--print-seed` flags with structured `metadata.json` output detailing run parameters.\n- **Validation Test Suite**: Added `tools/validate_data_generator_determinism.py` testing seed determinism across multiple runs and seeds (7, 42, 2026) with sha256 byte-equality checks.\n- **Diagnostic Build Verification**: Built frontend and generated full diagnostic bundle split into <= 40 MiB chunks (`diagnostic/build-650e4ef1-part001.logd`, `diagnostic/build-650e4ef1-part002.logd`) with metadata.\n  - Diagnostic Decryption Password: `30ba818747766bc4a8ba`\n  - Reassembly: `cat diagnostic/build-650e4ef1-part001.logd diagnostic/build-650e4ef1-part002.logd > diagnostic/build-650e4ef1.logd`\n\n## Testing & Verification\n- Ran `python3 tools/validate_data_generator_determinism.py` -> Passed with 0 errors across all seeds.\n- Ran `python3 build.py -m frontend` -> Build PASS (6.4s), diagnostics finalized and verified.\n\n## Bounty Claim\n/claim #2\n\n---\n*Autonomous contribution submitted by Conway Automaton.*",
+              "created_at": "2026-09-17T12:29:49Z",
+              "updated_at": "2026-09-17T12:30:07Z",
+              "closed_at": null,
+              "merged_at": null,
+              "merge_commit_sha": "20a2b86e23eeed6b14414b93b6dd7873f7b05c51",
+              "assignees": [],
+              "requested_reviewers": [],
+              "requested_teams": [],
+              "labels": [],
+              "milestone": null,
+              "draft": false,
+              "commits_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/38/commits",
+              "review_comments_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/38/comments",
+              "review_comment_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/comments{/number}",
+              "comments_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/38/comments",
+              "statuses_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/statuses/50ab8e4db250a899ffaf2d54e62eb6d936119110",
+              "head": {
+                "label": "vavyukkt-beep:fix/deterministic-data-seed",
+                "ref": "fix/deterministic-data-seed",
+                "sha": "50ab8e4db250a899ffaf2d54e62eb6d936119110",
+                "user": {
+                  "login": "vavyukkt-beep",
+                  "id": 222923721,
+                  "node_id": "U_kgDODUmLyQ",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/222923721?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/vavyukkt-beep",
+                  "html_url": "https://github.com/vavyukkt-beep",
+                  "followers_url": "https://api.github.com/users/vavyukkt-beep/followers",
+                  "following_url": "https://api.github.com/users/vavyukkt-beep/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/vavyukkt-beep/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/vavyukkt-beep/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/vavyukkt-beep/subscriptions",
+                  "organizations_url": "https://api.github.com/users/vavyukkt-beep/orgs",
+                  "repos_url": "https://api.github.com/users/vavyukkt-beep/repos",
+                  "events_url": "https://api.github.com/users/vavyukkt-beep/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/vavyukkt-beep/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "repo": {
+                  "id": 1374240147,
+                  "node_id": "R_kgDOUek9kw",
+                  "name": "zeroeye",
+                  "full_name": "vavyukkt-beep/zeroeye",
+                  "private": false,
+                  "owner": {
+                    "login": "vavyukkt-beep",
+                    "id": 222923721,
+                    "node_id": "U_kgDODUmLyQ",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/222923721?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/vavyukkt-beep",
+                    "html_url": "https://github.com/vavyukkt-beep",
+                    "followers_url": "https://api.github.com/users/vavyukkt-beep/followers",
+                    "following_url": "https://api.github.com/users/vavyukkt-beep/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/vavyukkt-beep/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/vavyukkt-beep/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/vavyukkt-beep/subscriptions",
+                    "organizations_url": "https://api.github.com/users/vavyukkt-beep/orgs",
+                    "repos_url": "https://api.github.com/users/vavyukkt-beep/repos",
+                    "events_url": "https://api.github.com/users/vavyukkt-beep/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/vavyukkt-beep/received_events",
+                    "type": "User",
+                    "user_view_type": "public",
+                    "site_admin": false
+                  },
+                  "html_url": "https://github.com/vavyukkt-beep/zeroeye",
+                  "description": "Trade risk monitor, paid bounties for diagnostics, testing, and security hardening.",
+                  "fork": true,
+                  "url": "https://api.github.com/repos/vavyukkt-beep/zeroeye",
+                  "forks_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/forks",
+                  "keys_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/keys{/key_id}",
+                  "collaborators_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/collaborators{/collaborator}",
+                  "teams_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/teams",
+                  "hooks_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/hooks",
+                  "issue_events_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/issues/events{/number}",
+                  "events_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/events",
+                  "assignees_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/assignees{/user}",
+                  "branches_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/branches{/branch}",
+                  "tags_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/tags",
+                  "blobs_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/git/blobs{/sha}",
+                  "git_tags_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/git/tags{/sha}",
+                  "git_refs_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/git/refs{/sha}",
+                  "trees_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/git/trees{/sha}",
+                  "statuses_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/statuses/{sha}",
+                  "languages_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/languages",
+                  "stargazers_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/stargazers",
+                  "contributors_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/contributors",
+                  "subscribers_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/subscribers",
+                  "subscription_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/subscription",
+                  "commits_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/commits{/sha}",
+                  "git_commits_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/git/commits{/sha}",
+                  "comments_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/comments{/number}",
+                  "issue_comment_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/issues/comments{/number}",
+                  "contents_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/contents/{+path}",
+                  "compare_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/compare/{base}...{head}",
+                  "merges_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/merges",
+                  "archive_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/{archive_format}{/ref}",
+                  "downloads_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/downloads",
+                  "issues_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/issues{/number}",
+                  "pulls_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/pulls{/number}",
+                  "milestones_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/milestones{/number}",
+                  "notifications_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/notifications{?since,all,participating}",
+                  "labels_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/labels{/name}",
+                  "releases_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/releases{/id}",
+                  "deployments_url": "https://api.github.com/repos/vavyukkt-beep/zeroeye/deployments",
+                  "created_at": "2026-09-17T10:00:26Z",
+                  "updated_at": "2026-09-17T10:00:26Z",
+                  "pushed_at": "2026-09-17T13:12:36Z",
+                  "git_url": "git://github.com/vavyukkt-beep/zeroeye.git",
+                  "ssh_url": "git@github.com:vavyukkt-beep/zeroeye.git",
+                  "clone_url": "https://github.com/vavyukkt-beep/zeroeye.git",
+                  "svn_url": "https://github.com/vavyukkt-beep/zeroeye",
+                  "homepage": null,
+                  "size": 192240,
+                  "stargazers_count": 0,
+                  "watchers_count": 0,
+                  "language": null,
+                  "has_issues": false,
+                  "has_projects": true,
+                  "has_downloads": false,
+                  "has_wiki": true,
+                  "has_pages": false,
+                  "has_discussions": false,
+                  "forks_count": 0,
+                  "mirror_url": null,
+                  "archived": false,
+                  "disabled": false,
+                  "open_issues_count": 0,
+                  "license": null,
+                  "allow_forking": true,
+                  "is_template": false,
+                  "web_commit_signoff_required": false,
+                  "has_pull_requests": true,
+                  "pull_request_creation_policy": "all",
+                  "topics": [],
+                  "visibility": "public",
+                  "forks": 0,
+                  "open_issues": 0,
+                  "watchers": 0,
+                  "default_branch": "main"
+                }
+              },
+              "base": {
+                "label": "lb1192176991-lab:main",
+                "ref": "main",
+                "sha": "3774a0c821d206132ed2d89bfc820929493a7635",
+                "user": {
+                  "login": "lb1192176991-lab",
+                  "id": 244153020,
+                  "node_id": "U_kgDODo16vA",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/244153020?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/lb1192176991-lab",
+                  "html_url": "https://github.com/lb1192176991-lab",
+                  "followers_url": "https://api.github.com/users/lb1192176991-lab/followers",
+                  "following_url": "https://api.github.com/users/lb1192176991-lab/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/lb1192176991-lab/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/lb1192176991-lab/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/lb1192176991-lab/subscriptions",
+                  "organizations_url": "https://api.github.com/users/lb1192176991-lab/orgs",
+                  "repos_url": "https://api.github.com/users/lb1192176991-lab/repos",
+                  "events_url": "https://api.github.com/users/lb1192176991-lab/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/lb1192176991-lab/received_events",
+                  "type": "User",
+                  "user_view_type": "public",
+                  "site_admin": false
+                },
+                "repo": {
+                  "id": 1272610538,
+                  "node_id": "R_kgDOS9p-6g",
+                  "name": "zeroeye",
+                  "full_name": "lb1192176991-lab/zeroeye",
+                  "private": false,
+                  "owner": {
+                    "login": "lb1192176991-lab",
+                    "id": 244153020,
+                    "node_id": "U_kgDODo16vA",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/244153020?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/lb1192176991-lab",
+                    "html_url": "https://github.com/lb1192176991-lab",
+                    "followers_url": "https://api.github.com/users/lb1192176991-lab/followers",
+                    "following_url": "https://api.github.com/users/lb1192176991-lab/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/lb1192176991-lab/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/lb1192176991-lab/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/lb1192176991-lab/subscriptions",
+                    "organizations_url": "https://api.github.com/users/lb1192176991-lab/orgs",
+                    "repos_url": "https://api.github.com/users/lb1192176991-lab/repos",
+                    "events_url": "https://api.github.com/users/lb1192176991-lab/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/lb1192176991-lab/received_events",
+                    "type": "User",
+                    "user_view_type": "public",
+                    "site_admin": false
+                  },
+                  "html_url": "https://github.com/lb1192176991-lab/zeroeye",
+                  "description": "Trade risk monitor, paid bounties for diagnostics, testing, and security hardening.",
+                  "fork": true,
+                  "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye",
+                  "forks_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/forks",
+                  "keys_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/keys{/key_id}",
+                  "collaborators_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/collaborators{/collaborator}",
+                  "teams_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/teams",
+                  "hooks_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/hooks",
+                  "issue_events_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/events{/number}",
+                  "events_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/events",
+                  "assignees_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/assignees{/user}",
+                  "branches_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/branches{/branch}",
+                  "tags_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/tags",
+                  "blobs_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/git/blobs{/sha}",
+                  "git_tags_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/git/tags{/sha}",
+                  "git_refs_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/git/refs{/sha}",
+                  "trees_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/git/trees{/sha}",
+                  "statuses_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/statuses/{sha}",
+                  "languages_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/languages",
+                  "stargazers_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/stargazers",
+                  "contributors_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/contributors",
+                  "subscribers_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/subscribers",
+                  "subscription_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/subscription",
+                  "commits_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/commits{/sha}",
+                  "git_commits_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/git/commits{/sha}",
+                  "comments_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/comments{/number}",
+                  "issue_comment_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/comments{/number}",
+                  "contents_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/contents/{+path}",
+                  "compare_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/compare/{base}...{head}",
+                  "merges_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/merges",
+                  "archive_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/{archive_format}{/ref}",
+                  "downloads_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/downloads",
+                  "issues_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues{/number}",
+                  "pulls_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls{/number}",
+                  "milestones_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/milestones{/number}",
+                  "notifications_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/notifications{?since,all,participating}",
+                  "labels_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/labels{/name}",
+                  "releases_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/releases{/id}",
+                  "deployments_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/deployments",
+                  "created_at": "2026-06-17T19:24:13Z",
+                  "updated_at": "2026-09-02T14:52:40Z",
+                  "pushed_at": "2026-06-26T19:00:37Z",
+                  "git_url": "git://github.com/lb1192176991-lab/zeroeye.git",
+                  "ssh_url": "git@github.com:lb1192176991-lab/zeroeye.git",
+                  "clone_url": "https://github.com/lb1192176991-lab/zeroeye.git",
+                  "svn_url": "https://github.com/lb1192176991-lab/zeroeye",
+                  "homepage": null,
+                  "size": 728002,
+                  "stargazers_count": 1,
+                  "watchers_count": 1,
+                  "language": "TypeScript",
+                  "has_issues": true,
+                  "has_projects": true,
+                  "has_downloads": false,
+                  "has_wiki": true,
+                  "has_pages": false,
+                  "has_discussions": false,
+                  "forks_count": 15,
+                  "mirror_url": null,
+                  "archived": false,
+                  "disabled": false,
+                  "open_issues_count": 29,
+                  "license": null,
+                  "allow_forking": true,
+                  "is_template": false,
+                  "web_commit_signoff_required": false,
+                  "has_pull_requests": true,
+                  "pull_request_creation_policy": "all",
+                  "topics": [],
+                  "visibility": "public",
+                  "forks": 15,
+                  "open_issues": 29,
+                  "watchers": 1,
+                  "default_branch": "main"
+                }
+              },
+              "_links": {
+                "self": {
+                  "href": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/38"
+                },
+                "html": {
+                  "href": "https://github.com/lb1192176991-lab/zeroeye/pull/38"
+                },
+                "issue": {
+                  "href": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/38"
+                },
+                "comments": {
+                  "href": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/38/comments"
+                },
+                "review_comments": {
+                  "href": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/38/comments"
+                },
+                "review_comment": {
+                  "href": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/comments{/number}"
+                },
+                "commits": {
+                  "href": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/38/commits"
+                },
+                "statuses": {
+                  "href": "https://api.github.com/repos/lb1192176991-lab/zeroeye/statuses/50ab8e4db250a899ffaf2d54e62eb6d936119110"
+                }
+              },
+              "author_association": "NONE",
+              "auto_merge": null,
+              "assignee": null,
+              "active_lock_reason": null,
+              "merged": false,
+              "mergeable": true,
+              "rebaseable": true,
+              "mergeable_state": "clean",
+              "merged_by": null,
+              "comments": 3,
+              "review_comments": 0,
+              "maintainer_can_modify": true,
+              "commits": 2,
+              "additions": 180,
+              "deletions": 30,
+              "changed_files": 6,
+              "linkedFromIssue": true
+            },
+            {
+              "url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/25",
+              "id": 4182732312,
+              "node_id": "PR_kwDOS9p-6s75T24Y",
+              "html_url": "https://github.com/lb1192176991-lab/zeroeye/pull/25",
+              "diff_url": "https://github.com/lb1192176991-lab/zeroeye/pull/25.diff",
+              "patch_url": "https://github.com/lb1192176991-lab/zeroeye/pull/25.patch",
+              "issue_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/25",
+              "number": 25,
+              "state": "open",
+              "locked": false,
+              "title": "Bounty 2 deterministic seed",
+              "user": {
+                "login": "praveenchand-2005",
+                "id": 231837204,
+                "node_id": "U_kgDODdGOFA",
+                "avatar_url": "https://avatars.githubusercontent.com/u/231837204?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/praveenchand-2005",
+                "html_url": "https://github.com/praveenchand-2005",
+                "followers_url": "https://api.github.com/users/praveenchand-2005/followers",
+                "following_url": "https://api.github.com/users/praveenchand-2005/following{/other_user}",
+                "gists_url": "https://api.github.com/users/praveenchand-2005/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/praveenchand-2005/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/praveenchand-2005/subscriptions",
+                "organizations_url": "https://api.github.com/users/praveenchand-2005/orgs",
+                "repos_url": "https://api.github.com/users/praveenchand-2005/repos",
+                "events_url": "https://api.github.com/users/praveenchand-2005/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/praveenchand-2005/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "body": "## Summary\r\n\r\n<!-- Required: Briefly describe what this PR does and why. -->\r\n\r\n## Changes\r\n\r\n<!-- Required: List the notable code, docs, test, or configuration changes. -->\r\n\r\n## Testing\r\n\r\n<!-- Required: Describe what you ran locally and the results. Include relevant commands. Verifying the build locally is required. -->\r\n\r\n## Checklist\r\n\r\n- [ ] Relevant modules affected by these changes build locally\r\n- [ ] Tests pass locally\r\n- [ ] Diagnostic build log is committed in this PR\r\n- [ ] Documentation has been updated, if applicable\r\n- [ ] Configuration or schema changes are documented, if applicable\r\n- [ ] No generated build artifacts are committed, except the required diagnostic build log\r\n- [ ] Changes are scoped to the PR purpose and avoid unrelated cleanup\r\n- [ ] Security, privacy, and error-handling implications have been considered\r\n\r\n---\r\n\r\n- [ ] I would like to request that my diagnostic build log is removed before merging\r\n",
+              "created_at": "2026-08-01T06:04:49Z",
+              "updated_at": "2026-08-01T06:04:49Z",
+              "closed_at": null,
+              "merged_at": null,
+              "merge_commit_sha": "72451401dc167540f2a51d2bda0decc9cc38fa6f",
+              "assignees": [],
+              "requested_reviewers": [],
+              "requested_teams": [],
+              "labels": [],
+              "milestone": null,
+              "draft": false,
+              "commits_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/25/commits",
+              "review_comments_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/25/comments",
+              "review_comment_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/pulls/comments{/number}",
+              "comments_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/issues/25/comments",
+              "statuses_url": "https://api.github.com/repos/lb1192176991-lab/zeroeye/statuses/9cd6b55d9cefcd5d4e11be788f2a5fc0279eb901",
+              "head": {
+                "label": "praveenchand-2005:bounty-2-deterministic-seed",
+                "ref": "bounty-2-deterministic-seed",
+                "sha": "9cd6b55d9cefcd5d4e11be788f2a5fc0279eb901",
+                "user": {
+                  "login": "praveenchand-2005",
+                  "id": 231837204,
+                  "node_id": "U_kgDODdGOFA",
+                  "avatar_url": "https://avatars.githubusercontent.com/u/231837204?v=4",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/praveenchand-2005",
+                  "html_url": "https://github.com/praveenchand-2005",
+                  "followers_url": "https://api.github.com/users/praveenchand-2005/followers",
+                  "following_url": "https://api.github.com/users/praveenchand-2005/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/praveenchand-2005/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/praveenchand-2005/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/praveenchand-2005/subscriptions",
+                  "organizations_url": "https://api.github.com/users/praveenchand-2005/orgs",
+                  "repos_url": "https://api.github.com/users/praveenchand-2005/repos",
+                  "events_url": "https://api.github.com/users/praveenchand-2005/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/praveenchand-2005/received_events",
