@@ -1,0 +1,123 @@
+{
+  "fetchedAt": "2026-09-21T01:57:47.465Z",
+  "engineRevision": "operations-v1-delivery-certified-sources",
+  "rawCount": 90,
+  "githubRaw": 60,
+  "opireRaw": 30,
+  "uniqueGitHubOpire": 79,
+  "distinctAcrossIntegratedSources": 81,
+  "deepAttempts": 5,
+  "fullyEnriched": 1,
+  "phase3Eligible": 0,
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 12,
+    "productionReadbackLastScan": "2026-09-21T01:57:47.465Z"
+  },
+  "runtimeCounts": {
+    "INVESTIGATING": 352,
+    "REJECTED": 15,
+    "WAITING_FOR_MAINTAINER": 1,
+    "DO_NOT_HUNT": 1,
+    "PRIVATE_PROOF": 0,
+    "LOCKED": 0,
+    "SOLVING": 0,
+    "QA": 0,
+    "READY_TO_SUBMIT": 0,
+    "SUBMITTED": 0,
+    "CHANGES_REQUESTED": 0,
+    "MERGED": 0,
+    "PAID": 0
+  },
+  "sources": {
+    "github": {
+      "checkedAt": "2026-09-21T01:57:47.465Z",
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "Three bounded public GitHub issue searches; all returned complete result pages",
+      "newOrChanged": "Four new $25 BasedHardware/omi bounty proposals were observed. Each issue names an already-open paired fix PR; #15305 also had a second competing solution PR. They are proposed, not confirmed funded assignments."
+    },
+    "opire": {
+      "checkedAt": "2026-09-21T01:57:47.465Z",
+      "status": "SUCCESS",
+      "rawCount": 30,
+      "coverage": "Bounded current public available-reward catalogue; exact task evidence reconciled against canonical GitHub records",
+      "newOrChanged": "No newly qualified small task. Current $25-$300 TypeScript/Python candidates were closed, already solved, unverified, or heavily competed."
+    },
+    "superteam": {
+      "checkedAt": "2026-09-21T01:57:08.863Z",
+      "status": "SUCCESS",
+      "authenticatedRawCount": 2,
+      "detailReads": 2,
+      "coverage": "Official authenticated agent feed with successful detail reads; public Development catalogue contributed one overlapping Vietnam record",
+      "newOrChanged": "No new listing ID, application, assignment or award."
+    },
+    "gitpay": {
+      "checkedAt": "2026-09-21T02:00:00Z",
+      "status": "BLOCKED",
+      "filters": [
+        "Issues with bounties",
+        "Open"
+      ],
+      "resultCount": null,
+      "coverage": "NOT_RUN: the saved browser session redirected from Explore to the Gitpay sign-in page and displayed reCAPTCHA, so the Open-bounty result set was not observed.",
+      "recoveryAction": "Owner signs back into the existing Cygnix Labs Gitpay account in the secured cloud browser and completes the visible CAPTCHA. Do not create another account or relink GitHub."
+    }
+  },
+  "deepCandidates": [
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15305",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false,
+      "reason": "Reward remains a proposal and two solution PRs already exist."
+    },
+    {
+      "url": "https://github.com/dot-Justin/BonziAssist/issues/7",
+      "outcome": "INVESTIGATE",
+      "proofStarted": false
+    }
+  ],
+  "activeRecords": {
+    "ivritPy12": {
+      "url": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+      "state": "open",
+      "assignees": 0,
+      "comments": 16,
+      "revision": "2026-09-19T22:18:13Z",
+      "reservationConfirmed": false
+    },
+    "buildersReflectShare": {
+      "url": "https://superteam.fun/earn/listing/road-to-colosseum-builders-reflect-and-share/#comments",
+      "authenticatedStatus": "OPEN",
+      "agentAccess": "AGENT_ALLOWED",
+      "onlineParticipationConfirmed": true,
+      "attendanceVerified": false,
+      "submissionMade": false
+    }
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "rawSnapshot": {
+    "localFile": "2026-09-21T01-57-27.487Z.json",
+    "committed": false,
+    "note": "The complete discovery response was durably persisted by the runtime; the large local copy was omitted from GitHub."
+  }
+}
