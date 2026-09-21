@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T13:05:46.993Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "three bounded live open-issue queries"
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-21T13:05:47.884Z",
+      "rawCount": 30,
+      "coverage": "bounded current public catalogue page"
+    },
+    "superteamAuthenticated": {
+      "status": "FAILED",
+      "checkedAt": "2026-09-21T13:02:00Z",
+      "rawCount": null,
+      "coverage": "NOT_ESTABLISHED",
+      "reason": "SUPERTEAM_NETWORK_FAILED"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "bounded public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T13:10:00Z",
+      "filters": "Issues with bounties + Open not reachable",
+      "reason": "The preserved browser session remains at Gitpay sign-in; the authenticated filters were not applied and no result count is claimed"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 76,
+    "basicScreened": 76,
+    "canonicalResolved": 19,
+    "providerVerified": 16,
+    "fullyEnriched": 0,
+    "selectedRepositories": 4
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 12
+  },
+  "scanProjection": {
+    "total": 452,
+    "counts": {
+      "INVESTIGATING": 435,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newRecords": {
+    "count": 10,
+    "groups": [
+      {
+        "count": 3,
+        "repository": "BasedHardware/omi",
+        "issues": [15452, 15454, 15456],
+        "decision": "HARD_BLOCK",
+        "reason": "Contributor-authored $25 proposals were opened after the matching translation PRs already existed; no sponsor-funded unclaimed task was established"
+      },
+      {
+        "count": 3,
+        "repository": "Ikalus1988/MisakaNet",
+        "issues": [2014, 2015, 2016],
+        "decision": "HARD_BLOCK",
+        "reason": "Generated lesson/intake records have no funded bounty or assignment path"
+      },
+      {
+        "count": 2,
+        "repository": "abdulsalam-create/bounty-watch",
+        "issues": [10, 11],
+        "decision": "HARD_BLOCK",
+        "reason": "Automated security-program digest reports are not software tasks or payable assignments"
+      },
+      {
+        "count": 1,
+        "repository": "ValveSoftware/Dota2-Gameplay",
+        "issue": 35531,
+        "decision": "HARD_BLOCK",
+        "reason": "Player question about an in-game gold bounty, not paid software work"
+      },
+      {
+        "count": 1,
+        "repository": "xevrion-v2/agent-playground",
+        "issue": 2,
+        "decision": "HARD_BLOCK",
+        "reason": "The nominal $50 README bounty has 119 comments, dozens of prior rewarded submissions and multiple current solution PRs, including #9725, #9727, #9838 and #9839"
+      }
+    ]
+  },
+  "deepChecks": [
+    {
+      "url": "https://github.com/xevrion-v2/agent-playground/issues/2",
+      "decision": "HARD_BLOCK",
+      "reason": "Current solution saturation and repeated already-rewarded README patches leave no defensible distinct acceptance scope"
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "HARD_BLOCK",
+      "reason": "Heavy solution competition and unresolved provider/title reward discrepancy remain unchanged"
+    },
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Existing solution attempts continue to saturate the task"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Existing solution attempts continue to saturate the task"
+    },
+    {
+      "url": "https://github.com/dot-Justin/BonziAssist/issues/7",
+      "decision": "HARD_BLOCK",
+      "reason": "Opire still shows 23 trying and 20 claiming solvers, with no distinct remaining maintainer scope"
+    }
+  ],
+  "tracking": {
+    "ivrit12": {
+      "status": "WAITING_FOR_MAINTAINER",
+      "workSecured": false,
+      "change": false,
+      "detail": "Issue remains open and unassigned with 18 comments; no maintainer reservation, scope confirmation or review"
+    },
+    "buildersReflect": {
+      "change": false,
+      "commentCount": 6,
+      "cygnixReplyCount": 1,
+      "submissionCount": 35,
+      "submittedByCygnix": false,
+      "detail": "No new sponsor reply or Cygnix submission receipt; attendance and owned X-post evidence remain unverified"
+    }
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionReadback": "FAILED_TIMEOUT",
+    "productionReadbackAttempts": 2,
+    "productionReadbackTotal": null,
+    "detail": "The scan reported durable persistence, but /api/operations timed out after 60 seconds and again after 45 seconds, so production runtime counts were not independently confirmed"
+  }
+}

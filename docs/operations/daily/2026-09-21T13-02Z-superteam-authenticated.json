@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-09-21T13:02:00Z",
+  "mode": "AUTHENTICATED_AGENT_API",
+  "status": "FAILED",
+  "rawCount": null,
+  "coverage": "NOT_ESTABLISHED",
+  "reason": "SUPERTEAM_NETWORK_FAILED",
+  "listings": [],
+  "submitted": 0,
+  "workSecured": 0
+}
