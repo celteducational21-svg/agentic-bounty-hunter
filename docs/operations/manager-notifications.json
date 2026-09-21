@@ -42,7 +42,7 @@
       "key": "github:ivrit-ai/ivrit-py#12:competing-pr30-open:238c20ccf374569c58e1356aa52ba874e75ea12a",
       "reference": "https://github.com/ivrit-ai/ivrit-py/pull/30",
       "summary": "Newly verified material qualification discrepancy: open competing PR #30 by doc233 has existed since 2026-09-16, is mergeable, and claims to fulfill #12. It has one commit (238c20ccf374569c58e1356aa52ba874e75ea12a), no reviews, no maintainer confirmation, and is not merged. ABH has no reservation or assignment; no solve/public action should start.",
-      "delivery": "PENDING_IN_CONVERSATION"
+      "delivery": "CONFIRMED_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
