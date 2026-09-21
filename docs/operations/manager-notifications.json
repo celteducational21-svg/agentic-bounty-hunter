@@ -43,6 +43,12 @@
       "reference": "https://github.com/ivrit-ai/ivrit-py/pull/30",
       "summary": "Newly verified material qualification discrepancy: open competing PR #30 by doc233 has existed since 2026-09-16, is mergeable, and claims to fulfill #12. It has one commit (238c20ccf374569c58e1356aa52ba874e75ea12a), no reviews, no maintainer confirmation, and is not merged. ABH has no reservation or assignment; no solve/public action should start.",
       "delivery": "CONFIRMED_IN_CONVERSATION"
+    },
+    {
+      "key": "github:ivrit-ai/ivrit-py#12:competing-prs31-32-open:aa8657a57e9c6f352dc2241bb1dfaaa840d59fa5+4565d71b1f31f00f4427f90ef56cc425b5382b11",
+      "reference": "docs/operations/daily/2026-09-21T08-03Z-edward-hourly.md",
+      "summary": "Two additional competing implementations for ivrit-py #12 were verified: PR #31 is open, mergeable and draft at aa8657a57e9c6f352dc2241bb1dfaaa840d59fa5; PR #32 is open, mergeable and non-draft at 4565d71b1f31f00f4427f90ef56cc425b5382b11. Neither has reviews or maintainer reservation evidence. ABH remains unassigned and should not allocate Solver capacity without explicit reservation.",
+      "delivery": "PENDING_CONVERSATION_DELIVERY"
     }
   ],
   "previouslyCommunicated": [
