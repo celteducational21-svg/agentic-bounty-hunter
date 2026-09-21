@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T20:57:37.813Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "three bounded live open-issue queries"
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 30,
+      "coverage": "bounded current public catalogue page"
+    },
+    "superteamAuthenticated": {
+      "status": "FAILED_NETWORK",
+      "checkedAt": "2026-09-21T20:56:00Z",
+      "rawCount": null,
+      "coverage": "NOT_ESTABLISHED",
+      "reason": "The official authenticated scan failed at network transport; no empty-result claim is made"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-21T20:57:37.815Z",
+      "rawCount": 0,
+      "coverage": "bounded official public agent Development catalogue"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T20:58:00Z",
+      "filters": "Issues with bounties + Open not reachable",
+      "reason": "The preserved browser tab remains at Gitpay sign-in; authenticated filters were not applied and no result count is claimed"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 78,
+    "basicScreened": 78,
+    "canonicalResolved": 17,
+    "providerVerified": 14,
+    "fullyEnriched": 0,
+    "selectedRepositories": 5,
+    "deepAdmissionAttempts": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "materialChanges": 4,
+    "productionReadback": "TIMEOUT_NOT_VERIFIED",
+    "note": "The discovery command reported durable ABH persistence. The separate production API read did not complete, so no deployment readback success is claimed."
+  },
+  "scanProjection": {
+    "total": 535,
+    "counts": {
+      "INVESTIGATING": 518,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newCandidateIds": {
+    "count": 17,
+    "groups": [
+      {
+        "count": 1,
+        "repository": "weilixiong/TentOfTrials",
+        "issue": 5,
+        "decision": "HARD_BLOCK_SATURATED",
+        "reason": "The USD 25 Python task is open but has 33 comments and numerous competing implementation PRs; ABH has no reservation or assignment."
+      },
+      {
+        "count": 2,
+        "repository": "apb31/maintainerops",
+        "issues": [5, 6],
+        "decision": "HARD_BLOCK",
+        "reason": "One is a human-judge bounty and one is an unfunded documentation proposal; neither is assignable paid implementation work."
+      },
+      {
+        "count": 1,
+        "repository": "BasedHardware/omi",
+        "issue": 15456,
+        "decision": "HARD_BLOCK_POST_FIX",
+        "reason": "The USD 25 amount is proposed retrospectively and the solution PR already exists."
+      },
+      {
+        "count": 13,
+        "decision": "HARD_BLOCK_OR_INVESTIGATE",
+        "reason": "The remaining records are unfunded scope/intake or radar issues, unqualified sub-USD-25 platform records, non-implementation reports, or already assigned work; none has credible available reward plus assignment eligibility."
+      }
+    ]
+  },
+  "changedCandidateChecks": {
+    "claudeBuilders": {
+      "issues": [1, 2, 4, 5],
+      "advertisedRewardsUsd": [50, 75, 150, 200],
+      "commentCounts": [2202, 1493, 1533, 1183],
+      "decision": "HARD_BLOCK_SATURATED",
+      "reason": "Fresh activity is extreme claim competition, not assignment evidence."
+    }
+  },
+  "tracking": {
+    "ivrit12": "Open, unassigned and unreserved with 18 comments; PRs 30, 31 and 32 remain open and unreviewed at their previously recorded revisions",
+    "buildersReflect": "No newly verified sponsor reply or submission receipt; previously reported participation prerequisites remain pending",
+    "workSecured": 0
+  },
+  "verification": {
+    "tests": {
+      "passed": 229,
+      "failed": 0
+    },
+    "rawArchive": {
+      "path": "docs/operations/daily/2026-09-21T20-57-14.285Z.json.gz",
+      "sha256": "8555f052b523eb931c47afb378ea2289c6106366249fdb42f6adde75f1bd9eba",
+      "gzipTest": "PASS"
+    }
+  }
+}
