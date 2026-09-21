@@ -31,6 +31,12 @@
       "reference": "https://superteam.fun/earn/listing/road-to-colosseum-builders-reflect-and-share/#comments",
       "summary": "Superteam Vietnam replied directly to Cygnix Labs that the proposed online participation is allowed because the workshop link is on Google Meet. This confirms online participation eligibility only; it is not a submission, assignment, award or payment. Registration, genuine attendance and owned public X-post evidence remain required.",
       "delivery": "CONFIRMED_IN_CONVERSATION"
+    },
+    {
+      "key": "gitpay:session-expired-recaptcha:observed-2026-09-21T02:03Z",
+      "reference": "docs/operations/daily/2026-09-21T02-03Z-edward-hourly.md",
+      "summary": "Gitpay discovery was not run because the preserved browser session redirected to sign-in and presented reCAPTCHA. The owner was notified to restore the existing Cygnix Labs session and complete the CAPTCHA; no new account or GitHub relink is needed.",
+      "delivery": "CONFIRMED_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
