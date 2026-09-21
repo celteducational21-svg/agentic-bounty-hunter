@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T11:05:42.636Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 30
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-21T11:04:41.669Z",
+      "rawCount": 0,
+      "details": 0,
+      "submitted": 0
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "bounded public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T11:07:00Z",
+      "filters": "Issues with bounties + Open not reachable",
+      "reason": "The secured browser became unavailable while the preserved session remained unauthenticated; required filters were not applied and no result count is claimed"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 69,
+    "basicScreened": 69,
+    "canonicalResolved": 17,
+    "providerVerified": 14,
+    "fullyEnriched": 0,
+    "selectedRepositories": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 1
+  },
+  "runtime": {
+    "total": 425,
+    "counts": {
+      "INVESTIGATING": 408,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newRecords": [
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "The $55 title is not backed by an active provider reward, the upstream issue is unavailable, and multiple competing implementations have already been submitted"
+    },
+    {
+      "url": "https://github.com/MergeFi/backend/issues/352",
+      "decision": "HARD_BLOCK",
+      "reason": "No funded reward is shown and a contributor reports the requested documentation was completed in PR #413"
+    },
+    {
+      "url": "https://github.com/2510034127qq-wq/BountyScout/issues/130",
+      "decision": "HARD_BLOCK",
+      "reason": "Automated multi-opportunity alert rather than an original, assignable bounty task"
+    },
+    {
+      "url": "https://github.com/dev-kp-eloper/BountyScout/issues/1437",
+      "decision": "HARD_BLOCK",
+      "reason": "Automated multi-opportunity alert rather than an original, assignable bounty task"
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15397",
+      "decision": "HARD_BLOCK",
+      "reason": "$5 is only proposed and the issue says it was already resolved by PR #15396"
+    }
+  ],
+  "deepChecks": [
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "HARD_BLOCK",
+      "reason": "Heavy solution competition and unresolved provider/title reward discrepancy"
+    },
+    {
+      "url": "https://github.com/jahmeergnlt/traefik/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Saturated by existing solution attempts"
+    },
+    {
+      "url": "https://github.com/jackjin1997/zeroeye/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Existing submitted implementation already covers the task"
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "Saturated by existing solution attempts"
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15361",
+      "decision": "HARD_BLOCK",
+      "reason": "Proposed reward only and the proposer already submitted PR #15360"
+    }
+  ],
+  "tracking": {
+    "ivrit12": {
+      "status": "WAITING_FOR_MAINTAINER",
+      "workSecured": false,
+      "change": false,
+      "detail": "Issue remains open and unassigned; competing PRs #30, #31 and #32 remain open with no maintainer reservation for ABH"
+    },
+    "buildersReflect": {
+      "change": false,
+      "submitted": false,
+      "detail": "No new sponsor reply or submission receipt; attendance and owned X-post evidence remain unverified"
+    }
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionReadbackTotal": 425,
+    "productionLastScan": "2026-09-21T11:05:42.636Z"
+  }
+}
