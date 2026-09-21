@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T16:09:31.947Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {"status": "SUCCESS", "rawCount": 60, "coverage": "three bounded live open-issue queries"},
+    "opire": {"status": "SUCCESS", "rawCount": 30, "coverage": "bounded current public catalogue page"},
+    "superteamAuthenticated": {"status": "FAILED", "checkedAt": "2026-09-21T16:06:00Z", "rawCount": null, "coverage": "NOT_ESTABLISHED", "reason": "SUPERTEAM_NETWORK_FAILED", "submitted": 0},
+    "superteamPublic": {"status": "SUCCESS", "rawCount": 0, "coverage": "bounded public agent Development view"},
+    "gitpay": {"status": "BLOCKED_NOT_RUN", "checkedAt": "2026-09-21T16:11:00Z", "filters": "Issues with bounties + Open not reachable", "reason": "The preserved browser session remains at Gitpay sign-in; authenticated filters were not applied and no result count is claimed"}
+  },
+  "funnel": {"raw": 90, "githubRaw": 60, "providerDiscovered": 30, "unique": 78, "basicScreened": 78, "canonicalResolved": 17, "providerVerified": 13, "fullyEnriched": 0, "selectedRepositories": 5},
+  "persistence": {"durable": true, "backend": "supabase-postgres", "changes": 21, "readbackVerified": true},
+  "scanProjection": {
+    "total": 483,
+    "counts": {"INVESTIGATING": 466, "REJECTED": 15, "WAITING_FOR_MAINTAINER": 1, "DO_NOT_HUNT": 1},
+    "privateProof": 0, "activeSolves": 0, "qa": 0, "readyToSubmit": 0, "submitted": 0, "merged": 0, "paid": 0
+  },
+  "newRecords": {
+    "count": 17,
+    "groups": [
+      {"count": 4, "repository": "Saidur-droid/MergeEarn", "issues": [26, 28, 31, 33], "decision": "HARD_BLOCK", "reason": "Issues 26, 28 and 31 are WAITING_SPONSOR and the live board reports zero FUNDED bounties; issue 33 is the index, not a task"},
+      {"count": 6, "repository": "BasedHardware/omi", "issues": [15494, 15498, 15503, 15505, 15507, 15512], "decision": "HARD_BLOCK", "reason": "Each $50 amount is explicitly only a contributor proposal and each record names an already-open matching implementation PR (#15493, #15497, #15502, #15504, #15506, #15511)"},
+      {"count": 1, "repository": "warpspeedopen-source/warpspeed-bounties", "issue": 7, "decision": "HARD_BLOCK", "reason": "$660 is outside the preferred range; the official capacity/deadline is reported as full/past and a competing implementation PR is already linked"},
+      {"count": 2, "repositories": ["Smartdevs17/stellarlend", "Tarsnap/spiped"], "issues": [987, 463], "decision": "HARD_BLOCK", "reason": "These are contributor-authored vulnerability reports with no offered reward, assignment or invitation to implement"},
+      {"count": 2, "repository": "NSPG13/agent-bounties", "issues": [1376, 1388], "decision": "HARD_BLOCK", "reason": "Rewards are $3 and $6, below range, while qualifying participation requires funding marketplace demand; the scoring windows are already closed"},
+      {"count": 1, "repository": "ussyalfaks/ahjoorxmr-contract", "issue": 851, "decision": "HARD_BLOCK", "reason": "No task-specific reward is stated and solution PR #874 was already submitted"},
+      {"count": 1, "repository": "ErgoDevs/Ergo-Bounties", "issue": 40, "decision": "HARD_BLOCK", "reason": "Automated operations/status dashboard, not an offered implementation task"}
+    ]
+  },
+  "tracking": {
+    "ivrit12": "Open, unassigned and unreserved with 18 comments; PRs #30, #31 and #32 remain open and no maintainer confirmation appeared",
+    "buildersReflect": "Public listing remains at 35 submissions and six comments; Cygnix Labs still has one previously reported sponsor reply and no submission receipt",
+    "workSecured": 0
+  },
+  "verification": {"tests": {"passed": 229, "failed": 0}, "productionReadback": {"status": "SUCCESS", "total": 483, "matchesScanProjection": true}}
+}

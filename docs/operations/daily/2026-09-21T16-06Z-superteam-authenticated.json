@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "source": "superteam-agent-api",
+  "checkedAt": "2026-09-21T16:06:00Z",
+  "status": "FAILED",
+  "coverage": "NOT_ESTABLISHED",
+  "rawCount": null,
+  "reason": "SUPERTEAM_NETWORK_FAILED",
+  "submitted": 0,
+  "workSecured": 0,
+  "note": "The authenticated request failed before inventory coverage was established. No empty result is claimed and no credential material is retained. The public bounded Development catalogue was checked independently."
+}
