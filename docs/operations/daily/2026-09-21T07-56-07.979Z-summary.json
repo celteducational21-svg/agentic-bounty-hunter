@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T07:56:31.663Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 30
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-21T07:56:07.843Z",
+      "rawCount": 0,
+      "details": 0,
+      "submitted": 0
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "bounded public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T08:00Z",
+      "reason": "Preserved browser session remains at sign-in; previously reported human login/CAPTCHA recovery remains unchanged"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 71,
+    "basicScreened": 71,
+    "canonicalResolved": 18,
+    "providerVerified": 16,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 5
+  },
+  "runtime": {
+    "total": 411,
+    "counts": {
+      "INVESTIGATING": 394,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newRecords": [
+    {
+      "url": "https://github.com/InductiveComputerScience/pbTpl/issues/2",
+      "decision": "INVESTIGATE",
+      "reason": "Eligibility/channel inquiry about another report; no ABH assignment or direct verified reward"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/14197",
+      "decision": "HARD_BLOCK",
+      "reason": "Payout claim for another contributor's already-merged PR; not available work"
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/14198",
+      "decision": "HARD_BLOCK",
+      "reason": "Payout claim for another contributor's already-merged PR; not available work"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/2000",
+      "decision": "INVESTIGATE",
+      "reason": "Clear software scope but no funded reward or assignment path verified"
+    }
+  ],
+  "materialChange": {
+    "candidate": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+    "status": "WAITING_FOR_MAINTAINER",
+    "workSecured": false,
+    "newCompetingPullRequests": [
+      {
+        "url": "https://github.com/ivrit-ai/ivrit-py/pull/31",
+        "state": "open",
+        "draft": true,
+        "mergeable": true,
+        "revision": "aa8657a57e9c6f352dc2241bb1dfaaa840d59fa5",
+        "reviews": 0,
+        "reviewThreads": 0
+      },
+      {
+        "url": "https://github.com/ivrit-ai/ivrit-py/pull/32",
+        "state": "open",
+        "draft": false,
+        "mergeable": true,
+        "revision": "4565d71b1f31f00f4427f90ef56cc425b5382b11",
+        "reviews": 0,
+        "reviewThreads": 0
+      }
+    ],
+    "decision": "Do not allocate Solver capacity unless the maintainer explicitly reserves #12 for ABH"
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "superteamSponsorReplyCountForCygnixComment": 1,
+    "superteamSponsorReplyChanged": false
+  }
+}
