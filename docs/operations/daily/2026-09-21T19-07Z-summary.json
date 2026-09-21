@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T19:00:32.643Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "three bounded live open-issue queries"
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 30,
+      "coverage": "bounded current public catalogue page"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-21T19:00:06.323Z",
+      "rawCount": 0,
+      "details": 0,
+      "coverage": "RETURNED_LIVE_FEED",
+      "submitted": 0
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "bounded public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "checkedAt": "2026-09-21T19:02:00Z",
+      "filters": "Issues with bounties + Open not reachable",
+      "reason": "The preserved browser tab remains at Gitpay sign-in; authenticated filters were not applied and no result count is claimed"
+    }
+  },
+  "funnel": {
+    "raw": 90,
+    "githubRaw": 60,
+    "providerDiscovered": 30,
+    "unique": 77,
+    "basicScreened": 77,
+    "canonicalResolved": 17,
+    "providerVerified": 14,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5,
+    "deepAdmissionAttempts": 5
+  },
+  "persistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "materialChanges": 15,
+    "productionReadback": "TIMEOUT_NOT_VERIFIED",
+    "note": "The discovery command reported durable ABH persistence. A separate direct /api/operations read timed out after 30 seconds, so no deployment readback success is claimed."
+  },
+  "scanProjection": {
+    "total": 524,
+    "counts": {
+      "INVESTIGATING": 507,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "privateProof": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "newCandidateIds": {
+    "count": 17,
+    "groups": [
+      {
+        "count": 9,
+        "repository": "BasedHardware/omi",
+        "issues": [15540, 15542, 15544, 15546, 15549, 15553, 15557, 15559, 15563],
+        "decision": "HARD_BLOCK",
+        "reason": "Each record is an author-created post-fix funding proposal, identifies an already-open solution PR, and says the USD 50 amount is proposed rather than awarded."
+      },
+      {
+        "count": 4,
+        "repository": "Saidur-droid/MergeEarn",
+        "issues": [26, 28, 31, 33],
+        "decision": "INVESTIGATE_NOT_FUNDED",
+        "reason": "The live board reports zero FUNDED bounties. Issues 26, 28 and 31 are WAITING_SPONSOR at 5 NIM; issue 33 is the board, not an implementation assignment."
+      },
+      {
+        "count": 1,
+        "repository": "claude-builders-bounty/claude-builders-bounty",
+        "issue": 5,
+        "decision": "HARD_BLOCK",
+        "reason": "The issue advertises USD 200 but has 1,176 comments, is absent from the current verified Opire catalogue, and lacks current provider payment evidence or assignment."
+      },
+      {
+        "count": 1,
+        "repository": "Smartdevs17/stellarlend",
+        "issue": 993,
+        "decision": "HARD_BLOCK",
+        "reason": "This is a submitted vulnerability report with reproduction evidence, not an available implementation task; no numeric reward or assignment is stated."
+      },
+      {
+        "count": 1,
+        "repository": "Scottcjn/rustchain-bounties",
+        "issue": 443,
+        "decision": "HARD_BLOCK",
+        "reason": "Non-technical public-review task requiring Discord membership; only 5 RTC with no verified USD value and 114 comments."
+      },
+      {
+        "count": 1,
+        "repository": "secondlife/viewer",
+        "issue": 5677,
+        "decision": "HARD_BLOCK",
+        "reason": "Already assigned and no task-specific reward is advertised."
+      }
+    ]
+  },
+  "tracking": {
+    "ivrit12": "Open, unassigned and unreserved with 18 comments; PRs 30, 31 and 32 remain open and unreviewed at the previously recorded revisions",
+    "buildersReflect": "Public listing remains at 35 submissions and six comments; Cygnix Labs still has one previously reported sponsor reply and no submission receipt",
+    "workSecured": 0
+  },
+  "verification": {
+    "tests": {
+      "passed": 229,
+      "failed": 0
+    },
+    "rawArchive": {
+      "path": "docs/operations/daily/2026-09-21T19-00-06.448Z.json.gz",
+      "sha256": "81d43e6c5103079deafa6dbe1d1db5a6138041e79e2bf31024653e25e2a8f741",
+      "gzipTest": "PASS"
+    }
+  }
+}
