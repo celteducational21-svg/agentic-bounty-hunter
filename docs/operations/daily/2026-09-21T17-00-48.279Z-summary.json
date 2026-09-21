@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-09-21T17:01:06.604Z",
+  "execution": "invoked-hourly-cycle",
+  "sources": {
+    "github": {"status": "SUCCESS", "rawCount": 60, "coverage": "three bounded live open-issue queries"},
+    "opire": {"status": "SUCCESS", "rawCount": 30, "coverage": "bounded current public catalogue page"},
+    "superteamAuthenticated": {"status": "SUCCESS", "checkedAt": "2026-09-21T16:57:41.104Z", "rawCount": 0, "coverage": "RETURNED_LIVE_FEED", "submitted": 0},
+    "superteamPublic": {"status": "SUCCESS", "rawCount": 0, "coverage": "bounded public agent Development view"},
+    "gitpay": {"status": "BLOCKED_NOT_RUN", "checkedAt": "2026-09-21T17:03:00Z", "filters": "Issues with bounties + Open not reachable", "reason": "The preserved browser session remains at Gitpay sign-in; authenticated filters were not applied and no result count is claimed"}
+  },
+  "funnel": {"raw": 90, "githubRaw": 60, "providerDiscovered": 30, "unique": 72, "basicScreened": 72, "canonicalResolved": 16, "providerVerified": 13, "fullyEnriched": 0, "selectedRepositories": 5},
+  "persistence": {"durable": true, "backend": "supabase-postgres", "firstAttemptChanges": 14, "retryChanges": 0, "readbackVerified": true, "note": "The first discovery attempt persisted its material changes before a bounded network timeout prevented local archive completion. A non-overlapping retry completed, wrote the archive, and reported zero additional changes."},
+  "scanProjection": {
+    "total": 497,
+    "counts": {"INVESTIGATING": 480, "REJECTED": 15, "WAITING_FOR_MAINTAINER": 1, "DO_NOT_HUNT": 1},
+    "privateProof": 0, "activeSolves": 0, "qa": 0, "readyToSubmit": 0, "submitted": 0, "merged": 0, "paid": 0
+  },
+  "newRecords": {
+    "count": 14,
+    "groups": [
+      {"count": 1, "repository": "weilixiong/TentOfTrials", "issue": 5, "decision": "HARD_BLOCK", "reason": "At least thirteen prior solution PRs are named; the $25 LT asset, payout and winner-selection rules remain unanswered; one claimant withdrew citing a known scam network; required build tooling bundles an opaque diagnostic executable"},
+      {"count": 2, "repository": "Smartdevs17/stellarlend", "issues": [989, 990], "decision": "HARD_BLOCK", "reason": "Contributor-authored vulnerability reports with no offered reward, assignment or invitation to implement"},
+      {"count": 3, "repositories": ["dev-kp-eloper/BountyScout", "freedom-winds/BountyScout", "vansh-09/BountyScout"], "decision": "HARD_BLOCK", "reason": "Automated multi-opportunity alert reports rather than original payable tasks"},
+      {"count": 1, "repository": "postmark-town/postmark", "issue": 3011, "decision": "HARD_BLOCK", "reason": "Original bug report with no task-specific reward or assignment evidence"},
+      {"count": 2, "repository": "relayhop/sn-monetization-runtime", "issues": [893, 894], "decision": "HARD_BLOCK", "reason": "Historical radar reports aggregating external Stacker News opportunities, not original GitHub tasks"},
+      {"count": 1, "repository": "NSPG13/agent-bounties", "issue": 1478, "decision": "HARD_BLOCK", "reason": "Unsolicited co-building/registration invite with no bounty, deliverable or reward"},
+      {"count": 1, "repository": "jakaramelod/go-git", "issue": 1, "decision": "HARD_BLOCK", "reason": "$10 label is below range and the repository is a lookalike fork rather than the canonical go-git project"},
+      {"count": 1, "repository": "tenstorrent/tt-metal", "issue": 32178, "decision": "HARD_BLOCK", "reason": "$3,000 is outside range, the issue is assigned, and acceptance requires unavailable Tenstorrent hardware"},
+      {"count": 2, "repository": "secondlife/viewer", "issues": [5519, 5690], "decision": "HARD_BLOCK", "reason": "Both issues are assigned and the generic Opire help text does not establish a task-specific funded reward"}
+    ]
+  },
+  "tracking": {
+    "ivrit12": "Open, unassigned and unreserved with 18 comments; PRs #30, #31 and #32 remain open and no maintainer confirmation appeared",
+    "buildersReflect": "Public listing remains at 35 submissions and six comments; Cygnix Labs still has one previously reported sponsor reply and no submission receipt",
+    "workSecured": 0
+  },
+  "verification": {"tests": {"passed": 229, "failed": 0}, "productionReadback": {"status": "SUCCESS", "total": 497, "matchesScanProjection": true}}
+}
