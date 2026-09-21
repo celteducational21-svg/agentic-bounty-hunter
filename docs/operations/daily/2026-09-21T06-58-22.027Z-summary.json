@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-21T06:58:39.547Z",
+  "execution": "Invoked hourly cycle; no continuous worker presence",
+  "firstAttempt": {
+    "status": "FAILED_RESPONSE",
+    "httpStatus": 502,
+    "successLogWritten": false
+  },
+  "retry": {
+    "status": "SUCCESS",
+    "raw": 90,
+    "githubRaw": 60,
+    "opireRaw": 30,
+    "unique": 71,
+    "canonicalResolved": 18,
+    "providerVerified": 16,
+    "fullyEnriched": 1,
+    "selectedRepositories": 5,
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "additionalChangesOnRetry": 0
+    }
+  },
+  "runtimeReadback": {
+    "total": 407,
+    "counts": {
+      "INVESTIGATING": 390,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1,
+      "PRIVATE_PROOF": 0,
+      "SOLVING": 0,
+      "QA": 0,
+      "READY_TO_SUBMIT": 0,
+      "SUBMITTED": 0,
+      "CHANGES_REQUESTED": 0,
+      "MERGED": 0,
+      "PAID": 0
+    }
+  },
+  "authenticatedSuperteam": {
+    "checkedAt": "2026-09-21T06:56:31.421Z",
+    "status": "SUCCESS",
+    "rawCount": 0,
+    "details": 0,
+    "submitted": 0
+  },
+  "gitpay": {
+    "status": "BLOCKED_NOT_RUN",
+    "reason": "Existing browser session remains at sign-in; previously reported session/CAPTCHA blocker"
+  },
+  "deepChecks": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15351",
+      "decision": "HARD_BLOCK",
+      "reason": "Issue says resolved by PR #15350; another solution PR #15353 exists; reward only proposed"
+    },
+    {
+      "url": "https://github.com/ZecHub/zec-bounties/issues/197",
+      "decision": "HARD_BLOCK",
+      "reason": "Contributor preflight with matching implementation PR #208; parsed 2.2 AA is not monetary reward"
+    },
+    {
+      "url": "https://github.com/cocohub-mobileapp/cocohub-main/issues/28",
+      "decision": "HARD_BLOCK",
+      "reason": "At least five matching submitted implementation PRs"
+    },
+    {
+      "url": "https://github.com/Tarsnap/spiped/issues/462",
+      "decision": "INVESTIGATE_HARD_BLOCK_CURRENT_CAPACITY",
+      "reason": "Cryptographic security report without verified issue-specific reward or assignment path"
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/1998",
+      "decision": "NOT_DIRECT_BOUNTY",
+      "reason": "Lesson submission with generic Opire instructions and no funded reward"
+    }
+  ],
+  "existingPipeline": {
+    "ivritPy12": {
+      "status": "WAITING_FOR_MAINTAINER",
+      "reserved": false,
+      "competingPullRequest": "https://github.com/ivrit-ai/ivrit-py/pull/30"
+    },
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  }
+}
