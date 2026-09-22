@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T17:06:49.267Z",
+  "sourceCommit": "55cfe2048b5199268de15b0b7bd1c1f49b241e75",
+  "discovery": {
+    "github": { "status": "SUCCESS", "rawCount": 60 },
+    "opire": { "status": "SUCCESS", "rawCount": 30 },
+    "superteamPublic": { "status": "SUCCESS", "rawCount": 0 },
+    "unique": 69,
+    "newRecords": 3,
+    "deepAttempts": 4,
+    "fullyEnriched": 0,
+    "phase3Eligible": 0
+  },
+  "superteamAuthenticated": {
+    "status": "SUCCESS_AFTER_RETRY",
+    "checkedAt": "2026-09-22T17:06:20.777Z",
+    "rawCount": 0,
+    "eligibleListings": 0,
+    "submitted": 0
+  },
+  "gitpay": {
+    "status": "NOT_RUN_BLOCKED",
+    "reason": "Preserved browser session remained at sign-in; Issues with bounties + Open filters were not verified"
+  },
+  "runtime": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 7,
+    "operations": 702,
+    "counts": {
+      "INVESTIGATING": 685,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    }
+  },
+  "milestones": {
+    "workSecured": 0,
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionOpportunitiesReadback": "MATCHED",
+    "productionOperationsReadback": "MATCHED"
+  },
+  "ownerAction": "NONE_NEW"
+}
