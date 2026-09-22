@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T13:14:27Z",
+  "discovery": {
+    "status": "SUCCESS",
+    "fetchedAt": "2026-09-22T13:08:59.919Z",
+    "raw": 90,
+    "github": 60,
+    "opire": 30,
+    "superteamPublic": 0,
+    "unique": 79,
+    "preflightAttempts": 74,
+    "deepAttempts": 5,
+    "fullyEnriched": 0,
+    "phase3Eligible": 0,
+    "rawEvidence": "docs/operations/daily/2026-09-22T13-08-32.327Z.json"
+  },
+  "superteamAuthenticated": {
+    "status": "SUCCESS_AFTER_RETRY",
+    "checkedAt": "2026-09-22T13:08:14.688Z",
+    "eligibleListings": 0,
+    "coverage": "RETURNED_LIVE_FEED",
+    "submitted": 0,
+    "evidence": "docs/operations/daily/2026-09-22T13-04Z-superteam-agent-retry.json"
+  },
+  "gitpay": {
+    "status": "NOT_RUN_BLOCKED",
+    "observedUrl": "https://gitpay.me/#/signin",
+    "reason": "The preserved browser session redirected to sign-in; the Issues with bounties and Open filters were not run or claimed as empty."
+  },
+  "runtime": {
+    "count": 669,
+    "statusCounts": {
+      "INVESTIGATING": 652,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "changes": 18
+    },
+    "productionReadback": "MATCHED"
+  },
+  "newRecords": {
+    "count": 12,
+    "omiRetrospectiveOrAlreadyImplementedProposals": 7,
+    "unfundedFeatureIssues": 2,
+    "aggregatorNotices": 1,
+    "belowTargetOrUnfundedListings": 2,
+    "privateProofsStarted": 0
+  },
+  "deepInvestigation": {
+    "count": 5,
+    "privateProofsJustified": 0,
+    "reasons": [
+      "Traefik #1 advertises $100 but is saturated with 47 comments and active competing attempts.",
+      "Rustchain-bounties #16248 offers 5 RTC without independent USD value evidence.",
+      "Claude Builders Bounty #1 is saturated with 2,206 comments.",
+      "Zeroeye #2 already points to upstream PR #304 and says diagnostics are awaiting review.",
+      "Omi #15892 is a retrospective proposal for already-submitted PR #15891."
+    ]
+  },
+  "active": {
+    "ivritPy12": {
+      "state": "WAITING_FOR_MAINTAINER",
+      "issueOpen": true,
+      "assigned": false,
+      "reservationConfirmed": false,
+      "commentCount": 18,
+      "competingPrReviewCounts": {
+        "30": 0,
+        "31": 0,
+        "32": 0
+      }
+    }
+  },
+  "milestones": {
+    "workSecured": 0,
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  },
+  "ownerAction": "NOTHING_NEW"
+}
