@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T14:09:13Z",
+  "discovery": {
+    "status": "SUCCESS",
+    "fetchedAt": "2026-09-22T14:04:19.513Z",
+    "raw": 90,
+    "github": 60,
+    "opire": 30,
+    "superteamPublic": 0,
+    "unique": 77,
+    "preflightAttempts": 73,
+    "deepAttempts": 4,
+    "fullyEnriched": 0,
+    "phase3Eligible": 0,
+    "rawEvidence": "docs/operations/daily/2026-09-22T14-03-51.738Z.json"
+  },
+  "superteamAuthenticated": {
+    "status": "SUCCESS_AFTER_RETRY",
+    "checkedAt": "2026-09-22T14:03:34.793Z",
+    "eligibleListings": 0,
+    "coverage": "RETURNED_LIVE_FEED",
+    "submitted": 0,
+    "evidence": "docs/operations/daily/2026-09-22T14-00Z-superteam-agent-retry.json"
+  },
+  "gitpay": {
+    "status": "NOT_RUN_BLOCKED",
+    "observedUrl": "https://gitpay.me/#/signin",
+    "reason": "The preserved browser session redirected to sign-in; the open-bounty filters were not run and no empty result is claimed."
+  },
+  "runtime": {
+    "projectedCount": 678,
+    "statusCounts": {
+      "INVESTIGATING": 661,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "changes": 12
+    },
+    "productionReadback": "FAILED_TIMEOUT_AFTER_TWO_ATTEMPTS"
+  },
+  "newRecords": {
+    "count": 9,
+    "omiRetrospectiveOrPreparedProposals": 7,
+    "rustchainNativeTokenTask": 1,
+    "aggregatorMirror": 1,
+    "privateProofsStarted": 0
+  },
+  "deepInvestigation": {
+    "count": 4,
+    "privateProofsJustified": 0,
+    "reasons": [
+      "Traefik #1 remains saturated with active competing attempts.",
+      "Rustchain-bounties #16248 offers 5 RTC without independent USD value evidence.",
+      "Claude Builders Bounty #1 remains saturated with 2,206 comments.",
+      "Zeroeye #2 already points to upstream PR #304 and says diagnostics are awaiting review."
+    ]
+  },
+  "active": {
+    "ivritPy12": {
+      "state": "WAITING_FOR_MAINTAINER",
+      "issueOpen": true,
+      "assigned": false,
+      "reservationConfirmed": false,
+      "commentCount": 18,
+      "competingPrDiscussionCounts": {
+        "30": 0,
+        "31": 0,
+        "32": 0
+      }
+    },
+    "buildersReflectShare": {
+      "workshopWindowEnded": true,
+      "registrationVerified": false,
+      "attendanceVerified": false,
+      "ownedXEvidenceVerified": false
+    }
+  },
+  "milestones": {
+    "workSecured": 0,
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  },
+  "ownerAction": "NOTHING_NEW"
+}
