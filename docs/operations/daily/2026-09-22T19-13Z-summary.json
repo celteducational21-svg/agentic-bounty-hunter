@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-09-22T19:12:49Z",
+  "outcome": "SUCCESS_NO_ELIGIBLE_WORK",
+  "workSecured": 0,
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "three bounded authenticated issue-search queries"
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 17,
+      "coverage": "bounded current public catalogue"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "public agent Development catalogue"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "checkedAt": "2026-09-22T19:06:41.315Z",
+      "coverage": "official live agent feed"
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "checkedAt": "2026-09-22T19:12:49Z",
+      "reason": "browser remained at sign-in; required bounty/open filters not executed"
+    }
+  },
+  "freshScan": {
+    "fetchedAt": "2026-09-22T19:07:46.770Z",
+    "unique": 76,
+    "deepAdmissionAttempts": 5,
+    "deepInvestigate": 3,
+    "deepRejected": 2,
+    "legitimacyPassed": 0,
+    "phase3Eligible": 0,
+    "durablePersistence": true,
+    "changes": 50,
+    "sha256": "319c3657b28ae9dff37962cd679cc403be126031111d182a645942a828725e45"
+  },
+  "runtimeProjection": {
+    "total": 756,
+    "investigating": 734,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "committedExecutionProjection": {
+    "total": 7,
+    "investigating": 5,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "activity": {
+    "newProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "ivrit12": {
+    "status": "WAITING_FOR_MAINTAINER",
+    "assigned": false,
+    "reservationConfirmed": false,
+    "matchingOpenPullRequests": 4
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionOperationsReadback": "SUCCESS",
+    "productionSavedScanReadback": "SUCCESS_MATCH"
+  },
+  "ownerAction": null
+}
