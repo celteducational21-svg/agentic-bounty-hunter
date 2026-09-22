@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T10:11:08Z",
+  "scanFetchedAt": "2026-09-22T10:06:51.406Z",
+  "productionPersistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "materialChanges": 0,
+    "separateReadback": "TIMED_OUT"
+  },
+  "sources": {
+    "github": {"status": "SUCCESS_AFTER_RETRY", "rawCount": 60, "coverage": "THREE_COMPLETE_SEARCH_QUERIES"},
+    "opire": {"status": "SUCCESS_AFTER_RETRY", "rawCount": 30, "coverage": "BOUNDED_PUBLIC_CATALOGUE"},
+    "superteamPublic": {"status": "SUCCESS_AFTER_RETRY", "rawCount": 0, "coverage": "PUBLIC_AGENT_DEVELOPMENT_VIEW"},
+    "superteamAuthenticated": {"status": "SUCCESS_AFTER_RETRY", "checkedAt": "2026-09-22T10:06:14.686Z", "rawCount": 0, "eligibleCount": 0, "coverage": "RETURNED_LIVE_FEED"},
+    "gitpay": {"status": "NOT_RUN_BLOCKED", "checkedAt": "2026-09-22T10:10:00Z", "reason": "Preserved browser is at sign-in with a CAPTCHA checkbox; the required open-bounty filters could not be verified."}
+  },
+  "funnel": {
+    "raw": 90,
+    "unique": 76,
+    "preflightAttempts": 72,
+    "deepAttempts": 4,
+    "fullyEnriched": 0,
+    "phase3Eligible": 0
+  },
+  "currentCycleNewRecords": 7,
+  "currentCycleReview": {
+    "retrospectiveSolvedProposals": 3,
+    "unpricedOrNoncashTasks": 2,
+    "aggregatorReports": 1,
+    "unapprovedBelowTargetProposal": 1,
+    "privateProofsStarted": 0
+  },
+  "operations": {
+    "total": 619,
+    "INVESTIGATING": 602,
+    "REJECTED": 15,
+    "WAITING_FOR_MAINTAINER": 1,
+    "DO_NOT_HUNT": 1
+  },
+  "milestones": {
+    "workSecured": 0,
+    "proofsThisCycle": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "confirmedPayments": 0
+  },
+  "ivritPy12": {
+    "status": "WAITING_FOR_MAINTAINER",
+    "issueOpen": true,
+    "assigned": false,
+    "reserved": false,
+    "issueUpdatedAt": "2026-09-21T11:00:42Z",
+    "competingPullRequests": [30, 31, 32],
+    "maintainerReviews": 0
+  },
+  "verification": {"testsPassed": 229, "testsFailed": 0},
+  "ownerAction": "NONE_NEW"
+}
