@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-09-22T21:12:08Z",
+  "outcome": "SUCCESS_NO_ELIGIBLE_WORK_WITH_PARTIAL_READBACK_FAILURE",
+  "workSecured": 0,
+  "sources": {
+    "github": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 60,
+      "coverage": "three bounded authenticated issue-search queries"
+    },
+    "opire": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 6,
+      "coverage": "bounded current public catalogue"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 0,
+      "coverage": "public agent Development catalogue"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "checkedAt": "2026-09-22T21:06:39.854Z",
+      "coverage": "official live agent feed"
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "checkedAt": "2026-09-22T21:12:08Z",
+      "reason": "browser remained at sign-in; required bounty/open filters not executed"
+    }
+  },
+  "freshScan": {
+    "fetchedAt": "2026-09-22T21:07:54.777Z",
+    "unique": 46,
+    "newRuntimeRecords": 1,
+    "deepAdmissionAttempts": 7,
+    "deepInvestigate": 4,
+    "deepRejected": 3,
+    "phase3Eligible": 0,
+    "durablePersistence": true,
+    "changes": 8,
+    "sha256": "c94beb38f9dba8915fe4a98c9621768e1b99907d4b516c44fb5855d1cf2994e6"
+  },
+  "runtimeProjection": {
+    "total": 757,
+    "investigating": 735,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "committedExecutionProjection": {
+    "total": 7,
+    "investigating": 5,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "activity": {
+    "newProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "ivrit12": {
+    "status": "WAITING_FOR_MAINTAINER",
+    "assigned": false,
+    "reservationConfirmed": false,
+    "matchingOpenPullRequests": 4
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionOperationsReadback": "DEGRADED_COMMITTED_FALLBACK",
+    "productionSavedScanReadback": "SUCCESS_MATCH"
+  },
+  "ownerAction": null
+}
