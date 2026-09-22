@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-09-22T22:16:00Z",
+  "outcome": "SUCCESS_NO_ELIGIBLE_WORK_WITH_INTERMITTENT_READBACK_FAILURE",
+  "workSecured": 0,
+  "sources": {
+    "github": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 60,
+      "coverage": "three bounded authenticated issue-search queries"
+    },
+    "opire": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 6,
+      "coverage": "bounded current public catalogue"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 0,
+      "coverage": "public agent Development catalogue"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "checkedAt": "2026-09-22T22:07:32.304Z",
+      "coverage": "official live agent feed"
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "checkedAt": "2026-09-22T22:16:00Z",
+      "reason": "preserved browser tab remained at sign-in; required bounty/open filters were not executed"
+    }
+  },
+  "freshScan": {
+    "fetchedAt": "2026-09-22T22:09:17.896Z",
+    "unique": 53,
+    "netNewRuntimeRecords": 17,
+    "deepAdmissionAttempts": 8,
+    "deepInvestigate": 2,
+    "deepRejected": 6,
+    "phase3Eligible": 0,
+    "durablePersistence": true,
+    "changes": 23,
+    "sha256": "ce8d0d57c740f12a269e7e218b21c826c0a6ab20f3847a6d193cf6a45334ec3d"
+  },
+  "runtimeProjection": {
+    "total": 774,
+    "investigating": 752,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "activity": {
+    "newProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "ivrit12": {
+    "status": "WAITING_FOR_MAINTAINER",
+    "assigned": false,
+    "reservationConfirmed": false,
+    "matchingOpenPullRequests": 4
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionOperationsReadback": "RECOVERED_ON_RETRY_WITH_FRESH_DURABLE_STATE",
+    "productionSavedScanReadback": "HTTP_502"
+  },
+  "ownerAction": null
+}
