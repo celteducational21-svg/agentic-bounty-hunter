@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T11:04:13Z",
+  "discovery": {
+    "initialAttempt": "FAILED_TIMEOUT",
+    "retry": "SUCCESS",
+    "fetchedAt": "2026-09-22T10:59:21.067Z",
+    "raw": 90,
+    "github": 60,
+    "opire": 30,
+    "superteamPublic": 0,
+    "unique": 83,
+    "preflightAttempts": 79,
+    "deepAttempts": 4,
+    "fullyEnriched": 0,
+    "phase3Eligible": 0,
+    "rawEvidence": "docs/operations/daily/2026-09-22T10-58-59.015Z.json"
+  },
+  "superteamAuthenticated": {
+    "initialAttempt": "SUPERTEAM_NETWORK_FAILED",
+    "retry": "SUCCESS",
+    "checkedAt": "2026-09-22T10:58:58.896Z",
+    "eligibleListings": 0,
+    "coverage": "RETURNED_LIVE_FEED",
+    "evidence": "docs/operations/daily/2026-09-22T10-58Z-superteam-agent-retry.json"
+  },
+  "gitpay": {
+    "status": "NOT_RUN_BLOCKED",
+    "observedUrl": "https://gitpay.me/#/signin",
+    "reason": "Preserved browser session remained at sign-in with reCAPTCHA; open-bounty filters were not verified."
+  },
+  "runtime": {
+    "count": 639,
+    "statusCounts": {
+      "INVESTIGATING": 622,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "changes": 0
+    },
+    "productionReadback": "MATCHED"
+  },
+  "newRecords": {
+    "count": 20,
+    "omiRetrospectiveProposals": 18,
+    "fakeOrNoRealTask": 1,
+    "assignedSaturatedHardwareTask": 1,
+    "privateProofsStarted": 0
+  },
+  "active": {
+    "ivritPy12": {
+      "state": "WAITING_FOR_MAINTAINER",
+      "issueOpen": true,
+      "assigned": false,
+      "reservationConfirmed": false,
+      "competingPrReviewCounts": {
+        "30": 0,
+        "31": 0,
+        "32": 0
+      }
+    }
+  },
+  "milestones": {
+    "workSecured": 0,
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  },
+  "ownerAction": "NOTHING_NEW"
+}
