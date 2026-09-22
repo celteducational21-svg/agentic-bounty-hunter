@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T16:00:44.552Z",
+  "discovery": {
+    "status": "SUCCESS",
+    "fetchedAt": "2026-09-22T16:00:01.825Z",
+    "raw": 90,
+    "github": 60,
+    "opire": 30,
+    "superteamPublic": 0,
+    "unique": 74,
+    "preflightAttempts": 69,
+    "deepAttempts": 5,
+    "fullyEnriched": 1,
+    "phase3Eligible": 0,
+    "rawEvidence": "docs/operations/daily/2026-09-22T15-59-36.221Z.json"
+  },
+  "superteamAuthenticated": {
+    "status": "SUCCESS",
+    "checkedAt": "2026-09-22T15:59:17.878Z",
+    "eligibleListings": 0,
+    "coverage": "RETURNED_LIVE_FEED",
+    "submitted": 0,
+    "evidence": "docs/operations/daily/2026-09-22T15-57Z-superteam-agent.json"
+  },
+  "gitpay": {
+    "status": "NOT_RUN_BLOCKED",
+    "observedUrl": "https://gitpay.me/#/signin",
+    "reason": "The preserved browser session is at sign-in; the open-bounty filters were not run and no empty result is claimed."
+  },
+  "runtime": {
+    "projectedCount": 699,
+    "statusCounts": {
+      "INVESTIGATING": 682,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "changes": 7
+    },
+    "productionOpportunityReadback": "VERIFIED_MATCH",
+    "productionOperationsReadback": "FAILED_TIMEOUT_AFTER_TWO_ATTEMPTS"
+  },
+  "newRecords": {
+    "count": 11,
+    "omiAlreadySolvedOrUnfundedProposals": 3,
+    "unfundedGovernanceOrDocumentation": 5,
+    "aggregatorOrRadarRecords": 2,
+    "dependencyDashboard": 1,
+    "privateProofsStarted": 0
+  },
+  "deepInvestigation": {
+    "count": 5,
+    "privateProofsJustified": 0,
+    "reasons": [
+      "Traefik #1 is heavily claimed and has high active competition.",
+      "Omi #15281 is an unfunded proposal with an existing solution PR.",
+      "Claude Builders Bounty #1 remains saturated.",
+      "Zeroeye #2 aggregates multiple reward rows into a misleading headline and needs exact reward reconciliation.",
+      "BonziAssist #7 is heavily claimed and its issue scope remains unclear."
+    ]
+  },
+  "active": {
+    "ivritPy12": {
+      "state": "WAITING_FOR_MAINTAINER",
+      "issueOrCompetingPrUpdatedSincePreviousCheck": false,
+      "assigned": false,
+      "reservationConfirmed": false
+    },
+    "buildersReflectShare": {
+      "sponsorReplyCount": 1,
+      "sponsorReplyChanged": false,
+      "registrationVerified": false,
+      "attendanceVerified": false,
+      "ownedXEvidenceVerified": false
+    }
+  },
+  "milestones": {
+    "workSecured": 0,
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  },
+  "ownerAction": "NOTHING_NEW"
+}
