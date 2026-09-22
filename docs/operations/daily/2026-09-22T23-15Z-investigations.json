@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-09-22T23:15:08Z",
+  "scanReference": "docs/operations/daily/2026-09-22T23-10-08.474Z.json",
+  "stage": "DEEP_FOLLOW_UP",
+  "candidates": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15281",
+      "decision": "REJECTED",
+      "reason": "The issue explicitly describes a proposed, unconfirmed $50 amount and says the fix and tests already exist in PR #15279. The issue author later reported that PR approved and awaiting a workflow gate. This is already-solved work, not an available bounty for ABH.",
+      "evidence": [
+        "https://github.com/BasedHardware/omi/issues/15281",
+        "https://github.com/BasedHardware/omi/pull/15279"
+      ]
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "REJECTED",
+      "reason": "The advertised $50 task is open, but live pull-request search returned a very large population of competing implementations, including multiple recent complete solutions. Competition is not realistically bounded for an early private proof, so no duplicate solution was started.",
+      "evidence": [
+        "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1"
+      ]
+    },
+    {
+      "url": "https://github.com/Saidur-droid/MergeEarn/issues/33",
+      "decision": "REJECTED",
+      "reason": "This is an automatically maintained board, not a payable implementation task. Its current verified product evidence states that zero FUNDED bounties are available, and the only listed queue item is WAITING_SPONSOR.",
+      "evidence": [
+        "https://github.com/Saidur-droid/MergeEarn/issues/33"
+      ]
+    }
+  ],
+  "privateProofsStarted": 0,
+  "activeSolvesStarted": 0,
+  "lesson": "A proposed amount, an extremely saturated open task, and a live board with zero funded rows must not be promoted merely because their issue pages remain open."
+}
