@@ -55,6 +55,12 @@
       "reference": "https://luma.com/g8gkbpqd",
       "summary": "The owner-approved Storytelling for Startups workshop window is now in progress, scheduled 16:00–17:00 Kuwait time on September 22. Genuine attendance is still unverified and must not be claimed. Ameir should join and attend now if registered; after attendance, preserve truthful evidence and provide the owned X profile/post URLs needed for a qualifying entry.",
       "delivery": "CONFIRMED_IN_CONVERSATION"
+    },
+    {
+      "key": "runtime:saved-scan-readback:timeout-502:observed-2026-09-22T19-32Z",
+      "reference": "https://agentic-bounty-hunter.vercel.app/api/opportunities?latest=1",
+      "summary": "Material partial reporting failure: the production saved-scan readback timed out and then returned HTTP 502. The production operations endpoint remained available with 756 records, and GitHub state, ivrit-py #12, and the Superteam sponsor reply were unchanged. No discovery or Solver work was launched from the reporting watch.",
+      "delivery": "PENDING_CONVERSATION_DELIVERY"
     }
   ],
   "previouslyCommunicated": [
