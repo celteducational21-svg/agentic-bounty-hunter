@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-09-22T18:13:24Z",
+  "cycle": "EDWARD_HOURLY",
+  "result": "PARTIAL_FAILURE",
+  "sources": {
+    "githubOpirePublicSuperteam": {
+      "status": "FAILED",
+      "attempts": 2,
+      "errors": ["HTTP_502", "TIMEOUT"],
+      "freshResultClaimed": false,
+      "persistenceClaimed": false
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "checkedAt": "2026-09-22T18:09:11.503Z",
+      "coverage": "RETURNED_LIVE_FEED",
+      "rawCount": 0,
+      "eligibleListings": 0,
+      "submitted": 0,
+      "reference": "docs/operations/daily/2026-09-22T18-12Z-superteam-authenticated-retry.json"
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "observedUrl": "https://gitpay.me/#/signin",
+      "reason": "Saved browser session is signed out; required Issues with bounties + Open filters were not verified."
+    }
+  },
+  "productionReadback": {
+    "operations": "TIMEOUT",
+    "savedScan": "TIMEOUT"
+  },
+  "lastVerifiedProjection": {
+    "total": 702,
+    "counts": {
+      "INVESTIGATING": 685,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "reference": "docs/operations/daily/2026-09-22T17-06Z-edward-hourly.md"
+  },
+  "activeRecords": {
+    "ivrit-ai/ivrit-py#12": {
+      "status": "WAITING_FOR_MAINTAINER",
+      "issue": "OPEN",
+      "assigned": false,
+      "reservationConfirmed": false,
+      "matchingOpenPullRequests": 4,
+      "maintainerReviewObserved": false
+    }
+  },
+  "milestones": {
+    "workSecured": 0,
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qaCompleted": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  },
+  "ownerAction": "Nothing new"
+}
