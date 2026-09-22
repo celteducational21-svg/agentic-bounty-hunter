@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T07:04:02Z",
+  "productionLastVerifiedScanAt": "2026-09-22T04:06:06.843Z",
+  "productionPersistence": {
+    "durable": true,
+    "backend": "supabase-postgres",
+    "freshWriteThisCycle": false
+  },
+  "sources": {
+    "github": {
+      "status": "NOT_RUN_BLOCKED",
+      "reason": "The existing production discovery request produced no evidence file or new durable scan; the bounded retry was rejected by the execution environment. Saved results were not treated as fresh."
+    },
+    "opire": {
+      "status": "NOT_RUN_BLOCKED",
+      "reason": "The existing production discovery request produced no evidence file or new durable scan; the bounded retry was rejected by the execution environment. Saved results were not treated as fresh."
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "checkedAt": "2026-09-22T07:02:53.680Z",
+      "rawCount": 0,
+      "eligibleCount": 0,
+      "coverage": "RETURNED_LIVE_FEED"
+    },
+    "superteamPublic": {
+      "status": "NOT_RUN",
+      "reason": "Public catalogue coverage is part of the blocked production discovery path; authenticated agent discovery completed separately."
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "checkedAt": "2026-09-22T06:58:00Z",
+      "reason": "The preserved cloud-browser session redirected to sign-in and displayed reCAPTCHA; open-bounty filters could not be verified."
+    }
+  },
+  "operations": {
+    "total": 589,
+    "INVESTIGATING": 572,
+    "REJECTED": 15,
+    "WAITING_FOR_MAINTAINER": 1,
+    "DO_NOT_HUNT": 1
+  },
+  "milestones": {
+    "workSecured": 0,
+    "proofs": 0,
+    "solves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "confirmedPayments": 0
+  },
+  "ivritPy12": {
+    "status": "WAITING_FOR_MAINTAINER",
+    "issueOpen": true,
+    "assigned": false,
+    "reserved": false,
+    "issueUpdatedAt": "2026-09-21T11:00:42Z",
+    "competingPullRequests": [30, 31, 32],
+    "maintainerReviews": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  },
+  "ownerAction": "NONE_NEW"
+}
