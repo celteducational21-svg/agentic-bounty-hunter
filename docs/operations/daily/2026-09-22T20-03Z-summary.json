@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-09-22T20:03:06Z",
+  "outcome": "MATERIAL_PARTIAL_FAILURE",
+  "workSecured": 0,
+  "sources": {
+    "github": {
+      "status": "FAILED",
+      "rawCount": null,
+      "reason": "existing main discovery runtime returned HTTP 502 on both bounded attempts"
+    },
+    "opire": {
+      "status": "FAILED",
+      "rawCount": null,
+      "reason": "existing main discovery runtime returned HTTP 502 on both bounded attempts"
+    },
+    "superteamPublic": {
+      "status": "FAILED",
+      "rawCount": null,
+      "reason": "existing main discovery runtime returned HTTP 502 on both bounded attempts"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "checkedAt": "2026-09-22T19:57:34.328Z",
+      "coverage": "official live agent feed"
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "checkedAt": "2026-09-22T20:03:06Z",
+      "reason": "browser remained at sign-in; required bounty/open filters not executed"
+    }
+  },
+  "freshScan": null,
+  "lastSavedScan": {
+    "fetchedAt": "2026-09-22T19:07:46.770Z",
+    "status": "STALE_READBACK_ONLY",
+    "deepAdmissionAttempts": 5,
+    "phase3Eligible": 0
+  },
+  "runtimeProjection": {
+    "total": 756,
+    "investigating": 734,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "activity": {
+    "newProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "ivrit12": {
+    "status": "WAITING_FOR_MAINTAINER",
+    "assigned": false,
+    "reservationConfirmed": false,
+    "matchingOpenPullRequests": 4
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionOperationsReadback": "SUCCESS",
+    "productionSavedScanReadback": "SUCCESS_STALE"
+  },
+  "ownerAction": null
+}
