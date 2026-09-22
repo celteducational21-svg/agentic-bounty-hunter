@@ -66,7 +66,7 @@
       "key": "runtime:durable-persistence-unavailable-after-recovery:observed-2026-09-22T20-54Z",
       "reference": "https://agentic-bounty-hunter.vercel.app/api/operations",
       "summary": "Material production regression after the 20:03Z recovery: two no-cache operations reads returned runtime.durable=false with lastScan=null and only the seven committed fallback records; the saved-scan endpoint returned HTTP 502. No assignment, reservation, QA, submission, merge or payment event was found; #12 and the Superteam sponsor thread were unchanged. No discovery or Solver work was launched from the reporting watch.",
-      "delivery": "PENDING_CONVERSATION_DELIVERY"
+      "delivery": "CONFIRMED_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
