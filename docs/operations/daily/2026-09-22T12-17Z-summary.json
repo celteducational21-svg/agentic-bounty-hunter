@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T12:17:30Z",
+  "discovery": {
+    "initialAttempt": "FAILED_502",
+    "retry": "SUCCESS",
+    "fetchedAt": "2026-09-22T12:08:31.402Z",
+    "raw": 90,
+    "github": 60,
+    "opire": 30,
+    "superteamPublic": 0,
+    "unique": 82,
+    "preflightAttempts": 77,
+    "deepAttempts": 5,
+    "fullyEnriched": 1,
+    "phase3Eligible": 0,
+    "rawEvidence": "docs/operations/daily/2026-09-22T12-08-09.791Z.json"
+  },
+  "superteamAuthenticated": {
+    "status": "FAILED_TRANSIENT_AFTER_TWO_ATTEMPTS",
+    "eligibleListings": null,
+    "coverage": "NOT_ESTABLISHED",
+    "evidence": "docs/operations/daily/2026-09-22T12-17Z-superteam-agent-failure.json"
+  },
+  "gitpay": {
+    "status": "NOT_RUN_BLOCKED",
+    "observedUrl": "https://gitpay.me/#/signin",
+    "reason": "The preserved browser session redirected to sign-in and displayed reCAPTCHA; open-bounty filters were not verified."
+  },
+  "runtime": {
+    "count": 657,
+    "statusCounts": {
+      "INVESTIGATING": 640,
+      "REJECTED": 15,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "changes": 19
+    },
+    "productionReadback": "MATCHED_AFTER_RETRY"
+  },
+  "newRecords": {
+    "count": 18,
+    "omiPostImplementationProposals": 11,
+    "radarOrAggregatorNotices": 2,
+    "fakeNegativeOrRetrospectiveMirrors": 5,
+    "privateProofsStarted": 0
+  },
+  "deepInvestigation": {
+    "count": 5,
+    "privateProofsJustified": 0,
+    "reasons": [
+      "Traefik #1 has many active attempts and repeated solution claims, including a new claim in this cycle.",
+      "Claude Builders Bounty #1 has 2,206 comments and extensive duplicate submissions.",
+      "Zeroeye #2 already points to upstream PR #304 and has many solution claims.",
+      "Omi #15882 is a retrospective bounty proposal for already-submitted PR #15881.",
+      "BonziAssist #7 has vague scope, many competing claims and unresolved closed/unpaid submissions."
+    ]
+  },
+  "active": {
+    "ivritPy12": {
+      "state": "WAITING_FOR_MAINTAINER",
+      "issueOpen": true,
+      "assigned": false,
+      "reservationConfirmed": false,
+      "commentCount": 18,
+      "competingPrReviewCounts": {
+        "30": 0,
+        "31": 0,
+        "32": 0
+      }
+    }
+  },
+  "milestones": {
+    "workSecured": 0,
+    "newProofs": 0,
+    "activeSolves": 0,
+    "qa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0
+  },
+  "ownerAction": "NOTHING_NEW"
+}
