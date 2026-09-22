@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-09-22T23:15:08Z",
+  "outcome": "SUCCESS_NO_ELIGIBLE_WORK",
+  "workSecured": 0,
+  "sources": {
+    "github": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 60,
+      "coverage": "three bounded authenticated issue-search queries"
+    },
+    "opire": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 6,
+      "coverage": "bounded current public catalogue"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 0,
+      "coverage": "public agent Development catalogue"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "checkedAt": "2026-09-22T23:06:31.220Z",
+      "coverage": "official live agent feed"
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "checkedAt": "2026-09-22T23:14:00Z",
+      "reason": "preserved browser tab remained at sign-in; required Issues with bounties + Open filters were not executed"
+    }
+  },
+  "freshScan": {
+    "fetchedAt": "2026-09-22T23:10:43.028Z",
+    "unique": 55,
+    "netNewRuntimeRecords": 6,
+    "persistenceChanges": 12,
+    "deepAdmissionAttempts": 8,
+    "deepFollowUps": 3,
+    "phase3Eligible": 0,
+    "durablePersistence": true,
+    "sha256": "edc95a80264c6dedd64379314024c15af23f709a8f148eb82467d6445a915bad"
+  },
+  "runtimeProjection": {
+    "total": 780,
+    "investigating": 758,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "activity": {
+    "newProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submitted": 0,
+    "merged": 0,
+    "paid": 0
+  },
+  "ivrit12": {
+    "status": "WAITING_FOR_MAINTAINER",
+    "assigned": false,
+    "reservationConfirmed": false,
+    "issueUpdatedAt": "2026-09-21T11:00:42Z",
+    "matchingOpenPullRequests": 4
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "productionOperationsReadback": "RECOVERED_ON_RETRY_WITH_FRESH_DURABLE_STATE",
+    "productionSavedScanReadback": "PASS"
+  },
+  "ownerAction": null
+}
