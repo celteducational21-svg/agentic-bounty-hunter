@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-22T12:17:30Z",
+  "source": "Superteam authenticated agent API",
+  "status": "FAILED_TRANSIENT_AFTER_TWO_ATTEMPTS",
+  "attempts": [
+    {
+      "output": "SUPERTEAM_NETWORK_FAILED",
+      "result": "FAILED"
+    },
+    {
+      "output": "SUPERTEAM_NETWORK_FAILED",
+      "result": "FAILED"
+    }
+  ],
+  "eligibleListings": null,
+  "coverage": "NOT_ESTABLISHED",
+  "secretMaterialRetained": false,
+  "nextAction": "Retry authenticated discovery independently on the next cycle; do not interpret this failure as an empty catalogue."
+}
