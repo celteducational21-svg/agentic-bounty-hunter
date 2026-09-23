@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-09-23T05:02:51Z",
+  "sourceScan": "docs/operations/daily/2026-09-23T04-58-11.617Z.json.gz",
+  "deepCandidates": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15602",
+      "decision": "HARD_BLOCK",
+      "reason": "The $50 amount is explicitly proposed rather than awarded, and the implementation was already submitted in PR #15601."
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16248",
+      "decision": "HARD_BLOCK",
+      "reason": "Bot-confirmed claim holder @Ljunqiang is renewed through 2026-09-30 and has submitted open mergeable PR #8505."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "The $50 task has 2,213 comments and a fresh claimant has submitted PR #4400; competition is already saturated."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/33",
+      "decision": "HARD_BLOCK",
+      "reason": "This remains a contributor claim inquiry without maintainer assignment, and a competitor has now submitted PR #34."
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "HARD_BLOCK",
+      "reason": "Previous rewards were claimed and the latest provider-bot response states that the issue currently has no reward."
+    },
+    {
+      "url": "https://github.com/abdulsalam-create/bounty-watch/issues/29",
+      "decision": "HARD_BLOCK",
+      "reason": "This is an automated vulnerability-program watch report with no direct task reward."
+    },
+    {
+      "url": "https://github.com/auscaster/frantic-board/issues/429",
+      "decision": "HARD_BLOCK",
+      "reason": "The $1.75 bounty has all ten slots filled and is marked delivered and paid."
+    }
+  ],
+  "newRecordFollowups": [
+    {
+      "url": "https://github.com/nextlevelbuilder/goclaw/issues/1576",
+      "decision": "INVESTIGATE",
+      "reason": "This is a contributor proposal awaiting maintainer confirmation of license compatibility, bounty scope and a valid claim ID; no assignment or confirmed reward exists."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/35",
+      "decision": "HARD_BLOCK",
+      "reason": "A competitor opened PR #36 before any maintainer assignment evidence."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/37",
+      "decision": "HARD_BLOCK",
+      "reason": "A competitor opened PR #40 before any maintainer assignment evidence."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/39",
+      "decision": "HARD_BLOCK",
+      "reason": "The issue reports a complete implementation already submitted in PR #38."
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/2089",
+      "decision": "HARD_BLOCK",
+      "reason": "Automated triage marked the intake auto-rejected and no reward is established."
+    },
+    {
+      "url": "https://github.com/vansh-09/BountyScout/issues/1177",
+      "decision": "HARD_BLOCK",
+      "reason": "This is an automated discovery report, not a directly payable task."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15816",
+      "decision": "HARD_BLOCK",
+      "reason": "The $25 amount is only proposed; the claimed delivery PR #16229 was closed and an older competing implementation was identified."
+    }
+  ],
+  "privateProofsStarted": 0,
+  "solvesStarted": 0
+}
