@@ -73,6 +73,12 @@
       "reference": "docs/operations/daily/2026-09-23T00-10Z-hunting-policy-block.md",
       "summary": "Material partial failure: authenticated Superteam discovery completed with zero live listings, but the primary GitHub/Opire/public-Superteam discovery command was rejected before execution by the runtime safety gate as if it were the read-only reporting watch. No fresh result or persistence is claimed for those three sources, and no replacement scan or Solver was launched. Production readbacks also timed out, while #12 and the Superteam sponsor thread remained unchanged.",
       "delivery": "PENDING_IN_CONVERSATION"
+    },
+    {
+      "key": "runtime:saved-scan-502-with-operations-fallback:observed-2026-09-23T04-20Z",
+      "reference": "docs/operations/daily/2026-09-23T04-23Z-manager-watch.md",
+      "summary": "New material readback regression after the 04:09Z saved-scan recovery: the saved-scan endpoint returned HTTP 502 while the operations endpoint remained on seven committed fallback records with runtime.durable=false and lastScan=null. #12, its competing PRs and the Superteam sponsor thread were unchanged. No discovery or Solver work was launched from this reporting watch.",
+      "delivery": "PENDING_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
