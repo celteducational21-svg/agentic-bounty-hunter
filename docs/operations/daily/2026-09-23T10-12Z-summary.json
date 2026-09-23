@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-09-23T10:12:25Z",
+  "scanFetchedAt": "2026-09-23T10:08:07.850Z",
+  "sources": {
+    "github": {
+      "status": "SUCCESS_ON_RETRY",
+      "rawCount": 60,
+      "coverage": "Existing provider-first GitHub search path"
+    },
+    "opire": {
+      "status": "SUCCESS_ON_RETRY",
+      "rawCount": 6,
+      "coverage": "Bounded public catalogue through the existing runtime path"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed, take=100"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS_ON_RETRY",
+      "rawCount": 0,
+      "coverage": "Public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Required Issues with bounties + Open filters unavailable because the preserved session is signed out behind reCAPTCHA"
+    }
+  },
+  "funnel": {
+    "raw": 66,
+    "unique": 55,
+    "canonicalResolved": 11,
+    "providerVerified": 3,
+    "fullyEnriched": 2,
+    "deepAttempts": 7,
+    "newRuntimeRecords": 17
+  },
+  "runtime": {
+    "operations": 844,
+    "statusCounts": {
+      "INVESTIGATING": 822,
+      "REJECTED": 20,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "durableAtPersistence": true,
+    "backend": "supabase-postgres",
+    "changes": 19,
+    "finalOperationsReadback": "DEGRADED_FALLBACK_7",
+    "savedScanReadback": "HTTP_502",
+    "rawScanGitHubWrite": "DEFERRED_AFTER_LOCAL_GIT_AUTH_FAILURE"
+  },
+  "execution": {
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0,
+    "workSecured": 0
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "lessons": [
+    "A transient discovery HTTP 502 recovered on one bounded retry; failed attempts must not be logged as fresh scans.",
+    "Bounty-alert aggregators and creator-locked recursively spawned issues are not original claimable work and should be screened before private proof."
+  ]
+}
