@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-09-23T19:08:00Z",
+  "scanFetchedAt": "2026-09-23T19:05:52.286Z",
+  "sources": {
+    "github": {"status": "SUCCESS_AFTER_ONE_RETRY", "rawCount": 60},
+    "opire": {"status": "SUCCESS_AFTER_ONE_RETRY", "rawCount": 6},
+    "superteamPublic": {"status": "SUCCESS_AFTER_ONE_RETRY", "rawCount": 0},
+    "superteamAuthenticated": {"status": "SUCCESS", "rawCount": 0},
+    "gitpay": {"status": "BLOCKED_NOT_RUN", "rawCount": null, "reason": "Preserved session remains signed out; required filters were not run"}
+  },
+  "funnel": {
+    "raw": 66,
+    "unique": 62,
+    "canonicalResolved": 14,
+    "providerVerified": 3,
+    "fullyEnriched": 5,
+    "deepAdmissionAttempts": 8,
+    "hunt": 0,
+    "watch": 0,
+    "skip": 1,
+    "reject": 12,
+    "incomplete": 49
+  },
+  "runtime": {
+    "operationCount": 931,
+    "statusCounts": {"investigating": 909, "rejected": 20, "waitingMaintainer": 1, "doNotHunt": 1},
+    "persistence": {"status": "SUCCESS", "backend": "supabase-postgres", "changes": 31},
+    "postPersistenceReadback": {"operations": "FALLBACK_7_DURABLE_FALSE", "savedScan": "HTTP_502"}
+  },
+  "existingWork": {
+    "ivritPy12": "OPEN_UNASSIGNED_UNRESERVED_NO_MAINTAINER_CONFIRMATION",
+    "comments": 19
+  },
+  "execution": {
+    "workSecured": 0,
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0
+  },
+  "tests": {"passed": 229, "failed": 0},
+  "lessons": [
+    "Bounty labels and clear scope do not establish a payable amount or assignment.",
+    "Contributor-proposed payment tied to the contributor's existing PR is not available work.",
+    "Unknown provider terms remain investigative rather than automatically rejected."
+  ]
+}
