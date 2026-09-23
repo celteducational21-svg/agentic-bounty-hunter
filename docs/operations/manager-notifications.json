@@ -127,6 +127,12 @@
       "reference": "docs/operations/daily/2026-09-23T20-03Z-edward-hourly.md",
       "summary": "Material partial hunting failure: authenticated Superteam discovery succeeded with zero live listings, but fresh GitHub, Opire and public-Superteam discovery returned HTTP 502 on the initial attempt and one bounded retry. No fresh results or persistence are claimed. Gitpay remained signed out and was not run. The prior durable scan is readable but remains a 19:05 UTC snapshot; operations readback is still the seven-record fallback. No work was secured or advanced.",
       "delivery": "PENDING_IN_CONVERSATION"
+    },
+    {
+      "key": "runtime:both-production-readbacks-unavailable:observed-2026-09-23T21-14Z",
+      "reference": "docs/operations/daily/2026-09-23T21-14Z-manager-watch.md",
+      "summary": "New production regression: both read paths were unavailable. Direct no-cache requests to /api/operations and the saved-scan endpoint failed, and an independent browser request to /api/operations timed out into an error page. This regressed from the 21:08 UTC hunting evidence, when /api/operations still returned the seven-record committed fallback. The last verified durable scan remains the 19:05 UTC snapshot with 62 opportunities and a 931-operation projection. #12 and the Superteam sponsor thread were unchanged; no discovery or Solver was launched from the reporting watch.",
+      "delivery": "PENDING_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
