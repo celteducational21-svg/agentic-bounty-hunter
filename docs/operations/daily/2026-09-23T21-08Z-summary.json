@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-23T21:08:06Z",
+  "sources": {
+    "github": {"status": "FAILED_HTTP_502_AFTER_ONE_RETRY", "rawCount": null},
+    "opire": {"status": "FAILED_HTTP_502_AFTER_ONE_RETRY", "rawCount": null},
+    "superteamPublic": {"status": "FAILED_HTTP_502_AFTER_ONE_RETRY", "rawCount": null},
+    "superteamAuthenticated": {"status": "SUCCESS", "checkedAt": "2026-09-23T21:05:04.534Z", "rawCount": 0},
+    "gitpay": {"status": "BLOCKED_NOT_RUN", "rawCount": null, "reason": "Preserved browser session remains signed out; required Open bounty filters were not run"}
+  },
+  "freshScan": {"status": "FAILED", "persisted": false, "reason": "Discovery endpoint returned HTTP 502 on initial attempt and one bounded retry"},
+  "lastDurableSnapshot": {"checkedAt": "2026-09-23T19:05:52.286Z", "unique": 62, "projectedOperations": 931},
+  "runtimeReadback": {
+    "operations": {"status": "FALLBACK", "count": 7, "durable": false},
+    "savedScan": {"status": "FAILED_HTTP_502"}
+  },
+  "existingWork": {"ivritPy12": "OPEN_UNASSIGNED_UNRESERVED_NO_MAINTAINER_CONFIRMATION", "comments": 20},
+  "execution": {"workSecured": 0, "deepInvestigations": 0, "privateProofs": 0, "activeSolves": 0, "independentQa": 0, "readyToSubmit": 0, "submissions": 0, "merges": 0, "payments": 0},
+  "tests": {"passed": 229, "failed": 0},
+  "ownerAction": "NOTHING_NEW",
+  "lessons": ["Repeated transient provider and readback failures are recorded without reclassifying an older durable snapshot as fresh discovery."]
+}
