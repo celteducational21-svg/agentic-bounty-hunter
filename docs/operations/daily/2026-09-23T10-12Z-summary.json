@@ -48,7 +48,7 @@
     "durableAtPersistence": true,
     "backend": "supabase-postgres",
     "changes": 19,
-    "finalOperationsReadback": "DEGRADED_FALLBACK_7",
+    "finalOperationsReadback": "RECOVERED_DURABLE_844",
     "savedScanReadback": "HTTP_502",
     "rawScanGitHubWrite": "DEFERRED_AFTER_LOCAL_GIT_AUTH_FAILURE"
   },
