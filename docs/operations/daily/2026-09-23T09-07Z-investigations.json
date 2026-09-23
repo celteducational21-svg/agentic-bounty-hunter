@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-09-23T09:07:20Z",
+  "scanFetchedAt": "2026-09-23T09:02:18.498Z",
+  "stage": "DEEP_AND_MANUAL_FOLLOW_UP",
+  "deepAttempts": 7,
+  "newRuntimeRecords": 18,
+  "privateProofsStarted": 0,
+  "workSecured": 0,
+  "reviews": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/16033",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The issue proposes a reward after solution PR #16032 already exists; another claimant is present and no funded payout mechanism is verified."
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16248",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "Five-RTC token value is unverified and the issue has multiple prior/current implementations, including a submitted PR."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The $50 task is extremely saturated: 2,213 comments, twelve observed active competitors and numerous open solution PRs."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/83",
+      "decision": "ALREADY_SUBMITTED",
+      "reason": "The claim already has open solution PR #89; there is no distinct unassigned task to prove."
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The mirrored $50 task has eleven observed competitors and ten open solution PRs."
+    },
+    {
+      "url": "https://github.com/woahwhattheheck/commons/issues/19318",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The implementation scope is clear but no personal reward or payable amount is established."
+    },
+    {
+      "url": "https://github.com/auscaster/frantic-board/issues/429",
+      "decision": "CLOSED_COMPLETED",
+      "reason": "The source explicitly says all ten slots are filled and the bounty is delivered; two solution PRs are also open."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/16035",
+      "decision": "ALREADY_SUBMITTED",
+      "reason": "The proposal body names existing solution PR #16034; a later claimant explicitly withdrew to avoid competing."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/17270",
+      "decision": "ALREADY_SUBMITTED",
+      "reason": "The proposal is for work already delivered in PR #17269, with an additional competing PR #17283."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/93",
+      "decision": "ALREADY_SUBMITTED",
+      "reason": "The claimant already opened solution PR #95."
+    },
+    {
+      "url": "https://github.com/kushBitxHQ/kushbitx-sdk/issues/1",
+      "decision": "CLOSED_COMPLETED",
+      "reason": "The single 50-USDC award is assigned and accepted for another contributor; the issue remains open only for unpaid settlement reconciliation."
+    },
+    {
+      "url": "https://github.com/nextlevelbuilder/goclaw/issues/1576",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "Automated maintainer triage requires a maintainer licensing/scope decision, a valid bounty Claim ID and a local integration run; no funded personal award is established."
+    }
+  ]
+}
