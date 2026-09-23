@@ -1,0 +1,12 @@
+{
+  "fetchedAt": "2026-09-23T19:05:52.286Z",
+  "sourceFile": "2026-09-23T19-05-32.269Z.json",
+  "sourceBytes": 4859052,
+  "sourceSha256": "8ca403fd9098ad7ecbdd645b06a442196c518a7a4e17a7890f4300c4fb2b33f7",
+  "compressedFile": "2026-09-23T19-05Z-scan.json.gz",
+  "compressedBytes": 497788,
+  "compressedSha256": "6928daac25a7b7532ebf0ab62f919bbf71b42152eabfc47000e7e4b9f57eaa1a",
+  "persistence": {"durable": true, "backend": "supabase-postgres", "changes": 31},
+  "funnel": {"raw": 66, "githubRaw": 60, "providerDiscovered": 6, "unique": 62},
+  "note": "The compressed raw file remains local because the available GitHub text-file connector does not support binary content. This receipt and runtime durable write preserve verifiable scan identity without claiming a binary GitHub upload."
+}
