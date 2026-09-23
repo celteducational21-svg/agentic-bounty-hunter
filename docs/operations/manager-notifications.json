@@ -79,6 +79,12 @@
       "reference": "docs/operations/daily/2026-09-23T04-23Z-manager-watch.md",
       "summary": "New material readback regression after the 04:09Z saved-scan recovery: the saved-scan endpoint returned HTTP 502 while the operations endpoint remained on seven committed fallback records with runtime.durable=false and lastScan=null. #12, its competing PRs and the Superteam sponsor thread were unchanged. No discovery or Solver work was launched from this reporting watch.",
       "delivery": "PENDING_IN_CONVERSATION"
+    },
+    {
+      "key": "runtime:hunting-discovery-502-twice:observed-2026-09-23T06-08Z",
+      "reference": "docs/operations/daily/2026-09-23T06-10Z-edward-hourly.md",
+      "summary": "Material partial hunting failure: authenticated Superteam discovery succeeded with zero live listings, but the combined GitHub/Opire/public-Superteam command returned HTTP 502 on the initial attempt and one bounded retry, so no fresh result or persistence is claimed for those sources. Production operations timed out and saved-scan readback returned HTTP 502. No proof, solve, QA, submission, merge or payment occurred.",
+      "delivery": "PENDING_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
