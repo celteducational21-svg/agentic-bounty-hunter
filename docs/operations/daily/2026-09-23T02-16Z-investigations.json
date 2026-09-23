@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-09-23T02:16:00Z",
+  "scanFetchedAt": "2026-09-23T02:08:27.263Z",
+  "deepAttempts": 7,
+  "phase3Eligible": 0,
+  "privateProofsStarted": 0,
+  "candidates": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15602",
+      "qualification": "HARD_BLOCK",
+      "reason": "The issue is a post-hoc $50 proposal by an unassociated contributor for that contributor's already-open implementation PR #15601. The three comments are repeated non-maintainer availability inquiries; no maintainer funded or assigned the work.",
+      "evidence": [
+        "https://github.com/BasedHardware/omi/issues/15602",
+        "https://github.com/BasedHardware/omi/pull/15601"
+      ]
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16251",
+      "qualification": "HARD_BLOCK",
+      "reason": "The 10 RTC reward has no verified fiat value, two implementation PRs already exist, and acceptance requires real macOS plus Linux transcripts unavailable in this run.",
+      "evidence": [
+        "https://github.com/Scottcjn/rustchain-bounties/issues/16251"
+      ]
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "qualification": "INVESTIGATE",
+      "reason": "The $50 pay-on-acceptance task is understandable, but the issue has more than 2,200 comments and numerous submitted implementations. It does not justify scarce proof capacity without evidence that the sponsor is still selecting new work.",
+      "evidence": [
+        "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1"
+      ]
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "qualification": "HARD_BLOCK",
+      "reason": "The $50 headline is not backed by a verified funded Opire listing and the referenced upstream implementation already has complete competing solutions.",
+      "evidence": [
+        "https://github.com/lb1192176991-lab/zeroeye/issues/2"
+      ]
+    },
+    {
+      "url": "https://github.com/markabramov1993/arbitr/issues/8",
+      "qualification": "HARD_BLOCK",
+      "reason": "This is a radar/aggregation report, not an original payable implementation task.",
+      "evidence": [
+        "https://github.com/markabramov1993/arbitr/issues/8"
+      ]
+    },
+    {
+      "url": "https://github.com/SolFoundry/solfoundry/issues/830",
+      "qualification": "INVESTIGATE",
+      "reason": "The tutorial scope is understandable, but the reward is an unvalued project token and at least eleven competing contributions were observed. No fiat-equivalent or payable personal award is verified.",
+      "evidence": [
+        "https://github.com/SolFoundry/solfoundry/issues/830"
+      ]
+    },
+    {
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1057",
+      "qualification": "HARD_BLOCK",
+      "reason": "This is an aggregation report without a direct task-specific reward or acceptance path.",
+      "evidence": [
+        "https://github.com/relayhop/sn-monetization-runtime/issues/1057"
+      ]
+    }
+  ]
+}

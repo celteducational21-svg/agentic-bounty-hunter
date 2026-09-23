@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-09-23T02:16:00Z",
+  "outcome": "SUCCESS_NO_ELIGIBLE_WORK",
+  "freshScanFetchedAt": "2026-09-23T02:08:27.263Z",
+  "sources": {
+    "github": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 60,
+      "coverage": "Three bounded authenticated searches"
+    },
+    "opire": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 6,
+      "coverage": "Bounded current public catalogue page"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 0,
+      "coverage": "Public agent Development view"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-23T02:07:13.241Z",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed"
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "reason": "Preserved browser state redirected to sign-in and exposed reCAPTCHA; the required Issues with bounties plus Open filters were not executed"
+    }
+  },
+  "scan": {
+    "raw": 66,
+    "unique": 65,
+    "fullyEnriched": 3,
+    "deepAttempts": 7,
+    "phase3Eligible": 0,
+    "materialChanges": 10,
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres"
+    }
+  },
+  "runtimeProjection": {
+    "total": 799,
+    "investigating": 777,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "execution": {
+    "newProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0,
+    "workSecured": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "operationsReadback": "MATCHED_DURABLE_799",
+    "savedScanReadback": "HTTP_502_TWICE_AFTER_WRITE"
+  },
+  "ownerAction": "NONE_NEW"
+}
