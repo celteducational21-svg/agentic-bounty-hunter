@@ -43,19 +43,17 @@ maintainer confirmation of bounty availability, scope or a two-week reservation
 was found. PRs 28, 30, 31 and 32 still have zero submitted reviews. No duplicate
 comment or claim was posted.
 
-The repository test suite passed 229/229. The discovery response verified
-durable persistence at `lastScan=2026-09-23T10:08:07.850Z`, but the final
-production operations read regressed to the seven committed fallback records
-with `durable=false`, and the independent saved-scan endpoint returned HTTP 502.
-The successful persistence is retained in local raw scan evidence; current
-production readback is not claimed healthy. The raw scan GitHub write is
-deferred after the local Git push lacked credentials; the committed summaries
-retain the verified counts and failure state.
+The repository test suite passed 229/229. A final production operations retry
+confirmed 844 durable records at `lastScan=2026-09-23T10:08:07.850Z`. The
+independent saved-scan endpoint still returned HTTP 502, so that read path
+remains intermittent even though the operations read confirms persistence. The
+raw scan GitHub write is deferred after the local Git push lacked credentials;
+the committed summaries retain the verified counts and failure state.
 
 ## Next
 
 Continue fresh discovery, screen bounty aggregators and creator-locked farm
-records early, and retry both production read paths independently. Retry Gitpay
+records early, and retry the saved-scan read path independently. Retry Gitpay
 only when its signed-in browser session is available. Retry the raw scan commit
 from an authenticated Git environment without rewriting history.
 
