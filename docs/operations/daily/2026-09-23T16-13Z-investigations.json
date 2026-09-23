@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-09-23T16:13:00Z",
+  "stage": "DEEP_AND_CHANGED_CANDIDATE_REVIEW",
+  "records": [
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "advertisedReward": "$50",
+      "decision": "REJECTED_FOR_CURRENT_CAPACITY",
+      "reason": "Competition is plainly hopeless for an early win: the issue has 2,217 comments and a focused open-PR search returned at least 100 changelog implementations. No private proof was started."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/2",
+      "advertisedReward": "$75",
+      "decision": "REJECTED_FOR_CURRENT_CAPACITY",
+      "reason": "The issue has 1,501 comments and a focused open-PR search returned at least 100 Next.js/SQLite CLAUDE.md implementations. No private proof was started."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/3",
+      "advertisedReward": "$100",
+      "decision": "REJECTED_FOR_CURRENT_CAPACITY",
+      "reason": "The issue has 1,768 comments and a focused open-PR search returned at least 100 destructive-command-hook implementations. No private proof was started."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/4",
+      "advertisedReward": "$150",
+      "decision": "REJECTED_FOR_CURRENT_CAPACITY",
+      "reason": "The issue has 1,545 comments and a focused open-PR search returned at least 100 PR-review-agent implementations. No private proof was started."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/5",
+      "advertisedReward": "$200",
+      "decision": "REJECTED_FOR_CURRENT_CAPACITY",
+      "reason": "The issue has 1,189 comments and a focused open-PR search returned at least 100 n8n weekly-summary implementations. No private proof was started."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/17539",
+      "advertisedReward": "$25 proposed",
+      "decision": "NOT_ELIGIBLE_FOR_PROOF",
+      "reason": "The issue author proposes their own reward and says the PR is ready; matching PR 17540 already contains the completed implementation. No maintainer funding or separate assignment exists."
+    },
+    {
+      "url": "https://github.com/johnephraim949-web/cypher-gridpay-contracts/issues/114",
+      "decision": "NO_DIRECT_REWARD",
+      "reason": "Fresh deep collection established no direct task reward."
+    },
+    {
+      "url": "https://github.com/NSPG13/agent-bounties/issues/647",
+      "decision": "OUT_OF_SCOPE_AND_REQUIRES_SPEND",
+      "reason": "The parent requires creating and funding a child bounty; the apparent reward is not a normal direct software-task payment and spending is not authorized."
+    },
+    {
+      "url": "https://github.com/releaseken/Perpetua-Contracts/issues/101",
+      "decision": "NO_DIRECT_REWARD",
+      "reason": "Fresh deep collection established no direct task reward."
+    },
+    {
+      "url": "https://github.com/CERTCC/Vultron/issues/2563",
+      "decision": "NO_DIRECT_REWARD",
+      "reason": "Fresh deep collection established no direct task reward."
+    },
+    {
+      "url": "https://github.com/hifriendbot/agentwallet-mcp/issues/8",
+      "decision": "NO_DIRECT_REWARD",
+      "reason": "Fresh deep collection established no direct task reward."
+    }
+  ],
+  "privateProofsStarted": 0,
+  "activeSolvesStarted": 0
+}
