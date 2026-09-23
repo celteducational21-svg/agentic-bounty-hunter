@@ -1,0 +1,86 @@
+{
+  "checkedAt": "2026-09-23T18:03:00Z",
+  "scanFetchedAt": "2026-09-23T17:58:56.171Z",
+  "sources": {
+    "github": {
+      "status": "SUCCESS_AFTER_ONE_RETRY",
+      "rawCount": 60,
+      "coverage": "Established production operations:daily path"
+    },
+    "opire": {
+      "status": "SUCCESS_AFTER_ONE_RETRY",
+      "rawCount": 6,
+      "coverage": "Established public catalogue adapter"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS_AFTER_ONE_RETRY",
+      "rawCount": 0,
+      "coverage": "Public agent Development view"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed, take=100"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Preserved browser session remains signed out; required bounty/open filters were not run"
+    }
+  },
+  "funnel": {
+    "raw": 66,
+    "unique": 60,
+    "canonicalResolved": 13,
+    "providerVerified": 3,
+    "fullyEnriched": 6,
+    "deepAdmissionAttempts": 8,
+    "hunt": 0,
+    "watch": 1,
+    "reject": 12,
+    "incomplete": 47
+  },
+  "runtime": {
+    "operationCount": 904,
+    "statusCounts": {
+      "investigating": 882,
+      "rejected": 20,
+      "waitingMaintainer": 1,
+      "doNotHunt": 1
+    },
+    "persistence": {
+      "status": "SUCCESS",
+      "backend": "supabase-postgres",
+      "changes": 32
+    },
+    "postPersistenceReadback": {
+      "operations": "FALLBACK_7_DURABLE_FALSE",
+      "savedScan": "HTTP_502"
+    }
+  },
+  "execution": {
+    "workSecured": 0,
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0
+  },
+  "existingWork": {
+    "ivritPy12": "OPEN_UNASSIGNED_UNRESERVED_NO_MAINTAINER_CONFIRMATION",
+    "comments": 19,
+    "competingPullRequests": [28, 30, 31, 32],
+    "reviewsPerCompetingPullRequest": 0
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "lessons": [
+    "A contributor-proposed reward paired with the contributor's own implementation is not available funded work.",
+    "A mirrored claim with external terms, heavy claim churn and an open competing claim is not suitable for private proof or unauthorized engagement.",
+    "Durable write confirmation and production readback availability are separate signals and must be reported separately."
+  ]
+}
