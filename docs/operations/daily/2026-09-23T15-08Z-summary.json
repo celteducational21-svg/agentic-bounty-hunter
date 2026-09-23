@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-09-23T15:07:53Z",
+  "sources": {
+    "github": {
+      "status": "FAILED_HTTP_502",
+      "rawCount": null,
+      "coverage": "Established operations:daily path returned HTTP 502 on the initial attempt and one bounded retry; no fresh result"
+    },
+    "opire": {
+      "status": "FAILED_HTTP_502",
+      "rawCount": null,
+      "coverage": "Same combined production discovery failure; no fresh result"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed, take=100"
+    },
+    "superteamPublic": {
+      "status": "FAILED_HTTP_502",
+      "rawCount": null,
+      "coverage": "Same combined production discovery failure; no fresh result"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Preserved browser session remains at sign-in behind reCAPTCHA; required filters were not run"
+    }
+  },
+  "runtime": {
+    "lastDurableScanFetchedAt": "2026-09-23T10:08:07.850Z",
+    "lastDurableCandidateCount": 55,
+    "lastDurableOperationCount": 844,
+    "savedScanReadback": "HTTP_200_LIVE_LAST_DURABLE_SCAN",
+    "operationsReadback": "FALLBACK_7_DURABLE_FALSE",
+    "freshPersistence": "FAILED_NOT_WRITTEN"
+  },
+  "execution": {
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0,
+    "workSecured": 0
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "lessons": [
+    "A successful saved-scan readback is evidence of the prior durable snapshot, not a fresh scan after the discovery command fails.",
+    "One failed discovery source must not suppress the independently successful authenticated Superteam check."
+  ]
+}
