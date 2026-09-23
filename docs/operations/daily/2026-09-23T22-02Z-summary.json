@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-09-23T22:01:32Z",
+  "scanFetchedAt": "2026-09-23T21:57:25.832Z",
+  "sources": {
+    "github": {"status": "SUCCESS_AFTER_ONE_RETRY", "rawCount": 60},
+    "opire": {"status": "SUCCESS_AFTER_ONE_RETRY", "rawCount": 6},
+    "superteamPublic": {"status": "SUCCESS_AFTER_ONE_RETRY", "rawCount": 0},
+    "superteamAuthenticated": {"status": "SUCCESS", "checkedAt": "2026-09-23T21:56:42.903Z", "rawCount": 0},
+    "gitpay": {"status": "BLOCKED_NOT_RUN", "rawCount": null, "reason": "Preserved session remains signed out; required Open bounty filters were not run"}
+  },
+  "funnel": {
+    "raw": 66,
+    "unique": 58,
+    "canonicalResolved": 16,
+    "providerVerified": 3,
+    "fullyEnriched": 7,
+    "deepAdmissionAttempts": 8,
+    "hunt": 0,
+    "watch": 0,
+    "skip": 0,
+    "reject": 16,
+    "incomplete": 42
+  },
+  "runtime": {
+    "operationCount": 947,
+    "statusCounts": {"investigating": 925, "rejected": 20, "waitingMaintainer": 1, "doNotHunt": 1},
+    "persistence": {"status": "SUCCESS", "backend": "supabase-postgres", "changes": 19},
+    "postPersistenceReadback": {"operations": "FALLBACK_7_DURABLE_FALSE", "savedScan": "INTERMITTENT_LIVE_AND_HTTP_502"}
+  },
+  "existingWork": {
+    "ivritPy12": "OPEN_UNASSIGNED_UNRESERVED_NO_MAINTAINER_CONFIRMATION",
+    "comments": 20,
+    "competingPrReviews": {"28": 0, "30": 0, "31": 0, "32": 0}
+  },
+  "execution": {
+    "workSecured": 0,
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0
+  },
+  "tests": {"passed": 229, "failed": 0},
+  "lessons": [
+    "A live provider catalogue row must be reconciled against the canonical issue before proof work; two current Opire rows pointed to missing issues and one to an existing PR.",
+    "Clear scope and a nominal reward do not justify proof work when allocation is unknown and thousands of comments show extreme saturation.",
+    "A successful durable write can coexist with unstable production readback; preserve the receipt and do not relabel an intermittent read as stable."
+  ]
+}
