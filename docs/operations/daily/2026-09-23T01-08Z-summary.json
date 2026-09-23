@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-09-23T01:08:00Z",
+  "outcome": "SUCCESS_NO_ELIGIBLE_WORK",
+  "freshScanFetchedAt": "2026-09-23T00:59:39.689Z",
+  "sources": {
+    "github": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 60
+    },
+    "opire": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 6
+    },
+    "superteamPublic": {
+      "status": "SUCCESS_AFTER_RETRY",
+      "rawCount": 0
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "checkedAt": "2026-09-23T00:58:19.989Z",
+      "rawCount": 0
+    },
+    "gitpay": {
+      "status": "NOT_RUN_BLOCKED",
+      "reason": "Signed out; required filters not executed"
+    }
+  },
+  "scan": {
+    "unique": 48,
+    "deepAttempts": 7,
+    "persistence": {
+      "durable": true,
+      "backend": "supabase-postgres",
+      "changes": 20
+    }
+  },
+  "runtimeProjection": {
+    "total": 795,
+    "investigating": 773,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "execution": {
+    "newProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0,
+    "workSecured": 0
+  },
+  "verification": {
+    "testsPassed": 229,
+    "testsFailed": 0,
+    "savedScanReadback": "MATCHED",
+    "operationsReadback": "DEGRADED_COMMITTED_FALLBACK"
+  },
+  "ownerAction": "NONE_NEW"
+}

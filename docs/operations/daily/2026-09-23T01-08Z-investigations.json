@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-09-23T01:08:00Z",
+  "freshScanFetchedAt": "2026-09-23T00:59:39.689Z",
+  "deepAttempts": 7,
+  "privateProofsStarted": 0,
+  "candidates": [
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16251",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The reward is 10 RTC with no verified USD value, the acceptance criteria require real macOS and Linux verification, and a competing target-repository PR was already submitted at https://github.com/Scottcjn/Rustchain/pull/8424."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The $50 task remains extremely saturated: the issue has 2212 comments and numerous submitted implementations. Another private solve is not a credible early-win use of capacity."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/16093",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The issue is a post-hoc bounty proposal, explicitly says the complete fix already exists in PR #16092, and the proposed $100 reward has no maintainer funding confirmation."
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The title advertises $50, but comments state Opire cannot accept a claim until a maintainer funds the issue. A complete competing PR #13 and additional competing PRs already exist."
+    },
+    {
+      "url": "https://github.com/SolFoundry/solfoundry/issues/830",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The reward is 100000 FNDRY with no verified USD value or exchangeability, and many complete competing tutorial PRs are already open."
+    },
+    {
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1057",
+      "decision": "REJECT_NO_DIRECT_REWARD",
+      "reason": "This is a radar/aggregation issue and no direct task reward was established."
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/2081",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The issue has a concrete security-fix scope but no funded reward. The embedded Opire instructions only explain how someone could add a future reward."
+    }
+  ],
+  "waiting": {
+    "url": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+    "state": "WAITING_FOR_MAINTAINER",
+    "issueOpen": true,
+    "assignee": null,
+    "commentCount": 18,
+    "updatedAt": "2026-09-21T11:00:42Z",
+    "matchingOpenPullRequests": 4,
+    "maintainerConfirmation": false
+  },
+  "gitpay": {
+    "status": "NOT_RUN_BLOCKED",
+    "url": "https://gitpay.me/#/signin",
+    "reason": "The preserved browser session is signed out and reCAPTCHA is unavailable, so the required Open bounty filters were not executed."
+  }
+}
