@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-09-23T12:07:02Z",
+  "sources": {
+    "github": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Established operations:daily command rejected before execution by the runtime safety gate"
+    },
+    "opire": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Established operations:daily command rejected before execution by the runtime safety gate"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed, take=100"
+    },
+    "superteamPublic": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Established operations:daily command rejected before execution by the runtime safety gate"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Preserved browser session remains at sign-in behind reCAPTCHA; required filters were not run"
+    }
+  },
+  "runtime": {
+    "lastDurableScanFetchedAt": "2026-09-23T10:08:07.850Z",
+    "lastDurableCandidateCount": 55,
+    "lastDurableOperationCount": 844,
+    "savedScanReadback": "HTTP_502",
+    "operationsReadback": "FALLBACK_7_DURABLE_FALSE",
+    "freshPersistence": "NOT_RUN"
+  },
+  "execution": {
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0,
+    "workSecured": 0
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "lessons": [
+    "A repeated policy rejection remains a blocked source-specific run and must not be bypassed or described as fresh discovery.",
+    "Independent source checks can continue without treating old persisted data as current."
+  ]
+}
