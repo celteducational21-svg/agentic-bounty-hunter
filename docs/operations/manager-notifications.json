@@ -67,6 +67,12 @@
       "reference": "https://agentic-bounty-hunter.vercel.app/api/operations",
       "summary": "Material production regression after the 20:03Z recovery: two no-cache operations reads returned runtime.durable=false with lastScan=null and only the seven committed fallback records; the saved-scan endpoint returned HTTP 502. No assignment, reservation, QA, submission, merge or payment event was found; #12 and the Superteam sponsor thread were unchanged. No discovery or Solver work was launched from the reporting watch.",
       "delivery": "CONFIRMED_IN_CONVERSATION"
+    },
+    {
+      "key": "runtime:hunting-discovery-policy-block:observed-2026-09-23T00-06Z",
+      "reference": "docs/operations/daily/2026-09-23T00-10Z-hunting-policy-block.md",
+      "summary": "Material partial failure: authenticated Superteam discovery completed with zero live listings, but the primary GitHub/Opire/public-Superteam discovery command was rejected before execution by the runtime safety gate as if it were the read-only reporting watch. No fresh result or persistence is claimed for those three sources, and no replacement scan or Solver was launched. Production readbacks also timed out, while #12 and the Superteam sponsor thread remained unchanged.",
+      "delivery": "PENDING_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
