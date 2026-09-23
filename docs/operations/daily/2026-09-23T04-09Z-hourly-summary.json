@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-09-23T04:09:34Z",
+  "freshDiscovery": {
+    "github": {"status": "SUCCESS", "raw": 60, "coverage": "three bounded current open-issue searches"},
+    "opire": {"status": "SUCCESS", "raw": 6, "coverage": "bounded current public catalogue; exact listings require verification"},
+    "superteamPublic": {"status": "SUCCESS", "raw": 0, "coverage": "current public agent Development catalogue"},
+    "superteamAuthenticated": {"status": "SUCCESS", "raw": 0, "coverage": "returned live agent feed"},
+    "gitpay": {"status": "BLOCKED", "coverage": "NOT_RUN", "reason": "preserved browser session is at the sign-in page, so required bounty/open filters could not be verified"}
+  },
+  "scan": {
+    "fetchedAt": "2026-09-23T04:00:13.159Z",
+    "raw": 66,
+    "unique": 52,
+    "selectedRepositories": 7,
+    "deepAdmissionAttempts": 7,
+    "deepChecked": 3,
+    "phase3Eligible": 0,
+    "newOperations": 3,
+    "persistence": {"durable": true, "backend": "supabase-postgres", "changes": 10}
+  },
+  "runtimeProjection": {
+    "total": 802,
+    "investigating": 780,
+    "rejected": 20,
+    "waitingForMaintainer": 1,
+    "doNotHunt": 1
+  },
+  "execution": {
+    "workSecured": 0,
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQA": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0
+  },
+  "ivrit12": {
+    "url": "https://github.com/ivrit-ai/ivrit-py/issues/12",
+    "state": "open",
+    "assignees": 0,
+    "comments": 18,
+    "updatedAt": "2026-09-21T11:00:42Z",
+    "reservationConfirmed": false,
+    "status": "WAITING_FOR_MAINTAINER"
+  },
+  "productionReadback": {
+    "savedScan": {"status": 200, "fetchedAt": "2026-09-23T04:00:13.159Z", "durable": true, "operations": 802},
+    "operations": {"status": 200, "durable": false, "lastScan": null, "operations": 7, "result": "DEGRADED_FALLBACK"}
+  },
+  "tests": {"passed": 229, "failed": 0}
+}

@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-09-23T04:09:34Z",
+  "sourceScan": "docs/operations/daily/2026-09-23T03-59-54.895Z.json.gz",
+  "candidates": [
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16248",
+      "decision": "HARD_BLOCK",
+      "reason": "A bot-confirmed claim is held by @Ljunqiang through 2026-09-30 and an implementation PR is already open; the 5 RTC reward also lacks a verified USD value."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "HARD_BLOCK",
+      "reason": "The $50 task has more than two thousand comments and a fresh claimant with submitted PR #4400; it is too saturated for a credible private proof."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/15529",
+      "decision": "HARD_BLOCK",
+      "reason": "The issue proposes rather than confirms a $50 award, and the referenced fix in PR #15528 was reported merged."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/33",
+      "decision": "INVESTIGATE",
+      "reason": "This is a contributor's claim inquiry, not maintainer assignment. Its stated bounty reference resolves to unrelated stale Dependabot PR #18, so funding, scope and payout are not verified."
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "HARD_BLOCK",
+      "reason": "The mirrored task reports all rewards previously claimed, and the latest provider-bot response says the issue has no reward."
+    },
+    {
+      "url": "https://github.com/auscaster/frantic-board/issues/429",
+      "decision": "HARD_BLOCK",
+      "reason": "The $1.75 slots are full and the issue is already marked delivered and paid."
+    },
+    {
+      "url": "https://github.com/SecureBananaLabs/bug-bounty/issues/2782",
+      "decision": "HARD_BLOCK",
+      "reason": "The creator-only task already has open implementation PR #2783. The parent rules require creating a separate issue and a public attempt before work, so no private proof is appropriate."
+    }
+  ],
+  "privateProofsStarted": 0,
+  "solvesStarted": 0
+}
