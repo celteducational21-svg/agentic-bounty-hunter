@@ -61,7 +61,7 @@
   "verification": {
     "testsPassed": 229,
     "testsFailed": 0,
-    "operationsReadback": "MATCHED_DURABLE_799",
+    "operationsReadback": "INTERMITTENT_MATCHED_799_THEN_FALLBACK_7_DURABLE_FALSE",
     "savedScanReadback": "HTTP_502_TWICE_AFTER_WRITE"
   },
   "ownerAction": "NONE_NEW"

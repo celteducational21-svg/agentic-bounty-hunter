@@ -16,9 +16,9 @@ is secured.**
 - Gitpay: NOT_RUN_BLOCKED; the browser redirected to sign-in and presented reCAPTCHA, so the required `Issues with bounties` plus `Open` filters were not run.
 
 The scan retained 65 unique records from 66 raw results and wrote 10 material
-changes. Runtime persistence was durable and `/api/operations` matched the
-fresh projection: 799 records — 777 `INVESTIGATING`, 20 `REJECTED`, 1
-`WAITING_FOR_MAINTAINER`, and 1 `DO_NOT_HUNT`.
+changes. The fresh persistence response was durable and projected 799 records —
+777 `INVESTIGATING`, 20 `REJECTED`, 1 `WAITING_FOR_MAINTAINER`, and 1
+`DO_NOT_HUNT`.
 
 ## Investigations and execution
 
@@ -45,7 +45,7 @@ started.
 
 - ABH tests: 229 passed, 0 failed.
 - New proofs: 0; active solves: 0; independent QA: 0; READY_TO_SUBMIT: 0; submissions: 0; merges: 0; confirmed payments: 0.
-- Material partial readback failure: `/api/operations` recovered and matched the durable 799-record projection, but the independent saved-scan endpoint returned HTTP 502 twice after the successful write.
+- Material partial readback failure: one `/api/operations` read matched the durable 799-record projection, but the final verification regressed to the seven-record committed fallback with `runtime.durable=false`. The independent saved-scan endpoint also returned HTTP 502 twice after the successful write.
 - Next: continue fresh discovery for a funded, unassigned $25–$300 Python/JavaScript/TypeScript task; keep the two unresolved listings as investigations without consuming proof capacity.
 - Owner action: none new.
 
