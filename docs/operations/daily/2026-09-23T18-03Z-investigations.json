@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-09-23T18:03:00Z",
+  "scanFetchedAt": "2026-09-23T17:58:56.171Z",
+  "deepReviews": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/17545",
+      "qualification": "INVESTIGATE_NOT_PROOF_ELIGIBLE",
+      "reason": "The $25 amount is proposed by the contributor, not confirmed by a maintainer or funded platform record. The same author opened implementation PR #17546 one second later, so the work is already implemented by its proposer.",
+      "evidence": [
+        "https://github.com/BasedHardware/omi/issues/17545",
+        "https://github.com/BasedHardware/omi/pull/17546"
+      ]
+    },
+    {
+      "url": "https://github.com/auscaster/frantic-board/issues/277",
+      "qualification": "HARD_BLOCK_NOT_PROOF_ELIGIBLE",
+      "reason": "The offer is below the preferred $25 floor, is a mirrored Frantic claim requiring external terms, has 115 comments and multiple matching PRs, and the latest ledger comment records an open claim. No purchase, claim or terms acceptance was authorized.",
+      "evidence": [
+        "https://github.com/auscaster/frantic-board/issues/277",
+        "https://github.com/auscaster/frantic-board/issues/277#issuecomment-5799323045"
+      ]
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "qualification": "INVESTIGATE_NOT_PROOF_ELIGIBLE",
+      "reason": "Unchanged from the preceding verified review: the advertised task is heavily saturated, with more than 1,100 comments and at least 100 matching implementations.",
+      "evidence": [
+        "docs/operations/daily/2026-09-23T16-13Z-investigations.json"
+      ]
+    }
+  ],
+  "result": {
+    "privateProofsStarted": 0,
+    "activeSolves": 0,
+    "workSecured": 0
+  }
+}
