@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-09-23T22:01:32Z",
+  "scanFetchedAt": "2026-09-23T21:57:25.832Z",
+  "reviews": [
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "qualification": "INVESTIGATE_NOT_PROOF_ELIGIBLE",
+      "reason": "The $50 task remains open with clear acceptance criteria, but has 2,219 comments, multiple active implementations and unknown current payment allocation. Private proof would not be an efficient early-win use of capacity."
+    },
+    {
+      "url": "https://github.com/aueangpanit/electron-template/issues/1",
+      "qualification": "HARD_BLOCK_DELETED_SOURCE",
+      "reason": "The current Opire catalogue advertises $100, but the canonical GitHub issue returned 404 and exact listing verification remained false."
+    },
+    {
+      "url": "https://github.com/rodrigompy/bugb/issues/1",
+      "qualification": "HARD_BLOCK_CLOSED_COMPLETED",
+      "reason": "The canonical issue is closed as completed and assigned to the repository owner."
+    },
+    {
+      "url": "https://github.com/radumarias/rencfs/issues/3",
+      "qualification": "HARD_BLOCK_ALREADY_DELIVERED",
+      "reason": "The canonical URL resolves to an existing open pull request delivering the Windows research, not an available issue for new work."
+    },
+    {
+      "url": "https://github.com/trovu/trovu/issues/329",
+      "qualification": "NEEDS_OWNER_ACTION_NOT_PROOF_ELIGIBLE",
+      "reason": "The $30 task requires a real Android-device video and a human-authored PR comment; it has 85 issue comments and the provider reports 38 trying and 23 claiming."
+    },
+    {
+      "url": "https://github.com/buape/kiai-bounties/issues/1",
+      "qualification": "HARD_BLOCK_DELETED_SOURCE",
+      "reason": "The current Opire catalogue advertises $20, but the canonical GitHub issue returned 404 and exact listing verification remained false."
+    },
+    {
+      "url": "https://github.com/flowese/UdioWrapper/issues/7",
+      "qualification": "HARD_BLOCK_INACCESSIBLE_REQUIREMENT",
+      "reason": "The old $20 listing centers on automatic hCaptcha handling against an external service; the issue has 61 comments and the provider reports 23 trying and 14 claiming. No safe, bounded proof was started."
+    }
+  ],
+  "result": {"privateProofsStarted": 0, "activeSolves": 0, "workSecured": 0}
+}
