@@ -1,0 +1,76 @@
+{
+  "checkedAt": "2026-09-23T10:12:25Z",
+  "scanFetchedAt": "2026-09-23T10:08:07.850Z",
+  "stage": "DEEP_AND_CHANGED_RECORD_REVIEW",
+  "deepAttempts": 7,
+  "newRuntimeRecords": 17,
+  "privateProofsStarted": 0,
+  "workSecured": 0,
+  "reviews": [
+    {
+      "url": "https://github.com/SecureBananaLabs/bug-bounty/issues/11398",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The recursive issue-creation bounty is heavily saturated: 22 comments, multiple submitted implementations and a contributor report of 16 open PRs. It also requires a public issue before implementation, so it is not eligible for a private proof or an unapproved public claim."
+    },
+    {
+      "url": "https://github.com/SecureBananaLabs/bug-bounty/issues/1766",
+      "decision": "NOT_ORIGINAL_CLAIMABLE_WORK",
+      "reason": "This and the related newly surfaced SecureBanana issues are explicitly creator-locked, have no direct personal reward established in the issue body and already contain competing attempts. ABH did not create the issue and cannot claim it privately."
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16248",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The five-RTC token value remains unverified and the issue is already claimed with multiple implementations."
+    },
+    {
+      "url": "https://github.com/claude-builders-bounty/claude-builders-bounty/issues/1",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The $50 task remains extremely saturated, now with 2,216 comments and numerous solution attempts."
+    },
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/17270",
+      "decision": "ALREADY_SUBMITTED",
+      "reason": "The bounty proposal is for work already delivered in PR #17269, with a competing solution PR #17283."
+    },
+    {
+      "url": "https://github.com/lb1192176991-lab/zeroeye/issues/2",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The mirrored $50 task remains heavily saturated with numerous solution PRs and no distinct unclaimed scope."
+    },
+    {
+      "url": "https://github.com/woahwhattheheck/commons/issues/19318",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The engineering scope is concrete but no payable personal reward or award amount is established."
+    },
+    {
+      "url": "https://github.com/josedab/chronicle/issues/93",
+      "decision": "ALREADY_SUBMITTED",
+      "reason": "The claimant already delivered the stated integration-test work in PR #95."
+    },
+    {
+      "url": "https://github.com/freedom-winds/BountyScout/issues/1113",
+      "decision": "AGGREGATION_NOT_WORK",
+      "reason": "This is a scan report aggregating third-party links, not an original paid task."
+    },
+    {
+      "url": "https://github.com/vansh-09/BountyScout/issues/1178",
+      "decision": "AGGREGATION_NOT_WORK",
+      "reason": "This is a scan report aggregating third-party links, not an original paid task."
+    },
+    {
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1188",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "The record is an external radar relay for a physical running proof-of-work task, not a bounded Python/JS/TS software assignment with a verified payable award."
+    },
+    {
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/256",
+      "decision": "NO_PRIVATE_SOFTWARE_PROOF",
+      "reason": "The task is a social propagation action paid in an unvalued project token and requires public profile/fork activity, not private software delivery."
+    },
+    {
+      "url": "https://github.com/Ikalus1988/MisakaNet/issues/2099",
+      "decision": "INVESTIGATE_NO_PROOF",
+      "reason": "This is an unfunded question/intake record; no direct reward or acceptance criteria for paid implementation are established."
+    }
+  ]
+}
