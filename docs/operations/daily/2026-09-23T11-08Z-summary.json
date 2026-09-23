@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-09-23T11:08:17Z",
+  "sources": {
+    "github": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Established operations:daily command rejected before execution by the runtime safety gate"
+    },
+    "opire": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Established operations:daily command rejected before execution by the runtime safety gate"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed, take=100"
+    },
+    "superteamPublic": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Established operations:daily command rejected before execution by the runtime safety gate"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Required Issues with bounties + Open filters unavailable because the preserved session is signed out behind reCAPTCHA"
+    }
+  },
+  "runtime": {
+    "lastDurableScanFetchedAt": "2026-09-23T10:08:07.850Z",
+    "lastDurableCandidateCount": 55,
+    "lastDurableOperationCount": 844,
+    "savedScanReadback": "HTTP_200_RECOVERED",
+    "operationsReadback": "FALLBACK_7_DURABLE_FALSE",
+    "freshPersistence": "NOT_RUN"
+  },
+  "existingWork": {
+    "ivritIssue12Status": "OPEN_UNASSIGNED_UNRESERVED",
+    "ivritIssue12Comments": 19,
+    "ivritRelevantPullRequestReviews": 0,
+    "newComment": "https://github.com/ivrit-ai/ivrit-py/issues/12#issuecomment-5793459345",
+    "maintainerConfirmation": false
+  },
+  "execution": {
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0,
+    "workSecured": 0
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "lessons": [
+    "A rejected discovery invocation must be recorded as blocked and not retried through an alternate path.",
+    "A saved-scan recovery does not make a previous scan fresh, and a new third-party interest comment is not a reservation."
+  ]
+}
