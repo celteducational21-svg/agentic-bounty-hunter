@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-09-23T19:08:00Z",
+  "scanFetchedAt": "2026-09-23T19:05:52.286Z",
+  "changedCandidateReviews": [
+    {
+      "url": "https://github.com/BasedHardware/omi/issues/17801",
+      "qualification": "INVESTIGATE_NOT_PROOF_ELIGIBLE",
+      "reason": "The $25 Algora amount is proposed by an unverified contributor, not confirmed by a maintainer or provider. The issue describes already completed documentation and links the same author's existing PR #17813.",
+      "evidence": [
+        "https://github.com/BasedHardware/omi/issues/17801",
+        "https://github.com/BasedHardware/omi/pull/17813"
+      ]
+    },
+    {
+      "url": "https://github.com/OphirPay/OphirPay/issues/767",
+      "qualification": "INVESTIGATE_NOT_PROOF_ELIGIBLE",
+      "reason": "The issue is bounty-labeled for Stellar Wave and has clear acceptance criteria, but no exact reward was visible, four applications already exist, and no assignment to ABH was found. The linked Drips maintainer record was unavailable to this runtime, so provider terms and amount remain unverified.",
+      "evidence": [
+        "https://github.com/OphirPay/OphirPay/issues/767",
+        "https://www.drips.network/wave/maintainers/issues/d49e08db-9ba2-4cb0-b733-72fc4b05a486"
+      ]
+    }
+  ],
+  "result": {
+    "privateProofsStarted": 0,
+    "activeSolves": 0,
+    "workSecured": 0
+  }
+}
