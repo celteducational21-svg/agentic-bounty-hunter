@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-09-23T09:07:20Z",
+  "scanFetchedAt": "2026-09-23T09:02:18.498Z",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "Existing provider-first GitHub search path"
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 6,
+      "coverage": "Public catalogue records returned by the existing runtime path"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed, take=100"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Required Issues with bounties + Open filters unavailable because the preserved session is signed out behind reCAPTCHA"
+    }
+  },
+  "funnel": {
+    "raw": 66,
+    "unique": 63,
+    "canonicalResolved": 11,
+    "providerVerified": 3,
+    "fullyEnriched": 2,
+    "deepAttempts": 7,
+    "newRuntimeRecords": 18
+  },
+  "runtime": {
+    "operations": 827,
+    "statusCounts": {
+      "INVESTIGATING": 805,
+      "REJECTED": 20,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "durable": true,
+    "backend": "supabase-postgres",
+    "changes": 20
+  },
+  "execution": {
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0,
+    "workSecured": 0
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  }
+}
