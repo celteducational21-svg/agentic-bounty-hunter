@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-09-23T16:13:00Z",
+  "sources": {
+    "github": {
+      "status": "SUCCESS",
+      "rawCount": 60,
+      "coverage": "Fresh production provider-first discovery"
+    },
+    "opire": {
+      "status": "SUCCESS",
+      "rawCount": 6,
+      "coverage": "Fresh public provider catalogue through the established production path"
+    },
+    "superteamAuthenticated": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Official authenticated live feed, take=100"
+    },
+    "superteamPublic": {
+      "status": "SUCCESS",
+      "rawCount": 0,
+      "coverage": "Public agent Development view"
+    },
+    "gitpay": {
+      "status": "BLOCKED_NOT_RUN",
+      "rawCount": null,
+      "coverage": "Preserved browser session is signed out; required bounty/open filters were not run"
+    }
+  },
+  "discovery": {
+    "raw": 66,
+    "unique": 52,
+    "retainedCandidates": 50,
+    "deepCollected": 6,
+    "changedCandidatesManuallyReviewed": 5,
+    "privateProofsQualified": 0
+  },
+  "runtime": {
+    "operationCount": 875,
+    "states": {
+      "INVESTIGATING": 853,
+      "REJECTED": 20,
+      "WAITING_FOR_MAINTAINER": 1,
+      "DO_NOT_HUNT": 1
+    },
+    "discoveryPersistence": "DURABLE_SUPABASE_POSTGRES",
+    "persistenceChanges": 31,
+    "savedScanFinalReadback": "HTTP_502_MODE_ERROR",
+    "operationsFinalReadback": "FALLBACK_7_DURABLE_FALSE"
+  },
+  "execution": {
+    "workSecured": 0,
+    "privateProofs": 0,
+    "activeSolves": 0,
+    "independentQa": 0,
+    "readyToSubmit": 0,
+    "submissions": 0,
+    "merges": 0,
+    "payments": 0
+  },
+  "existingWork": {
+    "ivritPy12": "OPEN_UNASSIGNED_UNRESERVED_NO_MAINTAINER_CONFIRMATION",
+    "comments": 19,
+    "competingPullRequests": [28, 30, 31, 32],
+    "reviewsPerCompetingPullRequest": 0,
+    "superteamSponsorReply": "UNCHANGED"
+  },
+  "tests": {
+    "passed": 229,
+    "failed": 0
+  },
+  "rawEvidence": {
+    "file": "docs/operations/daily/2026-09-23T16-05Z-scan.json.gz",
+    "sha256": "c4a106130cee0fe37cb66c47a0f6d02db9c41c3d2a34982570650cf33cd7df94",
+    "githubCommit": "DEFERRED_LOCAL_GIT_PUSH_UNAUTHENTICATED",
+    "runtimePersistence": "VERIFIED_DURABLE"
+  },
+  "lessons": [
+    "Issue age and advertised reward do not overcome extreme active competition; comment and implementation volume must be checked before proof work.",
+    "A successful durable discovery write and a failing later readback can coexist; preserve the scan receipt and report the degraded read path separately."
+  ]
+}
