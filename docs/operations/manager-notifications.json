@@ -115,6 +115,12 @@
       "reference": "docs/operations/daily/2026-09-23T19-16Z-manager-watch.md",
       "summary": "Material partial production recovery: the saved-scan endpoint returned HTTP 200 with mode=LIVE for the durable 2026-09-23T19:05:52.286Z scan (62 unique opportunities; projected 931 operations), while the operations endpoint remained degraded to seven committed fallback records with runtime.durable=false. #12 received one new competing inquiry but no maintainer response, reservation or assignment; the Superteam sponsor thread had no new reply. No discovery or Solver was launched from the reporting watch.",
       "delivery": "PENDING_IN_CONVERSATION"
+    },
+    {
+      "key": "runtime:saved-scan-502-after-19-16-recovery:observed-2026-09-23T19-25Z",
+      "reference": "docs/operations/daily/2026-09-23T19-25Z-manager-watch.md",
+      "summary": "New production readback regression after the 19:16 UTC recovery: the saved-scan endpoint returned HTTP 502 while the operations endpoint remained on seven committed fallback records with runtime.durable=false. The last verified durable scan remains the 2026-09-23T19:05:52.286Z scan with 62 unique opportunities and a 931-operation projection. #12 and the Superteam sponsor thread had no qualifying change; no discovery or Solver was launched from the reporting watch.",
+      "delivery": "PENDING_IN_CONVERSATION"
     }
   ],
   "previouslyCommunicated": [
